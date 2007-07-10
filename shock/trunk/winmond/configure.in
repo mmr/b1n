@@ -1,0 +1,30 @@
+# Process this file with autoconf to produce a configure script.
+AC_INIT(FULL-PACKAGE-NAME, VERSION, BUG-REPORT-ADDRESS)
+AC_CONFIG_SRCDIR([winmond.c])
+AC_CONFIG_HEADER([config.h])
+
+if test -d /usr/local/lib -a -d /usr/local/include ; then
+    LDFLAGS="$LDFLAGS -L/usr/local/lib"
+    CFLAGS="$CFLAGS -I/usr/local/include"
+    CPPFLAGS="$CPPFLAGS -I/usr/local/include"
+fi
+CFLAGS="$CFLAGS -Wall"
+
+# Checks for programs.
+AC_PROG_CC
+
+# Checks for libraries.
+AC_CHECK_LIB(pq,PQstatus)
+
+# Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS([arpa/inet.h netinet/in.h string.h strings.h sys/socket.h unistd.h pgsql/libpq-fe.h libpq-fe.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+
+# Checks for library functions.
+AC_CHECK_FUNCS([bzero socket])
+
+AC_CONFIG_FILES([Makefile])
+AC_SUBST(PREFIX)
+AC_OUTPUT

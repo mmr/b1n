@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE info SYSTEM "/koewy/conf/info.dtd">                                         
+
+<info>
+
+  <identification>
+     <name>wacc</name>
+     <version>1.1.0</version>
+     <group>Wacc</group>
+     <start_order>99</start_order>
+     <stop_order>01</stop_order>
+  </identification>
+
+  <menu_items>
+    <menu_item id="wacc">
+      <label>Wacc</label>
+      <super_menu>users</super_menu>
+      <page_file>index.php</page_file>
+    </menu_item>
+  </menu_items>
+
+  <firewall>
+    <service id="f_wacc">
+      <label>Wacc</label>
+      <ext_level>0</ext_level>
+      <int_level>30</int_level>
+      <net_visibility>1</net_visibility>
+      <socket>
+        <port>2869</port>
+        <protocol>udp</protocol>
+      </socket>
+      <socket>
+        <port>27015:27020</port>
+        <protocol>udp</protocol>
+      </socket>
+      <socket>
+        <port>27015:27020</port>
+        <protocol>udp</protocol>
+      </socket>
+
+    </service>
+  </firewall>
+
+</info>
