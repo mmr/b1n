@@ -1,0 +1,12 @@
+body {
+  font-family: verdana, arial, helvetica, sans-serif;
+  color: #000000;
+  background-color: #ffffff
+}
+td {font-size: 20pt}
+td.avg {background-color: #0000aa; color: #ffffff}
+td.above_avg {background-color: #00aa00}
+td.below_avg {background-color: #aa0000}
+td.very_above_avg {background-color: #00ff00}
+td.very_below_avg {background-color: #ff0000}
+/*td.avg, td.above_avg, td.below_avg {cursor: hand}*/
