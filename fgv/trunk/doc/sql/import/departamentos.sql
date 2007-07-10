@@ -1,0 +1,10 @@
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'ADM - Administração Geral e Recursos  Humanos' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'CFC - Contabilidade, Finanças e Controladoria' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'Diretoria' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'FSJ - Fundamentos Sócio Jurídicos da Administração' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'IMQ - Informática e Métodos Quantitativos' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'MCD - Mercadologia' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'PAE - Planejamento e Análise Econômica' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'POE - Adm. Produção, Log. e Operaç§es Empresariais' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'Vice-Diretoria Acadêmica' );
+INSERT INTO departamento ( dpt_nome ) VALUES ( 'Vice-Diretoria Administrativa' );

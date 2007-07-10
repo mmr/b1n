@@ -1,0 +1,160 @@
+<?
+/* $Id: index.php,v 1.1 2002/07/30 13:07:39 binary Exp $ */
+
+require_once($suppagina . "/" . $pagina . "/funcoes.inc.php");
+
+/* monta uma estrutura com os dados da busca. */
+
+extract_request_var("busca_campo",          $busca["campo"]);
+extract_request_var("busca_texto",          $busca["texto"]);
+extract_request_var("busca_qt_por_pagina",  $busca["qt_por_pagina"]);
+extract_request_var("busca_pagina_num",     $busca["pagina_num"]);
+extract_request_var("busca_ordem",          $busca["ordem"]);
+
+extract_request_var("id",                   $dados["id"]);
+extract_request_var("ppg_nome",             $dados["ppg_nome"]);
+extract_request_var("ppg_desc",             $dados["ppg_desc"]);
+extract_request_var("ppg_plano",            $dados["ppg_plano"]);
+$dados = trim_r($dados);
+
+$mod_titulo = "Planos Pagamento";
+$colspan    = "5";
+
+switch ($subpagina)
+{
+case "inserir":
+    if (! tem_permissao(FUNC_CAD_PLANO_PGTO_INSERIR))
+    {
+        include(ACESSO_NEGADO);
+        break;
+    }
+    if ($acao == "go")
+    {
+        $error_msgs = valida_plano_pgto($dados);
+        if(!sizeof($error_msgs))
+        {
+            if (insere_plano_pgto($sql, $dados))
+            {
+                log_fnc($sql, FUNC_CAD_PLANO_PGTO_INSERIR, $dados["id"]);
+                if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR)) 
+                {
+                    include(ACESSO_NEGADO);
+                    break;
+                }
+                log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+                include($suppagina . "/" . $pagina . "/listar.php");
+                break;
+            }
+        }
+    }
+    else
+    {
+        limpa_plano_pgto($dados);
+    }
+    include($suppagina . "/" . $pagina . "/inserir.php");
+    break;
+case "alterar":
+    if (! tem_permissao(FUNC_CAD_PLANO_PGTO_ALTERAR))
+    {
+        include(ACESSO_NEGADO);
+        break;
+    }
+    if ($acao == "go")
+    {
+        $error_msgs = valida_plano_pgto($dados);
+        if(!sizeof($error_msgs))
+        {
+            if (altera_plano_pgto($sql, $dados))
+            {
+                log_fnc($sql, FUNC_CAD_PLANO_PGTO_ALTERAR, $dados["id"]);
+                if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+                {
+                    include(ACESSO_NEGADO);
+                    break;
+                }
+                log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+                include($suppagina . "/" . $pagina . "/listar.php");
+                break;
+            }
+        }
+    }
+    else
+    {
+        if (!carrega_plano_pgto($sql, $dados))
+        {
+            if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+            {
+                include(ACESSO_NEGADO);
+                break;
+            }
+            log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+            include($suppagina . "/" . $pagina . "/listar.php");
+            break;
+        }
+    }
+    include($suppagina . "/" . $pagina . "/alterar.php");
+    break;
+case "apagar":
+    if (! tem_permissao(FUNC_CAD_PLANO_PGTO_APAGAR))
+    {
+        include(ACESSO_NEGADO);
+        break;
+    }
+    if ($acao == "go")
+    {
+        if (apaga_plano_pgto($sql, $dados))
+        {
+            log_fnc($sql, FUNC_CAD_PLANO_PGTO_APAGAR, $dados["id"]);
+            if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+            {
+                include(ACESSO_NEGADO);
+                break;
+            }
+            log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+            include($suppagina . "/" . $pagina . "/listar.php");
+            break;
+        }
+    }
+    if (!carrega_plano_pgto($sql, $dados))
+    {
+        if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+        {
+            include(ACESSO_NEGADO);
+            break;
+        }
+        log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+        include($suppagina . "/" . $pagina . "/listar.php");
+        break;
+    }   
+    include($suppagina . "/" . $pagina . "/apagar.php");
+    break;
+case "consultar":
+    if (! tem_permissao(FUNC_CAD_PLANO_PGTO_CONSULTAR))
+    {
+        include(ACESSO_NEGADO);
+        break;
+    }
+    if (!carrega_plano_pgto($sql, $dados))
+    {
+        if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+        {
+            include(ACESSO_NEGADO);
+            break;
+        }
+        log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+        include($suppagina . "/" . $pagina . "/listar.php");
+        break;
+    }
+    log_fnc($sql, FUNC_CAD_PLANO_PGTO_CONSULTAR, $dados["id"]);
+    include($suppagina . "/" . $pagina . "/consultar.php");
+    break;
+default:
+    if (! tem_permissao(FUNC_CAD_PLANO_PGTO_LISTAR))
+    {
+        include(ACESSO_NEGADO);
+        break;
+    }
+    log_fnc($sql, FUNC_CAD_PLANO_PGTO_LISTAR);
+    include($suppagina . "/" . $pagina . "/listar.php");
+}
+?>
