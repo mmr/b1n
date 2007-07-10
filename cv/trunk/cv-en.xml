@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/**
+	* @author Marcio Ribeiro (mribeiro (a) gmail com)
+	* @created 2004-02-17
+	* @version $Id: cv-en.xml,v 1.1 2006/10/17 01:43:27 mmr Exp $
+	*/
+-->
+<?xml-stylesheet type="text/xsl" href="cvXhtmlEn.xsl"?>
+<cv author="Marcio Ribeiro" xmlns="http://cv.b1n.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://cv.b1n.org cv.xsd">
+
+	<!-- Personal Data -->
+	<personalData>
+		<firstName>Marcio</firstName>
+		<lastName>Ribeiro</lastName>
+		<civilState>Casado</civilState>
+		<email>mribeiro (a) gmail com</email>
+		<address>São Paulo - SP - Brazil</address>
+		<birthday>1983-03-12</birthday>
+		<phones>
+			<phone>(+55-11) 4198.7873</phone>
+			<phone>(+55-11) 8159.5327</phone>
+		</phones>
+	</personalData>
+
+	<!-- Professional Summary -->
+	<professionalSummary>
+		<company>
+			<name>BankWare</name>
+			<dateIn>2006-08-28</dateIn>
+			<dateOut></dateOut>
+			<position>Programmer</position>
+			<activities>
+				<item>
+					Developed RTM (Real Time Monitor), a flexible and powerful framework which main goal is to configure actions
+					to run when certain conditions are met -like when a service on a node in a cluster goes down-. Its main client
+					is BwPagEE, a product for the financial market, having Citibank as one of its customers
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Zera Integradora / Probank</name>
+			<dateIn>2005-03-14</dateIn>
+			<dateOut>2006-08-25</dateOut>
+			<position>Programmer / Architect / System Administrator</position>
+			<activities>
+				<item>
+					Worked on several WMS, MES and Supply Chain related projects for Duas Rodas Industrial, aiming at maximizing
+					quality assurance and tracking over incoming/outgoing resources, minimizing operational costs and human
+					failure possibility
+				</item>
+				<item>
+					Reorganized all internal frameworks, making extensive use of Maven2 it easy to manage dependencies and have an
+					automated build/test case running periodically on a spare machine
+				</item>
+				<item>
+					Developed KM (Knowledge Management), which main goal is to manage the in-house technical expertise of the
+					companies in the Probank Group (Holding). Based on the information provided by KM, Probank can more
+					accuratelly decide where it should invest
+				</item>
+				<item>
+					Responsible for the infrastructure assembly and maintenance, including version control, documentation (wiki),
+					bug tracking, proxy (http and maven), database, application and automated build/test servers.
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Folha de S.Paulo</name>
+			<dateIn>2003-12-01</dateIn>
+			<dateOut>2005-03-11</dateOut>
+			<position>Programmer / System Administrator</position>
+			<activities>
+				<item>Support and Administration of services related to preprinting</item>
+				<item>
+					Administration of critical services related to the newspaper's images and text content storage and backup
+				</item>
+				<item>
+					Helped develop several programs for automated checking, reporting and prevention of possible failures in the
+					newspaper's workflow processes
+				</item>
+				<item>
+					Responsible for the installation and maintenance of Folha de S.Paulo's IT Division Knowledge Base Server (aka
+					Wiki)
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Caboverde</name>
+			<dateIn>2003-03-01</dateIn>
+			<dateOut>2004-06-01</dateOut>
+			<position>Programmer / System Administrator</position>
+			<activities>
+				<item>
+					Developed SCVP (Sistema CaboVerde de Publicação - CaboVerde's Publication System), a CMS product focused on
+					bringing aging scientific research magazines and books to the Internet era
+				</item>
+				<item>
+					Responsible for the physical and logical reorganization of the local area network. Centralizing user
+					authentication of a variety of services (domain, email, proxy, etc) in a failsafe/replicated LDAP server
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>BinarySoft</name>
+			<dateIn>2002-09-01</dateIn>
+			<dateOut></dateOut>
+			<position>Consultant</position>
+			<activities>
+				<item>
+					Developed FlyWatch, a web based executive flight control system for Sagatiba, controlling from flight
+					itinerary to visa expiracy checking and printing of the needed documentation to land on certain countries
+				</item>
+				<item>Worked on and maintained an online Chat/Forum for Ananke</item>
+				<item>Responsible for maintaining several Email servers for Ananke</item>
+				<item>Assembly, configuration and maintenance of several Unix servers for GlobalView Internet Services</item>
+			</activities>
+		</company>
+		<company>
+			<name>Aberium</name>
+			<dateIn>2001-07-01</dateIn>
+			<dateOut>2002-09-01</dateOut>
+			<position>Programmer</position>
+			<activities>
+				<item>
+					Developed several web based projects, among them: CMS, CRM, ERP, Billing and Timesheet solutions for Avaya,
+					Airgate, iBest, SantaCruz, FGV, SindicoNet and others
+				</item>
+				<item>Developed an online auction system (with online audio streaming) for SuperBid</item>
+			</activities>
+		</company>
+		<company>
+			<name>Holding Marcos de Moraes</name>
+			<dateIn>2000-05-01</dateIn>
+			<dateOut>2001-07-01</dateOut>
+			<position>Programmer / System Administrator</position>
+			<activities>
+				<item>Developed E-Nós2, a relationship portal with forums, polls and e-commerce modules</item>
+				<item>Responsible for B4's IDC (Matter Horn's IT division)</item>
+				<item>
+					Lead developer of TPM's Website and CMS projects. TPM (Trip Para Mulheres, Trip For Women) is the women's
+					version of Trip, a popular brazilian magazine aimed at men. TPM is a play on the portuguese words for PMS.
+				</item>
+			</activities>
+		</company>
+	</professionalSummary>
+
+	<!-- School Summary -->
+	<schoolSummary>
+		<school>
+			<name>Escola Técnica Estadual Getúlio Vargas</name>
+			<dateIn>1998-01-01</dateIn>
+			<dateOut>2001-02-01</dateOut>
+			<course>Electronics</course>
+		</school>
+		<school>
+			<name>Escola Técnica Estadual de São Paulo</name>
+			<dateIn>2001-01-01</dateIn>
+			<dateOut>2001-06-01</dateOut>
+			<course>IT</course>
+		</school>
+	</schoolSummary>
+
+	<!-- Languages -->
+	<languages>
+		<language>
+			<name>Portuguese</name>
+			<level>Mother Tongue</level>
+		</language>
+		<language>
+			<name>English</name>
+			<level>Advanced</level>
+		</language>
+	</languages>
+
+	<!-- Qualifications -->
+	<qualifications>
+		<qualification name="Summary">
+			<item>Senior Java Programmer, focused on J2EE</item>
+			<item>Senior System/Network Administrator, focused on FreeBSD, Linux and Solaris operating systems</item>
+		</qualification>
+		<qualification name="Java">
+			<item>JSP, JSTL, JSF, Velocity, Struts, Tiles</item>
+			<item>Ant, Maven, Xdoclet, jUnit, jMock, EasyMock</item>
+			<item>Hibernate, EJB, JPA (EJB3)</item>
+			<item>Eclipse, NetBeans, IDEA</item>
+			<item>JBoss, Oracle iAS, WebSphere, Tomcat</item>
+			<item>JMS, ActiveMQ, MQ Series, Oracle AQ</item>
+		</qualification>
+		<qualification name="Software Engineering">
+			<item>OO, Design Patterns, eXtreme Programming, Unit tests, UML</item>
+		</qualification>
+		<qualification name="Database">
+			<item>PL/SQL, PL/pgSQL, HQL (Hibernate)</item>
+			<item>PostgreSQL, MySQL, Interbase/Firebird, SQLite, HypersonicSQL</item>
+			<item>Microsoft SQL Server, Sybase, Informix, Oracle</item>
+		</qualification>
+		<qualification name="Operating Systems">
+			<item>FreeBSD, OpenBSD, Linux, MacOS X, Windows</item>
+		</qualification>
+		<qualification name="Others">
+			<item>C, C++</item>
+			<item>PHP, Perl, Python, JavaScript</item>
+			<item>XML, XSLT, XSD, XPath</item>
+			<item>CVS, SVN</item>
+		</qualification>
+	</qualifications>
+
+	<!-- Certifications -->
+	<certifications>
+		<certification>Linux Professional Institute (LPI)</certification>
+		<certification>Sun Certified Solaris Administrator (SCSA)</certification>
+		<certification>Sun Certified Java Programmer (SCJP)</certification>
+	</certifications>
+</cv>

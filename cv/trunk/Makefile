@@ -1,0 +1,44 @@
+#
+# $Id: Makefile,v 1.14 2006/10/17 01:42:47 mmr Exp $
+# mmr <mmr@b1n.org> 
+# Started: Fri Oct 29 21:15:31 BRST 2004
+#
+
+#XSLT ?= /usr/local/bin/sabcmd
+#XSLT  ?= /usr/local/bin/xsltproc
+XSLT  ?= /sw/bin/xsltproc
+#LATEX ?= /usr/local/bin/latex 
+LATEX ?= /sw/bin/latex
+#DVIPS ?= /usr/local/bin/dvips
+DVIPS ?= /sw/bin/dvips
+#PDFLATEX ?= /usr/local/bin/pdflatex 
+PDFLATEX ?= /sw/bin/pdflatex 
+
+ARQ = cv
+XML = cv.xml
+PDF = cv.pdf
+
+all: pdf ps rtf xhtml clean
+
+rtf:
+
+xhtml:
+	$(XSLT) -o index.html $(ARQ)Xhtml.xsl $(XML)
+
+pdf: tex
+	$(PDFLATEX) $(ARQ).tex
+
+ps: dvi
+	$(DVIPS) -o $(ARQ).ps $(ARQ).dvi
+
+dvi: tex
+	$(LATEX) $(ARQ).tex
+
+tex:
+	$(XSLT) -o $(ARQ).tex $(ARQ)Tex.xsl $(XML)
+
+clean:
+	rm -f *.aux *.log *.out
+
+distclean: clean
+	rm -f *.dvi *.tex *.ps *.pdf *.html? *.rtf

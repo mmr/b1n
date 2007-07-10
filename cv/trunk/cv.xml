@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	/**
+	* @author Marcio Ribeiro (mribeiro (a) gmail com)
+	* @created 2004-02-17
+	* @version $Id: cv.xml,v 1.33 2006/10/17 01:42:47 mmr Exp $
+	*/
+-->
+<?xml-stylesheet type="text/xsl" href="cvXhtml.xsl"?>
+<cv author="Marcio Ribeiro" xmlns="http://cv.b1n.org"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://cv.b1n.org cv.xsd">
+
+	<!-- Personal Data -->
+	<personalData>
+		<firstName>Marcio</firstName>
+		<lastName>Ribeiro</lastName>
+		<civilState>Casado</civilState>
+		<email>mribeiro (a) gmail com</email>
+		<address>São Paulo - SP</address>
+		<birthday>1983-03-12</birthday>
+		<phones>
+			<phone>(11) 4198.7873</phone>
+			<phone>(11) 8159.5327</phone>
+		</phones>
+	</personalData>
+
+	<!-- Professional Summary -->
+	<professionalSummary>
+		<company>
+			<name>BankWare</name>
+			<dateIn>2006-08-28</dateIn>
+			<dateOut></dateOut>
+			<position>Programador</position>
+			<activities>
+				<item>
+					Desenvolvimento de infra-estrutura para cluster de
+					sistema de mensageria e controle de transações
+					bancárias de grande porte (BwPagEE), tendo como
+					cliente principal o Citibank
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Zera Integradora / Probank</name>
+			<dateIn>2005-03-14</dateIn>
+			<dateOut>2006-08-25</dateOut>
+			<position>Programador / Arquiteto</position>
+			<activities>
+				<item>
+					Desenvolvimento de sistema para controle industrial
+					para Duas Rodas Industrial, envolvendo Chão de
+					Fábrica, WMS, MES, Supply Chain, Planejamento de
+					Produção e Controle de Qualidade
+				</item>
+				<item>
+					Desenvolvimento de sistema de gestão de conhecimento
+					para Probank
+				</item>
+				<item>
+					Desenvolvimento de sistema para carga/recarga de
+					cartões de crédito da Finasa para Certegy
+				</item>
+				<item>
+					Manutenção da infraestrutura - Servidores de
+					controle de versão, Wiki, BugTracking e AutoBuild,
+					em servidores Unix.
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Folha de S.Paulo</name>
+			<dateIn>2003-12-01</dateIn>
+			<dateOut>2005-03-11</dateOut>
+			<position>
+				Programador / Administrador de Sistemas / Analista de
+				Suporte
+			</position>
+			<activities>
+				<item>
+					Administração e suporte a serviços relacionados à
+					pré-impressão
+				</item>
+				<item>
+					Administração de servidores Unix e serviços críticos
+					relacionados ao armazenamento de matérias e imagens
+					do jornal
+				</item>
+				<item>
+					Desenvolvimento de diversos programas para automação
+					e checagem de processos
+				</item>
+				<item>
+					Implantação de sistema de base de conhecimento do
+					setor de Tecnologia da Folha de S.Paulo
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Caboverde</name>
+			<dateIn>2003-03-01</dateIn>
+			<dateOut>2004-06-01</dateOut>
+			<position>Programador / Administrador de Sistemas</position>
+			<activities>
+				<item>
+					Desenvolvimento de sistema para indexação e busca em
+					conteúdo de arquivos PDF
+				</item>
+				<item>
+					Desenvolvimento de sistema para controle de conteúdo
+					e publicação de pesquisas científicas para revista
+					"Pediatria de São Paulo"
+				</item>
+				<item>
+					Reestruturação física e lógica da rede interna.
+					Tendo como meta a centralização da autenticação dos
+					usuários de diversos serviços (domínio, email,
+					proxy) em servidor LDAP
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>BinarySoft</name>
+			<dateIn>2002-09-01</dateIn>
+			<dateOut></dateOut>
+			<position>Consultor</position>
+			<activities>
+				<item>
+					Desenvolvimento de sistema para controle de vôos
+					executivos para a Sagatiba
+				</item>
+				<item>
+					Desenvolvimento e Manutenção de sistema de Chat e
+					Fórum Online para Ananke
+				</item>
+				<item>
+					Manutenção de servidores de Email para Ananke
+				</item>
+				<item>
+					Montagem de diversos servidores Unix para GlobalView
+					Internet Services
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Aberium</name>
+			<dateIn>2001-07-01</dateIn>
+			<dateOut>2002-09-01</dateOut>
+			<position>Programador</position>
+			<activities>
+				<item>
+					Desenvolvimento de diversos E-Solutions, entre eles,
+					soluções de CMS, CRM, ERP, Billing e Timesheet. Para
+					Avaya, Airgate, FGV, SantaCruz, SindicoNet, entre
+					outros
+				</item>
+				<item>
+					Desenvolvimento de sistema de leilão online (em
+					tempo real com streaming de áudio) para SuperBid
+				</item>
+			</activities>
+		</company>
+		<company>
+			<name>Holding de Empresas Marcos de Moraes</name>
+			<dateIn>2000-05-01</dateIn>
+			<dateOut>2001-07-01</dateOut>
+			<position>Administrador de Sistemas / Programador</position>
+			<activities>
+				<item>
+					Desenvolvimento de portal de relacionamento E-Nós2,
+					com mais de 200 mil usuários cadastrados, fóruns,
+					enquetes, e-commerce e módulos administrativos para
+					publicação de artigos
+				</item>
+				<item>
+					Responsável pelo IDC da empresa B4br.net, braço
+					tecnológico da Matter Horn. Constando de servidores
+					Linux, Solaris e FreeBSD. Roteadores Cisco e modems
+					de fibra óptica/ADSL
+				</item>
+				<item>
+					Coordenador de desenvolvimento e desenvolvedor do
+					sistema de controle de conteúdo da versão online da
+					revista TPM (Trip Para Mulheres)
+				</item>
+			</activities>
+		</company>
+	</professionalSummary>
+
+	<!-- School Summary -->
+	<schoolSummary>
+		<school>
+			<name>Escola Técnica Estadual Getúlio Vargas</name>
+			<dateIn>1998-01-01</dateIn>
+			<dateOut>2001-02-01</dateOut>
+			<course>Técnico em Eletrônica</course>
+		</school>
+		<school>
+			<name>Escola Técnica Estadual de São Paulo</name>
+			<dateIn>2001-01-01</dateIn>
+			<dateOut>2001-06-01</dateOut>
+			<course>Técnico em Processamento de Dados</course>
+		</school>
+	</schoolSummary>
+
+	<!-- Languages -->
+	<languages>
+		<language>
+			<name>Inglês</name>
+			<level>Avançado</level>
+		</language>
+	</languages>
+
+	<!-- Qualifications -->
+	<qualifications>
+		<qualification name="Resumo">
+			<item>Desenvolvedor Sênior em Java, com foco em J2EE</item>
+			<item>
+				Administrador de Sistemas/Redes Sênior, com foco em
+				FreeBSD, Linux e Solaris
+			</item>
+		</qualification>
+		<qualification name="Java">
+			<item>JSP, JSTL, JSF, Velocity, Struts, Tiles</item>
+			<item>Ant, Maven, Xdoclet, jUnit, TestNG</item>
+			<item>Hibernate, EJB</item>
+			<item>Eclipse, NetBeans, IDEA</item>
+			<item>JBoss, Oracle iAS, WebSphere, Tomcat</item>
+			<item>JMS, ActiveMQ, MQ Series, Oracle AQ</item>
+		</qualification>
+		<qualification name="Metodologia e Técnica">
+			<item>
+				OO, Design Patterns, eXtreme Programming, Testes
+				unitários, UML
+			</item>
+		</qualification>
+		<qualification name="Banco de Dados">
+			<item>
+				Linguagens procedurais PL/SQL, PL/pgSQL, HQL (Hibernate)
+			</item>
+			<item>
+				PostgreSQL, MySQL, Interbase/Firebird, SQLite,
+				HypersonicSQL
+			</item>
+			<item>Microsft SQL Server, Sybase, Informix, Oracle</item>
+		</qualification>
+		<qualification name="Sistemas Operacionais">
+			<item>FreeBSD, OpenBSD, Linux, MacOS X, Windows</item>
+		</qualification>
+		<qualification name="Outros">
+			<item>C, C++</item>
+			<item>PHP, Perl, Python, JavaScript</item>
+			<item>XML, XSLT, XSD, XPath</item>
+			<item>CVS, SVN</item>
+		</qualification>
+	</qualifications>
+
+	<!-- Certifications -->
+	<certifications>
+		<certification>
+			Linux Professional Institute (LPI)
+		</certification>
+		<certification>
+			Sun Certified Solaris Administrator (SCSA)
+		</certification>
+		<certification>
+			Sun Certified Java Programmer (SCJP)
+		</certification>
+	</certifications>
+</cv>
