@@ -1,0 +1,87 @@
+BODY {
+	BACKGROUND-COLOR: #ffffff; BACKGROUND-IMAGE: url(/img/bg_azul.gif)
+}
+.font-laranja-1 {
+	COLOR: #ff6633
+}
+.font-cabecalho-barra {
+	COLOR: #85aad7
+}
+.bg-cabecalho {
+	BACKGROUND: #faa428
+}
+.bg-cadastro-cabecalho {
+	BACKGROUND: #7b8ba3
+}
+.bg-cadastro-boxBorder {
+	BACKGROUND: #315180
+}
+.bg-cadastro-box {
+	BACKGROUND: #dce5ec
+}
+.DF-alert {
+	BACKGROUND: #ffd865
+}
+.bg {
+	BACKGROUND-COLOR: #ededed
+}
+.bg-cor-1 {
+	BACKGROUND: #d0dae9
+}
+.bg-shop-0 {
+	BACKGROUND: #d6e0c3
+}
+.bg-shop-1 {
+	BACKGROUND: #d0e1e6
+}
+.bg-shop-2 {
+	BACKGROUND: #d0e1e6
+}
+.bg-shop-3 {
+	BACKGROUND: #e7e888
+}
+.font-cor-1 {
+	COLOR: #687987
+}
+.font-cor-2 {
+	COLOR: #336699
+}
+.font-cor-destaque-1 {
+	COLOR: #ff9933
+}
+A.link-barra:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.link-barra:active {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.link-barra:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.link-barra:hover {
+	COLOR: #ffcc33; TEXT-DECORATION: none
+}
+A.link-cor-1:link {
+	COLOR: #687987; TEXT-DECORATION: none
+}
+A.link-cor-1:active {
+	COLOR: #687987; TEXT-DECORATION: none
+}
+A.link-cor-1:visited {
+	COLOR: #687987; TEXT-DECORATION: none
+}
+A.link-cor-1:hover {
+	COLOR: #687987; TEXT-DECORATION: none
+}
+A.link-cor-destaque-1:link {
+	COLOR: #ff9933; TEXT-DECORATION: none
+}
+A.link-cor-destaque-1:active {
+	COLOR: #ff9933; TEXT-DECORATION: none
+}
+A.link-cor-destaque-1:visited {
+	COLOR: #ff9933; TEXT-DECORATION: none
+}
+A.link-cor-destaque-1:hover {
+	COLOR: #ff9933; TEXT-DECORATION: none
+}

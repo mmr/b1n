@@ -1,0 +1,67 @@
+// Radix - Diretórios
+// m=newDM_radix(título 1,catg1,título 2,catg 2)
+// m.addItem(título,catg)
+// 'http://www.radix.com.br/busca/Categoria?pagina=1&catg='+catg
+
+
+radix_actionBrasil='http://www.radix.com.br/busca/consultaBR'
+radix_actionMundo='http://www.radix.com.br/busca/consultaMundo'
+radix_actionNoticias='http://www.radix.com.br/busca/consultaNoticiasSA'
+radix_actionImagens='http://www.radix.com.br/busca/consultaRedImagem'
+radix_actionQuem='http://www.radixquem.com.br/quemonde/com.radix.encyclopedia.gui.servlets.WhoResultServlet'
+radix_actionOnde='http://www.radixonde.com.br/quemonde/com.radix.encyclopedia.gui.servlets.WhereResultServlet'
+radix_actionDiretorios='http://www.radix.com.br/busca/Categoria'
+
+m=newDM('Amor','amor1.Co','Sexo','sexo3.Co')
+	m.addItem('Sites Estrangeiros','sitesestrangei1.Co')
+	m.addItem('GLS','gls1.Co')
+m=newDM('Arte','arte2.Co','Cultura','cultura2.Co')
+	m.addItem('Cinema','cinema4.Co')
+	m.addItem('Música','musica5.Co')
+	m.addItem('Literatura','literatura2.Co')
+m=newDM('Casa','casa2.Co','Família','familia3.Co')
+	m.addItem('Culinária','culinaria2.Co')
+	m.addItem('Cães','caes6.Co')
+	m.addItem('Adoção','adocao4.Co')
+m=newDM('Ciência & Tecnologia','cienciaetecno1.Co')
+	m.addItem('Ecologia','meioambiente2.Co')
+	m.addItem('Astronomia','astronomia2.Co')
+m=newDM('Ciências Humanas','cienciassociai1.Co')
+	m.addItem('Psicologia','psicologia4.Co')
+	m.addItem('Sociologia','sociologia1.Co')
+m=newDM('Educação','educacao32.Co','Referência','referencia3.Co')
+	m.addItem('Vestibular','vestibular5.Co')
+	m.addItem('Mapas','mapas4.Co')
+m=newDM('Esporte e Lazer','esporteelazer1.Co')
+	m.addItem('Futebol','futebol6.Co')
+	m.addItem('Tênis','tenis3.Co')
+	m.addItem('Radicais','radicais3.Co')
+m=newDM('Governo','governo2.Co')
+	m.addItem('Concursos','concursospubli1.Co')
+	m.addItem('Prefeituras','prefeituras4.Co')
+m=newDM('Informática','informatica6.Co','Internet','internet3.Co')
+	m.addItem('Downloads','download2.Co')
+	m.addItem('Papéis de parede','papeisdepared1.Co')
+m=newDM('Lazer','divesaoelazer1.Co')
+	m.addItem('Viagem','turismo4.Co')
+	m.addItem('Games','games4.Co')
+	m.addItem('Humor','humor1.Co')
+m=newDM('Negócios','negocios1.Co','Finanças','financas1.Co')
+	m.addItem('Bancos','bancos4.Co')
+	m.addItem('Pecuária','agropecuaria3.Co')
+m=newDM('Notícias e Mídia','noticias6.Co')
+	m.addItem('Jornais','regiao5.Co')
+	m.addItem('Portais','portais1.Co')
+	m.addItem('Revistas','revistas4.Co')
+m=newDM('Religião','religiaoefe1.Co','Esoterismo','esoterismo1.Co')
+	m.addItem('Catolicismo','catolicos2.Co')
+	m.addItem('Tarô','taro1.Co')
+	m.addItem('Anjos','anjos1.Co')
+m=newDM('Saúde','saude8.Co')
+	m.addItem('Medicina','medicina4.Co')
+	m.addItem('Nutrição','nutricao3.Co')
+	m.addItem('Beleza','beleza1.Co')
+m=newDM('Sociedade','sociedade1.Co')
+	m.addItem('Empregos','empregoseesta1.Co')
+	m.addItem('Utilidade pública','utilidadepubli1.Co')
+	m.addItem('ONGs','ongs2.Co')

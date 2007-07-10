@@ -1,0 +1,96 @@
+
+
+
+
+
+
+ibest_template='azul'
+ibest_url='/'
+ibest_link=' class="link-barra"'
+
+if(eval('typeof(ibest_template)')=='undefined')var ibest_template='azul'
+if(eval('typeof(ibest_secao)')=='undefined')var ibest_secao=''
+
+var ibest_fontCabecalhoBarra_azul='#85AAD7'
+var ibest_bgCabecalho_azul='#FAA428'
+
+var ibest_fontCabecalhoBarra_verde='#B3C59F'
+var ibest_bgCabecalho_verde='#EAEFE5'
+
+
+
+	
+
+S1=''+
+'<table border=0 cellspacing=0 cellpadding=0>'+
+	'<tr>'+
+		'<td style="background-color:'+eval('ibest_bgCabecalho_'+ibest_template)+';background-image:url('+ibest_url+'img/cabecalho/bg_'+ibest_template+'.gif)'+((ibest_template!='verde')?';background-repeat:no-repeat':'')+'">'+
+			'<table border=0 cellspacing=0 cellpadding=0>'+
+				'<tr>'+
+					'<td width=170 height=70><a href="../home" target="_top"><img src="'+ibest_url+'img/cabecalho/logo_'+ibest_template+'.gif" width=165 height=60 alt="iBEST" border=0></a></td>'
+					
+						+'<td width=475>'
+S2=''+
+						'</td>'+
+						'<td width=60 align="center"><a href="http://premio.ibest.com.br/topthree/TopThree.asp?IDCategoria=54&NomeCategoria=A%E7%F5es+Sociais" target="_top" style="color:#333333;text-decoration:none"><img src="'+ibest_url+'upload/cabecalho_home/acoes_sociais_50x50_1k.gif" width=50 height=50 border=1 class="border-color-preto"></a></td>'+
+						'<td width=65 style="font-family:verdana,arial,helvetica;font-size:9px">'+
+						
+							'<a href="http://premio.ibest.com.br/topthree/TopThree.asp?IDCategoria=54&NomeCategoria=A%E7%F5es+Sociais" target="_top" class="link-cinza-1">'+
+							'<b>Ações Sociais</b><br>'+
+							'Os melhores sites da internet estão aqui!<br>'+
+							'</a>'+
+						
+						'</td>'+
+					
+				'</tr>'+
+			'</table>'+
+		'</td>'+
+	'</tr>'+
+	'<tr>'+
+		'<td style="background-color:#'+((ibest_template=='azul')?'468AA6':'759258')+';background-image:url('+ibest_url+'img/cabecalho/barra_bg_'+ibest_template+'.gif)">'+
+			'<table border=0 cellspacing=0 cellpadding=0>'+
+				'<tr>'+
+					'<td width=4><img src="'+ibest_url+'img/cabecalho/barra_bg_left_'+ibest_template+'.gif" width=4 height=20></td>'+
+					'<td width=772 height=16 align="center" nowrap style="font-family:verdana,arial,helvetica;font-size:10px;filter:dropshadow(offX=-1,offY=-1)">'+
+						'<b style="color:'+eval('ibest_fontCabecalhoBarra_'+ibest_template)+'">'+
+						'::'+
+						' <a href="../home" target="_top"'+ibest_link+'>HOME</a>'+
+						
+							' | <a href="../email" target="_top" '+ibest_link+'>E-MAIL</a>'+
+						
+							' | <a href="../discador" target="_top" '+ibest_link+'>ULTRADISCADOR</a>'+
+						
+							' | <a href="../parceiros/radix.jsp" target="_top" '+ibest_link+'>BUSCA</a>'+
+						
+							' | <a href="../parceiros/premioibest.jsp" target="_top" '+ibest_link+'>PRÊMIO IBEST</a>'+
+						
+							' | <a href="../parceiros/estadao.jsp" target="_top" '+ibest_link+'>ESTADÃO</a>'+
+						
+							' | <a href="http://www.lokau.com.br" target="_top" '+ibest_link+'>LOKAU</a>'+
+						
+							' | <a href="../ajuda" target="_top" '+ibest_link+'>AJUDA</a>'+
+						
+							' | <a href="../downloads" target="_top" '+ibest_link+'>DOWNLOADS</a>'+
+						
+							' | <a href="http://www.ibest.com.br/site/cadastro/verificacao_de_servico.jsp" target="_top" '+ibest_link+'>CADASTRO</a>'+
+						
+							' | <a href="../corp" target="_top" '+ibest_link+'>NEGÓCIOS</a>'+
+						
+						' ::<br>'+
+						'</b>'+
+					'</td>'+
+					'<td width=4><img src="'+ibest_url+'img/cabecalho/barra_bg_right_'+ibest_template+'.gif" width=4 height=20></td>'+
+				'</tr>'+
+			'</table>'+
+		'</td>'+
+	'</tr>'+
+	'<tr><td height=1 style="background-color:#FFFFFF"><spacer type="block" width=1 height=1></td></tr>'+
+'</table>'
+document.write(S1)
+
+	if(document.layers)document.write('<script src="http://ad.ibest.com.br/adnetwork/maestro/ad/script/$d=1$p=1$l=468$a=60$s=1"></script>')
+	else document.write('<iframe src="http://ad.ibest.com.br/adnetwork/maestro/ad/rm/$d=1$p=1$l=468$a=60$s=1?" width=468 height=60 frameborder=0 scrolling="no" marginwidth=0 marginheight=0 class="border-3d"></iframe>')
+
+document.write(S2)
+
+
