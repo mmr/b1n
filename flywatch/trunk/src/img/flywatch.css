@@ -1,0 +1,64 @@
+/* $Id: flywatch.css,v 1.38 2002/12/19 04:50:21 binary Exp $ */
+
+FONT        {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+TD          {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+
+BODY        {FONT-FAMILY: Verdana,Helvetica; SCROLLBAR-FACE-COLOR: #336699; SCROLLBAR-SHADOW-COLOR: #AAAAFF; SCROLLBAR-HIGHLIGHT-COLOR: #999999; SCROLLBAR-3DLIGHT-COLOR: #FFFFFF; SCROLLBAR-DARKSHADOW-COLOR: #FFFFFF; SCROLLBAR-TRACK-COLOR: #EEEEFF; SCROLLBAR-ARROW-COLOR: #FFFFFF; COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; LINE-HEIGHT: 1.4; FONT-SIZE: 11px;}
+
+P           {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+DIV         {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+INPUT       {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #003399; TEXT-DECORATION: none; BACKGROUND-COLOR: #EEEEFF; BORDER: 1px solid; BORDER-COLOR: #336699 solid}
+TEXTAREA    {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #003399; TEXT-DECORATION: none; BACKGROUND-COLOR: #EEEEFF; BORDER: 1px solid; BORDER-COLOR: #336699 solid}
+FORM        {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px}
+SELECT      {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #003399; TEXT-DECORATION: none; BACKGROUND-COLOR: #EEEEFF; BORDER: 1px solid; BORDER-COLOR: #336699 solid}
+HR          {COLOR: #000000; BACKGROUND-COLOR: #000000; WIDTH: 100%; HEIGHT: 1px}
+
+A:link, A:visited   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; FONT-WEIGHT: bold; COLOR: #A0A0A0; BACKGROUND: none; TEXT-DECORATION: none}
+A:active, A:hover   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; FONT-WEIGHT: bold; COLOR: #000000; BACKGROUND: none; TEXT-DECORATION: none}
+
+BODY.menu   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #000000}
+A.menu:link, A.menu:visited   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #FFFFFF}
+A.menu:active, A.menu:hover   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #FFFFFF; BACKGROUND-COLOR: #000000}
+
+DIV.back    {CLEAR: both; PAGE-BREAK-BEFORE: always; MARGIN: 1.25em -0.37em 1.5em 0.5em; PADDING: 0.75em; BACKGROUND: #567}
+DIV.section DIV.back {BACKGROUND: #777}
+DIV.section {BACKGROUND: #336699; MARGIN: -1.5em 0 0 -1.5em; PADDING: 0.75em; BORDER: thin solid #999}
+
+BODY.statusbar  {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 10px;  FONT-WEIGHT: bold; COLOR: #000000; MARGIN: 0px 7px; LINE-HEIGHT: 22px}
+
+SPAN.maintitle A:link, SPAN.maintitle A:visited {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 17px; FONT-WEIGHT: bold; COLOR: #FFCC00; BACKGROUND: none; TEXT-DECORATION: none}
+SPAN.maintitle A:active, SPAN.maintitle A:hover {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 17px; FONT-WEIGHT: bold; COLOR: #FFFFFF; BACKGROUND-COLOR: #000000; TEXT-DECORATION: none}
+
+
+SPAN.toctitle A:link, SPAN.toctitle A:visited {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #FFCC00; BACKGROUND: none; TEXT-DECORATION: underline}
+SPAN.toctitle A:active, SPAN.toctitle A:hover {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #FFFFFF; BACKGROUND-COLOR: #000000; TEXT-DECORATION: none}
+SPAN.toctitle {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 15px; FONT-WEIGHT: bold; COLOR: #FFCC00; BACKGROUND: none; TEXT-DECORATION: none}
+
+.searchtitle{FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; FONT-WEIGHT: bold; COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; TEXT-DECORATION: none; TEXT-ALIGN: center}
+
+.searchitem {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; TEXT-DECORATION: none; TEXT-ALIGN: center}
+.formitem   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #003399; BACKGROUND-COLOR: #FFFFFF; TEXT-DECORATION: none}
+
+.forminput  {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; TEXT-DECORATION: none}
+.toc        {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; COLOR: #FFFFFF; BACKGROUND-COLOR: #336699}
+.box        {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; FONT-WEIGHT: bold; COLOR: #FFFFFF; BACKGROUND-COLOR: #336699; TEXT-ALIGN: center}
+.footer     {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 9px; COLOR: #FFFFFF; MARGIN: 0px 7px}
+
+.retbox     {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #000000; BACKGROUND-COLOR: #FFFFFF; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.retsuccess {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #5151F1; BACKGROUND-COLOR: #FFFFFF; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.retfizzles {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #F15151; BACKGROUND-COLOR: #FFFFFF; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.noborder   {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #003399; TEXT-DECORATION: none; BACKGROUND: none; BORDER: 0px}
+.debug      {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-COLOR: #DDDDDD}
+
+.maintable  {BORDER: 0px; BACKGROUND-COLOR: #003399; WIDTH: 90%}
+.inttable   {BORDER: 0px; BACKGROUND-COLOR: #003399; WIDTH: 100%}
+
+
+/* Grace Colors */
+.exp_grace1 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #FF0000; FONT-WEIGHT: bold}
+.exp_grace2 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; COLOR: #FF0000; FONT-WEIGHT: bold; TEXT-DECORATION: underline}
+.exp_grace3 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #FFFFFF; FONT-WEIGHT: bold; TEXT-DECORATION: none; BACKGROUND-COLOR: #FF0000}
+
+.dob_grace1 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 11px; COLOR: #0000FF; FONT-WEIGHT: normal}
+.dob_grace2 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 12px; COLOR: #0000FF; FONT-WEIGHT: bold; TEXT-DECORATION: underline;}
+.dob_grace3 {FONT-FAMILY: Verdana,Helvetica; FONT-SIZE: 13px; COLOR: #FFFFFF; FONT-WEIGHT: bold; TEXT-DECORATION: none; BACKGROUND-COLOR: #0000FF}
