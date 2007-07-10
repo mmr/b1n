@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>b1n.framework.game</groupId>
+  <artifactId>b1n-game-core</artifactId>
+  <name>b1n-game-core</name>
+  <version>0.0.1</version>
+  <url>http://b1n.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>b1n.framework</groupId>
+      <artifactId>b1n-persistence</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+  </dependencies>
+  <parent>
+    <groupId>b1n.framework.game</groupId>
+    <artifactId>b1n-game</artifactId>
+    <version>0.0.1</version>
+  </parent>
+</project>

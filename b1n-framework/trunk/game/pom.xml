@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>b1n.framework.game</groupId>
+  <artifactId>b1n-game</artifactId>
+  <packaging>pom</packaging>
+  <name>b1n-game</name>
+  <version>0.0.1</version>
+  <url>http://b1n.org</url>
+  <modules>
+    <module>game-core</module>
+    <module>game-net</module>
+  </modules>
+  <parent>
+    <artifactId>b1n-framework</artifactId>
+    <groupId>b1n.framework</groupId>
+    <version>0.0.1</version>
+  </parent>
+</project>

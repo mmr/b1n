@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>b1n.framework.game</groupId>
+  <artifactId>b1n-game-net</artifactId>
+  <name>b1n-game-net</name>
+  <version>0.0.1</version>
+  <url>http://b1n.org</url>
+  <parent>
+    <artifactId>b1n-game</artifactId>
+    <groupId>b1n.framework.game</groupId>
+    <version>0.0.1</version>
+  </parent>
+</project>
