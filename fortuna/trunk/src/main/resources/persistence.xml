@@ -1,0 +1,7 @@
+<persistence>
+   <persistence-unit name="fortuna" transaction-type="RESOURCE_LOCAL">
+      <properties>
+         <property name="hibernate.ejb.cfgfile" value="hibernate.cfg.xml"/>
+      </properties>
+   <persistence-unit>
+</persistence>
