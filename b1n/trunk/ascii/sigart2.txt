@@ -1,0 +1,3904 @@
+
+
+
+
+
+
+
+
+
+
+
+_._. __._ _._. __._ .___ ___ _. ._ _ .... ___ _. _.__ _._. _._. .... . ._ ....
+Dr. Jonathon Y.C. Cheah
+Hughes Network Systems                           ==
+10450 Pacific Center Court          %%%%%%%%%%%-(  )-%%%%%%%%%%% satellite
+San Diego CA92121                                ==              phobia
+Phone: (619)4524847                 let me out of here...
+Fax:   (619)5461953                                                 m_o,\
+Email: jcheah@oscar.hns.com                             ~ ~ ~ ~ ~  =()-()'
+==============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+   ---------------------      Kevin P. InSCOe, System Administrator
+ / cccc   rrrrr    cccc  \    Coleman Research Corporation
+| c    c  r    r  c    c  |   Launch Systems Group
+| c       r    r  c       |   7675 Municipal Drive
+| c       rrrrr   c       |   Orlando, FL 32819-8930
+| c    c  r   r   c    c  |   407-354-0047 x2082    Fax: (407) 354-1113
+ \ cccc   r    r   cccc  /    kinscoe@ccmail.crc.com
+   ---------------------      finger: kpi@hobbes.crc.com
+My views and opinions do not reflect the same for my employer, my country and
+definitely not the president! "In space no one can hear you scream" - SA Tip
+#654: For fun link /tmp to /dev/null and take the phone off the hook...   */
+
+
+
+
+
+
+
+
+
+
+
+
+ /^^^^^\   "All of this has happened before, and it will
+| () () |   all happen again." --Information Society
+&   0   &  --------Karl Newman------------------------\
+ \_____/   ========NEWMKA@WWC.EDU======================>
+     U     --------karl.newman@wwwhbbs.com------------/
+
+
+
+
+
+
+
+
+
+
+
+
+ ^       ^                                     +
+| |_____| |                                    |  Lynette K. Sleezer
+|   ___   | "I won, DEAL WITH IT!"             |  sleezel6176@cobra.uni.edu
+|   | |   |     - William the Conquerer, 1066  |  University of Northern Iowa
++---------+                                    +
+
+
+
+
+
+
+
+
+
+
+
+
+     nWTNWt    nWT  nWT  nWT  sANTATOO * Remember me is all I ask         *
+    nWT nWT  nWT  nWT  nWT     nWT     * But if remembrance proves a task *
+   nWT nWT  nWT  nWT  nWT     nWT      * Then forget me.                  *
+  nWT nWTI   VNORTHPOLEV     nWT       * gary_black@gov.nt.ca             *
+
+
+
+
+
+
+
+
+
+
+
+
+__/\__  Jonathan S. Haas         | Jake liked his women the way he liked
+\    /  University of Michigan   | his kiwi fruit: sweet yet tart, firm-
+/_  _\  positron@eecs.umich.edu  | fleshed yet yielding to the touch, and
+  \/    Finger for PGP 2.3 key   | covered with short brown fuzzy hair.
+
+
+
+
+
+
+
+
+
+
+
+
+ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+º\_\_\_      \_\_    \_    \_        \  ||  /      Rick C. Niess            º
+º \_   \_   \_    \_  \_\_  \_        \/ÄÄ\/       rniess@whale.st.usm.edu  º
+º  \_\_\_    \_        \_ \_ \_    ---³ ÷÷ ³---  "Press any key to continue,º
+º   \_  \_    \_    \_  \_  \_\_      /\ÁÁ/\     "or any other key to quit."º
+º    \_    \_ .  \_\_  . \_    \_ . /ÕÍÏÍÍÏÍ¸\                    -anonymousº
+ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+
+
+
+
+
+
+
+
+
+
+
+                     //=====================================\\
+                    //    Andrei Borenstein, NuMetrix Ltd.   \\
+                   < P.O. Box 147, Migdal Haemek, ISRAEL 10551 >
+                   \\ Tel. (972)6-545201 , FAX (972)6-543570 //
+                    \\      E-mail :  boren@actcom.co.il    //
+                     \\####################################//
+                      \\     Opinions expressed above     //
+                       \\   are neither of my employer,  //
+                        \\  nor mine, but of my mom !!! //
+                         \\============================//
+
+
+
+
+
+
+
+
+
+
+
+
+                         /\
+            _           /  \            Duncan Anker
+          _/ \          \   \__         s3026557@titanic.mpce.mq.edu.au
+         /    \_         \   \o\
+        /       \         \   \o\=
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+         F                                                 T
+      INFRASTRUCTUREINFRASTRUCTUREINFRASTRUCTUREINFRASTRUCTURE
+         A                         |                       R
+         S  Edgar W. Levy          |                       E
+         T       NCSU              |       internet:       I
+         R  Raleigh, N.C.          |  ewlevy@eos.ncsu.edu  N
+         U                         |                       F
+     STRUCTUREINFRASTRUCTUREINFRASTRUCTUREINFRASTRUCTUREINFRA
+         E                                                 A
+
+
+
+
+
+
+
+
+
+
+
+
+=========================/     __   __ ___  __  ___   \
+Petri Jooste            |     |__) |__  |  |__)  |     |
+Computer Science        |     |    |__  |  |  \ _|_    |
+Vaal /\                  \   rkwjpj@puknet.puk.ac.za  /
+    /__\ campus of the    ============================
+Potchefstroom University for Christian Higher Education
+
+
+
+
+
+
+
+
+
+
+
+
+  /--------------------------------------------------------------\
+ / _ \   Tony Nugent              Email:   T.Nugent@sct.gu.edu.au \    _
+ \_@) \  Griffith University      Brisbane Queensland Australia    \ (_@ \
+       \____________________________________________________________\___/
+
+
+
+
+
+
+
+
+
+
+
+
+ \o/   \o        __|    \ /     |__        o/   \o/   \o
+  |    /\   __\o   \o    |    o/    o/__   /\    |    /\  \__/
+_/_\__|_\__/)_|____(_\__/o\__/_)____|__(\__/_|__/_\__|_\__/ /o
+
+Kevin C. Clements                  voice: 402-472-6643       \ /
+Biological Sciences                  fax: 402-472-2083        |
+University of Nebraska                                       /o\
+Lincoln, NE 68588-0118 USA          kevin@niko.unl.edu
+_____________________________________________________________\_/__
+
+
+
+
+
+
+
+
+
+
+
+
+--
+ This is my signature,  hahahahaha
+
+
+
+
+
+
+
+
+
+
+
+
+   //|\\
+  (\o-o/)
+---\_U_/------------------------------------+---------------------------------
+   _| |_    Danny Schilo                    |    dsschilo@tudedv.et.tudelft.nl
+ _/ \_/ \_  Delft University of Technology  |  schilo@jerusalem1.datasrv.co.il
+OOOo---oOOO Dept. of Electrical Engineering |            schilo@dds.hacktic.nl
+|  keep   | The Netherlands                 |Tel: +31-20-6424241 / Fax:6449124
+| smiling!| --------------------------------+---------------------------------
+|_________|
+
+
+
+
+
+
+
+
+
+
+
+
+
+======================================================================
+| /\\    ____  ,^^o,  Ericka Hansen             "Brother, can you    |
+|   ``-,'    `-';~"   Gainesville, FL, USA             Paradigm?"    |
+|     .',-'~ ../'     E-mail address:              -- Prof. Stockton |
+|      `^^     ^^     u3530ati@elm.circa.ufl.edu        U of M       |
+++====================================================================
+
+
+
+
+
+
+
+
+
+
+\       \      \     \    \   \  \ \\\/// /  /   /    /     /      /       /
+          S c o t t   P f a f f .... u8944962@csdvax.csd.unsw.oz.au
+                                   \    /
+                 "He talks too much"... Confucius' brother.
+                                     \/
+
+
+
+
+
+
+
+
+
+
+
+
+            _____________________________________________
+            !                                           !
+       _____|_____           John Felts            _____|______
+      / __     __ \   ez041466@chip.ucdavis.edu   /            \
+     /_(__)___(__)_\      Davis, California      /==============\
+     [][]=======[][]                             |_|_|______|_|_|
+     [-------------]                             [______________]
+     [_]---------[_]__________16v Scirocco_______[_]oo--------[_]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ _______  ___ ___ ___   ___    __  __  ___ __  ___ __  __________________
+ \_ _/  \/ _// _// _/  / _/\  / /\/ / / _//  \/ _//  \| Amiga 500/000/9M |
+/\/ / / /\ \/ _// _/  / _/ '\/ / / <_/  \/ / / _// '_/|  josef.faulkner  |
+\__/\__/\__/\__/\/    \/ \/\/\__/\__/\/\/\/\/\__/\/\/ |__@jumpstart.com__|
+
+
+
+
+
+
+
+
+
+
+
+                         ,__,      ,__,
+                         (o o      ” ”)
+              /----------(._.)    (._.)----------*
+           º÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷÷º
+           ºwerner           BEWARE!           timobº
+           º           THE HIPPO IS LOOSE           º
+           ÌÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¹
+           º  >>>     W.A.A.Pauwels@KUB.NL    <<<   º
+           º   >>     Timob@DDS.HACKTIC.NL    <<    º
+           ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+
+
+
+
+
+
+
+
+
+
+
+
+Steven Adams, sa690538@bcm.tmc.edu
+   __o   Cyclist,
+ _ \<,_   Programmer,
+(_)/ (_)   and all-around nice guy. :-)
+               ^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+###########################################################################
+{}  Flying is easy!!!!!!!!! All ya gotta do is fall, and have something  {}
+{}  catch your attention. That way, you forget that you are falling and  {}
+{}  you don't!!! Pretty cool, eh!!!!! Shut up!!!!!! Leave me alone!!!!!  {}
+{}  LET ME LIVE IN MY OWN LITTLE WORLD!!!!!! I like it here........It's  {}
+{}  peaceful, and the walls are very soft and pretty.......and the food  {}
+{}  comes in nice little trays. Oh...I must go...the voices are talking  {}
+{}  again......come visit again sometime.......I like visitors.........  {}
+###########################################################################
+     \ Brian Penney during the day.... /    \ bpenney@morgan.ucs.mun.ca /
+      \  ASTROBOY BY NIGHT!!!!!!!!!!! /      ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+    ______
+___/   __ \______    ___________________________________________________
+        _\_\_____)  / Chuck Steger            (c_steger@lfs.loral.com) /
+       (____)      / Loral Federal Systems                            /
+__    (_____)     / Manassas, VA                                     /
+  \____(___)      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|       o
+            Don't just do something, stand there!         /\O/        O
+David Poyourow, Data General Corp.    714 724 3943       0  \\   |  0-#
+2603 Main St, #400, Irvine, CA 92714  poy@irvine.dg.com     //   |   / \
+|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+.------------------------>>>+<<<------------------------.
+| Antony N. Lord                                        |
+| macgyver@tartarus.uwa.edu.au                          |
+`---------------------------=---------------------------'
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vernon John Van Steenkist
+vernon@sw_pc2.ftl.aro.allied.com            __|__
+I speak for no one but myself.          ---o-(_)-o---
+
+
+
+
+
+
+
+
+
+
+
+
+            ,---------,
+            | Colin   |      cpl@rncb.demon.co.uk
+            | Paul    |      colin@cplmail.demon.co.uk
+            | Lamond  |      colin@sound.demon.co.uk
+         ,---=========---,
+         | +       ####  |      ()  ()    Colin Lamond, inventer of CplMail.
+         `---------------'        ][
+                                \____/
+
+
+
+
+
+
+
+
+
+
+ \/\      /\/\      /\/\      /\/       kclark@immsvr.jr2.ox.ac.uk
+  \/\    /\/\/\    /\/\/\    /\/    Institute of Molecular Medicine,
+   \/\  /\/  \/\  /\/  \/\  /\/     Oxford,UK.
+    \/\/\/    \/\/\/    \/\/\/
+     \/\/      \/\/      \/\/
+
+
+
+
+
+
+
+
+
+
+
+
+[][][][][][][][][][][][] Y    A    D    S [][][][][][][][][][][][][][][][]
+[] Craig O'Shannessy >>>==================> craigo@kralizec.zeta.org.au []
+[][][][][][][][][][] Yet Another Dot Signature. [][][][][][][][][][][][][]
+
+
+
+
+
+
+
+
+
+
+
+
+:::::::::::::::::::::::::::::::::::::
+::/######:::/####:::/#####:::/#####::  Todd Hale
+:| ######::/##, ##:| ##, ##:| ##, ##:
+:|/_/##_/:| ##| ##:| ##| ##:| ##| ##:  thale@novell.com
+:::| ##:::| ##| ##:| ##| ##:| ##| ##:  halet@bert.cs.byu.edu
+:::| ##:::|  ####::| #####::| #####::
+:::|/_/::::\___/:::|/___/:::|/____/::  Unofficially speaking, of course.
+:::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+ /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~ \
+|      dupuis@lei.ucl.ac.be;  dupuis@venus.fsa.ucl.ac.be     |   | |
+ \____________________________________________________________\_/  |
+  / Pull here for the full .sig or use finger on the second adress /
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-
+Tina Tindall            ||  Every person, all the events of your life are
+College of Forestry     ||  there because you have drawn them there. What
+tinat@uidaho.edu        ||  you chose to do with them is up to you.
+(208) 885-6581          ||              -- Author Unknown
+-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-(*)-
+
+
+
+
+
+
+
+
+
+
+
+
+
++<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>+
++ Pacific*Bell           <*> VOICE: (510) 823-1707                          +
++ Willie Gonzalez Jr.    <*> PAGER: (510) 678-3513                          +
++ March Application      <*> UNIX: wxgonza@pbsdts.sdcrc.pacbell.com         +
++<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>=+=<*>+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------                 |
+Tommi "Ghost "Korhonen  k138836@cc.tut.fi            |    .___o___.
+Physics & Something                              .___o___.  x ^ x
+---------------------------------------------      x ^ x
+
+
+
+
+
+
+
+
+
+
+------>8------------>8------------>8------------>8------------>8------
+  ,--.                   __  __                           _   _
+ (    ) ---             |  \/  |      _   _   _          | | | |
+ ,`--'.                 | .  . | __ _| |_| |_(_) __ _ ___| |_| |
+/   |  \                | |\/| |/ _` | ,_| ,_| |/ _` / __|  _  |
+    |  ,--. ,--.        | |  | | (_| | |_| |_| | (_| \__ \ | | |
+      / @) Y @) \       |_|  |_|\__,_|\__|\__|_|\__,_|___/_| |_|
+     (           )      Mattias Hartikainen                _    _
+      \ `-----' /       Glavagatan 9, 4 tr                (o)--(o)
+ __.  /~~~~~~~~~\  ,__  123 71  Farsta                   /.______.\
+(   \(           )/   ) Sweden                           \________/
+ \   V           V   /  +46-8-6053725 (home)            ./        \.
+  \   \\  \ /  //   /   +46-8-7190123 (office)         ( .        , )
+  /   /_\  V  /_\   \     0740-177904 (beeper)          \ \_\\//_/ /
+  UUUU   UUUUU   UUUU   etxmtha@tn.etx.ericsson.se       ~~  ~~  ~~
+                        md87-mha@nada.kth.se (for yet a while... ;-)
+
+------8<------------8<------------8<------------8<------------8<------
+All of the above are expressions of my own mind, and have nothing to
+do with my employer and/or university. And yes, I *am* a frog!
+
+
+
+
+
+
+
+
+
+
+
+
+
+   __(o  James Seng Ching Hong ~{W/Uq:j~}   (o,o)   "Help!! I got a computer
+ /'_  _)  --= eng30476@leonis.nus.sg =--   <  .  >   virus..i am addicted
+(__/c/c  National University of Singapore  --"-"--   to the computer....;-)"
+
+
+
+
+
+
+
+
+
+
+
+
+`'~*-,._.,-*~'`^`'~*-,._.,-*~'`^`'~*-,._.,-*~'`^`'~*-,._.,-*~'`^`'~*-,._
+  Albert Hui (The Avatar)            |
+  - avatar@suburbia.apana.org.au     | "Your mind is the only prison
+  - s931306@yallara.cs.rmit.oz.au    |  that can ever bind your soul."
+
+
+
+
+
+
+
+
+
+
+
+
+ _____________________________           _____
+|                             \           \ R \__      _____
+| Ric Belding                  \___________\   \/_______\___\_____________
+| ric@odetics.com              /           ( /_/   .....................  `-.
+|_____________________________/             `-----------,----,--------------'
+                                                      _/____/
+
+
+
+
+
+
+
+
+
+
+
+
+    .                       .     Some day we will go        .         /-#  .
+                .              .  where no one has        ____________/  #_
+Name    : Jon Lanceley .          gone before.. But it  _/_/    ______    |   .
+Address : jal6@unix.bton.ac.uk    won't be in this ->  <________________/\|
+
+
+
+
+
+
+
+
+
+
+
+
+=========================================================================
+  O                                    Jason Mayfield
+ <|\       ___o           '___         JMAYFIELD@
+ _\\     _`\ <_      '---_____>O       guvax.acc.georgetown.edu
+ `/     (*)/  (*)    '---     \__'
+  `
+I'd like to give a message to the young people of America.  We shall
+continue to abuse our position and f*ck up the mainstream.
+     -Bono
+=========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+    Nate                                  ,-------- Homo Sapiens
+                                         /`-------- Chimpanzee
+________________________________________/`--------- E. Coli
+                                        \
+                                         `--------- nalipson@mii.lu.lv
+
+
+
+
+
+
+
+
+
+
+
+
+
+ +----------------------------------------+----------------------------+
+ | Eric Limpens                           |  Where is my spycamera !?  |
+ |                                        |     ..Bart Simpson..       |
+ | <Limpe001@hio.tem.nhl.nl>              +----------------------------+
+ | S=limpe001;OU=hio;OU=tem;O=nhl;PRMD=surf;ADMD=400net;C=nl           |
+ |          finger limpe001@141.252.36.60 for public key               |
+ +---------------------------------------------------------------------+
+
+-----BEGIN PGP SIGNATURE-----
+Version: 2.6
+
+iQCVAgUBLh1OqegWAlGwR3dDAQFg6wP+M80LEBvHhxXLF6d+9G/qLYEUwYPC3Mej
+mgj/6c+ldF9lZRm43ok0Ml6fDcXckz+0nMyHyYonKBr/QZ88WidAqAcfoY1kTTio
+pWMskiMqZ8P4ZhgJnd6p+VG/IyXGUm5oM9ir/ua+DLQqs5oKvp9lkZoAPegXf3N7
+aj0ohApXd5A=
+=MjHV
+-----END PGP SIGNATURE-----
+
+
+
+
+
+
+
+
+
+
+
+
+  o /     o    Alex de Joode                       <usura@vox.hacktic.nl>
+ /\|     /\|\  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  / >     < \  "It's dangerous to be right when the government is wrong."
+ '  ` o   '  ` --Voltaire    --finger usura@hacktic.nl for PGPKEY -kinky-
+
+
+
+
+
+
+
+
+
+
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    o    ~*~   _O_  \[]/   _()_  \@/        *  GBR  *
+   /|\   -|-  / H \  ||    |  |   |       gbr@netcom.com
+   /^\   /~\   / \   /\     ||   / \      Washington D.C.
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Randy O'Neal
+roneal@lexmark.com                    "The above views are mine alone,
+Printer Attach Software Development   though they can be yours too for
+Lexmark International, Inc.           a nominal fee..."            __o
+Lexington, Ky.                                                    `\<,
+(606)-232-4330                                                    O/ O
+
+
+
+
+
+
+
+
+
+
+
+
+
+--
+Gustavo.
+
+#########################################################################
+# Gustavo Tolson       Mineralogisch- und Petrographisches Institut     #
+#                     Theresienstrasse 41, D 80333 Muenchen, Germany    #
+# e-Mail....................  uk301aa@sunmail.lrz-muenchen.de           #
+# FAX.......................  (Germany) (89) 280 5248                   #
+#########################################################################
+--
+Gustavo.
+
+#########################################################################
+# Gustavo Tolson       Mineralogisch- und Petrographisches Institut     #
+#                     Theresienstrasse 41, D 80333 Muenchen, Germany    #
+# e-Mail....................  uk301aa@sunmail.lrz-muenchen.de           #
+# FAX.......................  (Germany) (89) 280 5248                   #
+#########################################################################
+
+
+
+
+
+
+
+
+
+
+
+
++-------------------------------------------------------------------+
+| Ryan Davidson (ryand@cs.wits.ac.za)         a.k.a                 |
+| 3 Le Maitre Street                          KILROY                |
+| Brackenhurst                                __v__                 |
+| Alberton                                  / .   . \               |
+| 1449                                ===w=====/ \=====w===         |
+| Republic of South Africa                    |   |                 |
+|                                              \_/                  |
+|                               Kilroy wot 'ere woz ain't all there |
++-------------------------------------------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+Evan F. Chan                    (415) 497-1289
+efcmax@leland.stanford.edu      P.O.Box 4070, Stanford CA 94309
+
+"There are three things that remain--faith, hope, and love--and the
+greatest of these is love."     --1 Corinthians 13:13
+  ___
+  | /  ---|---
+  | \  ___|___
+  | | |   |   |
+  | | |---|---|
+  |\| |___|___|
+  |      /|\
+  |     / | \
+  |    / \|  \_
+
+
+
+
+
+
+
+
+
+
+
+
+                    \\\//
+                    (o o)
+[----------------ooO-(_)-Ooo---------------] PM Wong (Computer Officer)
+[User User User User User User User User Us] CTSC Hong Kong Baptist College
+[ser User User User User User User User Use] 224 Waterloo Road, Kln. HONGKONG
+[er User User User User User User User User] Voice: (852)3397425  Fax: 3397888
+[------------------------------------------] Email: pm@ctsc.hkbc.hk
+
+
+
+
+
+
+
+
+
+
+
+
+
+Peter Cheimets
+Smithsonian Astrophysical Observatory             ,__o-
+Smithsonian Institution                         _-\_<,
+60 Garden St.                                  (*)/'(*)-
+Cambridge, MA 01238
+
+cheimets@cfa.harvard.edu
+(617)495-7369 X134 (voice)
+(617)495-7098      (FAX)
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
+Mark Feldman                               \\_==_o    Skydivers do
+E-mail : u914097@student.canberra.edu.au        \\    it at 120mph....
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+---                          |  gregory vaidman          system administrator
+    O/           o~    o_O/  |  aromat corporation     gxv8597@hertz.njit.edu
+  o/|   _______|_______   \  |  629 central avenue        voice: 908-771-5644
+   / \   |           |    |\ |  new providence, nj 07974    fax: 908-464-8513
+
+
+
+
+
+
+
+
+
+
+
+
+ ___   ___   ___
+| __| |   | |  _|S Y N E R G Y   O N L I N E## john.walker@syncomm.com
+|__ | | | | | |_                            ## John Walker
+|___| |___| |___|C O M M U N I C A T I O N S## 201.331.1797 (data)
+[30 lines; 14.4K BPS; 15.0 gigabytes; PCBoard 15.1; New Jersey's Largest BBS]
+
+
+
+
+
+
+
+
+
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+-                           Sorry, but.....                             -
+-      exessively elaborate and creative .sig no longer in use.         -
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+              -> matthias.kraus@recht.uni-giessen.de <-
+
+
+
+
+
+
+
+
+
+
+
+
+
+/========================================================================\
+|           |\             "This is Australia Calling"                   |
+|      /^|__|  \                                                         |
+|   /^   |       \    Leon de Boer - Programmer, MicroSoft hater,        |
+|  <  WA | OTHERS >         Elle McPherson fanatic & caffeine addict.    |
+|   \    | ___   /                                                       |
+|     \__|/   \/      address:  ldeboer@cougar.multiline.com.au          |
+\========================================================================//
+
+
+
+
+
+
+
+
+
+
+
+
+       __                                                  __
+    __/\_\ John Holder - jholder@nmsu.edu                 /_/\__
+ __/\_\/_/ Computer Science - New Mexico State University \_\/_/\__
+/\_\/_/\_\                                                /_/\_\/_/\
+\/_/\_\/_/               UNIX Forever!!!                  \_\/_/\_\/
+   \/_/\_\ Coffee should be as black as hell, as strong   /_/\_\/
+      \/_/ as death, and as sweet as love. (Turk. prov.)  \_\/
+
+
+
+
+
+
+
+
+
+
+
+
+     ____  ____
+    /     /   / /   / /    Faculdade de Ciencias de Universidade de Lisboa
+   /--   /     /   / /
+  /     /___/ /___/ /___    Joao Paulo Ribeiro Alves
+ /
+| Internet: opjoao@cc.fc.ul.pt                BitNet: opjoao@ptearn.bitnet | \
+|__________________________________________________________________________|  |
+\ PGP 2.3a Public Key available thru "finger opjoao@skull.cc.fc.ul.pt"      \ |
+ \___________________________________________________________________________\|
+
+
+
+
+
+
+
+
+
+
+
+
+__[Robb Topolski KJ6YT]__[topolski@orange.digex.net]__[San Clemente, CA]__
+This .signature file is under construction.
+
+
+
+
+
+
+
+
+
+
+
+
+  __________________________________________________________
+   Joseph Unger                         cbjju@ttacs.ttu.edu
+   Information Technology Specialist
+   Department of English              Texas Tech University
+  __________________________________________________________
+     \/ \__|But all at once it dawned on me that *this*
+    / \/ \_|_Was the real point, the contrapuntal theme,
+   / / \/ \|/ Just this: not text, but texture; not the dream
+ -|-|--|--<X>--But topsy-turvical coincidence,
+   \ \ /\-/|\-Not flimsy nonsense, but a web of sense.
+    \ /\ /-|-\ /\              --Vladimir Nabokov
+
+
+
+
+
+
+
+
+
+
+
+  __    ______    ____
+/|  | /|  __  | /|  _ \     Jesse Hires    Jesse.Hires@on-ramp.ior.com
+ |  |  | | /| |  | | ) |
+ |  |  | |  | |  | |/ /
+ |  |  | |  | |  |   /      The ON RAMP   24 Hour Internet Access
+ |  |  | |  | |  | |\ \     SLIP/PPP  Dial up  28.8bps All Lines
+ |  |  | |__| |  | | \ \
+ |__|  |______|  |_|  \_\   Phone:(509)927-RAMP  FAX:(509)927-0273
+/  /  /      /  / /   / /   E.11806 Sprague, Spokane, WA 99206
+
+
+
+
+
+
+
+
+
+
+
+
+
+--
+         Scott Hagie   -   hagie@netcom.com   -   Sierra Madre, Ca.
+
+             ACME Exploding Signature...5....4....3...<BOOM!>..
+
+
+
+
+
+
+
+
+
+
+                                     ³
+                                  ³  ³  ³
+           ÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÏÍÍØÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍ
+             ³*            Phillip James Vuchetich          *³
+        ÍÍÍÍÍµ  philv@creighton.edu  ³    President & CEO    ÆÍÍÍÍÍ
+             ³* editor@crash.cts.com ³  Universe Management *³
+           ÍÍÏÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÑÍÍØÍÍÑÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÏÍÍ
+                                  ³  ³  ³
+                                     ³
+
+
+
+
+
+
+
+
+
+
+
+     ///////////////////        [      And now, for the Quote:     ]
+     \ oran@netcom.com \        [      %%%%%%%%%%%%%%%%%%%%%%%     ]
+     ///////////////////        [ "Look what your GOD has done     ]
+     Steve Aranyi Ritter        [  to ME!"                         ]
+
+
+
+
+
+
+
+
+
+
+Ric                         .-----------------------.
+                           /            .            \
+                          /     ._______|_______.     \
+  +----------------------'            \(x)/            `--------------------+
+  |    Ric M. Belding                 o/ \o              ric@odetics.com    |
+  |    Odetics Incorporated                                                 |
+  |    1515 South Manchester Avenue               Voice:  (714) 774-2200    |
+  |    Anaheim, CA  92802-2907                      Fax:  (714) 535-8532    |
+  +-------------------------------------------------------------------------+
+  |   "Once you have flown, you will walk the earth with your eyes turned   |
+  |   skyward; for there you have been, there you long to return"  DaVinci  |
+  +-------------------------------------------------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+Mike Starks                   __o       __o       __o     ------------ __o
+mikes@amcu-tx.sps.mot.com    _`\<,_    _`\<,_    _`\<,_   ------------_`\<,_
+Motorola AMCU Division     (*)/ (*)  (*)/ (*)  (*)/ (*) ------------(*)/ (*)
+Austin, Texas  USA        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wk (512) 891-2350
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_________    Have a favorite group or mailing list?  Describe it to
+    |                   grouprev+@pitt.edu
+ jJ |    Take only memories.            jimj@eecs.umich.edu
+\__/     Leave not even footprints.     jewett+@pitt.edu
+
+
+
+
+
+
+
+
+
+
+
+
+
+         dawg@eskimo.com  *   Bryan Byun  *   bsbyun@uswnvg.com
+            o    \o     o/   Now it is time    \o/    o/    o
+           /|\    |\   /|    on Sprockets       |    /|    /|\
+           / \   / \   / \   when we dance!    / \   / \   / \
+
+
+
+
+
+
+
+
+
+
+
+
+Just a Newbie_____________________________________________
+....((...((...(..(((((((.(((((..../ Vmark Software, Inc  |
+...(.(.(.(..(.(....(......(....../  mcornell@uvmark.com  |
+..(..(..(.(((((...(......(....../  "It is I says me.     |
+.(.....(.(...(...(......(....../    And, those who agree,|
+(.....(.(...(...(......(....../     are more than three, |
+.....................Cornell./      cause' they're we."  |
+----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+ ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ ³             __    ³° ³                                                 ³°
+ ³              |\   ³° ³     "Im almost Smarter than the Average Bear    ³°
+ ³              / \  ³° ³                                                 ³°
+ ³             / =/  ³° ³  Abu Abrahams                                   ³°
+ ³       (}-==( :[|  ³° ³  CSIR-Computing Services                        ³°
+ ³             \ =\  ³° ³  Box 395,Pretoria,0001,ZA                       ³°
+ ³              \ /  ³° ³                                                 ³°
+ ³            __|/   ³° ³                                                 ³°
+ ³ /|                ³° ³  Email Address : aabraham@infocomp.csir.co.za   ³°
+ ³/ \                ³° ³  Voice :+27 012 841-2890                        ³°
+ ³\  \               ³° ³  fax   :+27 012 841-4109                 ÕÍ¸    ³°
+ ³ }]::)==-{)        ³° ³ ÕÍÍ¸ Õ¸  Õ¸ÕÍÍ¸   ÕÍÍÍÍ¸   Õ¸  Õ¸  Õ¸    ³ ³Õ¸  ³°
+ ³/  /               ³° ³ ³. ³Õ¾³Õ¸³³³  ³ÕÍ¸³    ³ÕÍ¸³³Õ¸³³Õ¸³³  Õ¸³ ³³ÔÍ¸³°
+ ³\ /                ³° ³ ³. Ô¾ ³³Ô¾³³  Ô¾ Ô¾    ³³ Ô¾Ô¾³³Ô¾Ô¾ÔÍÍ¾³³ Ô¾  ³³°
+ ³  \|__             ³° ³ ³     Ô¾  Ô¾           Ô¾     Ô¾        Ô¾     ³³°
+ ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ° ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ°
+  °°°°°°°°°°°°°°°°°°°°°   °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /  \  OUR NEWSSERVER CHOKES QUITE FREQUENTLY ... PLEASE ANSWER BY EMAIL !  /\
+/ J. \ EMail: bern@Uni-Trier.DE    (7 Bit only!)  \  Ham Call Sign: DD0KZ  /  \
+\Bern/        bern@TI.Uni-Trier.DE (OW Mails OK)   \  Public PGP & RIPEM/  \  /
+ \  /  P. O. Box 1203, 54202 Trier, Germany, Europe \  SIG Keys via finger  \/
+
+
+
+
+
+
+
+
+
+
+
+
+         ___
+       /'   `\
+      | O _ O |   "I hate having to wear penguin suits!"
+ **** /  \_/  \ ********************************************************
+    .' /     \ `.    BRIAN6@MDX.AC.UK or BRIAN6@UK.AC.MDX.CLUSTER
+ --/ _|       |_ \ -----------------------------------------------------
+  (_/ |       | \_)  Have a nice day......
+ **** \       / ********************************************************
+     __\_>-<_/__
+     ~;/     \;~
+
+
+
+
+
+
+
+
+
+
+
+        .___.
+       /     \
+      | O _ O |          "I can't take the summer heat!!"
+ **** /  \_/  \ ********************************************************
+    .' /     \ `.   Michael T. Kao    ****   New York University
+ --/ _|       |_ \ -----------------------------------------------------
+  (_/ |       | \_) kaom@acf2.nyu.edu  **  kaom@acfcluster.nyu.edu
+ **** \       / ********************************************************
+     __\_>-<_/__                   "Chill Out!"
+     ~;/     \;~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     \      *        William Walker                           bill@snm.com
+      |\   /         Chief Technology Officer                 (703) 318-1440
+      ( )/|          Smoke N' Mirrors, Inc.  Herndon, VA
+    _/SNM/
+      | |            The best gun control is a firm two handed grip.
+     /___\
+
+
+
+
+
+
+
+
+
+
+
+
+                  __----__
+                 /        \
+                /       /o \
+               / \   /      \
+             _/   \_/  \     \
+           _/          /\_\_c/    ...now THERE is one .sig puppy...
+         _-           /
+        -        \    \_____      Neil Ferguson
+       /          \_______,,)     nsf@hpuerca.atl.hp.com
+      /            /
+
+
+
+
+
+
+
+
+
+
+
+
+ _____________________________________
+/\                                    \
+\_|      Yours electronically          |
+  |                                    |
+  |      Aeon McNulty                  |
+  |                                    |
+  |      A.McN@mensa.demon.co.uk       |
+  |   _________________________________|__
+   \_/___________________________________/
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________________
+                              __      __
+                              \ \    / /
+   ___________                 \ \  / /   H   A   C   H   A
+  _\ ALCATEL /_                 \ \/ /__    __  ____   ____
+  \ \ BELL  / /                  \  / \ \  / / / __ \ / ___)
+   \ \SH 30/ /                   / /   \ \/ / / /___/ \____
+    \ \   / /                  _/ /     \  /  \ \___   ___ \
+     \ \ / /                   \_/       \/    \____) (____/
+      \ Y /
+       \ /           Alcatel Bell Telephone, SH30 (A5)
+        Y            Francis Wellesplein 1, B-2018 Antwerpen, BELGIUM
+
+           Internet: yhac@sh.bel.alcatel.be   Phone: (32) 3 240 93 70
+           CompuServe: 100343,227             Fax:   (32) 3 240 99 46
+______________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+ _\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_
+| Roger L. Smith - CS Grad     | It's hard to make a program foolproof    |
+| Mississippi State University | because fools are so ingenious.          |
+|  rls3@Ra.MsState.Edu         |==========================================|
+| roger@CS.MsState.Edu         |  A black hole is where God is dividing   |
+| smith@AgEcon.MsState.Edu     |  by zero.                                |
+|_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_\|/_|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ __                     # EMail: mostert@itu.sun.ac.za     #  This .sig is
+|__|   /   |\/|    -|-  # My favourite soft drink is Pepsi #  Ozone Friendly
+|  |ndre   |  |oster|_  # Disclaimer available on request  #  and Virus Free
+
+
+
+
+
+
+
+
+
+
+
+
+[][][][][][][][][][][][] Y    A    D    S [][][][][][][][][][][][][][][][]
+[] Craig O'Shannessy >>>==================> craigo@kralizec.zeta.org.au []
+[][][][][][][][][][] Yet Another Dot Signature. [][][][][][][][][][][][][]
+
+
+
+
+
+
+
+
+
+
+
+
+ ____________________   .    .   __  .      .  | Mark Sturrock
+ \______Acme-Inc_____|) .____.--"--"---._____  | StrMar31@uctvax.uct.ac.za
+      .      ||  .   /-----._________.----/    | Mark@magnum.cybernet.za
+  .   /=======||====/___/   .   "--" .     .   | I didn't write it, Nobody saw
+    . \==\____________|(-      .         .     | me write, Can't prove a thing.
+
+
+
+
+
+
+
+
+
+
+
+
+ajs5@po.cwru.edu (or in other words, NOT YOU!)
+
+
+
+
+
+
+
+
+
+
+
+
+
+<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->
+  ,dP""d8b,
+ d"   d88"8b   email:                  Nina Pulli
+I8    Y88a88)  npulli@phoenix.oulu.fi  Student of behavioural Sciences
+`Y, a  )888P   npulli@paju.oulu.fi     University of Oulu, Finland
+  "b,,a88P"
+               "Luke: I don't believe it - Yoda: That's why you fail"
+<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->--<-->
+
+
+
+
+
+
+
+
+
+
+
+
+       ##############
+      #######  #######             _______________________________
+     #### ___   ___ ####          _|     Andy "Ports" Porter      |
+     ### |   | |   | ####         #|  Ports@anltech.demon.co.uk   |
+    #### |  @| |@  | ###          #|------------------------------|
+     ###  ---___---  ####         #|  Wot I say is wot I think,   |
+    #####   |   |   ####          #|not the views of my employers.|
+     ###     ---     ####         #|They never listen to me anyway|
+    ####   \___      ####         #--------------------------------
+     ####           ####          ###############################|
+      #### _______ #####
+
+
+
+
+
+
+
+
+
+
+
+
+
+  *===*===*===*===*===*===*===*===*===*===*===*===*===*===*===*===*===*===*
+  | Thomas C. Gannon | tgannon@charlie.usd.edu | U of SoDak (Vermillion)  |
+  * ------------------------------- _-^-_ ------------------------------- *
+  | "--If I decide to practice a   / o )=\    slight movement from right  |
+  *  to left . . . or from left   {   /===}    to right . . . it's        *
+  |     nobody's business but my   \ (=o=/    own." (_A_Day_for_Eeyore_)  |
+  *===*===*===*===*===*===*===*===* ^-_=^ *===*===*===*===*===*===*===*===*
+
+
+
+
+
+
+
+
+
+
+
+
+*RanmaOutlandersDirtyPairBubbleGumCrisisAh!MyGoddessTenchiMuyoKyuuketsukiMiyu*
+*Kahm-himesama - Hier to the (defunct) throne of the Santovasku empire,      *
+*President of the John Walter Biles Fanfic Club, Card carrying member of the *
+*Corps of Kawaii, Green-haired, Magic-weilding Girls in Hardsuits, disciple  *
+*in the great art of Martial Fanfic Writing, artist in training, otaku, and  *
+*probably more than a little crazy!                                          *
+*                            Kahm@AnimeMUCK                                  *
+*"What is manga anyway? Some sort of image compression format?" anonymous    *
+*"You want Ranma stay like this, pervert-girl?" Shampoo                      *
+*"Owie! Owie! I smush'd my dose!" Kahm                                       *
+*I am NOT George. Thats my father. I just use this address.                  *
+*RanmaOutlandersDirtyPairBubbleGumCrisisAh!MyGoddessTenchiMuyoKyuuketsukiMiyu*
+
+
+
+
+
+
+
+
+
+
+
+
+     _____________
+#___/John E. Davis\_________________________________________________________
+#
+# internet: davis@amy.tch.harvard.edu
+#   bitnet: davis@ohstpy
+#   office: 617-735-6746
+#
+
+
+
+
+
+
+
+
+
+
+
+
+         |----\___               John P. LaRocque (larocqu@gaul.csd.uwo.ca)
+********]|-----|___\__________
+********]|_______>___________/      "There are those who believe
+         |_____ /                    that life here began out there..."
+
+
+
+
+
+
+
+
+|~~~~\/~~~~|//++======================================================++
+|       \\ // || >>>>>>>>>>>  Michel.Vuijlsteke@rug.ac.be  <<<<<<<<<< ||
+|   |\/| \//  || The Moose Project c/o Albania for King Zog Committee ||
+|___|  |___|  ++======================================================++
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+Wes Mills -- wesmills%zenith@sdf.lonestar.org (Internet)  Cow in    (__)
+PGP NOT      wesley.mills@chrysalis.org       (Internet)  trouble   (oo)
+avalible     Wes Mills @ 1:124/2342.4         (Fidonet)   ~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------
+         SSSS     TTTTTTTT    EEEEEEE   VV         VV    EEEEEEE
+       SS  SS    TTTTTTTT    EE        VV         VV    EE
+      SS            TT       EE         VV       VV     EE
+      SS           TT       EE         VV       VV     EE
+      SSSS        TT       EEEEE       VV     VV      EEEEE
+        SS       TT       EE           VV   VV       EE
+        SS      TT       EE            VV VV        EE
+  SS  SS       TT       EE             VVV         EE
+  SSSS        TT       EEEEEEE         V          EEEEEEE
+----------------------------------------------------------------
+Stephen Cumpson
+Information Storage Research Group
+Division of Electrical Engineering
+The Manchester School of Engineering
+University of Manchester
+Manchester M13 9PL
+U.K.                    email : mbhpcsr@meehpc.ee.man.ac.uk
+
+Tel. (U.K.) : 061 275 4532      (Overseas) : +44 61 275 4532
+
+
+
+
+
+
+
+
+
+
+
+
+Name  : Alphons A.B. van der Heijden Voice : +31 (0)40   743919   /MMM\
+Seri  : vdheijde:nlwayhp             Fax   : +31 (0)40   744660   |. .|
+E-mail: vdheijde@prl.philips.nl      Home  : sweet home           { . }
+Nat.Lab. WY41 Prof. Holstlaan 4 5656 AA  Eindhoven The Netherlands \-/
+
+
+
+
+
+
+
+
+
+
+                    +---------------------------------+
+                    | <-------+ <--------+---+----+ <+|
+                    |+--------+----------+ <-+--> ++ ||
+                    |+----=Master of the Shadows=-++-+|
+                    |<-+-------=Ross Hammer=-------+->|
+                    |+-+ +=The Man of Many Faces=--+> |
+                    || <-+---------------------------+|
+                    ||     ROSS.HAMMER@TRNET.ORG     ||
+                    ||     ROSS.HAMMER@<Apogee>      ||
+                    |+-------------------------------+|
+                    +---------------------------------+
+
+
+
+
+
+
+
+
+
+
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+  C H R I S T O P H E R  J P                   T H E  L O C K E R  G N O M E
+  pirillc2770@cobra.uni.edu       /o)\         "Jesus of Cleveland"
+  I will return the passion-      \(o/        -with the poet and the kiss.
+  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+
+
+
+
+
+
+
+
+
+
+                      *{}*{}*{}*{}*{}*{}*{}*{}*{}*{}*{}*{}*
+                     *{}      Karen Witkoski           {}*
+                    *{}      username: dudley         {}*
+                   *{}  NSWC, Annapolis, Maryland    {}*
+                  *{}*{}*{}*{}({}*{}*{}*{}*{}*{}*{}*{}*
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------
+\|/ ____ \|/ Eelko de Vos.     Check out the C**L WWW-Page! \|/ ____ \|/
+ @~/ Oo \~@      HTTP://WWW.TWI.TUDelft.NL/~vos/eelko.html   @~/ oO \~@
+/_( \__/ )_\      E-Mail:     Vos@Dutiws.TWI.TUDelft.NL     /_( \__/ )_\
+   \__U_/        "Stop your grinn'n and drop your linnen!"     \_U__/
+-------------------------------------------------------------------------
+>Check out the Alien Homepage! http://www.twi.tudelft.nl/~vos/alien.html<
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+                                                //\\
+ __________________________                        \\
+|Stephen Cook              \\                  .__=.\\
+|scook@mailer.acns.fsu.edu   \____          ,' -(@)\-\<)
+|Institute for Health and     \   \______.,(_______/_:\
+|Human Services Research   |==.\______//  # /# #\ || : \____
+|644-2710 (FAX)644-8331      '\\\ =''=//|_|##(O)##|| `./\---.
+|_______________________ /\   / ,`--'./# ======='//,  //.\ . \
+                 _______ \ \_(_:_@O__)_///<_>O////    ( (@O ) )
+                    _____ \_____________/======'O'     \ `-' /
+                             __`-----'__________________`---'___
+
+If anybody agreed with my opinions, it would not be my superiors.
+
+
+
+
+
+
+
+
+
+
+
+   +=======================================+=====================+
+   | This file is provided courtesy of the | Currently available |
+   | Programmer's Mark BBS, (718) 921-9267 | 10 pm - 6 am 7 days |
+   | Running Maximus, v2.01 for DOS & OS/2 |  6 am - 1 pm Sa, Su |
+   +----------------------+----------------+---------------------+
+   |  12/24/96/14.4K BPS  | BASIC,  Compression,  Tech,  E-Text, |
+   | v.32/v.32bis/v.42bis | Politics,  & OS/2 related file base. |
+   |   via a USR Courier  | Varied msgs,  plus a Beta Test conf. |
+   +----------------------+------------------------+-------------+
+   | Widen your horizons with this no-nonsense BBS | Joe Negron, |
+   | for the serious computer user and programmer. |    Sysop    |
+   +===============================================+=============+
+
+Please note the hours (EST) - downloads are allowed on the first call,
+no ratios for long distance callers.
+
+           --From Bay Ridge, Brooklyn, NY, Sat, 08-27-1994--
+    --Internet: joe.negron@consultant.com, co-sysop@consultant.com--
+
+... I am a fugitive from the law of averages.
+
+
+
+
+
+
+
+
+
+
+
+
+Ola Rinta-Koski                          ::       -_._. _... O   (Jii-haa!)
+ola@anjovis.tky.hut.fi                   ::::    -___ ._..  /\,
+http://anjovis.tky.hut.fi/~ola/          :::::::           -|~(*)
+                                         ::::::::::::::.  (*)
+
+
+
+
+
+
+
+
+
+
+==============================================================================
+Ken Goldman                                           David Taylor Model Basin
+goldman@oasys.dt.navy.mil                              aka Carderock Division,
+CI$ 70666,1646                                    Naval Surface Warfare Center
+Prodigy PGPR65A                         _                         Bethesda, MD
+                           ____________|-|_____
+                        |-<____________________)
+        The Opinions Expressed are Solely MINE and Not the Navy's!
+==============================================================================
+
+
+
+
+
+
+
+
+
+
+willem , s0730076@let.rug.nl
+
+  ~!
+
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ           ~/^~~      ~~\~~
+    º     Willem van de Vis        º           /   .-. .--.    \
+    º      Alfa-Informatica        º       ~^~ ___ |_| |__|     |\
+    º      G R O N I N G E N       º        | [___] /    .___.  |
+    º     S0730076@let.rug.nl      º        |   |  |  o  |   ]  |
+   ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ      /|\ /|\ /\_|_/| | | /|\
+
+
+
+
+
+
+
+
+
+
+
+Derek Tidman                        |    /\(00)/\      /\(00)/\     (00)
+DEREK@adams.demon.co.uk             |   // \||/ \\    / (_||_) \   \_||_/
+                                    |  //   ""   \\  /   _||_   \   _||_
+You have not been charged for this opinion...........................
+
+
+
+
+
+
+
+
+
+
+This message was brought to you by: Christ van Willegen (rcsacw@urc.tue.nl)
+GU -d+ H-- s++:+>++: !g p?+ au- a- w++ v+(++) c++++ UL++++ P? L+>+++ E---
+N+++>* K- W M V>-- -po+ Y+>++ t->-- !5 !j G? tv+ b++>+++ D++ B? e+>++ u++
+h! f+ r++ !n y+  Th - th - that's all, folks! Watch out for a new episode!
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~ Kimmo.Fredriksson@Helsinki.FI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~ Kimmo Fredriksson ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~ Porvoonkatu 14 A 15 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~ 00510 HKI ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~ FINLAND ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+| begin 644 o.001     M2&5L;&\@=&AE<F4A |           Richard W. Yeomans
+| (0T*22!G=65S<R!Y;W4@9F]U;F0@;64A(#LI# |        University of Alberta
+| 0I)(&IU     M<W0@=&AO=6=H="!T:&%T($DG |             Edmonton, Canada
+| 9"!M86ME(&ET(&EN=&5R97-T:6YG+@T*#0HM  |
+|     *3VUN:4-R;VX-"@``     `     end   | ryeomans@gpu.srv.ualberta.ca
+
+
+
+
+
+
+
+
+
+
+
+                                                                     |
+                                      ______  _____     ___        \ H /
+                    _-----_          |...... |..__..  /....`    --==[O]==--
+                   {/\ \/\\}           |..   |..__.  |..__,-       / H \
+                  (|(@) (@)|)          |..   |......  \..../         |
++------------oOOO-----(_)-----OOOo---+-------------------------------------+
+|  B.H. de Jager   (T.B.C.)          |  "gods like to see an atheist       |
+|  Stellenbosch University           |   around, it's gives them something |
+|  South Africa                      |   to aim at."                       |
+|  E-Mail :  bdejager@itu1.sun.ac.za |        -Terry Pratchett, SMALL GODS |
++----------------.oooO---------------+-------------------------------------+
+                 (   )) (    )   GCS/GU/(GT) -d+ -p+ c+++(+) l- u e+ m- (m*@)
+                  \ (/  ( Oooo.  s/+ !n h f* g+ w+ t+ r !x t
+                   \_)   \(   )
+                         ( ) /
+                          (_/
+
+
+
+
+
+
+
+
+
+
+
+
+T   / /       / /      \ \    |stessej@iia.org|          -----[Jay Stess#####]
+R  / /___    / /___     \ \   -----------------       / |%%%%%\[Of New Jersey]
+S /_____/   /_____/      \ \____        ____         |  |%%%%%%\[Hockey Playr]
+  O O O O   O O O O       \_____\      <____>        |  |%%%%%%%\[6/5/94sig##]
+
+
+
+
+
+
+
+
+
+
+
+
+
+            +****************************************************+
+            | Aaah... Finland! The place of clean air, beautiful |
+            |                  lakes and forests.                |
+            |                  Simply a fabolous place to live.  |
+            | Internet --> --> istvan.csiszar@mfc.fipnet.fi      |
+            +****************************************************+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6666666666666666666666666666666666666666666666666666666666666666666666666
+666 666 666 666 666   /^^^^^^^^^\     666 666 666 666                 666
+666  \  \   \   \    /  |\   /|  \     /   /   /   /                  666
+666 todd            (   | \ / |   )      "You can't lose if you       666
+666   hartman       (   |  X  |   )       don't play"                 666
+666                (     |/ \|     )       --Namt Rahd Dot            666
+666 1068 tj        (     |   |     )        "Essays on Government     666
+666 rolla, mo      (   / |   | \   )         and Women"               666
+666 24601          (  ----|-|----  )                                  666
+666                 (     | |     ) Satanism is a lot like boxing,    666
+666 "Mounties always \     |     /  except without gloves,rings, or   666
+666  get their men."  \    |    /   fans, and everybody burns in      666
+666                    --_____--    hell after it's over.             666
+666                                                                   666
+6666666666666666666666666666666666666666666666666666666666666666666666666
+
+
+
+
+
+
+
+
+
+
+
+
+   __(o  James Seng Ching Hong ~{W/Uq:j~}   (o,o)   "Help!! I got a computer
+ /'_  _)  --= eng30476@leonis.nus.sg =--   <  .  >   virus..i am addicted
+(__/c/c  National University of Singapore  --"-"--   to the computer....;-)"
+
+
+
+
+
+
+
+
+
+
+
+
+--
+I am too lazy to make a sig!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    *
+                   /_\
+                 {~._.~}
+                  ( Y )
+                 ()~*~()
+                 (_)-(_)
+Margaret Pinelli
+mpinelli@netcom.com
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I don't know what I'm \    james@.sirius.ns.ca     / Finger me for information
+saying half the time  /  Sirius Solutions Limited  \   on St. John Ambulance
+so don't blame my     \ 1 Research Drive, Ste. 215 /          Brigade
+company.  They surely /   Dartmouth, Nova Scotia   \   First Aid mail list:
+don't know what I'm   \      Canada   B2Y 4M9      /        first-aid@
+saying!  Opinions are /      Ph(902) 465-2328      \    @rabble.uow.edu.au
+mine, & mine alone.   \     Fax (902) 464-0931     / "SAVE A LIFE, LEARN CPR!"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Smoke me a kipper, I'll be back for breakfast! - "Ace" Rimmer - Red Dwarf
+
+
+
+
+
+
+
+
+
+
+
+
+        [%%%%%%%%%%%%%% -/- -/- -/- - -\- -\- -\- %%%%%%%%%%%%%%]
+        [             Noah Gourlie / Nym: Nicodemus             ]
+        [                    noahg@pnet.com                     ]
+        [              noahg@nwhaven.nyued.fred.org             ]
+        [%%%%%%%%%%%%%% -\- -\- -\- - -/- -/- -/- %%%%%%%%%%%%%%]
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ____
+ (\  __  /)
+ ( \(__)/ ) "The product isn't finished until the last user's dead..."
+  ( /<>\ )
+   (\/\/)
+    (  )   Lisamarie Gemma Babik, Documentation & Training Coordinator
+    /  \        Medical Knowledge Systems, Inc.  Detroit, Michigan
+    ~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+        _______  ________ __      __
+       /  _____\|__   ___|  \    /  |
+      (  (____     | |   |   \/\/   |  I dunno, I can *imagine* quite a bit !
+       \____  \    | |   | \      / |
+       _____)  )   | |   | |\_/\_/| |
+...../_______/    |_|   |_|      |_|.......Stunts Racing Group Member........
+
+                       Stefan Maes  - maes@sch2.uia.ac.be
+
+  University of Antwerp (UIA) - Universiteitsplein 1 - 2610 Wilrijk - Belgium
+
+
+
+
+
+
+
+
+
+
+
+
+                  _________
+                  | I-HAVE |
+                  | NOTHING|
+                  | TO-SAY |
+                  |________|
+                      |
+                      @
+                   o_/|
+                 \/\_
+___________________/ |______________________________________________________
+carogna@netcom.com                                "...flowers in the dustbin,
+                                                 poison in the human machine..."
+                                                        -CarognaVerde-
+
+
+
+
+
+
+
+
+
+
+
+
+      (__)    Lauri Aalto
+    w \@@/    root@spit.fipnet.fi
+     `/v/-e   2:228/507@fidonet
+    _/  \_    ...Intel inside--idiot outside...
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+What am i?                                               |petrumn@wkuvx1.wku.edu
+A speck of dust in the universe;                         |
+The core of an existence                                 |   Michael Petruna
+     .-'~~~-. Defining the individual...                 |
+   .'o  oOOOo`. Gifted with senses                       |       "Spice"
+  :~~~-.oOo   o\ To enrich the learning experience,      |
+   `. \ ~-.  oOOo And to savour and delight              |     Part of the
+     `.; / ~.  Oo: In the pleasure and pain of being.    |      frequency
+     .'  ;-- `.o.; Granted with the intelligence         |        crew
+    ,'  ; ~~--'~ To redefine the world around;           |
+    ;  ; Spurred by a curiousity                         |   to reach me call:
+_\\;_\\//_Attempting the unthinkable.                    |
+To tear down the barriers                                |     (502)782-4078
+Of ignorance and the hardships of survival;              |      24hrs a day.
+I am but a human                                         |
+Living on the edge of reality...                         |     Peace & Unity
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+              !
+             (0)
+          Austin, TX
+        zboray@io.com            List-Owner: NewbieNewz@IO.COM
+      Illuminati Online          subscribing: NewbieNewz-request@IO.COM
+     ~~~~~~~~~~~~~~~~~~~         (no subj:, one line msg)
+     finger zboray@io.com        subscribe NewbieNewz your_email_address
+  IO.COM (IP) = 199.170.88.5
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+Carol Farquhar-New Technology,Inc                  >>>>>>>>-----<<<<<<<
+Huntsville, AL                                     He lost. Get over it.
+cfar@kiwi.msfc.nasa.gov                            >>>>>>>>-----<<<<<<<
+Too opinionated to speak for anyone but myself.
+
+
+
+
+
+
+
+
+
+
+
+
+Meine Internet-Mailadresse: markus.herbord@medizin.uni-ulm.de
+            __                 __
+          '/..\^             '/..\"
+ __ ||____( oo )_____||______( oo )___||_______________||__
+  - ||----" -- " ----||------" -- "---||---------------||-
+    ||    ( .  )     ||      (  . )   ||               ||
+  __||____(\__/)_____||______(\__/)___||_______________||__
+   -||-----"--"------||-------"--"----||----'/..\"-----||-
+    ||               ||               ||   m( oo )m    ||
+2L84U^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+                 _______________________________________
+                |            IS RUSH IS GOOD            |
+                |            Chris Katsifolis           |
+                |______t930663@minyos.xx.rmit.edu.au____|
+
+
+
+
+
+
+
+
+
+
+   _________________________
+ /______________________    | Address:Teemu Kilpivuori
+|    _________________ /|   |         YO-Kylä 1B25
+|   | |_______________|_|   |         20540 Turku
+|   |/______________________| Voice  :921-2543427
+|__________________________/  Email  :teekilpi@utu.fi
+
+
+
+
+
+
+
+
+
+
+        .........................................................
+        |  oran@netcom.com     | Flame me once, shame on you!   |
+        |  Steve Aranyi Ritter | Flame me twice - Flame on you. |
+        |......................|................................|
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+Jared Evans    Information Technology         Rochester Institute of Technology
+INTERNET:jne5873@rit.edu------------------------------------------->Core dumped
+To err is human - and to blame it on a computer is even more so.
+The best way to accelerate a Macintosh is 9.8 m/s^2
+IBM seems to believe that when they urinate in something,it improves the flavor
+--------------------------------------------------------------------------------
+            Try my WWW home page-> http://ultb.isc.rit.edu/~jne5873
+
+
+
+
+
+
+
+
+
+
+ |\/\/\/|
+ |      |
+ | (o)(o)    Hey man, we have a pool now!
+C       _)   /
+ |  ,__|    /
+ |   /                                   <>        Kurt Hammond       <>
+ /___\                                   <>    n8742538@cc.wwu.edu    <>
+/     \
+
+
+
+
+
+
+
+
+
+
+
+|>>>>>>>>>>> Charlie Dittmeier>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|
+|>>>>>>>>>>>>>>>>>>>>>> cditt@iohk.com >>>>>>>>>>>>>>>>>>>>>>>>|
+|>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Kowloon, Hong Kong >>>>>>>>>|
+
+
+
+
+
+
+
+
+
+
+
+````````````````````
+                   `                              +  ^^   ^^    ^^
+                   ``````````````````````        _=_
+                                        `        \ /
+                                        `````````````````````````````````
+                        Yoo, Sang-Ryeol
+                        Research Institute of Advanced Computer Technology,
+                        Seoul National University, San 56-1 Shinlim-dong
+                        Kwanak-ku, Seoul, 151-742 Korea
+                        (Tel) 02-875-7158
+                        E-mail : Jazz@cp_work2.snu.ac.kr
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+         /\_\"|"/_/\              _____________________________________________
+         \  ^   ^  /             /   Jean Michel VANSTEENE                    /\
+       ___, =   @ ,___          |  Bull (Reseaux et systemes d'information)  |_/
+       _--'   o   `--_          |  rue Jean-Jaures                           |
+          \_  ~  _/    ______   |  78340 LES CLAYES SOUS BOIS   (F)          |
+           _\| |/   _ /______}  |  ---------------------------------------   |
+          / /   \===_< O__}     |    E-MAIL: J.M.Vansteene@frcl.bull.fr      |
+  __     <<   @  >    \o_}      |    tel.  : (16-1) 30.80.66.11              |
+ (__`-___-'\____/            ___|__________________________________________  |
+    `-----'(_)(_)            \_____________________________________________\_/
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+   __ __ __ __ _____
+
+         /^^^\   \ /   Jim Agnew         | AGNEW@RUBY.VCU.EDU  (Internet)
+        /      >  ||   Neurosurgery,     | AGNEW@VCUVAX        (Bitnet)
+   /\_/     '   \  /   MCV-VCU           | This disc will self destruct in
+ /________________>    Richmond, VA, USA | five seconds.  Good luck, Jim..."
+        *** Error, brain bugcheck, mind rebooted...
+
+
+
+
+
+
+
+
+
+
+
+           _
+          >@)
+ Roseann  (V(_
+ =========^^\< ==
+
+
+
+
+
+
+
+
+      .---.        .-----------       .__                 __
+     /     \  __  /    ------  _____  |  | _____    _____|  | _______
+    / /     \(  `-,   -----    \__  \ |  | \__  \  /  ___/  |/ /\__  \
+   //////    '~ (    ---        / __ \|  |__/ __ \_\___ \|    <  / __ \_
+  //// / // :    ; ---         (____  /____(____  /____  >__|_ \(____  /
+ // /   /  /)   / --                \/          \/     \/     \/     \/
+/          //..\\      No bird soars too high, if he soars with his own wings
+==========UU====UU======================- Harry Marlin -=====================
+          '//||\\`                       Alaska@gate.net
+            ''``
+
+
+
+
+
+
+
+
+
+
+
+
+
+.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+.         Sarah Plummer               splummer@abacus.bates.edu         .
+.   Duct Tape is like the Force.  It has a light side and a dark side,  .
+.    and it holds the universe together.  The only difference is that   .
+.    "May The Force be with you" sounds a lot nicer than "May you be    .
+.                        covered in duct tape."                         .
+.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                             _____________________________
+    888b     d888                  888      \\     Mark P. Barthelemy     \
+    8888b   d8888                  888      //       mpb074@nwu.edu       /
+    88888b.d88888                  888      \\                            \
+    888Y88888P888  8888b.  888d888 888  888 //  Northwestern University   /
+    888 Y888P 888     "88b 888P"   888 .88P \\ C of Arts and Sciences '98 \
+    888  Y8P  888 .d888888 888     888888K  //____________________________/
+    888   "   888 888  888 888     888 "88b              I I
+    888       888 "Y888888 888     888  888  //\/\//\//\\I I/\\/\/\//\\/\/
+
+
+
+
+
+
+
+
+
+
+
+
+    _____  _______  __   _______  __ __ __  _________
+   /   | | |  _/\ \/ /  / _/|   \ | || || |/ __/|  _/ @MindLink.bc.ca
+  / /| | |_|  _> >  <  ( (_ | <> >| || || |\__ \|  _>
+ /_/ |_|___|___\/_/\_\==\__\|_|\_\ \__/ |_|/___/|___\
+
+
+
+
+
+
+
+
+
+
+
+
+((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+Travis Gee () tgee@superior.carleton.ca ()
+           ()                           ()        ()()()()
+           ()                           ()              ()
+           ()                           ()()()()()()()()()
+"In science, the more we know the more extensive the
+contact with nescience."  -Spencer
+
+
+
+
+
+
+
+
+
+
+
+
+     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.
+`._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'
+       __
+      /__\                    Dar Steckelberg
+     // //  ____    ___       Computer Science Student
+    // //  /__ /   / __\      South Dakota School of Mines & Technology
+   //_//  //_/ \  / /         dsteckel@silver.sdsmt.edu
+  /___/  /___/\| /_/
+     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.
+`._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      ______
++-------------------/\----------------\    /---------------------------+
+|  Gijs van Kersen /  \  Alcatel Bell  \  /  gker@sebb.bel.alcatel.be  |
++-----------------/____\----------------\/-----------------------------+
+
+
+
+
+
+
+
+
+
+
+
+    \\   ( )   No Bullshit!   | Email: B.A.McCauley@bham.ac.uk
+ .  _\\__[oo       from       | Phones: +44 121 471 3789 (home)
+.__/  \\ /\@  /~)  /~[   /\/[ |  +44 121 627 2171 (voice) 2175 (fax)
+.  l___\\    /~~) /~~[  /   [ | PGP-fp: D7 03 2A 4B D8 3A 05 37
+ # ll  l\\  ~~~~ ~   ~ ~    ~ |         A1 93 FE EA BE E3 2A 91
+###LL  LL\\ (Brian McCauley)  | More: finger bam@wcl-rs.bham.ac.uk
+
+
+
+
+
+
+
+
+
+
+
+
+ ____                  _                          } Bruce Laplante
+  |  )               -+-'       I        _|_      { Programmer of Computers
+  |-<  _      _  _    |  _   _  N  _   _  |  _    }-=-=-=-=-=-=-=-=-=-=-=-=-
+  |  )/ L(_)_(__(/__ _|.(_(_|_)_X_(_(_| )_+_(/__  { "I think, therefore
+ ----               (_/\__  |                     }   I drink.  You folla'?"
+
+
+
+
+
+
+
+
+
+
+
+
+-- no sig necessary --
+       Aza
+
+
+
+
+
+
+
+
+
+
+
+
+
+---=[ Quinten Uijldert, quintenu@htsa.hva.nl ]=--------------------------------
+---=[ Hogeschool van Amsterdam, TMF-HIO      ]=--------------------------------
+---=[ Smile, tomorrow will be worse          ]=--------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************
+*                                                                          *
+*  ____  _  _      _     ___  _____  ____  _  _      ____  ___ __  __  _   *
+* | ___)| \| |    | |   (   )(_   _)| ___)| \| |    | __ \(   )\ \/ / | |  *
+* | _)_ | \\ |    | |__  | |   | |  | _)_ | \\ |    |  __/ | |  )  (  |_|  *
+* |____)|_|\_|    |____)(___)  |_|  |____)|_|\_|    |_|   (___)/_/\_\ (_)  *
+*                                                                          *
+*                                                                          *
+****************************************************************************
+* Addr   Erik Brannlund            | Voice  : +46 (0)910-517 00            *
+*        Erisoft AB                | Direct : +46 (0)910-517 88            *
+*        Box 2005                  | Email  : Erik.Brannlund@sa.erisoft.se *
+*        S-931 50  Skelleftea      | Fax    : +46 (0)910-358 17            *
+*                                                                          *
+****************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\|/ ____ \|/===============================================================
+ @~/ ,. \~@ = Dirk Keunecke              |                                =
+/_( \__/ )_\= dk@panda.rhein-main.de (H) | Mittlerer Hasenpfad 50         =
+   \__U_/   = dk@ibzffm.de (W)           | 60598 Frankfurt/Main - Germany =
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+  /-\                /|  /          _          "People who think they know
+ /__ } _      |     / | /  _     * |_  |_|      everything really piss off
+/     (_| |_| |_   /  |/  (_| \/ | __| | |      those of us who do."
+
+                                                            pnavish@netcom.com
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+"One day while princess Mitzi was   *     *     *****  *****  *****  *****
+ pulling Herman around the lawn,    **   **    *   *  *   *  *      *
+ she spotted a flash of gold        * * * *   *   *  *   *  *****  *****
+ beneath a weeping willow tree and  *  *  *  *   *  *   *      *  *
+ there, sure enough was a prince"   *     * *****  *****  *****  *****
+-------------------------csunx@csv.warwick.ac.uk-------------------------------
+-------------------------moose@dcs.warwick.ac.uk-------------------------------
+-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+*************************************************************************
+*                                       *                               *
+* glass@rdyne.rockwell.com              * "Education is always painful; *
+* Jim Glass                             *  Pain is always educational." *
+* Member of Technical Staff             *                               *
+* Systems Architecture                  *********************************
+* Rocketdyne Division                   *                               *
+* Rockwell International                * The opinions expressed here   *
+* Mail Stop IB-59                       * are my own and do not reflect *
+* 6633 Canoga Avenue                    * those of my employer!         *
+* P.O. Box 7922                         *                               *
+* Canoga Park, CA  91309-7922           * (But then, you knew that!)    *
+* (818) 586-0375                        *                               *
+*                                       *                               *
+*************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+__________________________________________________________________________
+
+ Peter L. Buschman               ___
+                                (/__)__    "DCL, because Chicks Dig it."
+   97buschmanp@matt.alma.edu    /   |__)
+   plbuschm@nyx.cs.du.edu           |__)
+__________________________________________________________________________
+
+ Iota Alpha Chapter - Phi Mu Alpha Sinfonia - Alma College - Alma Mi
+__________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+                 _   ____       __  __   ___
+                (_) / ___| ___ |  \/  | / _ \  _ __
+                | || |    / _ \| |\/| || |_| || '_ \
+                | || |___ | __/| |  | ||  _  || | | |
+                |_| \____|\___||_|  |_||_| |_||_| |_|
+
+
+                                    ,,,
+                                   (o o)
+    ---------------------------oOO--(_)--OOo----------------------------
+
+    *~~~* iCeMAn *~~~~~~~~~~~~~~~* E-Mail: ebchenn@ebc.ericsson.se *~~~*
+
+    --------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+ **  **    Nancy McGough             |  "No one suspects the
+*  **  *   Infinite Ink              |   days to be gods."
+ **  **    ftp://ftp.ii.com/pub/ii   |                     -Emerson
+
+
+
+
+
+
+
+
+
+
+
+
+|------------------------------------------------------------------------|
+| Andrew Dare                    |                   | |                 |
+| Chem Eng                       |                 | | | |               |
+| Curtin University, WA          |         @       | | | |               |
+| Australia                      |         Q~  *     /_/                 |
+|                                |         L\_     Carn the Dockers!!!   |
+|------------------------------------------------------------------------|
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------ |\      _,,,--,,_  ,) ----------
+Cat Stanton                          /,`.-'`'   -,  ;-;;'
+cat@rumpleteazer.feline.org         |,4-  ) )-,_ ) /\
+cat@lemming.uu.net --------------- '---''(_/--' (_/-' ---------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+............................................................................
+:   Sarah Plummer || splummer@abacus.bates.edu  || New!  Streamlined .sig! :
+:..........................................................................:
+: Duct Tape is like the Force.  It has a light side and a dark side, and it:
+: holds the universe together.  The only difference is that "May The Force :
+: be with you" sounds a lot nicer than "May you be covered in duct tape."  :
+:..........................................................................:
+
+
+
+
+
+
+
+
+
+
+
+
++--------------------------+---------------------------+
+|  Mike Marcelais          | mrmarcel@eos.ncsu.edu     |
+|  The Moonstone Dragon    | Fourth Bryan Productions  |
+|      -==(UDIC)==-        | Author of ChrHack 2.3     |
++------------------Signature-Virus-Shield-v1.0-enabled-+
+
+
+
+
+
+
+
+
+
+
+
+
+     ( (_) (_) )
+     |   (_)   |
+     \  (___)  /
+       \_____/    That's me. I love me.
+
+Disclamer : If I offended anybody, it's only because I am perfect!!!
+| Soteri Panagou ( g94p5233@warthog.ru.ac.za )
+| Rhodes University
+| South Africa
+
+
+
+
+
+
+
+
+
+
+
+
+   __ __ __ __ _____
++-|  |  |  |  |  ___|-- Stefan Verstege  (BP) -\//\\//\\/-------------------+
+| |     |     |___  |  Haarlem Hardcore Source  / //\\ \      hhs@xs4all.nl |
+| |  |  |  |  |     |  HHS crew/PR/Net contact  \ \\// /  v922320@si.hhs.nl |
++-|__|__|__|__|____/---------------------------/\\//\\//\-------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  Joni.Hietala@proffa.cc.tut.fi
+                  -----------------------------
+                          "Muumi Rules"
+
+
+
+
+
+
+
+
+
+
+
+
+         _____        ||                                ||
+------ /`  :  '-.-----))--------------------------------((-----------------
+      / __  "    \
+     <___ \       |  Bruce Laplante  --Programmer of the Damned--
+      )00) \  _.. |  State of Maine    Division of Data Processing
+     / \/  |./ ; ;| _______________________________________________
+    <:      \'\__/
+     }   \  |        "For every distinct way of life,
+    /   /'} )         there exists an appropriate demise."  --Unknown
+   (((((   ~
+--- VVVV -------------))--------------------------------((-----------------
+                      ||                                ||
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                         _@_/~\_O_/~
+                                                       /  }}   ( )
+                                                      ~   \\   //
+                                                          //   \\
+                                                          ~~   ~~
+                                                       "Let's Dance!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****************************************************    o======o
+* Eric Herbert                                      *    |    \\|
+* ---- -------                                      *  < <<<\  ||
+* eth00@lvld.hp.com                                 *  (0-0-)  ||
+*                                                   *   \^_/   ||
+* Creator of fine Spaghetti Code and                *   /()\   ||
+* Elusive Documentation. If you don't understand    *   (  )  /||\
+* it- why you probably weren't there when I wrote   *    ||   o***
+* it, were you??                                    *    //  /||||\
+*****************************************************       ||||||||
+
+
+
+
+
+
+
+
+
+
+
+
+   _-_-_-_-_-_-_-_-_-_
+_-        Iyan       -_            "Don't believe everything you believe"
+ -_  iyan@netcom.com  _-..:":..:":..:":..:":..:":..:":..:":..:":..:":..:":..:".
+   -_-_-_-_-_-_-_-_-_-
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ___. .'*''.*        Petri Pihko     kempmp@              Ex oriente lux,
+!___.'* '.'*' ' .    Pihatie 15 C     phoenix.oulu.fi   ex occidente luxus.
+       ' *' .* '*    FIN-90650 OULU  kempmp@
+          *'  *  .*  FINLAND          cc.oulu.fi        - Stanislaw Jerzy Lec
+
+
+
+
+
+
+
+
+
+
+
+
+ .........................................................
+ : John Lynn - Rohm and Haas Company - (215) 592-2378    :
+ : madxjl@rohvm1.rohmhaas.com                            :
+ '.......................................................'
+                Life's too short for C++
+
+
+
+
+
+
+
+
+
+
+
+
+* Tony Shan            |    $$$$$   |                                      *
+* cshan@clemson.edu    |    \^.^/   |      Men are becoming the tools      *
+* Tel 1-(803) 653-8450 |     \-/    |         of their own tools.          *
+* Fax 1-(803) 656-5973 | Go Tigers! |                                      *
+
+
+
+
+
+
+
+
+
+
+
+
+,-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-,
+| Richard Rog           |  e-mail: rrog@uoguelph.ca              ___   __   |
+| University of Guelph  | ^[[32m--<-^[[31m@^[[0m    ,,,          \  `-' .\  |
+| Guelph, Ontario       |  # include <RockNRoll>   {:::|||||||||||====]   | |
+| P.O. 3720,    N1G 2V7 |  Dept. of Psychology      ```          /__.-.__/  |
+`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-'
+
+
+
+
+
+
+
+
+
+
+
+
+|-------------------------------------------|
+| /******  /******  /*****\ ******* ******* |
+| |        |        |     |    |       |    |
+| \*****\  |        |     |    |       |    |
+|       |  |        |     |    |       |    |
+| ******/  \******  \*****/    |       |    |
+|-------------------------------------------|
+  Scott Ohmacht     e-mail address F005@LEHIGH.EDU
+
+
+
+
+
+
+
+
+
+
+
+
+  Andrew B. Consor <<George Mason University>> Fairfax,VA ACONSOR@GMU.EDU
+-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)-)
+This SIG is dedicated to the memory of Richard "Tricky Dick" Nixon
+Conservative-Republicans unite as one against the evil Liberals
+Right to Life - It's a baby not a choice
+NRA - Fight the power
+Ollie for Senate!
+"Sick and Getting Sicker" - Bob Grant WABC NY 770
+-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(-(
+*******Tell me I forget, Show me I remember, Involve me - I understand*******
+
+
+
+
+
+
+
+
+
+
+
+Another random extraction from the mental bit stream of...
+Byron A. Jeff - PhD student operating in parallel - And Using Linux!
+Georgia Tech, Atlanta GA 30332   Internet: byron@cc.gatech.edu
+
+
+
+
+
+
+
+
+
+
+
+
+      _____________________________________________________________________
+     / Ano Rutanen          / ano@stekt.oulu.fi  / Onni potkii ...munille./
+    / Yliopistokatu 26B110 / ano@phoenix.oulu.fi/ Lucky strikes ..to the /
+   / 90570 OULU           /--------------------*  balls.                /
+  /_FINLAND______________/_+358-(9)81-5563412_/_____________-A.Rutanen_/
+
+
+
+
+
+
+
+
+
+
+
+
+
+                .odbo.
+            .od88888888bo.                  Paul Foerster
+        .od8888888888888888bo.
+    .od888888888888888888888888bo.          paul@heino.ibh.rwth-aachen.de
+ od88888888888888888888888888888888bo
+  `~888888888888888888888888888888~'
+     `~888888888888888888888888~'|          "Beam me up Scotty, there's no
+        `~888888888888888888~'   |              intelligent life down here!"
+          |`~888888888888~'|     |
+          \   `~888888~'   /     A
+           `-_   `~~'   _-'      H
+              `--____--'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+  vann jackson                                 wwwwwwwww
+  nav/vis group                                | ~~~~~ |
+  vannj@ssd.fsi.com                            | _   _ |
+  voice: 918-251-0500 x578                    n|(.) (.)|n
+--------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+          __o                     __o                                     __o
+        _`\<,_                  _`\<,_                                  _`\<,_
+       (*)/ (*)                (*)/ (*)                                (*)/ (*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+| Stuart Werbner    Motorola Computer Group                        Austin, TX |
+| DISCLAIMER:  Opinions expressed herein are my own.                          |
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+Huw Leonard
+Speaking only for himself, unless you happen to agree with him
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------
+who needs .sigs?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       ^^
+ir. H.J.H.N. Kenter                   oo )         kenter@cs.utwente.nl
+University of Twente                 =x=  \        tel. +31 53 893747
+Tele-Informatics & Open Systems        |   \       tfx. +31 53 333815
+P.O. Box 217   7500 AE Enschede       /|__  \
+The Netherlands                      (____)_/
+
+Nobody can be exactly like me.  Sometimes even I have trouble doing
+it.
+                -- Tallulah Bankhead
+
+
+
+
+
+
+
+
+
+
+
+
+ --------------------------------------------------------------------
+| Alan Stewart                >-O-<           Electronics Engineer   |
+| Code 221                  ~       ~         SHF SATCOM             |
+| NISE West                ~         ~        Software Support       |
+| Bldg 509              ( ~           ~ )     U.S. Navy              |
+| Vallejo, CA 94592   __|___         ___|__   Mare Island            |
+| (707)646-8931       \____/         \____/   astewart@mare.nosc.mil |
+ ------------------WWWWWWWWWWWWWWWWWWWWWWWWWW------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------/\/-----------------------------/\/----------------------------
+Tony Howat   :   thowat@xargle.demon.co.uk   :   Southport, Merseyside U.K.
+------------/\/-----------------------------/\/----------------------------
+    Democracy is four wolves and a lamb voting on what to have for lunch
+---------------------------------------------------------------------------
+(v2.1) GS/CS d--- -d+ H>+ S-:- g+ p? au.>-- a-- w++ v-(?)(*) c++++ W---
+       -po+(---) Y-- t--- 5-- R- tv--- B+ D+ B? e* u-(*) h. f R--- n---- N*
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ __________________________________
+| | | | | | | | | | | | | | | | | | | | | smryan@netcom.com     PO Box 1563
+| | | | | | |G|A|T|E| |1| | | | | | | | |             Cupertino, California
+|E|e|t|i|i|n| |s| |a|e|2| | | | | | | | |_(xxx)xxx-xxxx_______________95013
+|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|____(coming soon: a new signature)
+
+
+
+
+
+
+
+
+
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*   *   *   *   *   *   tflynn@iastate.edu    *   *   *   *   *   *   *   @
+Tim Flynn, Larch 1349 Cunningham, Ames, Iowa 50013-0008  ph.(515)-294-9022@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+
+
+
+
+
+
+
+=================
+| Henri Fortuin,|   <<< Don't worry, I haven't lost my mind;          >>>
+| Cape Town,    |   <<<                                               >>>
+| South Africa  |   <<< It's backed up on tape, somewhere .....       >>>
+=================   <<<                                               >>>
+
+
+
+
+
+
+
+
+
+
+
+
+Darkness within darkness.                            -Tao
+                                                      -Te
+    The Gateway to all understanding.                -Ching
+
+"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^
+      |      Paul|Stadler      |           |  ps5i+@andrew.cmu.edu   | *W G*
+      |          |         (412) 862-3261  |            |            | * F *
+_,-*"^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,___,-*"^^"*-,__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jonny boy
+--
+ /     \
+/  /~\  \
+I=I O I=I   "I have you now..." --Darth Vader
+\  \_/  /
+ \     /
+
+(((((((((((((((((((((((((((((THRAWN@NETCOM.COM)))))))))))))))))))))))))))))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         ___________    _____    ______
+        /          /|  /     \  |\     \
+       /    ______/ | /_______\ | \     \
+      /    /__    | /|_________| \ \     \
+     /    ___/|___|//           \ \ \     \
+    /    /|  ||    /             \ \ \     \
+   /    / |__|/   /               \ \ \     \______
+  /    /  /      /                 \ \ \            \
+ /____/  /      /___________________\ \ \ ___________\
+|     | /      |                     | \ |           |
+|_____|/       |_____________________|  \|___________|
+               fil@alcatel.demon.co.uk
+
+Guile <to Chun Li>: "Go home and be a family man"
+
+
+
+
+
+
+
+
+
+
+
+
+
+o----------------------------------------------------------------------o
+|"I might be getting older, but I refuse to grow up!",DJ's Pub Montreal|
+| Uwe Aicheler              \\|//            Tel: {+49|0}-7031-14-3810 |
+| Hewlett-Packard, Germany  (o o)   E-mail: pract_rs@bmdqa2.bbn.hp.com |
+o------------------------ooO-(_)-Ooo-----------------------------------o
+                          \  | |  /
+                           \/| |\/
+                             ===
+                            /   \
+                            |   |
+                           _|   |_
+
+
+
+
+
+
+
+
+
+
+
+
+______________________________________________________________________________
+_____S__C__A__T__T___________                                           ______
+______Tony Scarola___________   "Only a life lived for others is not    ______
+___US.ARMY,HAWAII,USA________        worth living." -Albert Einstein    ______
+_____Hawaii Online___________                                           ______
+___Honolulu, Hawaii___________________________________________________________
+______________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+       +-+------------------------+-----------------------------+-+
+       |o|____Michael_A._Smith____|____msmith@netaxs.com________|o|
+       | |____Btech_3056_Muse!____|__btech.netaxs.com_3056______| |
+       |o|____21st_Century_Ltd.___|______(215)_630-9477_________|o|
+       \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;-)-Umar
+                         ^----^
+                         (-  0)
+______________________oo0-(..)-0oo_____________khan@spdcc.com____________
+                            U     -------------shed@DGS.dgsys.com--------
+"I think so, Brain, but where are we going to find an open tattoo parlor
+at this time of night?" - Pinky
+=========================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+               \||/                                          \||/
+               |  @___oo      Mark Brooke-Sumner        oo___@  |
+     /\  /\   / (__,,,,|          Alias: Kram           |,,,,__) \   /\  /\
+    ) /^\) ^\/ _)                                             (_ \/^ (/^\ (
+    )   /^\/   _)     Please E-Mail answers or queries to     (_   \/^\   (
+    )   _ /  / _)          g94b9371@warthog.ru.ac.za          (_ \  \ _   (
+ /\ )/\/ ||  | )_)                                           (_( |  || \/\( /\
+<  >     |(,,) )__)    "If there are so many cute babies    (__( (..)|     <  >
+ ||     /    \)___)\    in the world then why are there    /(___(/    \     ||
+ | \___(      )___) )___     so many ugly people"       __( (___(      )___/ |
+  \_____(_______;;; __;;;                              :::__ :::_______)_____/
+
+
+
+
+
+
+
+
+
+
+
+
+
+* -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- *
+|     /|         /\                     |                  ,--,       |
+*    | |        |  |   o    /\|         *            _ ___/ /\|       *
+|    | | |  |   |  |   |   |  |         |        ,:`( )__,  ) ~       |
+*     \|  \/ \_/ \/ \_/ \_/ \/ \_       *       //  //   '--;         *
+|     /|                                |       '   \     | ^         |
+*    | |  Julia Thaxter                 *            ^    ^           *
+|     \|  S2200015@nickel.laurentian.ca |                             |
+* -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- * -- *
+
+
+
+
+
+
+
+
+
+
+
+
+
+\/ \/ \/  mark e. huss     \/ \/ \/
+/\ /\ /\  meh@bis.adp.com  /\ /\ /\
+
+
+
+
+
+
+
+
+
+
+
+
+----- DO NOT CROSS THE DOTTED LINE---------------------------------------
+               ______
+            _-' .   .`-_
+        |/ /  .. . '   .\ \|         Data:  Sir, it appears to be
+       |/ /            ..\ \|               another Peeping Tom.
+     \|/ |: .   ._|_ .. . | \|/    Picard:  A what?
+      \/ |   _|_ .| . .:  | \/       Data:  A snoop, a busy body,
+     \ / |.   |  .  .    .| \ /             a nosy person, a...
+      \||| .  . .  _|_   .|||/     Picard:  Thank Mr Data, that will
+     \__| \  . :.  .|.  ./ |__/             be enough.
+       __| \_  .    .. _/ |__        Data:  Yes Sir.
+        __|  `-______-'  |__
+           -,____  ____,-                 lam@midnight.eielson.af.mil
+             ---'  `---                Lori A. Martin - Team OS/2 Alaska
+    UNITED FEDERATION OF PLANETS      TSW OS/2 BBS  907-372-1624  28.8bps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           _|_
+                                         "~~~~~"
+                                         (o) (o)
+                             =======uUU===(. .)===UUu=======
+    =========================| Email: bkna@top.cis.syr.edu |=========================
+    \ Bo-kyun Na             | Email: bkna@cat.syr.edu     | Bo-kyun Na             /
+    / CASE Center, CST Bld.  | Phone: (315) 443-3771       | HamBag comp&comm.      \
+    \ Syracuse University    | FAX  : (315) 443-4745       | 107 Roney LN #22       /
+    / Syracuse, NY 13210 USA |=============================| Syracuse, NY 13210 USA \
+    ==========================\         /  |  |  \        /==========================
+                                       |uuuU  Uuuu|
+
+
+--
+
+                                           _|_
+                                         "~~~~~"
+                                         (o) (o)
+
+
+
+
+
+
+
+
+
+
+
+
+                                   ,        ,
+   Chief weapons of UNIX:         /(        )`
+    fear, surprise, and           \ \___   / |
+    ruthless efficiency.          /- _  `-/  '
+                                 (/\/ \ \   /\
+                                 / /   | `    \   Peter Zuge
+                                 O O   ) /    |   Gopher Administrator
+                                 `-^--'`<     '   Information Technology
+                     TM         (_.)  _  )   /
+  |  | |\  | ~|~ \ /             `.___/`    /     send e-mail to:
+  |  | | \ |  |   X                `-----' /      pzuge@worf.uwsp.edu
+  `__| |  \| _|_ / \  <----.     __ / __   \
+                      <----|====O)))==) \) /====
+                      <----'    `--' `.__,' \
+                                   |        |
+                                    \       /
+                               ______( (_  / \______
+                             ,'  ,-----'   |        \
+                             `--{__________)        \/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------#
+|  //\\  Jim McPherson         | someone@s96120.u96.stevens-tech.edu     |
+| <<  >> Business Manger, WEXP | jmcphers@menger.eecs.stevens-tech.edu   |
+|  \\//  IDC Rep., Palmer 3rd. | jmcphers@vaxc.stevens-tech.edu          |
+#>----------------------------------------------------------------------<#
+|               "Insanity is necessary for understanding."               |
+#>----------------------------------------------------------------------<#
+| GCS/MU d?>! H-() s+:++ g-(+)>! p1+ !au>- a-- w+ v(-)(?)@>--- C++(+++)  |
+|       UL++++S+U+X(-) P? L++>+++ 3- E- N(-) K- W(---)>! M-- V-(--)      |
+|       -po+ Y+ t+ !5 j R(+) G'''>'''' !tv() b+ D+ B-- e+(++)>+++        |
+|       u(-)(**) h()@ f+@ r++ n- y+(**)                                  |
+#------------------------------------------------------------------------#
+
+
+
+
+
+
+
+
+
+
+
+
+  Tony Nugent  Griffith University, Brisbane, Queensland, Australia
+  // \\          // \\  // \\          // \\  // \\  // \\          // \\  //
+ \': | \\      // | :,\\': | \\      // | :,\\': | \': | \\      // | :,\\': |
+  \\ | | \\  // | | //  \\ | | \\  // | | //  \\ | |\\ | | \\  // | | //  \\ |
+    \\ | :,\\': | //      \\ | :,\\': | //      \\ | \\ | :,\\': | //      \\
+      \\ //  \\ //          \\ //  \\ //          \\  \\ //  \\ //          \\
+               T.Nugent@sct.gu.edu.au  tnugent@gucis.cit.gu.edu.au
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                         Jamie
+                                                         jmgc@lehigh.edu
+
+
+    sig being reworked. till then:
+
+
+     PPPPP     I    SSSSSS      SSSSSS           OOOOO     FFFFFFFF   FFFFFFFF
+    PPPPPPP   II   SSSSSSSS    SSSSSSSS         OOOOOOO   FFFFFFFF   FFFFFFFF
+   PP   PPPP III  SS     SSS  SS     SSS       OO    OOO FFF        FFF
+  PPP    PPP III SSS     SS  SSS     SS       OOO    OOO FFF        FFF
+  PPP    PP  III  SS         SSS              OOO    OOO FFFFFFF    FFFFFFF
+  PPP   PP   III   SSSSSSS    SSSSSSSS        OOO    OOO FFFFFF     FFFFFF
+  PPPPPPP    III    SSSSSSS    SSSSSSSS       OOO    OOO FFF        FFF
+  PPPPPP     III         SSS         SSS      OOO    OOO FFF        FFF
+  PPP        III SS      SSS SS      SSS      OOO    OOO FFF        FFF
+  PPP        III  SS     SSS  SS     SS       OOO    OO  FFF        FFF
+  PPP        II    SSSSSSSS    SSSSSSS         OOOOOOO   FF         FFF
+  PPP        I      SSSSS       SSSSS           OOOOO    F          FFF
+  PP                                                                FF
+  P                                                                 F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------
+  __________________________     |  Steve Thompson
+ (__ |_ _|_  _  _ _ __  _  :)    |  SysAdmin@Work:(@Play:)
+ ___)|_)|| |(_)| | ||_)/_)       |  sbthomps@wrdis01.robins.af.mil
+--------------------|--------------------------------------------------
+ The person who says it cannot be done should
+  not interrupt the person who is doing it ;)    -- Chinese Proverb
+------------------------------------------------------------------------
