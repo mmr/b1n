@@ -1,0 +1,10 @@
+*default host=cvsup2.br.freebsd.org
+*default base=/var
+*default prefix=/usr
+*default release=cvs 
+*default delete use-rel-suffix
+*default compress
+
+src-all tag=RELENG_5_3
+doc-all tag=.
+ports-all tag=.

@@ -1,0 +1,223 @@
+%
+% $Id: knuckles-doc.tex,v 1.3 2006/03/27 05:09:15 mmr Exp $
+% mmr <mmr@b1n.org> 
+% Started: Mon Nov 22 17:25:17 BRST 2004
+%
+
+\documentclass{report}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[
+  a4paper,
+  tmargin=.5in,
+  bmargin=1in,
+  lmargin=1in,
+  rmargin=1in,
+  headheight=0in,
+  headsep=0in
+]{geometry}
+\usepackage[
+  a4paper=true,
+  pdftitle=Documentacao de Projeto,
+  pdfsubject=Documentacao de Projeto,
+  pdfauthor=Marcio Ribeiro,
+  pdfcreator=Marcio Ribeiro,
+  pdftex=true,
+  pdfnewwindow=true,
+  bookmarksopen=true,
+  bookmarksnumbered=true,
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue
+]{hyperref}
+%\usepackage{multicol}
+\usepackage{fancyvrb}
+
+\selectlanguage{brazil}
+
+\parindent=0pt
+\parskip=2pt
+
+\title{Name Server 1 - KNUCKLES}
+\author{Marcio Ribeiro}
+\date{Novembro, 2004}
+%\date{\today}
+
+% My Commands and Envs
+\newcommand{\mmrInclude}[1]{
+  \VerbatimInput[frame=single,fontsize=\scriptsize,firstnumber=1,numbers=left]{#1}
+}
+
+% Start
+\begin{document}
+\maketitle
+
+%\addtocontents{toc}{\protect\begin{multicols}{2}}
+\tableofcontents
+
+\chapter{Introdução}
+Esse documento descreve a montagem e configuração do servidor de nomes primário Knuckles, por \href{http://cv.b1n.org/}{Marcio Ribeiro}, para a empresa \href{http://www.gvi.com.br/}{GlobalView Internet Services}.\\
+Relatando recursos de hardware e software utilizados, dificuldades encontradas, decisões e personalizações feitas para alcançar as soluções da melhor forma possível, com excelentes estabilidade, performance e segurança.
+
+\chapter{Montagem}
+\section{Hardware}
+\begin{tabular}{|p{4cm}|p{11cm}|}
+  \hline \textbf{CPU}     & Intel Pentium II Xeon/Celeron 400MHz\\
+  \hline \textbf{Memória} & 128Mb RAM\\
+  \hline \textbf{HD}      & 1 HD Maxtor 2.747Mb (/dev/ad0*)\\
+  \hline \textbf{Rede}    & 1 interface Ethernet Intel EEPro100 (/dev/net/fxp0)\\
+  \hline
+\end{tabular}
+
+\section{Software}
+\begin{tabular}{|p{4cm}|p{11cm}|}
+  \hline \textbf{Sistema Operacional} & FreeBSD 5.3\\
+  \hline \textbf{Servidor de Nomes}   & BIND 9.3.0\\
+  \hline \textbf{Firewall}            & OpenBSD PF (Packet Filter)\\
+  \hline \textbf{Outros}              & sudo 1.6.8p1, vim lite-6.3.16, cvsup 16.1h\\
+  \hline
+\end{tabular}
+
+\section{Instalação}
+O Sistema Operacional foi instalado a partir de CD-ROM, usando modo Custom, escolhendo pacote por pacote o mínimo necessário para o sistema funcionar bem.
+
+\subsection{Particionamento do Disco}
+O disco foi particionado da seguinte forma:\\
+\begin{tabular}{|p{3.6cm}|p{3.6cm}|p{3.6cm}|p{3.6cm}|}
+  \hline\textbf{Dispositivo}& \textbf{Montagem}& \textbf{FS}& \textbf{Tamanho}\\
+  \hline ad0s1a  & /     & UFS2   & 256Mb\\
+  \hline ad0s1b  & swap  & swap   & 256Mb\\
+  \hline ad0s1d  & /var  & UFS2+S & 256Mb\\
+  \hline ad0s1e  & /tmp  & UFS2+S & 256Mb\\
+  \hline ad0s1f  & /usr  & UFS2+S & 1.720Mb\\
+  \hline
+\end{tabular}
+
+\subsection{Atualização}
+Logo após instalado, o sistema teve as árvores de fontes (/usr/src) e ports (/usr/ports) atualizadas usando o software cvsup. O arquivo utilizado para a atualização foi o /etc/sup/cvs-supfile:\\
+\mmrInclude{conf/cvs-supfile}
+
+Assim que atualizado, o sistema foi totalmente recompilado ({\itshape make buildworld \&\& make kernel \&\& make installworld}), e teve um kernel personalizado (somente com as opções que o sistema precisa), compilado, levando em conta performance, estabilidade e segurança. O arquivo usado para gerar esse kernel é o /usr/src/sys/i386/conf/KNUCKLES e segue logo abaixo:
+\mmrInclude{conf/KNUCKLES}
+
+\chapter{Configuração}
+  Esse capítulo descreve as alterações feitas na configuração padrão do sistema. 
+
+\section{/etc/rc.conf}
+O arquivo /etc/rc.conf é o principal arquivo para configuração no FreeBSD. Nele são feitas as configurações de interfaces de rede e inicialização de serviços. Esse arquivo é lido na inicialização do sistema.
+
+Segue abaixo o arquivo rc.conf utilizado:
+\mmrInclude{conf/rc.conf}
+
+Observações sobre segurança:\\
+\begin{itemize}
+  \item O Named (servidor de nomes) está configurado para rodar com seu próprio usuário (bind) e preso à um ambiente virtual (chrooted) em /var/named.
+  \item Há 5 níveis de segurança, de -1 a 3. Sendo que o nível 1, utilizado na configuração, já é bastante seguro, implicando em uma série de fatores (para mais informações, ler página de manual do init, man 8 init).
+  \item log\_in\_vain, quando ligado, logará em /var/log/messages, tentativas de comunicação à portas TCP/UDP que não estejam abertas.
+  \item tcp\_drop\_synfin, quando ligado, ignorará pacotes TCP que tenham as flags SYN (pedido de sincronia, geralmente enviada no início de uma conexão) e FIN (pedido de término, geralmente enviada no final de uma conexão) configuradas ao mesmo tempo, impossibilitando, por exemplo, que o Sistema Operacional seja detectado via OS Fingerprint por uma ferramenta como Nmap.
+\end{itemize}
+
+\section{Shell}
+A shell BASH (2.05b) foi instalada e configurada como shell padrão para o usuário root.
+Um link simbólico foi criado de /usr/local/bin/bash para /bin/bash e incluído no arquivo /etc/shells.
+Os arquivos de /usr/share/skel foram excluídos e novos 4 arquivos foram criados, dot.bash\_logout, dot.bashrc, dot.profile e dot.vimrc.
+
+\subsection{dot.bash\_logout}
+Arquivo lido quando a shell BASH termina uma sessão.\\
+O arquivo sugerido apenas limpa a tela (/usr/bin/clear).
+
+Segue abaixo o arquivo dot.bash\_logout utilizado:
+\mmrInclude{conf/dot.bash_logout}
+
+\subsection{dot.bashrc}
+Arquivo lido quando uma shell interativa é iniciada.\\
+O arquivo sugerido configura uma série de aliases, completes e variáveis de ambiente. Como PS1, PATH, EDITOR, TERM, etc.
+
+Segue abaixo o arquivo dot.bashrc utilizado:
+\mmrInclude{conf/dot.bashrc}
+
+\subsection{dot.profile}
+Arquivo lido quando a shell é iniciada.\\
+O arquivo sugerido verifica se a Shell é BASH, se for, carrega o ~/.bashrc (se ele existir).
+
+Segue abaixo o arquivo dot.profile utilizado:
+\mmrInclude{conf/dot.profile}
+
+\section{Firewall}
+O firewall escolhido foi o OpenBSD PF, por ser mais poderoso e flexível que as outras alternativas nativas do FreeBSD (IP Firewall e IP Filter). O arquivo de configuração é o /etc/pf.conf.
+
+\subsection{/etc/pf.conf}
+Considerações:
+\begin{itemize}
+  \item O firewall configurado funciona baseado em listas de acesso, sendo que só irá aceitar conexões para suas portas privadas (PRIV\_TCP\_PORTS) que partirem de hosts que estejam na lista de endereço IP privados (PRIV\_IPS).
+  \item Foram incluídas regras para bloquear tentativas de spoofing a partir de endereços IP reservados ou não roteáveis.
+  \item O PF é um firewall stateful, colocando na tabela de estados conexões bem sucedidas, poupando novos pacotes de serem testados contra a lista de regras (economizando tempo de cpu e memória).
+\end{itemize}
+
+Segue abaixo o arquivo pf.conf utilizado:
+\mmrInclude{conf/pf.conf}
+
+\subsection{pflogd}
+Todos pacotes bloqueados são logados no arquivo /var/log/pflog, arquivo esse que é gravado no formato do programa tcpdump e pode ser lido com o comando:\\
+{\itshape tcpdump -n -e -ttt -r /var/log/pflog}\\
+Para ver os pacotes bloqueados em tempo real, basta usar o comando acima diretamente na interface de rede virtual criada pelo processo pflogd (interface automaticamente promíscua):\\
+{\itshape tcpdump -n -e -ttt -i pflog0}
+
+\subsection{/etc/newsyslog.conf}
+O newsyslog é o processo encarregado de fazer o rotacionamento dos arquivos de log. A configuração padrão é bastante conservadora e costuma deixar arquivos que podem conter informações restritas (como o {\itshape /var/log/messages}) acessível para todos usuários (modo 644). Todos modos foram alterados de forma que nenhum arquivo de log seja público, somente quem deve ler os arquivos de log terá como lê-los.
+
+\section{Segurança em Geral}
+\subsection{/etc/sysctl.conf}
+O sysctl controla uma série de variáveis que o sistema operacional utiliza para saber como executar suas tarefas.\\
+
+Segue abaixo o arquivo sysctl.conf utilizado:
+\mmrInclude{conf/sysctl.conf}
+
+\begin{itemize}
+  \item {\itshape security.bsd.see\_other\_uids} quando em 0 (desligado), não permite que usuários comuns (ie. não root) consigam listar processos de outros usuários.
+  \item {\itshape net.inet.tcp.blackhole} e {\itshape net.inet.udp.blackhole} quando ligados (1), instruem o kernel para ignorar tentativas de comunicação a portas TCP/UDP que não estejam abertas.
+\end{itemize}
+
+\subsection{sudo}
+O sudo permite que um comando seja executado como outro usuário, com conceito próximo ao de RBAC (Roled Based Access Control) usado em Solaris. O arquivo de configuração é o /etc/sudoers, que não deve ser editado manualmente (use o comando {\itshape visudo} como root).
+
+\subsection{/etc/ssh/sshd\_config}
+Arquivo de configuração do serviço de SSH.\\
+Alterações feitas:\\
+\begin{itemize}
+  \item {\itshape PermitRootLogin} foi desligado, não permitindo que um usuário se conecte como usuário root diretamente, precisando antes usar um usuário seu e então fazer um {\itshape sudo -s} ou {\itshape su -} (preferivelmente {\itshape sudo -s}).\\
+  \item {\itshape AllowUsers} foi incluído seguido de uma listagem específica de usuários que podem se conectar à máquina via SSH.
+\end{itemize}
+
+\subsection{/etc/crontab}
+Arquivo de configuração do cron do sistema. A configuração padrão o deixa podendo ser lido por qualquer usuário. Teve seu modo de acesso alterado para 640 (rw-r---), somente o root e membros do grupo wheel podem ler seu conteúdo.
+
+\subsection{/var/cron/allow}
+Esse arquivo trabalha em conjunto com o /var/cron/deny, sendo que a ordem é deny, allow. Se o arquivo /var/cron/deny existe, por padrão, todos usuários que não estiverem explicitamente listados nesse arquivo (/var/cron/allow) não podem ter uma tabela de cron própria. O único usuário permitido é o root.
+
+\subsection{/var/cron/deny}
+O /var/cron/deny foi criado para auto-bloquear a possibilidade de algum usuário local (que não esteja explicitamente listado no /var/cron/allow) de usar crontab.
+
+\section{Servidor de Nomes}
+O arquivo de configuração do named pode ser encontrado em /etc/namedb/named.conf-na verdade, /var/named/etc/namedb/named.conf (devido ao chroot em /var/named), o /etc/namedb é só um link simbólico para /var/named/etc/namedb.\\
+Os arquivos de zonas estão em /etc/namedb/master.
+
+\subsection{/etc/namedb/named.conf}
+Arquivo named.conf utilizado:
+\mmrInclude{conf/named.conf}
+
+\section{Considerações Gerais}
+A maioria dos arquivos de configuração estão salvos em um sistema de controle de versão bastante simples chamado RCS. É possível consultar e recuperar versões anteriores usando os comandos co (Checkout) e ci (Commit), para mais informações consulte as páginas de manual online dos comandos.
+
+\appendix
+\chapter{Referências}
+\begin{itemize}
+  \item \href{http://www.freebsd.org/}{FreeBSD}
+  \item \href{http://www.isc.org/index.pl?/sw/bind/}{BIND}
+  \item \href{http://www.benzedrine.cx/pf.html}{OpenBSD PF}
+  \item \href{http://www.courtesan.com/sudo/}{sudo}
+  \item \href{http://www.cs.purdue.edu/homes/trinkle/RCS/}{RCS}
+\end{itemize}
+
+%\addtocontents{toc}{\protect\end{multicols}}
+\end{document}
