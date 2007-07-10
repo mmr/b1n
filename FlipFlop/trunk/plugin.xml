@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="org.b1n.flipflop"
+   name="%pluginName"
+   version="1.0.0"
+   provider-name="%providerName"
+   class="org.b1n.flipflop.FlipFlopPlugin">
+
+   <runtime>
+      <library name="FlipFlop.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+   </requires>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Action Set"
+            visible="true"
+            id="org_b1n_flipflop_actionSet">
+         <action
+               label="%pluginTitle"
+               icon="%curIcon"
+               class="org.b1n.flipflop.actions.FlipFlop"
+               tooltip="%pluginTooltip"
+               toolbarPath="Normal/additions"
+               id="org.b1n.flipflop.actions.FlipFlop">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.b1n.flipflop.preferences.FlipFlopPreferencePage"
+            name="FlipFlop"
+            id="org.b1n.flipflop.preferences.FlipFlopPreferencePage"/>
+   </extension>    
+</plugin>
