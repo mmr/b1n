@@ -1,0 +1,53 @@
+/* $Id: old.css,v 1.1.1.1 2004/01/25 15:18:52 mmr Exp $ */
+/*
+cores:
+#015540
+#73aa8c
+*/
+body{margin: 0.5cm 0.5cm}
+body,td,a:link,a:visited,a:active,a:hover
+{
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap
+}
+
+h1{font-size: 20px;font-weight:bold}
+
+a:link, a:visited, a:active, a:hover{font-weight:bold}
+a:link, a:visited {color:#226644}
+a:active, a:hover {color:#66aa66}
+a.progname:link, a.progname:visited, a.progname:active, a.progname:hover{font-size: 20px}
+
+table{width:100%}
+td{background-color: #ffffff}
+
+table.extbox,table.intbox{background-color:#0d8d80}
+td.retsuccess,div.retsuccess {color: #0d800d;}
+td.retfizzles,div.retfizzles {color: #ff0000;}
+td.formitem{width:1%;font-weight:bold}
+td.box
+{
+  color: #ffffff;
+  background-color: #0d8d80;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold
+}
+table.extbox,table.intbox{background-color:#0d8d80}
+
+input,select,textarea
+{
+  color: #009933;
+  background-color: #eeffee;
+  border: 1px solid;
+  border-color: #0d8d80 solid
+}
+img{border:0;vertical-align:middle}
+
+.thin {width: 1%}
+.c{text-align:center}
+.noborder{border:0}

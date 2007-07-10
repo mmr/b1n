@@ -1,0 +1,60 @@
+<?
+// Configuration Hash
+$reg_config = array(
+  'ID' => array(
+    'reg_data'  => 'id',
+    'db'      => 'sec_id',
+    'check'   => 'none',
+    'type'    => 'none',
+    'search'  => false,
+    'select'  => false,
+    'load'    => false,
+    'mand'    => false),
+  'Delete IDs'  => array(
+    'reg_data'  => 'ids',
+    'db'    => 'none',
+    'check' => 'none',
+    'type'  => 'none',
+    'search'  => false,
+    'select'  => false,
+    'load'    => false,
+    'mand'    => false),
+  'Nome' => array(
+    'reg_data'  => 'sec_nome',
+    'db'    => 'sec_nome',
+    'check' => 'none',
+    'type'  => 'text',
+    'extra' => array(
+      'size'    => b1n_DEFAULT_SIZE,
+      'maxlen'  => b1n_DEFAULT_MAXLEN),
+    'search'  => true,
+    'select'  => true,
+    'load'    => true,
+    'mand'    => false),
+  'Desc' => array(
+    'reg_data'  => 'sec_desc',
+    'db'    => 'sec_desc',
+    'check' => 'none',
+    'type'  => 'text',
+    'extra' => array(
+      'size'    => b1n_DEFAULT_SIZE,
+      'maxlen'  => b1n_DEFAULT_MAXLEN),
+    'search'  => true,
+    'select'  => true,
+    'load'    => true,
+    'mand'    => false),
+  'Idioma' => array(
+    'db'    => 'idi_nome',
+    'check' => 'none',
+    'type'  => 'text',
+    'extra' => array(
+      'size'    => b1n_DEFAULT_SIZE,
+      'maxlen'  => b1n_DEFAULT_MAXLEN),
+    'search'  => true,
+    'select'  => true,
+    'load'    => true,
+    'mand'    => false));
+
+$search_config['table'] = 'view_secao';
+require(b1n_PATH_REGINC . '/list.inc.php');
+?>
