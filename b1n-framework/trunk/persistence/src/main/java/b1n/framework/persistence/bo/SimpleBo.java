@@ -28,11 +28,9 @@ package b1n.framework.persistence.bo;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.Transient;
 
@@ -40,8 +38,7 @@ import javax.persistence.Transient;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
 public class SimpleBo extends JpaBo {
     @Id
     @GeneratedValue
