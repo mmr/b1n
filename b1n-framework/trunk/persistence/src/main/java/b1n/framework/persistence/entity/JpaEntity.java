@@ -33,7 +33,7 @@ import b1n.framework.persistence.util.JpaUtil;
  */
 public abstract class JpaEntity implements Entity {
     /**
-     * Save Bo.
+     * Save entity.
      */
     public void save() {
         JpaUtil.getSession().persist(this);
@@ -41,7 +41,7 @@ public abstract class JpaEntity implements Entity {
     }
 
     /**
-     * Remove the Bo.
+     * Remove entity.
      */
     public void remove() {
         JpaUtil.getSession().remove(this);

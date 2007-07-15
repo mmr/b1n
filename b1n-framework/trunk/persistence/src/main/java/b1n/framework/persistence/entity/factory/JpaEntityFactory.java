@@ -42,11 +42,11 @@ import b1n.framework.persistence.util.JpaUtil;
  * @created Mar 28, 2007
  */
 public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFactory<E> {
-    private Class<E> boClass;
+    private Class<E> entityClass;
 
     public E createEntity() {
         try {
-            return getBoClass().newInstance();
+            return getEntityClass().newInstance();
         } catch (InstantiationException e) {
             throw new PersistenceException(e);
         } catch (IllegalAccessException e) {
@@ -55,9 +55,9 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
     }
 
     public E findById(Long id) throws EntityNotFoundException {
-        E bo = JpaUtil.getSession().find(getBoClass(), id);
+        E bo = JpaUtil.getSession().find(getEntityClass(), id);
         if (bo == null) {
-            throw new EntityNotFoundException(getBoClass(), id);
+            throw new EntityNotFoundException(getEntityClass(), id);
         }
         return bo;
     }
@@ -71,25 +71,25 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         try {
             return (E) createJpaQuery(query, params).getSingleResult();
         } catch (NoResultException e) {
-            throw new EntityNotFoundException(getBoClass(), query, e);
+            throw new EntityNotFoundException(getEntityClass(), query, e);
         }
     }
 
-    public <T> List<T> findByQuery(String query) {
+    public List<E> findByQuery(String query) {
         return findByQuery(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public <T> List<T> findByQuery(String query, Map<String, ?> params) {
+    public List<E> findByQuery(String query, Map<String, ?> params) {
         return createJpaQuery(query, params).getResultList();
     }
 
-    protected Class<E> getBoClass() {
+    protected Class<E> getEntityClass() {
         try {
-            if (boClass == null) {
-                boClass = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+            if (entityClass == null) {
+                entityClass = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
             }
-            return boClass;
+            return entityClass;
         } catch (ClassCastException e) {
             throw new PersistenceException(e);
         }
@@ -108,6 +108,6 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
     }
 
     public List<E> findAll() {
-        return findByQuery("SELECT bo FROM " + getBoClass().getName() + " AS bo");
+        return findByQuery("SELECT bo FROM " + getEntityClass().getName() + " AS bo");
     }
 }

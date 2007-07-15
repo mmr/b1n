@@ -55,8 +55,7 @@ public class FileUtilsTest extends TestCase {
         new File(BASE_DIR_NAME + File.separator + "ab" + File.separator + "aba").mkdirs();
 
         // Cria arquivos para popularem estrutura
-        final String files[] = new String[] { BASE_DIR_NAME + File.separator + "a1", BASE_DIR_NAME + File.separator + "a2",
-                BASE_DIR_NAME + File.separator + "ab" + File.separator + "ab1",
+        final String files[] = new String[] { BASE_DIR_NAME + File.separator + "a1", BASE_DIR_NAME + File.separator + "a2", BASE_DIR_NAME + File.separator + "ab" + File.separator + "ab1",
                 BASE_DIR_NAME + File.separator + "ab" + File.separator + "aba" + File.separator + "aba1" };
 
         for (String file : files) {

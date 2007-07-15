@@ -35,24 +35,24 @@ import java.io.Serializable;
  */
 public interface Entity extends Serializable {
     /**
-     * @return the Id of the Bo.
+     * @return the Id of the entity.
      */
     public Long getId();
 
     /**
-     * Sets the Id of the Bo.
+     * Sets the Id of the entity.
      * 
-     * @param id the Id of the Bo.
+     * @param id the Id of the entity.
      */
     public void setId(Long id);
 
     /**
-     * Save Bo.
+     * Save entity.
      */
     public void save();
 
     /**
-     * Remove Bo.
+     * Remove entity.
      */
     public void remove();
 }

@@ -39,7 +39,7 @@ public abstract class PersistenceTestCase extends TestCase {
     private static final Server server;
 
     static {
-    	// Start HSQLDB Server programatically
+        // Start HSQLDB Server programatically
         server = new Server();
         server.putPropertiesFromString("database.0=mem:test");
         server.putPropertiesFromString("dbname.0=test");

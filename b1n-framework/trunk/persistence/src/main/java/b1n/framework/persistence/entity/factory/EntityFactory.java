@@ -35,18 +35,18 @@ import b1n.framework.persistence.entity.EntityNotFoundException;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public interface EntityFactory<BoClass extends Entity> {
-    public BoClass createEntity();
+public interface EntityFactory<E extends Entity> {
+    public E createEntity();
 
-    public BoClass findById(Long id) throws EntityNotFoundException;
+    public E findById(Long id) throws EntityNotFoundException;
 
-    public BoClass findByQuerySingle(String query) throws EntityNotFoundException;
+    public E findByQuerySingle(String query) throws EntityNotFoundException;
 
-    public BoClass findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException;
+    public E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException;
 
-    public <T> List<T> findByQuery(String query);
+    public List<E> findByQuery(String query);
 
-    public <T> List<T> findByQuery(String query, Map<String, ?> params);
+    public List<E> findByQuery(String query, Map<String, ?> params);
 
-    public List<BoClass> findAll();
+    public List<E> findAll();
 }
