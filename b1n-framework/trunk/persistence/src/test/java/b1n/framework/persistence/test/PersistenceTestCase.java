@@ -25,91 +25,44 @@
  */
 package b1n.framework.persistence.test;
 
-import javax.persistence.EntityTransaction;
-
 import junit.framework.TestCase;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.hsqldb.Server;
 
-import b1n.framework.persistence.Entity;
 import b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class PersistenceTestCase<E extends Entity> extends TestCase {
+public abstract class PersistenceTestCase extends TestCase {
+    private static final Server server;
 
-    protected static Log log = LogFactory.getLog(PersistenceTestCase.class);
-
-    private static boolean vmLoaded;
-
-    private static TestDbServer dbServer;
-
-    private static Class<? extends PersistenceTestCase> testCaseClass;
-
-    private EntityTransaction tx;
-
-    public PersistenceTestCase(String name) {
-        super(name);
-        oncePerVm();
+    static {
+        // Start HSQLDB Server programatically
+        server = new Server();
+        server.putPropertiesFromString("database.0=mem:test");
+        server.putPropertiesFromString("dbname.0=test");
+        server.start();
     }
 
     public PersistenceTestCase() {
-        super();
-        oncePerVm();
-    }
-
-    private void oncePerVm() {
-        if (vmLoaded) {
-            return;
-        }
-        try {
-            initializeDatabase();
-        } catch (CouldNotCreateTestDbServerException e) {
-            fail(e.getMessage());
-        }
-        vmLoaded = true;
-    }
-
-    private void oncePerTestCase() {
-        if (this.getClass().equals(testCaseClass)) {
-            return;
-        }
-        log.info("Starting tests: " + this.getClass().getName());
-        initializeTestData();
-        testCaseClass = this.getClass();
-    }
-
-    private void oncePerTest() {
-        tx = JpaUtil.getSession().getTransaction();
-    }
-
-    private void initializeDatabase() throws CouldNotCreateTestDbServerException {
-        if (dbServer != null) {
-            return;
-        }
-        TestDbServerFactory serverFac = new TestDbServerFactory();
-        dbServer = serverFac.createTestDbServer();
-        dbServer.start();
-    }
-
-    protected void initializeTestData() {
         // do nothing
+    }
+
+    public PersistenceTestCase(String arg) {
+        super(arg);
     }
 
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-        oncePerTestCase();
-        oncePerTest();
+        JpaUtil.getSession();
     }
 
     @Override
     protected void tearDown() throws Exception {
         try {
-            tx.setRollbackOnly();
             JpaUtil.closeSession();
         } finally {
             super.tearDown();

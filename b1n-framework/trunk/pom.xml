@@ -17,6 +17,29 @@
           <target>1.5</target>
         </configuration>
       </plugin>
+      <!--plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <configuration>
+          <additionalBuildcommands>
+            <buildcommand>
+              com.atlassw.tools.eclipse.checkstyle.CheckstyleBuilder
+            </buildcommand>
+          </additionalBuildcommands>
+          <additionalProjectnatures>
+            <projectnature>
+              com.atlassw.tools.eclipse.checkstyle.CheckstyleNature
+            </projectnature>
+          </additionalProjectnatures>
+        </configuration>
+      </plugin-->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <updateReleaseInfo>true</updateReleaseInfo>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <modules>
