@@ -31,6 +31,6 @@ import b1n.framework.persistence.bo.HealthInsuranceBo;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HealthInsuranceBoFactory extends SimpleBoFactory<HealthInsuranceBo> {
+public class HealthInsuranceBoFactory extends SimpleEntityFactory<HealthInsuranceBo> {
     // Picture yourself in a boat on a river...
 }

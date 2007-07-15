@@ -26,12 +26,12 @@
 package b1n.framework.game.core.factory;
 
 import b1n.framework.game.core.Game;
-import b1n.framework.persistence.bo.factory.SimpleBoFactory;
+import b1n.framework.persistence.bo.factory.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-public class GameFactory extends SimpleBoFactory<Game> {
+public class GameFactory extends SimpleEntityFactory<Game> {
     // blame canada
 }

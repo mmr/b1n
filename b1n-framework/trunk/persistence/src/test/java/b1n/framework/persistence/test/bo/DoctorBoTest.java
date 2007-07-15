@@ -25,11 +25,11 @@
  */
 package b1n.framework.persistence.test.bo;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 import b1n.framework.persistence.bo.DoctorBo;
 import b1n.framework.persistence.bo.HealthInsuranceBo;
 import b1n.framework.persistence.bo.HospitalBo;
-import b1n.framework.persistence.bo.factory.BoFactoryLocator;
+import b1n.framework.persistence.bo.factory.FactoryLocator;
 import b1n.framework.persistence.bo.factory.DoctorBoFactory;
 import b1n.framework.persistence.bo.factory.HealthInsuranceBoFactory;
 import b1n.framework.persistence.bo.factory.HospitalBoFactory;
@@ -42,9 +42,9 @@ import b1n.framework.persistence.test.PersistenceTestCase;
 public class DoctorBoTest extends PersistenceTestCase {
     private static Long id;
 
-    private static final DoctorBoFactory docFac = BoFactoryLocator.findFactory(DoctorBo.class);
+    private static final DoctorBoFactory docFac = FactoryLocator.findFactory(DoctorBo.class);
 
-    private static final HospitalBoFactory hospitalFac = BoFactoryLocator.findFactory(HospitalBo.class);
+    private static final HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
 
     private static final String HOSPITAL_NAME = "Sirio Libanes";
     
@@ -71,21 +71,21 @@ public class DoctorBoTest extends PersistenceTestCase {
         assertEquals(doc.getName(), loadedBo.getName());
     }
 
-    public void testRemoveDoctor() throws BoNotFoundException {
+    public void testRemoveDoctor() throws EntityNotFoundException {
         DoctorBo doctor = docFac.getBo(id);
         doctor.getHospital().remove();
 
         try {
             docFac.getBo(id);
             fail("Could not remove Bo.");
-        } catch (BoNotFoundException e) {
+        } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }
 
     public void testHealthInsurance() throws Exception {
         // Criando Convenios
-        HealthInsuranceBoFactory hiFac = BoFactoryLocator.findFactory(HealthInsuranceBo.class);
+        HealthInsuranceBoFactory hiFac = FactoryLocator.findFactory(HealthInsuranceBo.class);
         HealthInsuranceBo hi1 = hiFac.getBo();
         hi1.setName("AMIL");
         hi1.save();

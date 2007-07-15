@@ -33,14 +33,14 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import b1n.framework.persistence.bo.SimpleBo;
+import b1n.framework.persistence.bo.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
 @Entity
-public class Game extends SimpleBo {
+public class Game extends SimpleEntity {
     @Column(nullable = false)
     private String name;
 

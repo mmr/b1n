@@ -25,14 +25,26 @@
  */
 package b1n.framework.persistence.bo;
 
-import b1n.framework.persistence.PersistenceRuntimeException;
+import b1n.framework.persistence.util.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 30, 2007
+ * @created Mar 28, 2007
  */
-public class TooManyBosFoundException extends PersistenceRuntimeException {
-    public TooManyBosFoundException(Throwable e) {
-        super(e);
+public abstract class JpaEntity implements Entity {
+    /**
+     * Save Bo.
+     */
+    public void save() {
+        JpaUtil.getSession().persist(this);
+        JpaUtil.getSession().flush();
+    }
+
+    /**
+     * Remove the Bo.
+     */
+    public void remove() {
+        JpaUtil.getSession().remove(this);
+        JpaUtil.getSession().flush();
     }
 }

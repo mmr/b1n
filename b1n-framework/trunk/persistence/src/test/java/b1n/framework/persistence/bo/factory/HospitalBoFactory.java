@@ -28,15 +28,15 @@ package b1n.framework.persistence.bo.factory;
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 import b1n.framework.persistence.bo.HospitalBo;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalBoFactory extends SimpleBoFactory<HospitalBo> {
-    public HospitalBo getByName(String name) throws BoNotFoundException {
+public class HospitalBoFactory extends SimpleEntityFactory<HospitalBo> {
+    public HospitalBo getByName(String name) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);
         return this.getBoByQuery("SELECT bo FROM HospitalBo AS bo WHERE bo.name = :name", params);

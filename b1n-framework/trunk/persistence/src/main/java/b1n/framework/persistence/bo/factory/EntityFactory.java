@@ -23,36 +23,30 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.bo.factory;
 
-import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
+import b1n.framework.persistence.bo.Entity;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 
 /**
- * Business Object.
- * 
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public interface Bo extends Serializable {
-    /**
-     * @return the Id of the Bo.
-     */
-    public Long getId();
+public interface EntityFactory<BoClass extends Entity> {
+    public BoClass getBo();
 
-    /**
-     * Sets the Id of the Bo.
-     * 
-     * @param id the Id of the Bo.
-     */
-    public void setId(Long id);
+    public BoClass getBo(Long id) throws EntityNotFoundException;
 
-    /**
-     * Save Bo.
-     */
-    public void save();
+    public BoClass getBoByQuery(String query) throws EntityNotFoundException;
 
-    /**
-     * Remove Bo.
-     */
-    public void remove();
+    public BoClass getBoByQuery(String query, Map<String, ?> params) throws EntityNotFoundException;
+
+    public <T> List<T> getByQuery(String query);
+
+    public <T> List<T> getByQuery(String query, Map<String, ?> params);
+
+    public List<BoClass> getAll();
 }

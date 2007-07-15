@@ -31,6 +31,6 @@ import b1n.framework.persistence.bo.DoctorBo;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorBoFactory extends SimpleBoFactory<DoctorBo> {
+public class DoctorBoFactory extends SimpleEntityFactory<DoctorBo> {
     // Always look at the bright side of life
 }

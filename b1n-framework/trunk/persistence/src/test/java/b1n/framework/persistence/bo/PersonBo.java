@@ -37,7 +37,7 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class PersonBo extends SimpleBo {
+public class PersonBo extends SimpleEntity {
     private String name;
 
     @Embedded

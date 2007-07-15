@@ -23,38 +23,36 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.bo;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import b1n.framework.persistence.bo.Bo;
+import java.io.Serializable;
 
 /**
+ * Business Object.
+ * 
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class BoFactoryLocator {
-    private static final Map<String, BoFactory> factoriesCache = new HashMap<String, BoFactory>();
+public interface Entity extends Serializable {
+    /**
+     * @return the Id of the Bo.
+     */
+    public Long getId();
 
-    @SuppressWarnings("unchecked")
-    public static <T extends BoFactory> T findFactory(final Class<? extends Bo> boClass) {
-        try {
-            String boClassName = boClass.getSimpleName();
-            String factoryPackage = boClass.getName().substring(0, boClass.getName().indexOf(boClassName));
-            String factoryClassName = factoryPackage + "factory." + boClassName + "Factory";
-            if (factoriesCache.containsKey(factoryClassName)) {
-                return (T) factoriesCache.get(factoryClassName);
-            }
-            T factory = (T) Class.forName(factoryClassName).newInstance();
-            factoriesCache.put(factoryClassName, factory);
-            return (T) factory;
-        } catch (InstantiationException e) {
-            throw new CouldNotFindFactoryException(e);
-        } catch (IllegalAccessException e) {
-            throw new CouldNotFindFactoryException(e);
-        } catch (ClassNotFoundException e) {
-            throw new CouldNotFindFactoryException(e);
-        }
-    }
+    /**
+     * Sets the Id of the Bo.
+     * 
+     * @param id the Id of the Bo.
+     */
+    public void setId(Long id);
+
+    /**
+     * Save Bo.
+     */
+    public void save();
+
+    /**
+     * Remove Bo.
+     */
+    public void remove();
 }

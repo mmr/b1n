@@ -23,33 +23,68 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.bo;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.Serializable;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
-import b1n.framework.persistence.bo.SimpleBo;
+import b1n.framework.persistence.PersistenceException;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public abstract class SimpleBoFactory<BoClass extends SimpleBo> extends JpaBoFactory<BoClass> {
-    public List<BoClass> getByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws BoNotFoundException {
-        Map<String, Date> params = new HashMap<String, Date>();
-        params.put("dateAddedStart", dateAddedStart);
-        params.put("dateAddedFinish", dateAddedFinish);
-        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dataAdded BETWEEN :dateAddedStart and :dateAddedFinish", params);
+public class EntityNotFoundException extends PersistenceException {
+    private Class<? extends Entity> clazz;
+
+    private String query;
+
+    private Long id;
+
+    public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
+        super("Could not find " + clazz.getName() + " with id " + id);
+        this.clazz = clazz;
+        this.id = id;
     }
 
-    public List<BoClass> getByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws BoNotFoundException {
-        Map<String, Date> params = new HashMap<String, Date>();
-        params.put("dateLastUpdatedStart", dateLastUpdatedStart);
-        params.put("dateLastUpdatedFinish", dateLastUpdatedFinish);
-        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dateLastUpdated BETWEEN :dateLastUpdatedStart and :dateLastUpdatedFinish",
-                params);
+    public EntityNotFoundException(Class<? extends Entity> clazz, Long id, Throwable cause) {
+        super("Could not find " + clazz.getName() + " with id " + id, cause);
+        this.clazz = clazz;
+        this.id = id;
+    }
+
+    public EntityNotFoundException(Class<? extends Entity> clazz, String query) {
+        super("Could not find " + clazz.getName() + " for query '" + query + "'.");
+        this.clazz = clazz;
+        this.query = query;
+    }
+
+    public EntityNotFoundException(Class<? extends Entity> clazz, String query, Throwable cause) {
+        super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
+        this.clazz = clazz;
+        this.query = query;
+    }
+
+    public Class<? extends Entity> getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Class<? extends Entity> clazz) {
+        this.clazz = clazz;
+    }
+
+    public Serializable getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

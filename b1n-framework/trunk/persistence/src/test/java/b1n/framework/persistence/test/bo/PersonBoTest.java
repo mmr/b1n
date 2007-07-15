@@ -25,9 +25,9 @@
  */
 package b1n.framework.persistence.test.bo;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 import b1n.framework.persistence.bo.PersonBo;
-import b1n.framework.persistence.bo.factory.BoFactoryLocator;
+import b1n.framework.persistence.bo.factory.FactoryLocator;
 import b1n.framework.persistence.bo.factory.PersonBoFactory;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
@@ -39,7 +39,7 @@ public class PersonBoTest extends PersistenceTestCase {
     private static Long id;
 
     public void testSaveAndLoad() throws Exception {
-        PersonBoFactory fac = BoFactoryLocator.findFactory(PersonBo.class);
+        PersonBoFactory fac = FactoryLocator.findFactory(PersonBo.class);
         PersonBo person = fac.getBo();
 
         // Salvando Bo
@@ -61,11 +61,11 @@ public class PersonBoTest extends PersistenceTestCase {
     }
 
     public void testWasRemoved() {
-        PersonBoFactory fac = BoFactoryLocator.findFactory(PersonBo.class);
+        PersonBoFactory fac = FactoryLocator.findFactory(PersonBo.class);
         try {
             fac.getBo(id);
             fail("Could not remove Bo.");
-        } catch (BoNotFoundException e) {
+        } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }

@@ -23,30 +23,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.bo;
 
-import java.util.List;
-import java.util.Map;
-
-import b1n.framework.persistence.bo.Bo;
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.PersistenceRuntimeException;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public interface BoFactory<BoClass extends Bo> {
-    public BoClass getBo();
-
-    public BoClass getBo(Long id) throws BoNotFoundException;
-
-    public BoClass getBoByQuery(String query) throws BoNotFoundException;
-
-    public BoClass getBoByQuery(String query, Map<String, ?> params) throws BoNotFoundException;
-
-    public <T> List<T> getByQuery(String query);
-
-    public <T> List<T> getByQuery(String query, Map<String, ?> params);
-
-    public List<BoClass> getAll();
+public class TooManyEntitiesFoundException extends PersistenceRuntimeException {
+    public TooManyEntitiesFoundException(Throwable e) {
+        super(e);
+    }
 }

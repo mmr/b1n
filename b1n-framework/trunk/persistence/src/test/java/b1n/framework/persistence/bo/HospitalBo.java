@@ -39,7 +39,7 @@ import javax.persistence.OneToMany;
  * @created Mar 31, 2007
  */
 @Entity
-public class HospitalBo extends SimpleBo {
+public class HospitalBo extends SimpleEntity {
     @Column(nullable = false)
     private String name;
 

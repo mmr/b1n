@@ -25,54 +25,61 @@
  */
 package b1n.framework.persistence.bo;
 
-import java.io.Serializable;
+import java.util.Date;
 
-import b1n.framework.persistence.PersistenceException;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.Transient;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class BoNotFoundException extends PersistenceException {
-    private Class<? extends Bo> clazz;
-
-    private String query;
-
+@MappedSuperclass
+public class SimpleEntity extends JpaEntity {
+    @Id
+    @GeneratedValue
     private Long id;
 
-    public BoNotFoundException(Class<? extends Bo> clazz, Long id) {
-        super("Could not find " + clazz.getName() + " with id " + id);
-        this.clazz = clazz;
-        this.id = id;
+    @Column(nullable = false)
+    private Date dateAdded;
+
+    private Date dateLastUpdated;
+
+    @Column(nullable = false)
+    private Boolean enabled;
+
+    @Transient
+    private Boolean defaultEnabledValue = Boolean.TRUE;
+
+    protected Boolean getDefaultEnabledValue() {
+        return defaultEnabledValue;
     }
 
-    public BoNotFoundException(Class<? extends Bo> clazz, Long id, Throwable cause) {
-        super("Could not find " + clazz.getName() + " with id " + id, cause);
-        this.clazz = clazz;
-        this.id = id;
+    protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
+        this.defaultEnabledValue = defaultEnabledValue;
     }
 
-    public BoNotFoundException(Class<? extends Bo> clazz, String query) {
-        super("Could not find " + clazz.getName() + " for query '" + query + "'.");
-        this.clazz = clazz;
-        this.query = query;
+    public Date getDateAdded() {
+        return dateAdded;
     }
 
-    public BoNotFoundException(Class<? extends Bo> clazz, String query, Throwable cause) {
-        super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
-        this.clazz = clazz;
-        this.query = query;
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
-    public Class<? extends Bo> getClazz() {
-        return clazz;
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
     }
 
-    public void setClazz(Class<? extends Bo> clazz) {
-        this.clazz = clazz;
+    public void setDateLastUpdated(Date dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
     }
 
-    public Serializable getId() {
+    public Long getId() {
         return id;
     }
 
@@ -80,11 +87,26 @@ public class BoNotFoundException extends PersistenceException {
         this.id = id;
     }
 
-    public String getQuery() {
-        return query;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    /**
+     * Called before saving the Bo.
+     */
+    @PrePersist
+    protected void onSave() {
+        if (dateAdded == null) {
+            dateAdded = new Date();
+        } else if (id != null && dateLastUpdated == null) {
+            dateLastUpdated = new Date();
+        }
+        if (enabled == null) {
+            enabled = getDefaultEnabledValue();
+        }
     }
 }

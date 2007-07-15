@@ -23,47 +23,38 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.bo.factory;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import b1n.framework.persistence.bo.Entity;
 
 /**
- * Health Insurance Business Object, to test <code>@ManyToMany</code> with DoctorBo.
  * @author Marcio Ribeiro (mmr)
- * @created Mar 27, 2007
+ * @created Mar 28, 2007
  */
-@Entity
-public class HealthInsuranceBo extends SimpleEntity {
-    private String name;
+public class FactoryLocator {
+    private static final Map<String, EntityFactory> factoriesCache = new HashMap<String, EntityFactory>();
 
-    @ManyToMany
-    private Set<DoctorBo> doctors = new HashSet<DoctorBo>();
-
-    public Set<DoctorBo> getDoctors() {
-        return doctors;
-    }
-
-    protected void setDoctors(Set<DoctorBo> doctors) {
-        this.doctors = doctors;
-    }
-
-    public void addDoctor(DoctorBo doctor) {
-        this.doctors.add(doctor);
-    }
-
-    public void removeDoctor(DoctorBo doctor) {
-        this.doctors.remove(doctor);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @SuppressWarnings("unchecked")
+    public static <T extends EntityFactory> T findFactory(final Class<? extends Entity> boClass) {
+        try {
+            String boClassName = boClass.getSimpleName();
+            String factoryPackage = boClass.getName().substring(0, boClass.getName().indexOf(boClassName));
+            String factoryClassName = factoryPackage + "factory." + boClassName + "Factory";
+            if (factoriesCache.containsKey(factoryClassName)) {
+                return (T) factoriesCache.get(factoryClassName);
+            }
+            T factory = (T) Class.forName(factoryClassName).newInstance();
+            factoriesCache.put(factoryClassName, factory);
+            return (T) factory;
+        } catch (InstantiationException e) {
+            throw new CouldNotFindFactoryException(e);
+        } catch (IllegalAccessException e) {
+            throw new CouldNotFindFactoryException(e);
+        } catch (ClassNotFoundException e) {
+            throw new CouldNotFindFactoryException(e);
+        }
     }
 }

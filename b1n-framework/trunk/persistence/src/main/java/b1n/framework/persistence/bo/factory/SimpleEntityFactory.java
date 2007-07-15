@@ -23,28 +23,33 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.bo.factory;
 
-import b1n.framework.persistence.util.JpaUtil;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import b1n.framework.persistence.bo.EntityNotFoundException;
+import b1n.framework.persistence.bo.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public abstract class JpaBo implements Bo {
-    /**
-     * Save Bo.
-     */
-    public void save() {
-        JpaUtil.getSession().persist(this);
-        JpaUtil.getSession().flush();
+public abstract class SimpleEntityFactory<BoClass extends SimpleEntity> extends JpaEntityFactory<BoClass> {
+    public List<BoClass> getByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
+        Map<String, Date> params = new HashMap<String, Date>();
+        params.put("dateAddedStart", dateAddedStart);
+        params.put("dateAddedFinish", dateAddedFinish);
+        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dataAdded BETWEEN :dateAddedStart and :dateAddedFinish", params);
     }
 
-    /**
-     * Remove the Bo.
-     */
-    public void remove() {
-        JpaUtil.getSession().remove(this);
-        JpaUtil.getSession().flush();
+    public List<BoClass> getByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
+        Map<String, Date> params = new HashMap<String, Date>();
+        params.put("dateLastUpdatedStart", dateLastUpdatedStart);
+        params.put("dateLastUpdatedFinish", dateLastUpdatedFinish);
+        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dateLastUpdated BETWEEN :dateLastUpdatedStart and :dateLastUpdatedFinish",
+                params);
     }
 }

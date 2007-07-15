@@ -28,15 +28,15 @@ package b1n.framework.persistence.bo.factory;
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 import b1n.framework.persistence.bo.PersonBo;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class PersonBoFactory extends SimpleBoFactory<PersonBo> {
-    public PersonBo getByEmail(String email) throws BoNotFoundException {
+public class PersonBoFactory extends SimpleEntityFactory<PersonBo> {
+    public PersonBo getByEmail(String email) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
         params.put("email", email);
         return this.getBoByQuery("SELECT p FROM PersonBo AS p WHERE p.contactInfo.email = :email");

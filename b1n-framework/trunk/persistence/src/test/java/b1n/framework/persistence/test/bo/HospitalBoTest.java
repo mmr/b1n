@@ -25,10 +25,10 @@
  */
 package b1n.framework.persistence.test.bo;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
+import b1n.framework.persistence.bo.EntityNotFoundException;
 import b1n.framework.persistence.bo.DoctorBo;
 import b1n.framework.persistence.bo.HospitalBo;
-import b1n.framework.persistence.bo.factory.BoFactoryLocator;
+import b1n.framework.persistence.bo.factory.FactoryLocator;
 import b1n.framework.persistence.bo.factory.DoctorBoFactory;
 import b1n.framework.persistence.bo.factory.HospitalBoFactory;
 import b1n.framework.persistence.test.PersistenceTestCase;
@@ -40,9 +40,9 @@ import b1n.framework.persistence.test.PersistenceTestCase;
 public class HospitalBoTest extends PersistenceTestCase {
     private static long pk;
 
-    private static final HospitalBoFactory hospitalFac = BoFactoryLocator.findFactory(HospitalBo.class);
+    private static final HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
 
-    private static final DoctorBoFactory docFac = BoFactoryLocator.findFactory(DoctorBo.class);
+    private static final DoctorBoFactory docFac = FactoryLocator.findFactory(DoctorBo.class);
 
     private static final String NAME = "Albert Einstein";
 
@@ -80,11 +80,11 @@ public class HospitalBoTest extends PersistenceTestCase {
         HospitalBo hospital = hospitalFac.getBo(pk);
         hospital.remove();
 
-        HospitalBoFactory hospitalFac = BoFactoryLocator.findFactory(HospitalBo.class);
+        HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
         try {
             hospitalFac.getBo(pk);
             fail("Nao removeu Bo.");
-        } catch (BoNotFoundException e) {
+        } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }

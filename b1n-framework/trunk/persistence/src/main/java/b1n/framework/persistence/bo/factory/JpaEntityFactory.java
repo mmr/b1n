@@ -33,15 +33,15 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import b1n.framework.persistence.bo.BoNotFoundException;
-import b1n.framework.persistence.bo.JpaBo;
+import b1n.framework.persistence.bo.EntityNotFoundException;
+import b1n.framework.persistence.bo.JpaEntity;
 import b1n.framework.persistence.util.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class JpaBoFactory<BoClass extends JpaBo> implements BoFactory<BoClass> {
+public abstract class JpaEntityFactory<BoClass extends JpaEntity> implements EntityFactory<BoClass> {
     private Class<BoClass> boClass;
 
     public BoClass getBo() {
@@ -54,24 +54,24 @@ public abstract class JpaBoFactory<BoClass extends JpaBo> implements BoFactory<B
         }
     }
 
-    public BoClass getBo(Long id) throws BoNotFoundException {
+    public BoClass getBo(Long id) throws EntityNotFoundException {
         BoClass bo = JpaUtil.getSession().find(getBoClass(), id);
         if (bo == null) {
-            throw new BoNotFoundException(getBoClass(), id);
+            throw new EntityNotFoundException(getBoClass(), id);
         }
         return bo;
     }
 
-    public BoClass getBoByQuery(String query) throws BoNotFoundException {
+    public BoClass getBoByQuery(String query) throws EntityNotFoundException {
         return getBoByQuery(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public BoClass getBoByQuery(String query, Map<String, ?> params) throws BoNotFoundException {
+    public BoClass getBoByQuery(String query, Map<String, ?> params) throws EntityNotFoundException {
         try {
             return (BoClass) createJpaQuery(query, params).getSingleResult();
         } catch (NoResultException e) {
-            throw new BoNotFoundException(getBoClass(), query, e);
+            throw new EntityNotFoundException(getBoClass(), query, e);
         }
     }
 

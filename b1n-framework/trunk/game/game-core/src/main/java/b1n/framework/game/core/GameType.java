@@ -28,14 +28,14 @@ package b1n.framework.game.core;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import b1n.framework.persistence.bo.SimpleBo;
+import b1n.framework.persistence.bo.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
 @Entity
-public class GameType extends SimpleBo {
+public class GameType extends SimpleEntity {
     @Column(nullable = false, unique = true)
     private String name;
 
