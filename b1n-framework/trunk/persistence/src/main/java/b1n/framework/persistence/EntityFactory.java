@@ -23,13 +23,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity.factory;
+package b1n.framework.persistence;
 
 import java.util.List;
 import java.util.Map;
-
-import b1n.framework.persistence.entity.Entity;
-import b1n.framework.persistence.entity.EntityNotFoundException;
 
 /**
  * @author Marcio Ribeiro (mmr)

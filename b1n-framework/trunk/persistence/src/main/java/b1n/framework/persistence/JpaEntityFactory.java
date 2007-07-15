@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity.factory;
+package b1n.framework.persistence;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -33,8 +33,6 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import b1n.framework.persistence.entity.EntityNotFoundException;
-import b1n.framework.persistence.entity.JpaEntity;
 import b1n.framework.persistence.util.JpaUtil;
 
 /**

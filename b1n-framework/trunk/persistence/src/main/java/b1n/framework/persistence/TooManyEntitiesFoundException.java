@@ -23,9 +23,8 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package b1n.framework.persistence;
 
-import b1n.framework.persistence.PersistenceRuntimeException;
 
 /**
  * @author Marcio Ribeiro (mmr)
