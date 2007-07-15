@@ -25,13 +25,12 @@
  */
 package b1n.framework.persistence.test;
 
-import b1n.framework.persistence.EntityNotFoundException;
-
 /**
- * @created Jul 12, 2007
+ * @created Jul 15, 2007
  * @author Marcio Ribeiro (mmr)
  */
-public class EntityTestCase extends PersistenceTestCase {
-    public void testSaveAndLoad() throws EntityNotFoundException {
+public class CouldNotCreateTestDbServerException extends Exception {
+    public CouldNotCreateTestDbServerException(Throwable e) {
+        super(e);
     }
 }

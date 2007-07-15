@@ -25,7 +25,7 @@
  */
 package b1n.framework.persistence;
 
-import b1n.framework.persistence.util.JpaUtil;
+import b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)

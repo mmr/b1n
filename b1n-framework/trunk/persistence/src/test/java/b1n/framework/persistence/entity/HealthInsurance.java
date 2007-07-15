@@ -31,7 +31,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
-import b1n.framework.persistence.entity.Doctor;
+import b1n.framework.persistence.SimpleEntity;
 
 /**
  * Health Insurance Business Object, to test <code>@ManyToMany</code> with DoctorBo.

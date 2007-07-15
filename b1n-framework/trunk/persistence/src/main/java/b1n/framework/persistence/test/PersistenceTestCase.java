@@ -32,8 +32,8 @@ import junit.framework.TestCase;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import b1n.framework.persistence.entity.Entity;
-import b1n.framework.persistence.util.JpaUtil;
+import b1n.framework.persistence.Entity;
+import b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -65,7 +65,11 @@ public abstract class PersistenceTestCase<E extends Entity> extends TestCase {
         if (vmLoaded) {
             return;
         }
-        initializeDatabase();
+        try {
+            initializeDatabase();
+        } catch (CouldNotCreateTestDbServerException e) {
+            fail(e.getMessage());
+        }
         vmLoaded = true;
     }
 
@@ -73,16 +77,17 @@ public abstract class PersistenceTestCase<E extends Entity> extends TestCase {
         if (this.getClass().equals(testCaseClass)) {
             return;
         }
-        log.info("============================================================");
-        log.info("===== Iniciando Testes Unitarios: " + this.getClass().getName());// + " - " + helper.getDatabaseServerType());
-        log.info("============================================================");
-
-        tx = JpaUtil.getSession().getTransaction();
+        log.info("Starting tests: " + this.getClass().getName());
         initializeTestData();
         testCaseClass = this.getClass();
     }
 
-    private void initializeDatabase() {
+    private void oncePerTest() {
+
+        tx = JpaUtil.getSession().getTransaction();
+    }
+
+    private void initializeDatabase() throws CouldNotCreateTestDbServerException {
         if (dbServer != null) {
             return;
         }
@@ -99,12 +104,13 @@ public abstract class PersistenceTestCase<E extends Entity> extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         oncePerTestCase();
+        oncePerTest();
     }
 
     @Override
     protected void tearDown() throws Exception {
         try {
-            tx.rollback();
+            tx.setRollbackOnly();
             JpaUtil.closeSession();
         } finally {
             super.tearDown();

@@ -33,6 +33,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import b1n.framework.persistence.SimpleEntity;
+
 /**
  * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with Doctor.
  * @author Marcio Ribeiro (mmr)

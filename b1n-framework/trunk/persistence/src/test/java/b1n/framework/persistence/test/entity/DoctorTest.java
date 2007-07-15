@@ -25,14 +25,14 @@
  */
 package b1n.framework.persistence.test.entity;
 
+import b1n.framework.persistence.EntityNotFoundException;
+import b1n.framework.persistence.FactoryLocator;
 import b1n.framework.persistence.entity.Doctor;
 import b1n.framework.persistence.entity.DoctorFactory;
-import b1n.framework.persistence.entity.EntityNotFoundException;
 import b1n.framework.persistence.entity.HealthInsurance;
 import b1n.framework.persistence.entity.HealthInsuranceFactory;
 import b1n.framework.persistence.entity.Hospital;
 import b1n.framework.persistence.entity.HospitalFactory;
-import b1n.framework.persistence.entity.factory.FactoryLocator;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**

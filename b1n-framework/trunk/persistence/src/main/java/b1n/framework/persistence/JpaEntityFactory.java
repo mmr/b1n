@@ -33,7 +33,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import b1n.framework.persistence.util.JpaUtil;
+import b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)

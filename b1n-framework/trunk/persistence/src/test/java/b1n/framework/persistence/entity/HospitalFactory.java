@@ -28,7 +28,8 @@ package b1n.framework.persistence.entity;
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.entity.factory.SimpleEntityFactory;
+import b1n.framework.persistence.EntityNotFoundException;
+import b1n.framework.persistence.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)

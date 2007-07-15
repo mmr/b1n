@@ -28,7 +28,7 @@ package b1n.framework.game.core;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import b1n.framework.persistence.entity.SimpleEntity;
+import b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)

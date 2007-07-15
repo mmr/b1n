@@ -30,6 +30,8 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import b1n.framework.persistence.SimpleEntity;
+
 /**
  * Person Business Object, to test inheritnce <code>@Inheritance</code> with DoctorBo and <code>@Embedded</code> POJO.
  * @author Marcio Ribeiro (mmr)

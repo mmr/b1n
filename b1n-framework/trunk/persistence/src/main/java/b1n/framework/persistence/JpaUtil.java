@@ -61,5 +61,6 @@ public class JpaUtil {
             }
             s.close();
         }
+        s = null;
     }
 }

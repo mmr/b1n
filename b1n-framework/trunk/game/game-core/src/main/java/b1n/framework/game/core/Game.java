@@ -33,7 +33,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import b1n.framework.persistence.entity.SimpleEntity;
+import b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)

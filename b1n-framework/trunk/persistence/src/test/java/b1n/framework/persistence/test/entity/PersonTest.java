@@ -25,10 +25,10 @@
  */
 package b1n.framework.persistence.test.entity;
 
-import b1n.framework.persistence.entity.EntityNotFoundException;
+import b1n.framework.persistence.EntityNotFoundException;
+import b1n.framework.persistence.FactoryLocator;
 import b1n.framework.persistence.entity.Person;
 import b1n.framework.persistence.entity.PersonFactory;
-import b1n.framework.persistence.entity.factory.FactoryLocator;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
