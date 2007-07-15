@@ -42,7 +42,7 @@ public class FactoryLocator {
         try {
             String boClassName = boClass.getSimpleName();
             String factoryPackage = boClass.getName().substring(0, boClass.getName().indexOf(boClassName));
-            String factoryClassName = factoryPackage + "factory." + boClassName + "Factory";
+            String factoryClassName = factoryPackage + boClassName + "Factory";
             if (factoriesCache.containsKey(factoryClassName)) {
                 return (T) factoriesCache.get(factoryClassName);
             }
