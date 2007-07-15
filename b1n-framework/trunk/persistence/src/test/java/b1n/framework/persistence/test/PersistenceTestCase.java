@@ -83,7 +83,6 @@ public abstract class PersistenceTestCase<E extends Entity> extends TestCase {
     }
 
     private void oncePerTest() {
-
         tx = JpaUtil.getSession().getTransaction();
     }
 
