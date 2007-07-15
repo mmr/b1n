@@ -36,11 +36,9 @@ public class FactoryLocator {
     private static final Map<String, EntityFactory> factoriesCache = new HashMap<String, EntityFactory>();
 
     @SuppressWarnings("unchecked")
-    public static <T extends EntityFactory> T findFactory(final Class<? extends Entity> boClass) {
+    public static <T extends EntityFactory> T findFactory(final Class<? extends Entity> entityClass) {
         try {
-            String boClassName = boClass.getSimpleName();
-            String factoryPackage = boClass.getName().substring(0, boClass.getName().indexOf(boClassName));
-            String factoryClassName = factoryPackage + boClassName + "Factory";
+            String factoryClassName = entityClass.getName() + "Factory";
             if (factoriesCache.containsKey(factoryClassName)) {
                 return (T) factoriesCache.get(factoryClassName);
             }
