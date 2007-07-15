@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,31 +31,33 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
+import b1n.framework.persistence.entity.Doctor;
+
 /**
  * Health Insurance Business Object, to test <code>@ManyToMany</code> with DoctorBo.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 27, 2007
  */
 @Entity
-public class HealthInsuranceBo extends SimpleEntity {
+public class HealthInsurance extends SimpleEntity {
     private String name;
 
     @ManyToMany
-    private Set<DoctorBo> doctors = new HashSet<DoctorBo>();
+    private Set<Doctor> doctors = new HashSet<Doctor>();
 
-    public Set<DoctorBo> getDoctors() {
+    public Set<Doctor> getDoctors() {
         return doctors;
     }
 
-    protected void setDoctors(Set<DoctorBo> doctors) {
+    protected void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
     }
 
-    public void addDoctor(DoctorBo doctor) {
+    public void addDoctor(Doctor doctor) {
         this.doctors.add(doctor);
     }
 
-    public void removeDoctor(DoctorBo doctor) {
+    public void removeDoctor(Doctor doctor) {
         this.doctors.remove(doctor);
     }
 

@@ -23,67 +23,67 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.test.bo;
+package b1n.framework.persistence.test.entity;
 
-import b1n.framework.persistence.bo.EntityNotFoundException;
-import b1n.framework.persistence.bo.DoctorBo;
-import b1n.framework.persistence.bo.HospitalBo;
-import b1n.framework.persistence.bo.factory.FactoryLocator;
-import b1n.framework.persistence.bo.factory.DoctorBoFactory;
-import b1n.framework.persistence.bo.factory.HospitalBoFactory;
+import b1n.framework.persistence.entity.Doctor;
+import b1n.framework.persistence.entity.DoctorFactory;
+import b1n.framework.persistence.entity.EntityNotFoundException;
+import b1n.framework.persistence.entity.Hospital;
+import b1n.framework.persistence.entity.HospitalFactory;
+import b1n.framework.persistence.entity.factory.FactoryLocator;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalBoTest extends PersistenceTestCase {
+public class HospitalTest extends PersistenceTestCase {
     private static long pk;
 
-    private static final HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
+    private static final HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
 
-    private static final DoctorBoFactory docFac = FactoryLocator.findFactory(DoctorBo.class);
+    private static final DoctorFactory docFac = FactoryLocator.findFactory(Doctor.class);
 
     private static final String NAME = "Albert Einstein";
 
     public void testSaveAndLoad() throws Exception {
         // Criando hospital
-        HospitalBo hospital = hospitalFac.getBo();
+        Hospital hospital = hospitalFac.createEntity();
         hospital.setName(NAME);
 
-        DoctorBo doc1 = docFac.getBo();
+        Doctor doc1 = docFac.createEntity();
         doc1.setName("Fernanda Porto");
         hospital.addDoctor(doc1);
 
-        DoctorBo doc2 = docFac.getBo();
+        Doctor doc2 = docFac.createEntity();
         doc2.setName("Marisa Monte");
         hospital.addDoctor(doc2);
 
-        DoctorBo doc3 = docFac.getBo();
+        Doctor doc3 = docFac.createEntity();
         doc3.setName("Arnaldo Antunes");
         hospital.addDoctor(doc3);
         hospital.save();
         pk = hospital.getId();
 
-        HospitalBo loadedBo = hospitalFac.getBo(pk);
-        assertEquals(hospital.getName(), loadedBo.getName());
+        Hospital loaded = hospitalFac.findById(pk);
+        assertEquals(hospital.getName(), loaded.getName());
     }
 
     public void testGetByName() throws Exception {
-        HospitalBo hospitalByName = hospitalFac.getByName(NAME);
-        HospitalBo hospitalById = hospitalFac.getBo(pk);
+        Hospital hospitalByName = hospitalFac.getByName(NAME);
+        Hospital hospitalById = hospitalFac.findById(pk);
         assertEquals(hospitalByName.getName(), hospitalById.getName());
     }
 
     public void testRemove() throws Exception {
-        // Carregando Bo
-        HospitalBo hospital = hospitalFac.getBo(pk);
+        // Carregando
+        Hospital hospital = hospitalFac.findById(pk);
         hospital.remove();
 
-        HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
+        HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
         try {
-            hospitalFac.getBo(pk);
-            fail("Nao removeu Bo.");
+            hospitalFac.findById(pk);
+            fail("Nao removeu .");
         } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }

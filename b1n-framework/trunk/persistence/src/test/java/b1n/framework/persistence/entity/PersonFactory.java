@@ -23,22 +23,22 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.entity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.bo.EntityNotFoundException;
-import b1n.framework.persistence.bo.PersonBo;
+import b1n.framework.persistence.entity.Person;
+import b1n.framework.persistence.entity.factory.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class PersonBoFactory extends SimpleEntityFactory<PersonBo> {
-    public PersonBo getByEmail(String email) throws EntityNotFoundException {
+public class PersonFactory extends SimpleEntityFactory<Person> {
+    public Person getByEmail(String email) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
         params.put("email", email);
-        return this.getBoByQuery("SELECT p FROM PersonBo AS p WHERE p.contactInfo.email = :email");
+        return this.findByQuerySingle("SELECT p FROM Person AS p WHERE p.contactInfo.email = :email");
     }
 }

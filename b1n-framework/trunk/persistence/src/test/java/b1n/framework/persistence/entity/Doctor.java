@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -33,39 +33,39 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
- * Doctor Business Object, to test inheritance with PersonBo, <code>@ManyToOne</code> with HospitalBo and <code>@ManyToMany</code> with HealthyInsuranceBo
+ * Doctor Business Object, to test inheritance with Person, <code>@ManyToOne</code> with Hospital and <code>@ManyToMany</code> with HealthyInsurance
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
 @Entity
-public class DoctorBo extends PersonBo {
+public class Doctor extends Person {
     @ManyToOne
-    private HospitalBo hospital;
+    private Hospital hospital;
 
     @ManyToMany
-    private Set<HealthInsuranceBo> healthInsurances = new HashSet<HealthInsuranceBo>();
+    private Set<HealthInsurance> healthInsurances = new HashSet<HealthInsurance>();
 
-    public HospitalBo getHospital() {
+    public Hospital getHospital() {
         return hospital;
     }
 
-    public void setHospital(HospitalBo hospital) {
+    public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 
-    public Set<HealthInsuranceBo> getHealthInsurances() {
+    public Set<HealthInsurance> getHealthInsurances() {
         return healthInsurances;
     }
 
-    protected void setHealthInsurances(Set<HealthInsuranceBo> healthInsurances) {
+    protected void setHealthInsurances(Set<HealthInsurance> healthInsurances) {
         this.healthInsurances = healthInsurances;
     }
 
-    public void addHealthInsurance(HealthInsuranceBo healthInsurance) {
+    public void addHealthInsurance(HealthInsurance healthInsurance) {
         this.healthInsurances.add(healthInsurance);
     }
 
-    public void removeHealthInsurance(HealthInsuranceBo healthInsurance) {
+    public void removeHealthInsurance(HealthInsurance healthInsurance) {
         this.healthInsurances.remove(healthInsurance);
     }
 }

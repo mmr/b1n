@@ -38,18 +38,17 @@ import b1n.framework.persistence.entity.SimpleEntity;
  * @created Mar 30, 2007
  */
 public abstract class SimpleEntityFactory<BoClass extends SimpleEntity> extends JpaEntityFactory<BoClass> {
-    public List<BoClass> getByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
+    public List<BoClass> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
         Map<String, Date> params = new HashMap<String, Date>();
         params.put("dateAddedStart", dateAddedStart);
         params.put("dateAddedFinish", dateAddedFinish);
-        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dataAdded BETWEEN :dateAddedStart and :dateAddedFinish", params);
+        return findByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dataAdded BETWEEN :dateAddedStart and :dateAddedFinish", params);
     }
 
-    public List<BoClass> getByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
+    public List<BoClass> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
         Map<String, Date> params = new HashMap<String, Date>();
         params.put("dateLastUpdatedStart", dateLastUpdatedStart);
         params.put("dateLastUpdatedFinish", dateLastUpdatedFinish);
-        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dateLastUpdated BETWEEN :dateLastUpdatedStart and :dateLastUpdatedFinish",
-                params);
+        return findByQuery("SELECT bo FROM " + getBoClass().getName() + " WHERE bo.dateLastUpdated BETWEEN :dateLastUpdatedStart and :dateLastUpdatedFinish", params);
     }
 }

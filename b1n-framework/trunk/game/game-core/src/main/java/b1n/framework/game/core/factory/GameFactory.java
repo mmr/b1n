@@ -26,7 +26,7 @@
 package b1n.framework.game.core.factory;
 
 import b1n.framework.game.core.Game;
-import b1n.framework.persistence.bo.factory.SimpleEntityFactory;
+import b1n.framework.persistence.entity.factory.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)

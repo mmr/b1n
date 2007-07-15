@@ -23,22 +23,21 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.entity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.bo.EntityNotFoundException;
-import b1n.framework.persistence.bo.HospitalBo;
+import b1n.framework.persistence.entity.factory.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalBoFactory extends SimpleEntityFactory<HospitalBo> {
-    public HospitalBo getByName(String name) throws EntityNotFoundException {
+public class HospitalFactory extends SimpleEntityFactory<Hospital> {
+    public Hospital getByName(String name) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);
-        return this.getBoByQuery("SELECT bo FROM HospitalBo AS bo WHERE bo.name = :name", params);
+        return this.findByQuerySingle("SELECT bo FROM Hospital AS bo WHERE bo.name = :name", params);
     }
 }

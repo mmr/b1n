@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -34,31 +34,31 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 /**
- * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with DoctorBo.
+ * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with Doctor.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 31, 2007
  */
 @Entity
-public class HospitalBo extends SimpleEntity {
+public class Hospital extends SimpleEntity {
     @Column(nullable = false)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<DoctorBo> doctors = new HashSet<DoctorBo>();
+    private Set<Doctor> doctors = new HashSet<Doctor>();
 
-    public Set<DoctorBo> getDoctors() {
+    public Set<Doctor> getDoctors() {
         return doctors;
     }
 
-    protected void setDoctors(Set<DoctorBo> doctors) {
+    protected void setDoctors(Set<Doctor> doctors) {
         this.doctors = doctors;
     }
 
-    public void addDoctor(DoctorBo doctor) {
+    public void addDoctor(Doctor doctor) {
         this.doctors.add(doctor);
     }
 
-    public void removeDoctor(DoctorBo doctor) {
+    public void removeDoctor(Doctor doctor) {
         this.doctors.remove(doctor);
     }
 

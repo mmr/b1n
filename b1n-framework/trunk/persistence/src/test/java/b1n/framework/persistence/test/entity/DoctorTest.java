@@ -23,43 +23,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.test.bo;
+package b1n.framework.persistence.test.entity;
 
-import b1n.framework.persistence.bo.EntityNotFoundException;
-import b1n.framework.persistence.bo.DoctorBo;
-import b1n.framework.persistence.bo.HealthInsuranceBo;
-import b1n.framework.persistence.bo.HospitalBo;
-import b1n.framework.persistence.bo.factory.FactoryLocator;
-import b1n.framework.persistence.bo.factory.DoctorBoFactory;
-import b1n.framework.persistence.bo.factory.HealthInsuranceBoFactory;
-import b1n.framework.persistence.bo.factory.HospitalBoFactory;
+import b1n.framework.persistence.entity.Doctor;
+import b1n.framework.persistence.entity.DoctorFactory;
+import b1n.framework.persistence.entity.EntityNotFoundException;
+import b1n.framework.persistence.entity.HealthInsurance;
+import b1n.framework.persistence.entity.HealthInsuranceFactory;
+import b1n.framework.persistence.entity.Hospital;
+import b1n.framework.persistence.entity.HospitalFactory;
+import b1n.framework.persistence.entity.factory.FactoryLocator;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorBoTest extends PersistenceTestCase {
+public class DoctorTest extends PersistenceTestCase {
     private static Long id;
 
-    private static final DoctorBoFactory docFac = FactoryLocator.findFactory(DoctorBo.class);
+    private static final DoctorFactory docFac = FactoryLocator.findFactory(Doctor.class);
 
-    private static final HospitalBoFactory hospitalFac = FactoryLocator.findFactory(HospitalBo.class);
+    private static final HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
 
     private static final String HOSPITAL_NAME = "Sirio Libanes";
-    
-    public DoctorBoTest(String arg) {
+
+    public DoctorTest(String arg) {
         super(arg);
     }
 
     public void testSaveAndLoad() throws Exception {
         // Criando Medico
-        DoctorBo doc = docFac.getBo();
+        Doctor doc = docFac.createEntity();
         doc.setName("Omara Portuondo");
         doc.getContactInfo().setEmail("omara@portuondo.com");
 
         // Criando hospital
-        HospitalBo hospital = hospitalFac.getBo();
+        Hospital hospital = hospitalFac.createEntity();
         hospital.setName(HOSPITAL_NAME);
         hospital.addDoctor(doc);
         doc.setHospital(hospital);
@@ -67,17 +67,17 @@ public class DoctorBoTest extends PersistenceTestCase {
 
         // Carregando Medico
         id = doc.getId();
-        DoctorBo loadedBo = docFac.getBo(id);
-        assertEquals(doc.getName(), loadedBo.getName());
+        Doctor loaded = docFac.findById(id);
+        assertEquals(doc.getName(), loaded.getName());
     }
 
     public void testRemoveDoctor() throws EntityNotFoundException {
-        DoctorBo doctor = docFac.getBo(id);
+        Doctor doctor = docFac.findById(id);
         doctor.getHospital().remove();
 
         try {
-            docFac.getBo(id);
-            fail("Could not remove Bo.");
+            docFac.findById(id);
+            fail("Could not remove .");
         } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }
@@ -85,43 +85,43 @@ public class DoctorBoTest extends PersistenceTestCase {
 
     public void testHealthInsurance() throws Exception {
         // Criando Convenios
-        HealthInsuranceBoFactory hiFac = FactoryLocator.findFactory(HealthInsuranceBo.class);
-        HealthInsuranceBo hi1 = hiFac.getBo();
+        HealthInsuranceFactory hiFac = FactoryLocator.findFactory(HealthInsurance.class);
+        HealthInsurance hi1 = hiFac.createEntity();
         hi1.setName("AMIL");
         hi1.save();
 
-        HealthInsuranceBo hi2 = hiFac.getBo();
+        HealthInsurance hi2 = hiFac.createEntity();
         hi2.setName("Bradesco");
         hi2.save();
 
-        HealthInsuranceBo hi3 = hiFac.getBo();
+        HealthInsurance hi3 = hiFac.createEntity();
         hi3.setName("Correios");
         hi3.save();
 
-        HealthInsuranceBo hi4 = hiFac.getBo();
+        HealthInsurance hi4 = hiFac.createEntity();
         hi4.setName("Samcil");
         hi4.save();
 
-        HealthInsuranceBo hi5 = hiFac.getBo();
+        HealthInsurance hi5 = hiFac.createEntity();
         hi5.setName("Dix Amico");
         hi5.save();
 
         // Criando Medicos
-        DoctorBo doc1 = docFac.getBo();
+        Doctor doc1 = docFac.createEntity();
         doc1.setName("Joaquim do Bandolim");
         doc1.addHealthInsurance(hi1);
         doc1.addHealthInsurance(hi3);
         doc1.addHealthInsurance(hi5);
         doc1.save();
 
-        DoctorBo doc2 = docFac.getBo();
+        Doctor doc2 = docFac.createEntity();
         doc2.setName("Adriana Calcanhoto");
         doc2.addHealthInsurance(hi2);
         doc2.addHealthInsurance(hi4);
         doc2.addHealthInsurance(hi5);
         doc2.save();
 
-        DoctorBo doc3 = docFac.getBo();
+        Doctor doc3 = docFac.createEntity();
         doc3.setName("Pixinguinha");
         doc3.addHealthInsurance(hi1);
         doc3.addHealthInsurance(hi2);

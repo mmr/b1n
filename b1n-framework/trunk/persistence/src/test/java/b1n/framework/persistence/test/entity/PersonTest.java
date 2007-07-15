@@ -23,48 +23,48 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.test.bo;
+package b1n.framework.persistence.test.entity;
 
-import b1n.framework.persistence.bo.EntityNotFoundException;
-import b1n.framework.persistence.bo.PersonBo;
-import b1n.framework.persistence.bo.factory.FactoryLocator;
-import b1n.framework.persistence.bo.factory.PersonBoFactory;
+import b1n.framework.persistence.entity.EntityNotFoundException;
+import b1n.framework.persistence.entity.Person;
+import b1n.framework.persistence.entity.PersonFactory;
+import b1n.framework.persistence.entity.factory.FactoryLocator;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class PersonBoTest extends PersistenceTestCase {
+public class PersonTest extends PersistenceTestCase {
     private static Long id;
 
     public void testSaveAndLoad() throws Exception {
-        PersonBoFactory fac = FactoryLocator.findFactory(PersonBo.class);
-        PersonBo person = fac.getBo();
+        PersonFactory fac = FactoryLocator.findFactory(Person.class);
+        Person person = fac.createEntity();
 
-        // Salvando Bo
+        // Salvando
         person.setName("Chico Buarque");
         person.getContactInfo().setEmail("chico@buarque.com");
         person.getContactInfo().setPhone("(+55-11) 1234-5679");
         person.save();
 
-        // Carregando Bo salvo
-        PersonBo loadedBo = fac.getBo(person.getId());
+        // Carregando salvo
+        Person loaded = fac.findById(person.getId());
 
-        // Comparando dados entre Bo criado e Bo carregado
-        assertEquals(person.getName(), loadedBo.getName());
-        assertEquals(person.getContactInfo().getEmail(), loadedBo.getContactInfo().getEmail());
+        // Comparando dados entre criado e carregado
+        assertEquals(person.getName(), loaded.getName());
+        assertEquals(person.getContactInfo().getEmail(), loaded.getContactInfo().getEmail());
 
-        // Removendo Bo
+        // Removendo
         id = person.getId();
         person.remove();
     }
 
     public void testWasRemoved() {
-        PersonBoFactory fac = FactoryLocator.findFactory(PersonBo.class);
+        PersonFactory fac = FactoryLocator.findFactory(Person.class);
         try {
-            fac.getBo(id);
-            fail("Could not remove Bo.");
+            fac.findById(id);
+            fail("Could not remove .");
         } catch (EntityNotFoundException e) {
             // Ok, foi removido.
         }

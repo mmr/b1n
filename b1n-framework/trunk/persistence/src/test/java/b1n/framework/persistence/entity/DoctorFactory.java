@@ -23,14 +23,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo.factory;
+package b1n.framework.persistence.entity;
 
-import b1n.framework.persistence.bo.DoctorBo;
+import b1n.framework.persistence.entity.factory.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorBoFactory extends SimpleEntityFactory<DoctorBo> {
+public class DoctorFactory extends SimpleEntityFactory<Doctor> {
     // Always look at the bright side of life
 }

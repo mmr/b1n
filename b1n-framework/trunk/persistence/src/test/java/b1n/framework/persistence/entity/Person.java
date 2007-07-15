@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.bo;
+package b1n.framework.persistence.entity;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -37,7 +37,7 @@ import javax.persistence.InheritanceType;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class PersonBo extends SimpleEntity {
+public class Person extends SimpleEntity {
     private String name;
 
     @Embedded

@@ -41,10 +41,10 @@ import b1n.framework.persistence.util.JpaUtil;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class JpaEntityFactory<BoClass extends JpaEntity> implements EntityFactory<BoClass> {
-    private Class<BoClass> boClass;
+public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFactory<E> {
+    private Class<E> boClass;
 
-    public BoClass getBo() {
+    public E createEntity() {
         try {
             return getBoClass().newInstance();
         } catch (InstantiationException e) {
@@ -54,40 +54,40 @@ public abstract class JpaEntityFactory<BoClass extends JpaEntity> implements Ent
         }
     }
 
-    public BoClass getBo(Long id) throws EntityNotFoundException {
-        BoClass bo = JpaUtil.getSession().find(getBoClass(), id);
+    public E findById(Long id) throws EntityNotFoundException {
+        E bo = JpaUtil.getSession().find(getBoClass(), id);
         if (bo == null) {
             throw new EntityNotFoundException(getBoClass(), id);
         }
         return bo;
     }
 
-    public BoClass getBoByQuery(String query) throws EntityNotFoundException {
-        return getBoByQuery(query, null);
+    public E findByQuerySingle(String query) throws EntityNotFoundException {
+        return findByQuerySingle(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public BoClass getBoByQuery(String query, Map<String, ?> params) throws EntityNotFoundException {
+    public E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException {
         try {
-            return (BoClass) createJpaQuery(query, params).getSingleResult();
+            return (E) createJpaQuery(query, params).getSingleResult();
         } catch (NoResultException e) {
             throw new EntityNotFoundException(getBoClass(), query, e);
         }
     }
 
-    public <T> List<T> getByQuery(String query) {
-        return getByQuery(query, null);
+    public <T> List<T> findByQuery(String query) {
+        return findByQuery(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public <T> List<T> getByQuery(String query, Map<String, ?> params) {
+    public <T> List<T> findByQuery(String query, Map<String, ?> params) {
         return createJpaQuery(query, params).getResultList();
     }
 
-    protected Class<BoClass> getBoClass() {
+    protected Class<E> getBoClass() {
         try {
             if (boClass == null) {
-                boClass = (Class<BoClass>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+                boClass = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
             }
             return boClass;
         } catch (ClassCastException e) {
@@ -107,7 +107,7 @@ public abstract class JpaEntityFactory<BoClass extends JpaEntity> implements Ent
         return jpaQuery;
     }
 
-    public List<BoClass> getAll() {
-        return getByQuery("SELECT bo FROM " + getBoClass().getName() + " AS bo");
+    public List<E> findAll() {
+        return findByQuery("SELECT bo FROM " + getBoClass().getName() + " AS bo");
     }
 }
