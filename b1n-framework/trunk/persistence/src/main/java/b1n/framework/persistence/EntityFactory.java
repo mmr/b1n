@@ -28,6 +28,8 @@ package b1n.framework.persistence;
 import java.util.List;
 import java.util.Map;
 
+import org.hibernate.Criteria;
+
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
@@ -44,6 +46,10 @@ public interface EntityFactory<E extends Entity> {
     public List<E> findByQuery(String query);
 
     public List<E> findByQuery(String query, Map<String, ?> params);
+
+    public E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException;
+
+    public List<E> findByCriteria(Criteria criteria);
 
     public List<E> findAll();
 }

@@ -33,7 +33,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
-import b1n.framework.persistence.JpaUtil;
+import org.hibernate.Criteria;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -103,6 +103,16 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         }
 
         return jpaQuery;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<E> findByCriteria(Criteria criteria) {
+        return criteria.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    public E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
+        return (E) criteria.uniqueResult();
     }
 
     public List<E> findAll() {
