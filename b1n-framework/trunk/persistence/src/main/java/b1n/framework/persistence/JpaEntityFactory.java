@@ -26,6 +26,7 @@
 package b1n.framework.persistence;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -107,20 +108,32 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
     }
 
     @SuppressWarnings("unchecked")
-    public List<E> findByCriteria(Criteria criteria) {
-        return criteria.list();
+    public List<E> findByCriteria(Criteria criteria) throws EntityNotFoundException {
+        List<E> list = criteria.list();
+        if (list == null || list.isEmpty()) {
+            throw new EntityNotFoundException(getEntityClass());
+        }
+        return list;
     }
 
     @SuppressWarnings("unchecked")
     public E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
-        return (E) criteria.uniqueResult();
+        E entity = (E) criteria.uniqueResult();
+        if (entity == null) {
+            throw new EntityNotFoundException(getEntityClass());
+        }
+        return entity;
     }
 
     public Criteria createCriteria() {
-        return ((Session) JpaUtil.getSession()).createCriteria(getEntityClass());
+        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
     }
 
     public List<E> findAll() {
-        return findByCriteria(createCriteria());
+        try {
+            return findByCriteria(createCriteria());
+        } catch (EntityNotFoundException e) {
+            return new ArrayList<E>();
+        }
     }
 }

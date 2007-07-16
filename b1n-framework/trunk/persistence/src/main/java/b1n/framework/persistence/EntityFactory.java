@@ -49,7 +49,7 @@ public interface EntityFactory<E extends Entity> {
 
     E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException;
 
-    List<E> findByCriteria(Criteria criteria);
+    List<E> findByCriteria(Criteria criteria) throws EntityNotFoundException;
 
     List<E> findAll();
 

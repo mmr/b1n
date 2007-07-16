@@ -38,6 +38,11 @@ public class EntityNotFoundException extends PersistenceException {
 
     private Long id;
 
+    public EntityNotFoundException(Class<? extends Entity> clazz) {
+        super("Could not find " + clazz.getName());
+        this.clazz = clazz;
+    }
+
     public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
         super("Could not find " + clazz.getName() + " with id " + id);
         this.clazz = clazz;
