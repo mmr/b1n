@@ -34,6 +34,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -53,11 +54,11 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
     }
 
     public E findById(Long id) throws EntityNotFoundException {
-        E bo = JpaUtil.getSession().find(getEntityClass(), id);
-        if (bo == null) {
+        E entity = JpaUtil.getSession().find(getEntityClass(), id);
+        if (entity == null) {
             throw new EntityNotFoundException(getEntityClass(), id);
         }
-        return bo;
+        return entity;
     }
 
     public E findByQuerySingle(String query) throws EntityNotFoundException {
@@ -115,7 +116,11 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         return (E) criteria.uniqueResult();
     }
 
+    public Criteria createCriteria() {
+        return ((Session) JpaUtil.getSession()).createCriteria(getEntityClass());
+    }
+
     public List<E> findAll() {
-        return findByQuery("SELECT bo FROM " + getEntityClass().getName() + " AS bo");
+        return findByCriteria(createCriteria());
     }
 }

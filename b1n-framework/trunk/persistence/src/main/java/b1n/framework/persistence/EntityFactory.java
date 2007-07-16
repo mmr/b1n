@@ -35,21 +35,23 @@ import org.hibernate.Criteria;
  * @created Mar 28, 2007
  */
 public interface EntityFactory<E extends Entity> {
-    public E createEntity();
+    E createEntity();
 
-    public E findById(Long id) throws EntityNotFoundException;
+    E findById(Long id) throws EntityNotFoundException;
 
-    public E findByQuerySingle(String query) throws EntityNotFoundException;
+    E findByQuerySingle(String query) throws EntityNotFoundException;
 
-    public E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException;
+    E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException;
 
-    public List<E> findByQuery(String query);
+    List<E> findByQuery(String query);
 
-    public List<E> findByQuery(String query, Map<String, ?> params);
+    List<E> findByQuery(String query, Map<String, ?> params);
 
-    public E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException;
+    E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException;
 
-    public List<E> findByCriteria(Criteria criteria);
+    List<E> findByCriteria(Criteria criteria);
 
-    public List<E> findAll();
+    List<E> findAll();
+
+    Criteria createCriteria();
 }

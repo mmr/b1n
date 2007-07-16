@@ -26,9 +26,10 @@
 package b1n.framework.persistence;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -36,16 +37,14 @@ import java.util.Map;
  */
 public abstract class SimpleEntityFactory<E extends SimpleEntity> extends JpaEntityFactory<E> {
     public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
-        Map<String, Date> params = new HashMap<String, Date>();
-        params.put("dateAddedStart", dateAddedStart);
-        params.put("dateAddedFinish", dateAddedFinish);
-        return findByQuery("SELECT bo FROM " + getEntityClass().getName() + " WHERE bo.dataAdded BETWEEN :dateAddedStart and :dateAddedFinish", params);
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
+        return findByCriteria(crit);
     }
 
     public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
-        Map<String, Date> params = new HashMap<String, Date>();
-        params.put("dateLastUpdatedStart", dateLastUpdatedStart);
-        params.put("dateLastUpdatedFinish", dateLastUpdatedFinish);
-        return findByQuery("SELECT bo FROM " + getEntityClass().getName() + " WHERE bo.dateLastUpdated BETWEEN :dateLastUpdatedStart and :dateLastUpdatedFinish", params);
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
+        return findByCriteria(crit);
     }
 }
