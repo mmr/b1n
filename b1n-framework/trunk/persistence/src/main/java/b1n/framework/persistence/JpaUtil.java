@@ -58,6 +58,8 @@ public class JpaUtil {
         if (s != null) {
             if (!s.getTransaction().getRollbackOnly()) {
                 s.getTransaction().commit();
+            } else {
+                s.getTransaction().rollback();
             }
             s.close();
         }

@@ -43,17 +43,20 @@ public class Player extends SimpleEntity {
     private String nick;
 
     @Column(nullable = false, unique = true)
-    private String login;
+    private String userName;
 
     @Column(nullable = false)
     private String password;
 
-    public String getLogin() {
-        return login;
+    @Column(nullable = false)
+    private String email;
+
+    public String getUserName() {
+        return userName;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUserName(String login) {
+        this.userName = login;
     }
 
     public String getName() {
@@ -78,5 +81,13 @@ public class Player extends SimpleEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

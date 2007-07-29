@@ -26,16 +26,12 @@
 package b1n.framework.persistence;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-
-import org.hibernate.Criteria;
-import org.hibernate.Session;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -62,12 +58,12 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         return entity;
     }
 
-    public E findByQuerySingle(String query) throws EntityNotFoundException {
+    protected E findByQuerySingle(String query) throws EntityNotFoundException {
         return findByQuerySingle(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException {
+    protected E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException {
         try {
             return (E) createJpaQuery(query, params).getSingleResult();
         } catch (NoResultException e) {
@@ -75,12 +71,12 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         }
     }
 
-    public List<E> findByQuery(String query) {
+    protected List<E> findByQuery(String query) {
         return findByQuery(query, null);
     }
 
     @SuppressWarnings("unchecked")
-    public List<E> findByQuery(String query, Map<String, ?> params) {
+    protected List<E> findByQuery(String query, Map<String, ?> params) {
         return createJpaQuery(query, params).getResultList();
     }
 
@@ -105,35 +101,5 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         }
 
         return jpaQuery;
-    }
-
-    @SuppressWarnings("unchecked")
-    public List<E> findByCriteria(Criteria criteria) throws EntityNotFoundException {
-        List<E> list = criteria.list();
-        if (list == null || list.isEmpty()) {
-            throw new EntityNotFoundException(getEntityClass());
-        }
-        return list;
-    }
-
-    @SuppressWarnings("unchecked")
-    public E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
-        E entity = (E) criteria.uniqueResult();
-        if (entity == null) {
-            throw new EntityNotFoundException(getEntityClass());
-        }
-        return entity;
-    }
-
-    public Criteria createCriteria() {
-        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
-    }
-
-    public List<E> findAll() {
-        try {
-            return findByCriteria(createCriteria());
-        } catch (EntityNotFoundException e) {
-            return new ArrayList<E>();
-        }
     }
 }

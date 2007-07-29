@@ -25,26 +25,35 @@
  */
 package b1n.framework.persistence;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.Session;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 30, 2007
+ * @created Mar 28, 2007
  */
-public abstract class SimpleEntityFactory<E extends SimpleEntity> extends HibernateEntityFactory<E> {
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
-        return findByCriteria(crit);
+public abstract class HibernateEntityFactory<E extends JpaEntity> extends JpaEntityFactory<E> {
+    @SuppressWarnings("unchecked")
+    protected List<E> findByCriteria(Criteria criteria) {
+        return (List<E>) criteria.list();
     }
 
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
-        return findByCriteria(crit);
+    @SuppressWarnings("unchecked")
+    protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
+        E entity = (E) criteria.uniqueResult();
+        if (entity == null) {
+            throw new EntityNotFoundException(getEntityClass());
+        }
+        return entity;
+    }
+
+    protected Criteria createCriteria() {
+        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
+    }
+
+    public List<E> findAll() {
+        return findByCriteria(createCriteria());
     }
 }
