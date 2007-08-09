@@ -25,7 +25,6 @@
  */
 package b1n.framework.persistence;
 
-import b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -37,7 +36,6 @@ public abstract class JpaEntity implements Entity {
      */
     public void save() {
         JpaUtil.getSession().persist(this);
-        JpaUtil.getSession().flush();
     }
 
     /**
@@ -45,6 +43,5 @@ public abstract class JpaEntity implements Entity {
      */
     public void remove() {
         JpaUtil.getSession().remove(this);
-        JpaUtil.getSession().flush();
     }
 }
