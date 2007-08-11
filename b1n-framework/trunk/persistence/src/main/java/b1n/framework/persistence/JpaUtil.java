@@ -57,6 +57,7 @@ public class JpaUtil {
         session.set(null);
         if (s != null) {
             if (!s.getTransaction().getRollbackOnly()) {
+                s.flush();
                 s.getTransaction().commit();
             } else {
                 s.getTransaction().rollback();
