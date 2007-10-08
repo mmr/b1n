@@ -6,7 +6,7 @@
       <editor
             name="Insert Beautifier SQL Editor"
             extensions="sql"
-            icon="icons/ib.png"
+            icon="icons/ib.gif"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
             class="org.b1n.ib.editor.InsertBeautifierEditor"
             id="org.b1n.ib.editor.InsertBeautifierEditor">
