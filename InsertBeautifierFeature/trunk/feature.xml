@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.b1n.ib"
+      id="org.b1n.ib.InsertBeautifier"
       label="InsertBeautifier"
       version="1.0.0"
-      provider-name="b1n">
+      provider-name="Marcio Ribeiro (b1n)">
 
    <description url="http://b1n.org/ib/">
       Insert Beautifier!
@@ -46,7 +46,7 @@
    </url>
 
    <plugin
-         id="org.b1n.ib"
+         id="org.b1n.ib.InsertBeautifier"
          download-size="27"
          install-size="27"
          version="1.0.0"
