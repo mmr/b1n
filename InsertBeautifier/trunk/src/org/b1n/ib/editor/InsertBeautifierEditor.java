@@ -1,4 +1,4 @@
-package org.b1n.ib;
+package org.b1n.ib.editor;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.text.source.SourceViewer;

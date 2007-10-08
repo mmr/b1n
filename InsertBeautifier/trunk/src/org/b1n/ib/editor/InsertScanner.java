@@ -1,4 +1,4 @@
-package org.b1n.ib;
+package org.b1n.ib.editor;
 
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.IRule;
@@ -15,7 +15,7 @@ import org.eclipse.jface.text.rules.WhitespaceRule;
 public class InsertScanner extends RuleBasedScanner {
 
     public InsertScanner(ColorManager manager) {
-        IToken string = new Token(new TextAttribute(manager.getColor(ColorConstants.STRING)));
+        IToken string = new Token(new TextAttribute(manager.getStringColor()));
 
         IRule[] rules = new IRule[] {
             new SingleLineRule("'", "'", string, '\\'),

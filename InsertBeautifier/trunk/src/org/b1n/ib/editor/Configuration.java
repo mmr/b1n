@@ -1,4 +1,4 @@
-package org.b1n.ib;
+package org.b1n.ib.editor;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextAttribute;
@@ -43,7 +43,7 @@ public class Configuration extends SourceViewerConfiguration {
         reconciler.setDamager(dr, PartitionScanner.INSERT);
         reconciler.setRepairer(dr, PartitionScanner.INSERT);
 
-        NonRuleBasedDamagerRepairer ndr = new NonRuleBasedDamagerRepairer(new TextAttribute(colorManager.getColor(ColorConstants.COMMENT)));
+        NonRuleBasedDamagerRepairer ndr = new NonRuleBasedDamagerRepairer(new TextAttribute(colorManager.getCommentColor()));
         reconciler.setDamager(ndr, PartitionScanner.COMMENT);
         reconciler.setRepairer(ndr, PartitionScanner.COMMENT);
 
@@ -53,7 +53,7 @@ public class Configuration extends SourceViewerConfiguration {
     private InsertScanner getInsertScanner() {
         if (insertScanner == null) {
             insertScanner = new InsertScanner(colorManager);
-            insertScanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getColor(ColorConstants.INSERT))));
+            insertScanner.setDefaultReturnToken(new Token(new TextAttribute(colorManager.getInsertColor())));
         }
 
         return insertScanner;

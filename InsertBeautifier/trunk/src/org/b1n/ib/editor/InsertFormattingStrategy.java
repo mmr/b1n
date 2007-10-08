@@ -1,7 +1,10 @@
-package org.b1n.ib;
+package org.b1n.ib.editor;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.b1n.ib.InsertBeautifierPlugin;
+import org.b1n.ib.preferences.PreferencesConstants;
 
 /**
  * @author Marcio Ribeiro
@@ -10,7 +13,7 @@ import java.util.regex.Pattern;
 public class InsertFormattingStrategy extends DefaultFormattingStrategy {
     @Override
     public String format(final String orig, boolean isLineStart, String indentation, int[] positions) {
-        String content = orig.replaceAll("[\r\n]", "");
+        String content = orig.replaceAll("[\r\n]", "").replaceAll("\\s{2,}", " ");
         Pattern p = Pattern.compile("^\\s*INSERT\\s+INTO\\s+([^\\s(]*)\\s*\\(([^)]+)\\)\\s*VALUES\\s*\\(([^)]+)\\)\\s*;", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(content);
         if (!m.find()) {
@@ -22,6 +25,10 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
         String vs = m.group(3);
 
         String[] fields = fs.split(",");
+        if (fields.length < getMinFields()) {
+            return content;
+        }
+
         String[] values = new String[fields.length];
         Pattern pv = Pattern.compile("(?: *('[^\']*') *,?)|(?:([^,]+),?)|(,)");
         Matcher mv = pv.matcher(vs);
@@ -67,5 +74,9 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
             sb.append(" ");
         }
         return sb.toString();
+    }
+
+    private Integer getMinFields() {
+        return InsertBeautifierPlugin.getDefault().getPreferenceStore().getInt(PreferencesConstants.MIN_FIELDS);
     }
 }

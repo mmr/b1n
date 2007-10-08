@@ -2,16 +2,21 @@
 <?eclipse version="3.2"?>
 <plugin>
 
-   <extension
-         point="org.eclipse.ui.editors">
+   <extension point="org.eclipse.ui.editors">
       <editor
             name="Insert Beautifier SQL Editor"
             extensions="sql"
             icon="icons/ib.png"
             contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
-            class="org.b1n.ib.InsertBeautifierEditor"
-            id="org.b1n.ib.InsertBeautifierEditor">
+            class="org.b1n.ib.editor.InsertBeautifierEditor"
+            id="org.b1n.ib.editor.InsertBeautifierEditor">
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.preferencePages">
+      <page 
+          id="org.b1n.ib.prefpage"
+          name="Insert Beautifier"
+          class="org.b1n.ib.preferences.PreferencesPage" />
+   </extension>
 </plugin>
