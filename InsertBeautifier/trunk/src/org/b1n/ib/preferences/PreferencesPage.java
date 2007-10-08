@@ -8,43 +8,45 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 /**
+ * Pagina de configuracao do plugin.
  * @author Marcio Ribeiro
  * @date 07/10/2007
  */
-public class PreferencesPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
-    private static final String[][] data;
+public final class PreferencesPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
+    /** Dados de combo para minimo de campos. */
+    private static final String[][] DATA;
 
     static {
-        data = new String[][] {
-                { "1", "1" },
-                { "2", "2" },
-                { "3", "3" },
-                { "4", "4" },
-                { "5", "5" },
-                { "6", "6" },
-                { "7", "7" },
-                { "8", "8" },
-                { "9", "9" },
-                { "10", "10" } };
+        DATA = new String[][] { { "1", "1" }, { "2", "2" }, { "3", "3" }, { "4", "4" }, { "5", "5" }, { "6", "6" }, { "7", "7" }, { "8", "8" }, { "9", "9" }, { "10", "10" } };
     }
 
+    /**
+     * Construtor.
+     */
     public PreferencesPage() {
-        super(GRID);
-        setPreferenceStore(InsertBeautifierPlugin.getDefault().getPreferenceStore());
-        setDescription("InsertBeautifier Plugin Configuration");
+        super(FieldEditorPreferencePage.GRID);
+        this.setPreferenceStore(InsertBeautifierPlugin.getDefault().getPreferenceStore());
+        this.setDescription("InsertBeautifier Plugin Configuration");
     }
 
+    /**
+     * Cria campos.
+     */
     @Override
     public void createFieldEditors() {
-        addField(new ComboFieldEditor(PreferencesConstants.MIN_FIELDS, "&Mínimo de Campos: ", data, getFieldEditorParent()));
+        this.addField(new ComboFieldEditor(PreferencesConstants.MIN_FIELDS, "&Mínimo de Campos: ", PreferencesPage.DATA, this.getFieldEditorParent()));
 
-        addField(new ColorFieldEditor(PreferencesConstants.COLOR_INSERT, "&Insert", getFieldEditorParent()));
-        addField(new ColorFieldEditor(PreferencesConstants.COLOR_COMMENT, "&Comentário", getFieldEditorParent()));
-        addField(new ColorFieldEditor(PreferencesConstants.COLOR_STRING, "&String", getFieldEditorParent()));
+        this.addField(new ColorFieldEditor(PreferencesConstants.COLOR_INSERT, "&Insert", this.getFieldEditorParent()));
+        this.addField(new ColorFieldEditor(PreferencesConstants.COLOR_COMMENT, "&Comentário", this.getFieldEditorParent()));
+        this.addField(new ColorFieldEditor(PreferencesConstants.COLOR_STRING, "&String", this.getFieldEditorParent()));
     }
 
+    /**
+     * Inicia pagina.
+     * @param workbench workbench.
+     */
     @Override
-    public void init(IWorkbench workbench) {
+    public void init(final IWorkbench workbench) {
         // do nothing
     }
 }

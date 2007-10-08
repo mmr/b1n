@@ -8,23 +8,26 @@ import org.eclipse.jface.text.rules.SingleLineRule;
 import org.eclipse.jface.text.rules.Token;
 
 /**
+ * Separador de conteudo. Separa INSERT e COMMENT do resto do conteudo.
  * @author Marcio Ribeiro
  * @date 07/10/2007
  */
 public class PartitionScanner extends RuleBasedPartitionScanner {
-    public final static String COMMENT = "__comment";
-    public final static String INSERT = "__insert";
+    /** Marcador para comentario. */
+    public static final String COMMENT = "__comment";
 
+    /** Marcador para insert. */
+    public static final String INSERT = "__insert";
+
+    /**
+     * Construtor.
+     */
     public PartitionScanner() {
-        IToken comment = new Token(COMMENT);
-        IToken insert = new Token(INSERT);
+        IToken comment = new Token(PartitionScanner.COMMENT);
+        IToken insert = new Token(PartitionScanner.INSERT);
 
-        IPredicateRule[] rules = new IPredicateRule[]{
-                new SingleLineRule("--", null, comment),
-                new MultiLineRule("/*", "*/", comment),
-                new MultiLineRule("INSERT", ";", insert),
-                new MultiLineRule("insert", ";", insert)};
+        IPredicateRule[] rules = new IPredicateRule[] { new SingleLineRule("--", null, comment), new MultiLineRule("/*", "*/", comment), new MultiLineRule("INSERT", ";", insert), new MultiLineRule("insert", ";", insert) };
 
-        setPredicateRules(rules);
+        this.setPredicateRules(rules);
     }
 }

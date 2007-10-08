@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fileset-config file-format-version="1.2.0" simple-config="true">
+    <local-check-config name="b1n" location="http://www.mmr.brpub.com.br/eclipse/b1n-checkstyle.xml" type="remote" description="">
+        <additional-data name="cache-file" value="true"/>
+        <additional-data name="cache-props-file-location" value="b1n_1191828681593_cache.properties"/>
+        <additional-data name="cache-file-location" value="b1n_1191828681593_cache.xml"/>
+    </local-check-config>
+    <fileset name="all" enabled="true" check-config-name="b1n" local="true">
+        <file-match-pattern match-pattern="." include-pattern="true"/>
+    </fileset>
+</fileset-config>

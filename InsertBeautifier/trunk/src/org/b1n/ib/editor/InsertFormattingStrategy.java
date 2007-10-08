@@ -7,12 +7,33 @@ import org.b1n.ib.InsertBeautifierPlugin;
 import org.b1n.ib.preferences.PreferencesConstants;
 
 /**
+ * Estrategia de formatacao para INSERTs.
  * @author Marcio Ribeiro
  * @date 07/10/2007
  */
 public class InsertFormattingStrategy extends DefaultFormattingStrategy {
+    /**
+     * Devolve conteudo formatado de acordo com a estrategia abaixo.
+     * 
+     * <pre>
+     * INSERT INTO tabela (colunaA, colunaB, colunaC, colunaD) VALUES (42, -3.141592, 'Melissa', null);
+     * </pre>
+     *
+     * Vira:
+     *
+     * <pre>
+     * INSERT INTO tabela ( colunaA, colunaB  , colunaC  , colunaD) VALUES
+     *                    ( 42     , -3.141592, 'Melissa', null   );
+     * </pre>
+     * 
+     * @param orig conteudo a ser formatado.
+     * @param isLineStart true se for comeco de linha, false se nao.
+     * @param indentation endentacao.
+     * @param positions posicoes.
+     * @return conteudo formatado.
+     */
     @Override
-    public String format(final String orig, boolean isLineStart, String indentation, int[] positions) {
+    public String format(final String orig, final boolean isLineStart, final String indentation, final int[] positions) {
         String content = orig.replaceAll("[\r\n]", "").replaceAll("\\s{2,}", " ");
         Pattern p = Pattern.compile("^\\s*INSERT\\s+INTO\\s+([^\\s(]*)\\s*\\(([^)]+)\\)\\s*VALUES\\s*\\(([^)]+)\\)\\s*;", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(content);
@@ -20,12 +41,12 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
             return orig;
         }
 
-        String table = m.group(1);
-        String fs = m.group(2);
-        String vs = m.group(3);
+        final String table = m.group(1);
+        final String fs = m.group(2);
+        final String vs = m.group(3);
 
         String[] fields = fs.split(",");
-        if (fields.length < getMinFields()) {
+        if (fields.length < this.getMinFields()) {
             return content;
         }
 
@@ -46,10 +67,10 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
         q1.append("INSERT INTO " + table + " (");
 
         StringBuilder q2 = new StringBuilder();
-        q2.append(getSpaces(q1.length() - 1)).append("(");
+        q2.append(this.getSpaces(q1.length() - 1)).append("(");
 
         for (int i = 0; i < values.length; i++) {
-            if (fields[i] == null || values[i] == null) {
+            if ((fields[i] == null) || (values[i] == null)) {
                 return orig;
             }
             String f = fields[i].trim();
@@ -59,16 +80,21 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
             int lenV = v.length() - 1;
             if (lenF >= lenV) {
                 q1.append(" ").append(f).append(",");
-                q2.append(" ").append(v).append(getSpaces(lenF - lenV)).append(",");
+                q2.append(" ").append(v).append(this.getSpaces(lenF - lenV)).append(",");
             } else {
-                q1.append(" ").append(f).append(getSpaces(lenV - lenF)).append(",");
+                q1.append(" ").append(f).append(this.getSpaces(lenV - lenF)).append(",");
                 q2.append(" ").append(v).append(",");
             }
         }
         return q1.toString().replaceAll(",$", "") + ") VALUES\n" + q2.toString().replaceAll(",$", "") + ");";
     }
 
-    private String getSpaces(int spacesToAdd) {
+    /**
+     * Devolve string com a quantidade de espacos passada.
+     * @param spacesToAdd espacos a serem adicionados.
+     * @return string com a quantidade de espacos passada.
+     */
+    private String getSpaces(final int spacesToAdd) {
         StringBuilder sb = new StringBuilder(spacesToAdd);
         for (int i = 0; i < spacesToAdd; i++) {
             sb.append(" ");
@@ -76,6 +102,10 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
         return sb.toString();
     }
 
+    /**
+     * Devolve a quantidade minima de campos configurada a ser considerada para acionar (ou nao) o formatador.
+     * @return a quantidade minima de campos configurada a ser considerada para acionar (ou nao) o formatador.
+     */
     private Integer getMinFields() {
         return InsertBeautifierPlugin.getDefault().getPreferenceStore().getInt(PreferencesConstants.MIN_FIELDS);
     }

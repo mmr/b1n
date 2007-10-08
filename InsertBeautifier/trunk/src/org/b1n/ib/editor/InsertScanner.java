@@ -9,18 +9,21 @@ import org.eclipse.jface.text.rules.Token;
 import org.eclipse.jface.text.rules.WhitespaceRule;
 
 /**
+ * Buscador de INSERTs. Trata dados em um token de INSERT.
  * @author Marcio Ribeiro
  * @date 07/10/2007
  */
 public class InsertScanner extends RuleBasedScanner {
 
-    public InsertScanner(ColorManager manager) {
+    /**
+     * Construtor.
+     * @param manager gerenciador de cores.
+     */
+    public InsertScanner(final ColorManager manager) {
         IToken string = new Token(new TextAttribute(manager.getStringColor()));
 
-        IRule[] rules = new IRule[] {
-            new SingleLineRule("'", "'", string, '\\'),
-            new WhitespaceRule(new WhitespaceDetector())};
+        IRule[] rules = new IRule[] { new SingleLineRule("'", "'", string, '\\'), new WhitespaceRule(new WhitespaceDetector()) };
 
-        setRules(rules);
+        this.setRules(rules);
     }
 }
