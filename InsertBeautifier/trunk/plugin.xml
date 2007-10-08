@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Insert Beautifier SQL Editor"
+            extensions="sql"
+            icon="icons/ib.png"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="org.b1n.ib.InsertBeautifierEditor"
+            id="org.b1n.ib.InsertBeautifierEditor">
+      </editor>
+   </extension>
+
+</plugin>

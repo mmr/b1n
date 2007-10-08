@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: InsertBeautifier Plug-in
+Bundle-SymbolicName: InsertBeautifier; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.b1n.ib.Activator
+Bundle-Vendor: b1n
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors
+Eclipse-LazyStart: true
