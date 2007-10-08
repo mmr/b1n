@@ -26,7 +26,11 @@ public class PartitionScanner extends RuleBasedPartitionScanner {
         IToken comment = new Token(PartitionScanner.COMMENT);
         IToken insert = new Token(PartitionScanner.INSERT);
 
-        IPredicateRule[] rules = new IPredicateRule[] { new SingleLineRule("--", null, comment), new MultiLineRule("/*", "*/", comment), new MultiLineRule("INSERT", ";", insert), new MultiLineRule("insert", ";", insert) };
+        IPredicateRule[] rules = new IPredicateRule[] {
+                new SingleLineRule("--", null, comment),
+                new MultiLineRule("/*", "*/", comment),
+                new MultiLineRule("INSERT", ";", insert),
+                new MultiLineRule("insert", ";", insert) };
 
         this.setPredicateRules(rules);
     }

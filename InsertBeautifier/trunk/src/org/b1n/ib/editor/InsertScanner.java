@@ -22,7 +22,9 @@ public class InsertScanner extends RuleBasedScanner {
     public InsertScanner(final ColorManager manager) {
         IToken string = new Token(new TextAttribute(manager.getStringColor()));
 
-        IRule[] rules = new IRule[] { new SingleLineRule("'", "'", string, '\\'), new WhitespaceRule(new WhitespaceDetector()) };
+        IRule[] rules = new IRule[] {
+                new SingleLineRule("'", "'", string, '\\'),
+                new WhitespaceRule(new WhitespaceDetector()) };
 
         this.setRules(rules);
     }
