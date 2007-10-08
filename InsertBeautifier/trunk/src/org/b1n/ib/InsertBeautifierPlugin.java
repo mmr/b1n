@@ -40,7 +40,7 @@ public class InsertBeautifierPlugin extends AbstractUIPlugin {
 
     @Override
     protected void initializeDefaultPreferences(IPreferenceStore store) {
-        store.setDefault(PreferencesConstants.MIN_FIELDS, "3");
+        store.setDefault(PreferencesConstants.MIN_FIELDS, "4");
 
         PreferenceConverter.setDefault(getPreferenceStore(), PreferencesConstants.COLOR_INSERT, defaultColorInsert);
         PreferenceConverter.setDefault(getPreferenceStore(), PreferencesConstants.COLOR_COMMENT, defaultColorComment);
