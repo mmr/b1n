@@ -60,7 +60,7 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
     @Override
     public String format(final String orig, final boolean isLineStart, final String indentation, final int[] positions) {
         String content = orig.replaceAll("[\r\n]", "").replaceAll("\\s{2,}", " ");
-        Pattern p = Pattern.compile("^\\s*INSERT\\s+INTO\\s+([^\\s(]*)\\s*\\(([^)]+)\\)\\s*VALUES\\s*\\(([^)]+)\\)\\s*;", Pattern.CASE_INSENSITIVE);
+        Pattern p = Pattern.compile("^\\s*INSERT\\s+INTO\\s+([^\\s(]*)\\s*\\((.*)\\)\\s*VALUES\\s*\\((.*)\\)\\s*;", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(content);
         if (!m.find()) {
             return orig;
@@ -76,7 +76,7 @@ public class InsertFormattingStrategy extends DefaultFormattingStrategy {
         }
 
         String[] values = new String[fields.length];
-        Pattern pv = Pattern.compile("(?: *('[^\']*') *,?)|(?:([^,]+),?)|(,)");
+        Pattern pv = Pattern.compile("(?: *('[^\\']*') *,?)|(?:([^,]+),?)|(,)");
         Matcher mv = pv.matcher(vs);
         int j = 0;
         while (mv.find()) {

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: InsertBeautifier Plug-in
 Bundle-SymbolicName: org.b1n.ib.InsertBeautifier; singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.1
 Bundle-Activator: org.b1n.ib.InsertBeautifierPlugin
 Bundle-Vendor: Marcio Ribeiro (b1n.org)
 Require-Bundle: org.eclipse.ui,
