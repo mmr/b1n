@@ -2,7 +2,7 @@
 <feature
       id="org.b1n.ib.InsertBeautifier"
       label="InsertBeautifier"
-      version="1.0.0"
+      version="1.0.1"
       provider-name="Marcio Ribeiro (b1n)">
 
    <description url="http://b1n.org/ib/">
@@ -46,7 +46,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
    <plugin
          id="org.b1n.ib.InsertBeautifier"
-         version="1.0.0"
+         version="1.0.1"
          unpack="false"/>
 
 </feature>
