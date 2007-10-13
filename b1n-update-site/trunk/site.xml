@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.b1n.ib.InsertBeautifier_1.0.0.jar" id="org.b1n.ib.InsertBeautifier" version="1.0.0">
+      <category name="InsertBeautifier"/>
+   </feature>
+   <category-def name="InsertBeautifier" label="InsertBeautifier"/>
+</site>
