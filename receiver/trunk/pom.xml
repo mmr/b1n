@@ -1,0 +1,56 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>b1n</groupId>
+  <artifactId>b1n-receiver</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+  <name>receiver</name>
+
+  <parent>
+    <groupId>b1n</groupId>
+    <artifactId>b1n-pom-web</artifactId>
+    <version>0.0.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>b1n.framework</groupId>
+      <artifactId>b1n-persistence</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>3.1.11</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.9</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>receiver</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-eclipse-plugin</artifactId>
+        <configuration>
+          <additionalProjectnatures>
+            <projectnature>com.sysdeo.eclipse.tomcat.tomcatnature</projectnature>
+          </additionalProjectnatures>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
