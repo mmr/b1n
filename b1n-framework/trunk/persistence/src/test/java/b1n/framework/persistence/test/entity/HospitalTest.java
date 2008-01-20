@@ -25,12 +25,11 @@
  */
 package b1n.framework.persistence.test.entity;
 
+import b1n.framework.persistence.DaoLocator;
 import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.FactoryLocator;
 import b1n.framework.persistence.entity.Doctor;
-import b1n.framework.persistence.entity.DoctorFactory;
 import b1n.framework.persistence.entity.Hospital;
-import b1n.framework.persistence.entity.HospitalFactory;
+import b1n.framework.persistence.entity.HospitalDao;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
@@ -40,47 +39,45 @@ import b1n.framework.persistence.test.PersistenceTestCase;
 public class HospitalTest extends PersistenceTestCase {
     private static long pk;
 
-    private static final HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
-
-    private static final DoctorFactory docFac = FactoryLocator.findFactory(Doctor.class);
+    private static final HospitalDao hospitalDao = DaoLocator.getDao(Hospital.class);
 
     private static final String NAME = "Albert Einstein";
 
     public void testSaveAndLoad() throws Exception {
         // Criando hospital
-        Hospital hospital = hospitalFac.createEntity();
+        Hospital hospital = new Hospital();
         hospital.setName(NAME);
 
-        Doctor doc1 = docFac.createEntity();
+        Doctor doc1 = new Doctor();
         doc1.setName("Fernanda Porto");
         hospital.addDoctor(doc1);
 
-        Doctor doc2 = docFac.createEntity();
+        Doctor doc2 = new Doctor();
         doc2.setName("Marisa Monte");
         hospital.addDoctor(doc2);
 
-        Doctor doc3 = docFac.createEntity();
+        Doctor doc3 = new Doctor();
         doc3.setName("Arnaldo Antunes");
         hospital.addDoctor(doc3);
         hospital.save();
         pk = hospital.getId();
 
-        Hospital loaded = hospitalFac.findById(pk);
+        Hospital loaded = hospitalDao.findById(pk);
         assertEquals(hospital.getName(), loaded.getName());
     }
 
     public void testGetByName() throws Exception {
-        Hospital hospitalByName = hospitalFac.getByName(NAME);
-        Hospital hospitalById = hospitalFac.findById(pk);
+        Hospital hospitalByName = hospitalDao.getByName(NAME);
+        Hospital hospitalById = hospitalDao.findById(pk);
         assertEquals(hospitalByName.getName(), hospitalById.getName());
     }
 
     public void testRemove() throws Exception {
         // Carregando
-        Hospital hospital = hospitalFac.findById(pk);
+        Hospital hospital = hospitalDao.findById(pk);
         hospital.remove();
 
-        HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
+        HospitalDao hospitalFac = DaoLocator.getDao(Hospital.class);
         try {
             hospitalFac.findById(pk);
             fail("Nao removeu .");

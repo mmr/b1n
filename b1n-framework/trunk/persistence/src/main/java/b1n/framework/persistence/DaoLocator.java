@@ -29,22 +29,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Encontrador de DAOs.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class FactoryLocator {
-    private static final Map<String, EntityFactory> factoriesCache = new HashMap<String, EntityFactory>();
+public class DaoLocator {
+    private static final Map<String, EntityDao<Entity>> cache = new HashMap<String, EntityDao<Entity>>();
 
+    /**
+     * Encontra o DAO para entidade passada passada.
+     * @param <T> tipo de dao.
+     * @param entityClass classe de entidade.
+     * @return DAO para a entidade passada.
+     */
     @SuppressWarnings("unchecked")
-    public static <T extends EntityFactory> T findFactory(final Class<? extends Entity> entityClass) {
+    public static <T extends EntityDao> T getDao(final Class<? extends Entity> entityClass) {
         try {
-            String factoryClassName = entityClass.getName() + "Factory";
-            if (factoriesCache.containsKey(factoryClassName)) {
-                return (T) factoriesCache.get(factoryClassName);
+            String factoryClassName = entityClass.getName() + "Dao";
+            if (cache.containsKey(factoryClassName)) {
+                return (T) cache.get(factoryClassName);
             }
-            T factory = (T) Class.forName(factoryClassName).newInstance();
-            factoriesCache.put(factoryClassName, factory);
-            return (T) factory;
+            T dao = (T) Class.forName(factoryClassName).newInstance();
+            cache.put(factoryClassName, dao);
+            return (T) dao;
         } catch (InstantiationException e) {
             throw new CouldNotFindFactoryException(e);
         } catch (IllegalAccessException e) {

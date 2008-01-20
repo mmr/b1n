@@ -9,14 +9,6 @@
   <url>http://b1n.org</url>
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-      </plugin>
       <!--plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
@@ -40,6 +32,24 @@
           <updateReleaseInfo>true</updateReleaseInfo>
         </configuration>
       </plugin>
+<!--
+	  <plugin>
+        <groupId>b1n</groupId>
+        <artifactId>maven-informer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>start</id>
+            <phase>validate</phase>
+            <configuration>
+              <action>start</action>
+              <server>http://127.0.0.1/test.php</server>
+              <dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender>
+            </configuration>
+          </execution>
+          <execution>
+        </executions>
+	  </plugin>
+-->
     </plugins>
   </build>
   <modules>
@@ -47,4 +57,10 @@
     <module>persistence</module>
     <module>game</module>
   </modules>
+
+  <parent>
+    <groupId>b1n</groupId>
+    <artifactId>b1n-pom</artifactId>
+    <version>0.0.2</version>
+  </parent>
 </project>

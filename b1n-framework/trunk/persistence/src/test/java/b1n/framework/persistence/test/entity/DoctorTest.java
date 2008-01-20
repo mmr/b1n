@@ -25,14 +25,12 @@
  */
 package b1n.framework.persistence.test.entity;
 
+import b1n.framework.persistence.DaoLocator;
 import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.FactoryLocator;
 import b1n.framework.persistence.entity.Doctor;
-import b1n.framework.persistence.entity.DoctorFactory;
+import b1n.framework.persistence.entity.DoctorDao;
 import b1n.framework.persistence.entity.HealthInsurance;
-import b1n.framework.persistence.entity.HealthInsuranceFactory;
 import b1n.framework.persistence.entity.Hospital;
-import b1n.framework.persistence.entity.HospitalFactory;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
@@ -42,9 +40,7 @@ import b1n.framework.persistence.test.PersistenceTestCase;
 public class DoctorTest extends PersistenceTestCase {
     private static Long id;
 
-    private static final DoctorFactory docFac = FactoryLocator.findFactory(Doctor.class);
-
-    private static final HospitalFactory hospitalFac = FactoryLocator.findFactory(Hospital.class);
+    private static final DoctorDao docDao = DaoLocator.getDao(Doctor.class);
 
     private static final String HOSPITAL_NAME = "Sirio Libanes";
 
@@ -54,12 +50,12 @@ public class DoctorTest extends PersistenceTestCase {
 
     public void testSaveAndLoad() throws Exception {
         // Criando Medico
-        Doctor doc = docFac.createEntity();
+        Doctor doc = new Doctor();
         doc.setName("Omara Portuondo");
         doc.getContactInfo().setEmail("omara@portuondo.com");
 
         // Criando hospital
-        Hospital hospital = hospitalFac.createEntity();
+        Hospital hospital = new Hospital();
         hospital.setName(HOSPITAL_NAME);
         hospital.addDoctor(doc);
         doc.setHospital(hospital);
@@ -67,16 +63,16 @@ public class DoctorTest extends PersistenceTestCase {
 
         // Carregando Medico
         id = doc.getId();
-        Doctor loaded = docFac.findById(id);
+        Doctor loaded = docDao.findById(id);
         assertEquals(doc.getName(), loaded.getName());
     }
 
     public void testRemoveDoctor() throws EntityNotFoundException {
-        Doctor doctor = docFac.findById(id);
+        Doctor doctor = docDao.findById(id);
         doctor.getHospital().remove();
 
         try {
-            docFac.findById(id);
+            docDao.findById(id);
             fail("Could not remove .");
         } catch (EntityNotFoundException e) {
             // Ok, foi removido.
@@ -85,43 +81,42 @@ public class DoctorTest extends PersistenceTestCase {
 
     public void testHealthInsurance() throws Exception {
         // Criando Convenios
-        HealthInsuranceFactory hiFac = FactoryLocator.findFactory(HealthInsurance.class);
-        HealthInsurance hi1 = hiFac.createEntity();
+        HealthInsurance hi1 = new HealthInsurance();
         hi1.setName("AMIL");
         hi1.save();
 
-        HealthInsurance hi2 = hiFac.createEntity();
+        HealthInsurance hi2 = new HealthInsurance();
         hi2.setName("Bradesco");
         hi2.save();
 
-        HealthInsurance hi3 = hiFac.createEntity();
+        HealthInsurance hi3 = new HealthInsurance();
         hi3.setName("Correios");
         hi3.save();
 
-        HealthInsurance hi4 = hiFac.createEntity();
+        HealthInsurance hi4 = new HealthInsurance();
         hi4.setName("Samcil");
         hi4.save();
 
-        HealthInsurance hi5 = hiFac.createEntity();
+        HealthInsurance hi5 = new HealthInsurance();
         hi5.setName("Dix Amico");
         hi5.save();
 
         // Criando Medicos
-        Doctor doc1 = docFac.createEntity();
+        Doctor doc1 = new Doctor();
         doc1.setName("Joaquim do Bandolim");
         doc1.addHealthInsurance(hi1);
         doc1.addHealthInsurance(hi3);
         doc1.addHealthInsurance(hi5);
         doc1.save();
 
-        Doctor doc2 = docFac.createEntity();
+        Doctor doc2 = new Doctor();
         doc2.setName("Adriana Calcanhoto");
         doc2.addHealthInsurance(hi2);
         doc2.addHealthInsurance(hi4);
         doc2.addHealthInsurance(hi5);
         doc2.save();
 
-        Doctor doc3 = docFac.createEntity();
+        Doctor doc3 = new Doctor();
         doc3.setName("Pixinguinha");
         doc3.addHealthInsurance(hi1);
         doc3.addHealthInsurance(hi2);

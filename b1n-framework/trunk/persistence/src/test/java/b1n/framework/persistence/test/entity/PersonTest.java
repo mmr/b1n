@@ -26,9 +26,9 @@
 package b1n.framework.persistence.test.entity;
 
 import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.FactoryLocator;
+import b1n.framework.persistence.DaoLocator;
 import b1n.framework.persistence.entity.Person;
-import b1n.framework.persistence.entity.PersonFactory;
+import b1n.framework.persistence.entity.PersonDao;
 import b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
@@ -39,8 +39,8 @@ public class PersonTest extends PersistenceTestCase {
     private static Long id;
 
     public void testSaveAndLoad() throws Exception {
-        PersonFactory fac = FactoryLocator.findFactory(Person.class);
-        Person person = fac.createEntity();
+        PersonDao fac = DaoLocator.getDao(Person.class);
+        Person person = new Person();
 
         // Salvando
         person.setName("Chico Buarque");
@@ -61,7 +61,7 @@ public class PersonTest extends PersistenceTestCase {
     }
 
     public void testWasRemoved() {
-        PersonFactory fac = FactoryLocator.findFactory(Person.class);
+        PersonDao fac = DaoLocator.getDao(Person.class);
         try {
             fac.findById(id);
             fail("Could not remove .");

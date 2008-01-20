@@ -35,10 +35,10 @@ import b1n.framework.persistence.SimpleEntityFactory;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class PersonFactory extends SimpleEntityFactory<Person> {
-    public Person getByEmail(String email) throws EntityNotFoundException {
+public class HospitalDao extends SimpleEntityFactory<Hospital> {
+    public Hospital getByName(String name) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
-        params.put("email", email);
-        return this.findByQuerySingle("SELECT p FROM Person AS p WHERE p.contactInfo.email = :email");
+        params.put("name", name);
+        return this.findByQuerySingle("SELECT bo FROM Hospital AS bo WHERE bo.name = :name", params);
     }
 }

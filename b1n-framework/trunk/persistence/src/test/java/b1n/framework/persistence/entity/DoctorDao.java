@@ -31,6 +31,6 @@ import b1n.framework.persistence.SimpleEntityFactory;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorFactory extends SimpleEntityFactory<Doctor> {
+public class DoctorDao extends SimpleEntityFactory<Doctor> {
     // Always look at the bright side of life
 }

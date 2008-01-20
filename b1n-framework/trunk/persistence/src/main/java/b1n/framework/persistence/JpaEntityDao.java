@@ -34,22 +34,18 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 /**
+ * DAO que usa JPA.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFactory<E> {
+public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> {
     private Class<E> entityClass;
 
-    public E createEntity() {
-        try {
-            return getEntityClass().newInstance();
-        } catch (InstantiationException e) {
-            throw new PersistenceException(e);
-        } catch (IllegalAccessException e) {
-            throw new PersistenceException(e);
-        }
-    }
-
+    /**
+     * @param id id.
+     * @return entidade com o id passada.
+     * @throws EntityNotFoundException caso nao encontre entidade alguma.
+     */
     public E findById(Long id) throws EntityNotFoundException {
         E entity = JpaUtil.getSession().find(getEntityClass(), id);
         if (entity == null) {
@@ -58,6 +54,12 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         return entity;
     }
 
+    /**
+     * Encontra entidade por query passada.
+     * @param query
+     * @return entidade encontrada.
+     * @throws EntityNotFoundException caso nao encontre entidade alguma.
+     */
     protected E findByQuerySingle(String query) throws EntityNotFoundException {
         return findByQuerySingle(query, null);
     }
@@ -80,6 +82,10 @@ public abstract class JpaEntityFactory<E extends JpaEntity> implements EntityFac
         return createJpaQuery(query, params).getResultList();
     }
 
+    /**
+     * @return classe de entidade.
+     */
+    @SuppressWarnings("unchecked")
     protected Class<E> getEntityClass() {
         try {
             if (entityClass == null) {

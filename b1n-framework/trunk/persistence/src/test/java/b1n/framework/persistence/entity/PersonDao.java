@@ -23,18 +23,22 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package b1n.framework.persistence.entity;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import b1n.framework.persistence.EntityNotFoundException;
+import b1n.framework.persistence.SimpleEntityFactory;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public interface EntityFactory<E extends Entity> {
-    E createEntity();
-
-    E findById(Long id) throws EntityNotFoundException;
-
-    List<E> findAll();
+public class PersonDao extends SimpleEntityFactory<Person> {
+    public Person getByEmail(String email) throws EntityNotFoundException {
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("email", email);
+        return this.findByQuerySingle("SELECT p FROM Person AS p WHERE p.contactInfo.email = :email");
+    }
 }
