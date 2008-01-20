@@ -25,26 +25,12 @@
  */
 package b1n.framework.persistence;
 
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 30, 2007
+ * @created Mar 28, 2007
  */
-public abstract class SimpleEntityFactory<E extends SimpleEntity> extends HibernateEntityFactory<E> {
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
-        return findByCriteria(crit);
-    }
-
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
-        return findByCriteria(crit);
+public class CouldNotFindDaoException extends RuntimeException {
+    public CouldNotFindDaoException(Throwable e) {
+        super(e);
     }
 }

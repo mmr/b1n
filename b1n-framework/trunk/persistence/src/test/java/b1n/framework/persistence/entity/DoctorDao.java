@@ -25,12 +25,12 @@
  */
 package b1n.framework.persistence.entity;
 
-import b1n.framework.persistence.SimpleEntityFactory;
+import b1n.framework.persistence.SimpleEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorDao extends SimpleEntityFactory<Doctor> {
+public class DoctorDao extends SimpleEntityDao<Doctor> {
     // Always look at the bright side of life
 }

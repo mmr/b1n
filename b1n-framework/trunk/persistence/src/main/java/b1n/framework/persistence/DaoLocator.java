@@ -45,19 +45,19 @@ public class DaoLocator {
     @SuppressWarnings("unchecked")
     public static <T extends EntityDao> T getDao(final Class<? extends Entity> entityClass) {
         try {
-            String factoryClassName = entityClass.getName() + "Dao";
-            if (cache.containsKey(factoryClassName)) {
-                return (T) cache.get(factoryClassName);
+            String daoClassName = entityClass.getName() + "Dao";
+            if (cache.containsKey(daoClassName)) {
+                return (T) cache.get(daoClassName);
             }
-            T dao = (T) Class.forName(factoryClassName).newInstance();
-            cache.put(factoryClassName, dao);
+            T dao = (T) Class.forName(daoClassName).newInstance();
+            cache.put(daoClassName, dao);
             return (T) dao;
         } catch (InstantiationException e) {
-            throw new CouldNotFindFactoryException(e);
+            throw new CouldNotFindDaoException(e);
         } catch (IllegalAccessException e) {
-            throw new CouldNotFindFactoryException(e);
+            throw new CouldNotFindDaoException(e);
         } catch (ClassNotFoundException e) {
-            throw new CouldNotFindFactoryException(e);
+            throw new CouldNotFindDaoException(e);
         }
     }
 }

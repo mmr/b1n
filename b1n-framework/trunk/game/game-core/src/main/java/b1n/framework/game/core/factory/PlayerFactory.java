@@ -26,12 +26,12 @@
 package b1n.framework.game.core.factory;
 
 import b1n.framework.game.core.Player;
-import b1n.framework.persistence.SimpleEntityFactory;
+import b1n.framework.persistence.SimpleEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-public class PlayerFactory extends SimpleEntityFactory<Player> {
+public class PlayerFactory extends SimpleEntityDao<Player> {
     // blame canada
 }

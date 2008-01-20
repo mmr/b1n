@@ -25,12 +25,12 @@
  */
 package b1n.framework.persistence.entity;
 
-import b1n.framework.persistence.SimpleEntityFactory;
+import b1n.framework.persistence.SimpleEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HealthInsuranceFactory extends SimpleEntityFactory<HealthInsurance> {
+public class HealthInsuranceFactory extends SimpleEntityDao<HealthInsurance> {
     // Picture yourself in a boat on a river...
 }

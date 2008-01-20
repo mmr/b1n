@@ -34,7 +34,7 @@ import org.hibernate.Session;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class HibernateEntityFactory<E extends JpaEntity> extends JpaEntityDao<E> {
+public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityDao<E> {
     @SuppressWarnings("unchecked")
     protected List<E> findByCriteria(Criteria criteria) {
         return (List<E>) criteria.list();
