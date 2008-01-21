@@ -23,22 +23,42 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.entity;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
-import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.SimpleEntity;
+
 
 /**
+ * Person Business Object, to test inheritnce <code>@Inheritance</code> with DoctorBo and <code>@Embedded</code> POJO.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalDao extends SimpleEntityDao<Hospital> {
-    public Hospital getByName(String name) throws EntityNotFoundException {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("name", name);
-        return this.findByQuerySingle("SELECT bo FROM Hospital AS bo WHERE bo.name = :name", params);
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Person extends SimpleEntity {
+    private String name;
+
+    @Embedded
+    private ContactInfo contactInfo = new ContactInfo();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ContactInfo getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(ContactInfo contactInfo) {
+        this.contactInfo = contactInfo;
     }
 }

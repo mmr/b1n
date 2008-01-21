@@ -23,13 +23,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.entity;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.EntityNotFoundException;
+import org.b1n.framework.persistence.SimpleEntityDao;
+
 
 /**
  * @author Marcio Ribeiro (mmr)

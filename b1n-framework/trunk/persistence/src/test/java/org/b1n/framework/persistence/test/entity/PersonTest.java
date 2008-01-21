@@ -23,31 +23,51 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.test.entity;
+
+import org.b1n.framework.persistence.DaoLocator;
+import org.b1n.framework.persistence.EntityNotFoundException;
+import org.b1n.framework.persistence.entity.Person;
+import org.b1n.framework.persistence.entity.PersonDao;
+import org.b1n.framework.persistence.test.PersistenceTestCase;
+
 
 /**
- * This is NOT a BO. Testing embedded POJOs feature.
  * @author Marcio Ribeiro (mmr)
- * @created Mar 27, 2007
+ * @created Mar 28, 2007
  */
-public class ContactInfo {
-    private String email;
+public class PersonTest extends PersistenceTestCase {
+    private static Long id;
 
-    private String phone;
+    public void testSaveAndLoad() throws Exception {
+        PersonDao fac = DaoLocator.getDao(Person.class);
+        Person person = new Person();
 
-    public String getEmail() {
-        return email;
+        // Salvando
+        person.setName("Chico Buarque");
+        person.getContactInfo().setEmail("chico@buarque.com");
+        person.getContactInfo().setPhone("(+55-11) 1234-5679");
+        person.save();
+
+        // Carregando salvo
+        Person loaded = fac.findById(person.getId());
+
+        // Comparando dados entre criado e carregado
+        assertEquals(person.getName(), loaded.getName());
+        assertEquals(person.getContactInfo().getEmail(), loaded.getContactInfo().getEmail());
+
+        // Removendo
+        id = person.getId();
+        person.remove();
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void testWasRemoved() {
+        PersonDao fac = DaoLocator.getDao(Person.class);
+        try {
+            fac.findById(id);
+            fail("Could not remove .");
+        } catch (EntityNotFoundException e) {
+            // Ok, foi removido.
+        }
     }
 }

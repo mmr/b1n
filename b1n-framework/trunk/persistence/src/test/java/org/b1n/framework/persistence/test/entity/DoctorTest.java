@@ -23,15 +23,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.test.entity;
+package org.b1n.framework.persistence.test.entity;
 
-import b1n.framework.persistence.DaoLocator;
-import b1n.framework.persistence.EntityNotFoundException;
-import b1n.framework.persistence.entity.Doctor;
-import b1n.framework.persistence.entity.DoctorDao;
-import b1n.framework.persistence.entity.HealthInsurance;
-import b1n.framework.persistence.entity.Hospital;
-import b1n.framework.persistence.test.PersistenceTestCase;
+import org.b1n.framework.persistence.DaoLocator;
+import org.b1n.framework.persistence.EntityNotFoundException;
+import org.b1n.framework.persistence.entity.Doctor;
+import org.b1n.framework.persistence.entity.DoctorDao;
+import org.b1n.framework.persistence.entity.HealthInsurance;
+import org.b1n.framework.persistence.entity.Hospital;
+import org.b1n.framework.persistence.test.PersistenceTestCase;
+
 
 /**
  * @author Marcio Ribeiro (mmr)

@@ -23,49 +23,49 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.entity;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-
-import b1n.framework.persistence.SimpleEntity;
+import javax.persistence.ManyToOne;
 
 /**
- * Health Insurance Business Object, to test <code>@ManyToMany</code> with DoctorBo.
+ * Doctor Business Object, to test inheritance with Person, <code>@ManyToOne</code> with Hospital and <code>@ManyToMany</code> with HealthyInsurance
  * @author Marcio Ribeiro (mmr)
- * @created Mar 27, 2007
+ * @created Mar 28, 2007
  */
 @Entity
-public class HealthInsurance extends SimpleEntity {
-    private String name;
+public class Doctor extends Person {
+    @ManyToOne
+    private Hospital hospital;
 
     @ManyToMany
-    private Set<Doctor> doctors = new HashSet<Doctor>();
+    private Set<HealthInsurance> healthInsurances = new HashSet<HealthInsurance>();
 
-    public Set<Doctor> getDoctors() {
-        return doctors;
+    public Hospital getHospital() {
+        return hospital;
     }
 
-    protected void setDoctors(Set<Doctor> doctors) {
-        this.doctors = doctors;
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
     }
 
-    public void addDoctor(Doctor doctor) {
-        this.doctors.add(doctor);
+    public Set<HealthInsurance> getHealthInsurances() {
+        return healthInsurances;
     }
 
-    public void removeDoctor(Doctor doctor) {
-        this.doctors.remove(doctor);
+    protected void setHealthInsurances(Set<HealthInsurance> healthInsurances) {
+        this.healthInsurances = healthInsurances;
     }
 
-    public String getName() {
-        return name;
+    public void addHealthInsurance(HealthInsurance healthInsurance) {
+        this.healthInsurances.add(healthInsurance);
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void removeHealthInsurance(HealthInsurance healthInsurance) {
+        this.healthInsurances.remove(healthInsurance);
     }
 }

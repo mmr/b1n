@@ -23,27 +23,47 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.entity;
 
-import javax.persistence.Embedded;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
-import b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.SimpleEntity;
+
 
 /**
- * Person Business Object, to test inheritnce <code>@Inheritance</code> with DoctorBo and <code>@Embedded</code> POJO.
+ * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with Doctor.
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 31, 2007
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Person extends SimpleEntity {
+public class Hospital extends SimpleEntity {
+    @Column(nullable = false)
     private String name;
 
-    @Embedded
-    private ContactInfo contactInfo = new ContactInfo();
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Doctor> doctors = new HashSet<Doctor>();
+
+    public Set<Doctor> getDoctors() {
+        return doctors;
+    }
+
+    protected void setDoctors(Set<Doctor> doctors) {
+        this.doctors = doctors;
+    }
+
+    public void addDoctor(Doctor doctor) {
+        this.doctors.add(doctor);
+    }
+
+    public void removeDoctor(Doctor doctor) {
+        this.doctors.remove(doctor);
+    }
 
     public String getName() {
         return name;
@@ -51,13 +71,5 @@ public class Person extends SimpleEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public ContactInfo getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(ContactInfo contactInfo) {
-        this.contactInfo = contactInfo;
     }
 }

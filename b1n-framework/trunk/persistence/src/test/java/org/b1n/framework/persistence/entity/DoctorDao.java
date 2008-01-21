@@ -23,52 +23,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-
-import b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.SimpleEntityDao;
 
 /**
- * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with Doctor.
  * @author Marcio Ribeiro (mmr)
- * @created Mar 31, 2007
+ * @created Mar 28, 2007
  */
-@Entity
-public class Hospital extends SimpleEntity {
-    @Column(nullable = false)
-    private String name;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Doctor> doctors = new HashSet<Doctor>();
-
-    public Set<Doctor> getDoctors() {
-        return doctors;
-    }
-
-    protected void setDoctors(Set<Doctor> doctors) {
-        this.doctors = doctors;
-    }
-
-    public void addDoctor(Doctor doctor) {
-        this.doctors.add(doctor);
-    }
-
-    public void removeDoctor(Doctor doctor) {
-        this.doctors.remove(doctor);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+public class DoctorDao extends SimpleEntityDao<Doctor> {
+    // Always look at the bright side of life
 }

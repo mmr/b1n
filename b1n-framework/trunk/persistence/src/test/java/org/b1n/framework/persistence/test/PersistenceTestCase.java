@@ -23,14 +23,49 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.entity;
+package org.b1n.framework.persistence.test;
 
-import b1n.framework.persistence.SimpleEntityDao;
+import junit.framework.TestCase;
+
+import org.b1n.framework.persistence.JpaUtil;
+import org.hsqldb.Server;
+
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorDao extends SimpleEntityDao<Doctor> {
-    // Always look at the bright side of life
+public abstract class PersistenceTestCase extends TestCase {
+    private static final Server server;
+
+    static {
+        // Start HSQLDB Server programatically
+        server = new Server();
+        server.putPropertiesFromString("database.0=mem:test");
+        server.putPropertiesFromString("dbname.0=test");
+        server.start();
+    }
+
+    public PersistenceTestCase() {
+        // do nothing
+    }
+
+    public PersistenceTestCase(String arg) {
+        super(arg);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        JpaUtil.getSession();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        try {
+            JpaUtil.closeSession();
+        } finally {
+            super.tearDown();
+        }
+    }
 }

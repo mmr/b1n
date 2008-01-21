@@ -23,49 +23,31 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence.test;
-
-import junit.framework.TestCase;
-
-import org.hsqldb.Server;
-
-import b1n.framework.persistence.JpaUtil;
+package org.b1n.framework.persistence.entity;
 
 /**
+ * This is NOT a BO. Testing embedded POJOs feature.
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 27, 2007
  */
-public abstract class PersistenceTestCase extends TestCase {
-    private static final Server server;
+public class ContactInfo {
+    private String email;
 
-    static {
-        // Start HSQLDB Server programatically
-        server = new Server();
-        server.putPropertiesFromString("database.0=mem:test");
-        server.putPropertiesFromString("dbname.0=test");
-        server.start();
+    private String phone;
+
+    public String getEmail() {
+        return email;
     }
 
-    public PersistenceTestCase() {
-        // do nothing
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public PersistenceTestCase(String arg) {
-        super(arg);
+    public String getPhone() {
+        return phone;
     }
 
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        JpaUtil.getSession();
-    }
-
-    @Override
-    protected void tearDown() throws Exception {
-        try {
-            JpaUtil.closeSession();
-        } finally {
-            super.tearDown();
-        }
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
