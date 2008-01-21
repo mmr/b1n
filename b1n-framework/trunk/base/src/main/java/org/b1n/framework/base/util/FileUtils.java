@@ -23,23 +23,43 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.base.util;
+package org.b1n.framework.base.util;
 
-import java.io.Serializable;
-
-import org.apache.commons.lang.SerializationUtils;
+import java.io.File;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class CloneUtils {
+public class FileUtils {
+
     /**
-     * @param originalObject the original object.
-     * @return a deep clone of the given object.
+     * Recursivelly removes a diretory and its content.
+     * 
+     * @param dirName name of the directory to be removed.
      */
-    @SuppressWarnings("unchecked")
-    public static <T> T deepClone(T originalObject) {
-        return (T) SerializationUtils.clone((Serializable) originalObject);
+    public static void deltree(String dirName) {
+        deltree(new File(dirName));
+    }
+
+    /**
+     * Recursivelly removes a directory and its content.
+     * 
+     * @param dir directory to be removed.
+     */
+    public static void deltree(File dir) {
+        if (dir == null || !dir.isDirectory()) {
+            throw new IllegalArgumentException("Invalid directory: " + dir);
+        }
+        for (String fileName : dir.list()) {
+            File file = new File(dir, fileName);
+            if (file.isDirectory()) {
+                deltree(dir.getPath() + File.separator + fileName);
+                file.delete();
+            } else if (file.isFile()) {
+                file.delete();
+            }
+        }
+        dir.delete();
     }
 }

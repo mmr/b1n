@@ -23,22 +23,23 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.base;
+package org.b1n.framework.base.util;
+
+import java.io.Serializable;
+
+import org.apache.commons.lang.SerializationUtils;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class BaseException extends Exception {
-    public BaseException(String message) {
-        super(message);
-    }
-
-    public BaseException(Throwable e) {
-        super(e);
-    }
-
-    public BaseException(String message, Throwable e) {
-        super(message, e);
+public class CloneUtils {
+    /**
+     * @param originalObject the original object.
+     * @return a deep clone of the given object.
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T deepClone(T originalObject) {
+        return (T) SerializationUtils.clone((Serializable) originalObject);
     }
 }

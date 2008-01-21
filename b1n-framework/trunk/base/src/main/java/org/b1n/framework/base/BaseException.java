@@ -23,22 +23,22 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.base;
+package org.b1n.framework.base;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class BaseRuntimeException extends RuntimeException {
-    public BaseRuntimeException(String message) {
+public class BaseException extends Exception {
+    public BaseException(String message) {
         super(message);
     }
 
-    public BaseRuntimeException(Throwable e) {
+    public BaseException(Throwable e) {
         super(e);
     }
 
-    public BaseRuntimeException(String message, Throwable e) {
+    public BaseException(String message, Throwable e) {
         super(message, e);
     }
 }
