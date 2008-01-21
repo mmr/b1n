@@ -4,7 +4,7 @@
   <groupId>b1n</groupId>
   <artifactId>b1n-pom</artifactId>
   <name>b1n-pom</name>
-  <version>0.0.2</version>
+  <version>1.0.2</version>
   <packaging>pom</packaging>
 
   <build>
