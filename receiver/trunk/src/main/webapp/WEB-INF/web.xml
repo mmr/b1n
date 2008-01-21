@@ -9,7 +9,7 @@
 
   <filter>
     <filter-name>txFilter</filter-name>
-    <filter-class>b1n.receiver.web.TransactionFilter</filter-class>
+    <filter-class>org.b1n.receiver.web.TransactionFilter</filter-class>
   </filter>
 
   <filter-mapping>
@@ -19,7 +19,7 @@
 
   <servlet>
     <servlet-name>saveInfo</servlet-name>
-    <servlet-class>b1n.receiver.web.SaveInfoServlet</servlet-class>
+    <servlet-class>org.b1n.receiver.web.SaveInfoServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>

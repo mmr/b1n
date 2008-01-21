@@ -5,8 +5,8 @@
 <hibernate-configuration>
     <session-factory>  
         <property name="hibernate.mapping.precedence">class,hbm</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!-- MySQL -->
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>

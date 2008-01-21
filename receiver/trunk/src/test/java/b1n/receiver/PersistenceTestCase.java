@@ -8,7 +8,7 @@ import org.b1n.framework.persistence.JpaUtil;
  * @author Marcio Ribeiro
  * @date Jan 20, 2008
  */
-public class PersistenceTestCase extends TestCase {
+public abstract class PersistenceTestCase extends TestCase {
     public PersistenceTestCase() {
         // do nothing
     }
