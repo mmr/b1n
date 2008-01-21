@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.b1n.framework.persistence.DaoLocator;
 import org.b1n.framework.persistence.EntityNotFoundException;
+import org.b1n.framework.persistence.JpaUtil;
 import org.b1n.receiver.domain.Build;
 import org.b1n.receiver.domain.BuildDao;
 import org.b1n.receiver.domain.Module;
@@ -66,16 +67,23 @@ public class SaveInfoServlet extends HttpServlet {
             return;
         }
 
-        if (action.equals(START_BUILD_ACTION)) {
-            long buildId = saveStartBuild(req);
-            sendId(resp, buildId);
-        } else if (action.equals(START_MODULE_ACTION)) {
-            long moduleId = saveStartModule(req);
-            sendId(resp, moduleId);
-        } else if (action.equals(END_MODULE_ACTION)) {
-            saveEndModule(req);
-        } else if (action.equals(END_BUILD_ACTION)) {
-            saveEndBuild(req);
+        JpaUtil.getSession();
+        try {
+            if (action.equals(START_BUILD_ACTION)) {
+                long buildId = saveStartBuild(req);
+                sendId(resp, buildId);
+            } else if (action.equals(START_MODULE_ACTION)) {
+                long moduleId = saveStartModule(req);
+                sendId(resp, moduleId);
+            } else if (action.equals(END_MODULE_ACTION)) {
+                saveEndModule(req);
+            } else if (action.equals(END_BUILD_ACTION)) {
+                saveEndBuild(req);
+            }
+        } catch (CouldNotSaveException e) {
+            throw new ServletException(e.getCause());
+        } finally {
+            JpaUtil.closeSession();
         }
     }
 
@@ -88,14 +96,14 @@ public class SaveInfoServlet extends HttpServlet {
         }
     }
 
-    private void saveEndBuild(HttpServletRequest req) {
+    private void saveEndBuild(HttpServletRequest req) throws CouldNotSaveException {
         String strBuildId = req.getParameter(PARAM_BUILD_ID);
 
         long buildId = 0;
         try {
             buildId = Long.parseLong(strBuildId);
         } catch (NumberFormatException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
 
         BuildDao buildDao = DaoLocator.getDao(Build.class);
@@ -103,20 +111,20 @@ public class SaveInfoServlet extends HttpServlet {
         try {
             build = buildDao.findById(buildId);
         } catch (EntityNotFoundException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
         build.setEndTime(new Date());
         build.save();
     }
 
-    private void saveEndModule(HttpServletRequest req) {
+    private void saveEndModule(HttpServletRequest req) throws CouldNotSaveException {
         String strModuleId = req.getParameter(PARAM_MODULE_ID);
 
         long moduleId = 0;
         try {
             moduleId = Long.parseLong(strModuleId);
         } catch (NumberFormatException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
 
         ModuleDao moduleDao = DaoLocator.getDao(Module.class);
@@ -124,13 +132,13 @@ public class SaveInfoServlet extends HttpServlet {
         try {
             module = moduleDao.findById(moduleId);
         } catch (EntityNotFoundException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
         module.setEndTime(new Date());
         module.save();
     }
 
-    private long saveStartModule(HttpServletRequest req) {
+    private long saveStartModule(HttpServletRequest req) throws CouldNotSaveException {
         // TODO (mmr) : tratar parametros nulos
         String strBuildId = req.getParameter(PARAM_BUILD_ID);
         String version = req.getParameter(PARAM_VERSION);
@@ -141,7 +149,7 @@ public class SaveInfoServlet extends HttpServlet {
         try {
             buildId = Long.parseLong(strBuildId);
         } catch (NumberFormatException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
 
         BuildDao buildDao = DaoLocator.getDao(Build.class);
@@ -149,7 +157,7 @@ public class SaveInfoServlet extends HttpServlet {
         try {
             build = buildDao.findById(buildId);
         } catch (EntityNotFoundException e) {
-            // TODO (mmr) : tratar erro
+            throw new CouldNotSaveException(e);
         }
 
         Module module = new Module();
@@ -164,7 +172,7 @@ public class SaveInfoServlet extends HttpServlet {
         return module.getId();
     }
 
-    private long saveStartBuild(HttpServletRequest req) {
+    private long saveStartBuild(HttpServletRequest req) throws CouldNotSaveException {
         // TODO (mmr) : tratar parametros nulos
         String project = req.getParameter(PARAM_PROJECT);
         String version = req.getParameter(PARAM_VERSION);
