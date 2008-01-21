@@ -1,0 +1,42 @@
+* {
+  font-family: verdana;
+  margin: 10px;
+  padding: 5px;
+}
+hr {
+  padding: 0px;
+  margin: 0px;
+}
+h1 {
+  text-align: center;
+  color: #aaa;
+}
+table.build {
+  width: 100%;
+  border: 1px solid black;
+}
+table.modules {
+  width: 100%;
+  border: 1px solid black;
+}
+table.userData {
+  vertical-align: top;
+  width: 100%;
+  border: 1px dotted black;
+}
+td.moduleTitle {
+  background-color: #777;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+}
+td.projectName {
+  background-color: #777;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+tr.start td, tr.end td {
+  text-align: right;
+}

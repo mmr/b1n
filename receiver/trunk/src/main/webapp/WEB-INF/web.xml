@@ -8,6 +8,11 @@
   <display-name>Receiver</display-name>
 
   <servlet>
+    <servlet-name>getLastBuilds</servlet-name>
+    <servlet-class>org.b1n.receiver.web.GetLastBuildsServlet</servlet-class>
+  </servlet>
+
+  <servlet>
     <servlet-name>saveInfo</servlet-name>
     <servlet-class>org.b1n.receiver.web.SaveInfoServlet</servlet-class>
   </servlet>
@@ -15,5 +20,10 @@
   <servlet-mapping>
     <servlet-name>saveInfo</servlet-name>
     <url-pattern>/saveInfo</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>getLastBuilds</servlet-name>
+    <url-pattern>/getLastBuilds</url-pattern>
   </servlet-mapping>
 </web-app>

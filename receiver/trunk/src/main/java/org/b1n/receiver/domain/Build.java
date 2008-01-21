@@ -136,6 +136,13 @@ public class Build extends Project {
     }
 
     /**
+     * @return <code>true</code> se possui modulos, <code>false</code> se nao.
+     */
+    public boolean hasModules() {
+        return modules != null && !modules.isEmpty();
+    }
+    
+    /**
      * @return representacao em texto.
      */
     @Override
