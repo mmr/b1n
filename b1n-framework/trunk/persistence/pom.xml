@@ -4,13 +4,13 @@
   <groupId>b1n.framework</groupId>
   <artifactId>b1n-persistence</artifactId>
   <name>b1n-persistence</name>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
       <groupId>b1n.framework</groupId>
       <artifactId>b1n-base</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
@@ -43,6 +43,7 @@
   <parent>
     <artifactId>b1n-framework</artifactId>
     <groupId>b1n.framework</groupId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 </project>
