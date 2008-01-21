@@ -1,52 +1,63 @@
 package org.b1n.receiver.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
-import org.b1n.framework.persistence.SimpleEntity;
+import javax.persistence.OneToMany;
 
 /**
- * Dados enviados pelo Informer.
+ * Build.
  * @author Marcio Ribeiro
  * @date Jan 20, 2008
  */
 @Entity
-public class Info extends SimpleEntity {
-    @Column(nullable = false)
-    private String action;
+public class Build extends Project {
 
     @Column(nullable = false)
     private String hostName;
 
     @Column(nullable = false)
+    private String hostIp;
+
+    @Column(nullable = false)
+    private String hostRequestIp;
+
+    @Column(nullable = false)
     private String projectName;
 
-    @Column(nullable = false)
-    private String groupId;
-
-    @Column(nullable = false)
-    private String artifactId;
-
-    @Column(nullable = false)
-    private String version;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Module> modules;
 
     private String userName;
+
     private String encoding;
+
     private String jvm;
 
-    /**
-     * @return a acao.
-     */
-    public String getAction() {
-        return action;
+    public String getHostIp() {
+        return hostIp;
     }
 
-    /**
-     * Define a acao.
-     * @param action a acao.
-     */
-    public void setAction(String action) {
-        this.action = action;
+    public void setHostIp(String hostIp) {
+        this.hostIp = hostIp;
+    }
+
+    public String getHostRequestIp() {
+        return hostRequestIp;
+    }
+
+    public void setHostRequestIp(String hostRequestIp) {
+        this.hostRequestIp = hostRequestIp;
+    }
+
+    public List<Module> getModules() {
+        return modules;
+    }
+
+    public void addModule(Module module) {
+        this.modules.add(module);
     }
 
     /**
@@ -95,51 +106,6 @@ public class Info extends SimpleEntity {
     }
 
     /**
-     * @return versao do projeto.
-     */
-    public String getVersion() {
-        return version;
-    }
-
-    /**
-     * Define a versao.
-     * @param version a versao.
-     */
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    /**
-     * @return o id do grupo do artefato do projeto.
-     */
-    public String getGroupId() {
-        return groupId;
-    }
-
-    /**
-     * Define o id do grupo do artefato do projeto.
-     * @param groupId id do grupo.
-     */
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    /**
-     * @return o id do artefato do projeto.
-     */
-    public String getArtifactId() {
-        return artifactId;
-    }
-
-    /**
-     * Define o id do artefato do projeto.
-     * @param artifactId id do artefato do projeto.
-     */
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
-    }
-
-    /**
      * @return o encoding usado para fazer build do projeto.
      */
     public String getEncoding() {
@@ -175,15 +141,12 @@ public class Info extends SimpleEntity {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Action: ").append(action).append(" ");
-        sb.append("HostName: ").append(hostName).append(" ");
-        sb.append("UserName: ").append(userName).append(" ");
-        sb.append("Project: ").append(projectName).append(" ");
-        sb.append("Version: ").append(version).append(" ");
-        sb.append("GroupId: ").append(groupId).append(" ");
-        sb.append("ArtifactId: ").append(artifactId).append(" ");
-        sb.append("Encoding: ").append(encoding).append(" ");
-        sb.append("JVM: ").append(jvm);
+        sb.append("HostName: ").append(hostName).append("\n");
+        sb.append("UserName: ").append(userName).append("\n");
+        sb.append("Project: ").append(projectName).append("\n");
+        sb.append("Encoding: ").append(encoding).append("\n");
+        sb.append("JVM: ").append(jvm).append("\n");
+        sb.append(super.toString());
         return sb.toString();
     }
 }
