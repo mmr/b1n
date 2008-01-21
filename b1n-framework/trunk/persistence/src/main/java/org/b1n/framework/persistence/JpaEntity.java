@@ -23,37 +23,24 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
-
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.Session;
+package org.b1n.framework.persistence;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityDao<E> {
-    @SuppressWarnings("unchecked")
-    protected List<E> findByCriteria(Criteria criteria) {
-        return (List<E>) criteria.list();
+public abstract class JpaEntity implements Entity {
+    /**
+     * Save entity.
+     */
+    public void save() {
+        JpaUtil.getSession().persist(this);
     }
 
-    @SuppressWarnings("unchecked")
-    protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
-        E entity = (E) criteria.uniqueResult();
-        if (entity == null) {
-            throw new EntityNotFoundException(getEntityClass());
-        }
-        return entity;
-    }
-
-    protected Criteria createCriteria() {
-        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
-    }
-
-    public List<E> findAll() {
-        return findByCriteria(createCriteria());
+    /**
+     * Remove entity.
+     */
+    public void remove() {
+        JpaUtil.getSession().remove(this);
     }
 }

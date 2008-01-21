@@ -23,25 +23,24 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
+import org.b1n.framework.base.BaseException;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public abstract class JpaEntity implements Entity {
-    /**
-     * Save entity.
-     */
-    public void save() {
-        JpaUtil.getSession().persist(this);
+public class PersistenceException extends BaseException {
+    public PersistenceException(String message) {
+        super(message);
     }
 
-    /**
-     * Remove entity.
-     */
-    public void remove() {
-        JpaUtil.getSession().remove(this);
+    public PersistenceException(Throwable e) {
+        super(e);
+    }
+
+    public PersistenceException(String message, Throwable e) {
+        super(message, e);
     }
 }

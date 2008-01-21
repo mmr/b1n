@@ -23,16 +23,47 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 29, 2007
  */
-public interface EntityDao<E extends Entity> {
-    E findById(Long id) throws EntityNotFoundException;
+public class JpaUtil {
+    private static final ThreadLocal<EntityManager> session = new ThreadLocal<EntityManager>();
 
-    List<E> findAll();
+    // TODO (mmr) o nome da PU deve ser configuravel
+    private static final EntityManagerFactory sessionFactory = Persistence.createEntityManagerFactory("b1n");
+
+    public static EntityManager getSession() {
+        EntityManager s = session.get();
+
+        if (s == null) {
+            s = sessionFactory.createEntityManager();
+            EntityTransaction tr = s.getTransaction();
+            tr.begin();
+            session.set(s);
+        }
+        return s;
+    }
+
+    public static void closeSession() {
+        EntityManager s = session.get();
+        session.set(null);
+        if (s != null) {
+            if (!s.getTransaction().getRollbackOnly()) {
+                s.flush();
+                s.getTransaction().commit();
+            } else {
+                s.getTransaction().rollback();
+            }
+            s.close();
+        }
+        s = null;
+    }
 }

@@ -23,14 +23,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
+
+
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public class CouldNotFindDaoException extends RuntimeException {
-    public CouldNotFindDaoException(Throwable e) {
+public class TooManyEntitiesFoundException extends PersistenceRuntimeException {
+    public TooManyEntitiesFoundException(Throwable e) {
         super(e);
     }
 }

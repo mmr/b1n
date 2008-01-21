@@ -23,63 +23,59 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.Transient;
+import java.io.Serializable;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-@MappedSuperclass
-public class SimpleEntity extends JpaEntity {
-    @Id
-    @GeneratedValue
+public class EntityNotFoundException extends PersistenceException {
+    private Class<? extends Entity> clazz;
+
+    private String query;
+
     private Long id;
 
-    @Column(nullable = false)
-    private Date dateAdded;
-
-    private Date dateLastUpdated;
-
-    @Column(nullable = false)
-    private Boolean enabled;
-
-    @Transient
-    private Boolean defaultEnabledValue = Boolean.TRUE;
-
-    protected Boolean getDefaultEnabledValue() {
-        return defaultEnabledValue;
+    public EntityNotFoundException(Class<? extends Entity> clazz) {
+        super("Could not find " + clazz.getName());
+        this.clazz = clazz;
     }
 
-    protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
-        this.defaultEnabledValue = defaultEnabledValue;
+    public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
+        super("Could not find " + clazz.getName() + " with id " + id);
+        this.clazz = clazz;
+        this.id = id;
     }
 
-    public Date getDateAdded() {
-        return dateAdded;
+    public EntityNotFoundException(Class<? extends Entity> clazz, Long id, Throwable cause) {
+        super("Could not find " + clazz.getName() + " with id " + id, cause);
+        this.clazz = clazz;
+        this.id = id;
     }
 
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
+    public EntityNotFoundException(Class<? extends Entity> clazz, String query) {
+        super("Could not find " + clazz.getName() + " for query '" + query + "'.");
+        this.clazz = clazz;
+        this.query = query;
     }
 
-    public Date getDateLastUpdated() {
-        return dateLastUpdated;
+    public EntityNotFoundException(Class<? extends Entity> clazz, String query, Throwable cause) {
+        super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
+        this.clazz = clazz;
+        this.query = query;
     }
 
-    public void setDateLastUpdated(Date dateLastUpdated) {
-        this.dateLastUpdated = dateLastUpdated;
+    public Class<? extends Entity> getClazz() {
+        return clazz;
     }
 
-    public Long getId() {
+    public void setClazz(Class<? extends Entity> clazz) {
+        this.clazz = clazz;
+    }
+
+    public Serializable getId() {
         return id;
     }
 
@@ -87,26 +83,11 @@ public class SimpleEntity extends JpaEntity {
         this.id = id;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
+    public String getQuery() {
+        return query;
     }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    /**
-     * Called before saving the Bo.
-     */
-    @PrePersist
-    protected void onSave() {
-        if (dateAdded == null) {
-            dateAdded = new Date();
-        } else if (id != null && dateLastUpdated == null) {
-            dateLastUpdated = new Date();
-        }
-        if (enabled == null) {
-            enabled = getDefaultEnabledValue();
-        }
+    public void setQuery(String query) {
+        this.query = query;
     }
 }

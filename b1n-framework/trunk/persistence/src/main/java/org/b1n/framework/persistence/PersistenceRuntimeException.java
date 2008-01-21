@@ -23,24 +23,24 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
-import b1n.framework.base.BaseException;
+import org.b1n.framework.base.BaseRuntimeException;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class PersistenceException extends BaseException {
-    public PersistenceException(String message) {
+public class PersistenceRuntimeException extends BaseRuntimeException {
+    public PersistenceRuntimeException(String message) {
         super(message);
     }
 
-    public PersistenceException(Throwable e) {
+    public PersistenceRuntimeException(Throwable e) {
         super(e);
     }
 
-    public PersistenceException(String message, Throwable e) {
+    public PersistenceRuntimeException(String message, Throwable e) {
         super(message, e);
     }
 }

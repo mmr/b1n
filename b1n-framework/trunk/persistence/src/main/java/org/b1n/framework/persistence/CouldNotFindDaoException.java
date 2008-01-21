@@ -23,28 +23,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
-
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
+package org.b1n.framework.persistence;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 30, 2007
+ * @created Mar 28, 2007
  */
-public abstract class SimpleEntityDao<E extends SimpleEntity> extends HibernateEntityDao<E> {
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
-        return findByCriteria(crit);
-    }
-
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
-        return findByCriteria(crit);
+public class CouldNotFindDaoException extends RuntimeException {
+    public CouldNotFindDaoException(Throwable e) {
+        super(e);
     }
 }

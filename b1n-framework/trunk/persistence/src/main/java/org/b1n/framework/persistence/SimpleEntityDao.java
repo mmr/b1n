@@ -23,36 +23,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
-import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
- * Business Object.
- * 
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public interface Entity extends Serializable {
-    /**
-     * @return the Id of the entity.
-     */
-    public Long getId();
+public abstract class SimpleEntityDao<E extends SimpleEntity> extends HibernateEntityDao<E> {
+    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
+        return findByCriteria(crit);
+    }
 
-    /**
-     * Sets the Id of the entity.
-     * 
-     * @param id the Id of the entity.
-     */
-    public void setId(Long id);
-
-    /**
-     * Save entity.
-     */
-    public void save();
-
-    /**
-     * Remove entity.
-     */
-    public void remove();
+    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
+        return findByCriteria(crit);
+    }
 }

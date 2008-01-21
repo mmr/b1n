@@ -23,24 +23,37 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.persistence;
+package org.b1n.framework.persistence;
 
-import b1n.framework.base.BaseRuntimeException;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 30, 2007
+ * @created Mar 28, 2007
  */
-public class PersistenceRuntimeException extends BaseRuntimeException {
-    public PersistenceRuntimeException(String message) {
-        super(message);
+public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityDao<E> {
+    @SuppressWarnings("unchecked")
+    protected List<E> findByCriteria(Criteria criteria) {
+        return (List<E>) criteria.list();
     }
 
-    public PersistenceRuntimeException(Throwable e) {
-        super(e);
+    @SuppressWarnings("unchecked")
+    protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
+        E entity = (E) criteria.uniqueResult();
+        if (entity == null) {
+            throw new EntityNotFoundException(getEntityClass());
+        }
+        return entity;
     }
 
-    public PersistenceRuntimeException(String message, Throwable e) {
-        super(message, e);
+    protected Criteria createCriteria() {
+        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
+    }
+
+    public List<E> findAll() {
+        return findByCriteria(createCriteria());
     }
 }
