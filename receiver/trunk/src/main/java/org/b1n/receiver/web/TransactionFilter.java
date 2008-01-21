@@ -1,4 +1,4 @@
-package b1n.receiver.web;
+package org.b1n.receiver.web;
 
 import java.io.IOException;
 

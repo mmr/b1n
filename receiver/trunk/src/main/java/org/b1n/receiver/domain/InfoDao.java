@@ -1,4 +1,4 @@
-package b1n.receiver.domain;
+package org.b1n.receiver.domain;
 
 import b1n.framework.persistence.SimpleEntityDao;
 
