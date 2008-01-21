@@ -39,6 +39,7 @@ public class GetLastBuildsServlet extends HttpServlet {
 
         // Sim, eu sei que nao deveria coloca isso aqui.
         // A view sera refeita
+        resp.setContentType("text/html");
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         try {
             writer.print("<html><head><title>Build Stats</title><link rel='stylesheet' href='css/tmp.css'/></head><body>");
