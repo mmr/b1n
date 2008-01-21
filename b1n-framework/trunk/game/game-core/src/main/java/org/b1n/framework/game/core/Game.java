@@ -23,15 +23,62 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.game.core.factory;
+package org.b1n.framework.game.core;
 
-import b1n.framework.game.core.Player;
-import b1n.framework.persistence.SimpleEntityDao;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 29, 2007
+ * @created Mar 30, 2007
  */
-public class PlayerFactory extends SimpleEntityDao<Player> {
-    // blame canada
+@Entity
+public class Game extends SimpleEntity {
+    @Column(nullable = false)
+    private String name;
+
+    @ManyToOne
+    private GameType gameType;
+
+    @ManyToMany
+    private List<Player> players = new ArrayList<Player>();
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void addPlayer(Player player) {
+        players.add(player);
+    }
+
+    public void removePlayer(Player player) {
+        players.remove(player);
+    }
+
+    protected void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public GameType getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(GameType gameType) {
+        this.gameType = gameType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

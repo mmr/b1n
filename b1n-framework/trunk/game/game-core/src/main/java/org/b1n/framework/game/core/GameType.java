@@ -23,12 +23,13 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.game.core;
+package org.b1n.framework.game.core;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.SimpleEntity;
+
 
 /**
  * @author Marcio Ribeiro (mmr)

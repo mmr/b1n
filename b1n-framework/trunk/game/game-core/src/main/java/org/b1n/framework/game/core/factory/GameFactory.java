@@ -23,71 +23,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.game.core;
+package org.b1n.framework.game.core.factory;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import org.b1n.framework.game.core.Game;
+import org.b1n.framework.persistence.SimpleEntityDao;
 
-import b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-@Entity
-public class Player extends SimpleEntity {
-    @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private String nick;
-
-    @Column(nullable = false, unique = true)
-    private String userName;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    private String email;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String login) {
-        this.userName = login;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNick() {
-        return nick;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+public class GameFactory extends SimpleEntityDao<Game> {
+    // blame canada
 }

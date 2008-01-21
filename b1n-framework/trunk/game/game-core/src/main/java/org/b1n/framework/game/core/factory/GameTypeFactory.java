@@ -23,15 +23,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package b1n.framework.game.core.factory;
+package org.b1n.framework.game.core.factory;
 
-import b1n.framework.game.core.Game;
-import b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.game.core.GameType;
+import org.b1n.framework.persistence.SimpleEntityDao;
+
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-public class GameFactory extends SimpleEntityDao<Game> {
+public class GameTypeFactory extends SimpleEntityDao<GameType> {
     // blame canada
 }
