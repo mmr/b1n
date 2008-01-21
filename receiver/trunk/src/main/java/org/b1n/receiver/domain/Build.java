@@ -141,7 +141,7 @@ public class Build extends Project {
     public boolean hasModules() {
         return modules != null && !modules.isEmpty();
     }
-    
+
     /**
      * @return representacao em texto.
      */

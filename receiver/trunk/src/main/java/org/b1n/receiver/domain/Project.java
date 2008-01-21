@@ -68,6 +68,13 @@ public abstract class Project extends SimpleEntity {
         this.endTime = endTime;
     }
 
+    public long getTimeDelta() {
+        if (endTime == null) {
+            return 0;
+        }
+        return endTime.getTime() - startTime.getTime();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

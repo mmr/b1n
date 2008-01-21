@@ -30,13 +30,16 @@ td.moduleTitle {
   font-weight: bold;
   font-size: 1em;
 }
-td.projectName {
+tr.projectName {
   background-color: #777;
   color: #fff;
   font-weight: bold;
   font-size: 1.5em;
+  width: 100%;
 }
-
-tr.start td, tr.end td {
-  text-align: right;
+tr.projectName td {
+  width: 100%;
+}
+table.toc, table.toc td {
+  border: 1px dotted gray;
 }
