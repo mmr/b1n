@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>b1n.framework</groupId>
   <artifactId>b1n-framework-eclipse</artifactId>
-  <version>0.0.1</version>
+  <version>1.0.1</version>
   <name>b1n-framework-eclipse</name>
   <url>http://b1n.org</url>
 
@@ -12,22 +12,22 @@
     <dependency>
       <groupId>b1n.framework</groupId>
       <artifactId>b1n-base</artifactId>
-      <version>0.0.1</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>b1n.framework</groupId>
       <artifactId>b1n-persistence</artifactId>
-      <version>0.0.1</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>b1n.framework.game</groupId>
       <artifactId>b1n-game-core</artifactId>
-      <version>0.0.1</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>b1n.framework.game</groupId>
       <artifactId>b1n-game-net</artifactId>
-      <version>0.0.1</version>
+      <version>1.0.1</version>
     </dependency>
     <dependency>
       <groupId>hsqldb</groupId>

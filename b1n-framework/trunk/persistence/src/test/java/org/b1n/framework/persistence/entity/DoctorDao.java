@@ -25,12 +25,12 @@
  */
 package org.b1n.framework.persistence.entity;
 
-import org.b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.RecordEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DoctorDao extends SimpleEntityDao<Doctor> {
+public class DoctorDao extends RecordEntityDao<Doctor> {
     // Always look at the bright side of life
 }

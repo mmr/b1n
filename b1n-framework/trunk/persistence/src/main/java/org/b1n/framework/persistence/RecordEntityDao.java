@@ -23,14 +23,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.b1n.framework.persistence.entity;
+package org.b1n.framework.persistence;
 
-import org.b1n.framework.persistence.RecordEntityDao;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author Marcio Ribeiro (mmr)
- * @created Mar 28, 2007
+ * @created Mar 30, 2007
  */
-public class HealthInsuranceFactory extends RecordEntityDao<HealthInsurance> {
-    // Picture yourself in a boat on a river...
+public abstract class RecordEntityDao<E extends RecordEntity> extends HibernateEntityDao<E> {
+    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
+        return findByCriteria(crit);
+    }
+
+    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
+        Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
+        return findByCriteria(crit);
+    }
 }

@@ -25,59 +25,19 @@
  */
 package org.b1n.framework.persistence;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.Transient;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
 @MappedSuperclass
-public class SimpleEntity extends JpaEntity {
+public abstract class SimpleEntity extends JpaEntity {
     @Id
     @GeneratedValue
     private Long id;
-
-    @Column(nullable = false)
-    private Date dateAdded;
-
-    private Date dateLastUpdated;
-
-    @Column(nullable = false)
-    private Boolean enabled;
-
-    @Transient
-    private Boolean defaultEnabledValue = Boolean.TRUE;
-
-    protected Boolean getDefaultEnabledValue() {
-        return defaultEnabledValue;
-    }
-
-    protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
-        this.defaultEnabledValue = defaultEnabledValue;
-    }
-
-    public Date getDateAdded() {
-        return dateAdded;
-    }
-
-    public void setDateAdded(Date dateAdded) {
-        this.dateAdded = dateAdded;
-    }
-
-    public Date getDateLastUpdated() {
-        return dateLastUpdated;
-    }
-
-    public void setDateLastUpdated(Date dateLastUpdated) {
-        this.dateLastUpdated = dateLastUpdated;
-    }
 
     public Long getId() {
         return id;
@@ -85,28 +45,5 @@ public class SimpleEntity extends JpaEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    /**
-     * Called before saving the Bo.
-     */
-    @PrePersist
-    protected void onSave() {
-        if (dateAdded == null) {
-            dateAdded = new Date();
-        } else if (id != null && dateLastUpdated == null) {
-            dateLastUpdated = new Date();
-        }
-        if (enabled == null) {
-            enabled = getDefaultEnabledValue();
-        }
     }
 }

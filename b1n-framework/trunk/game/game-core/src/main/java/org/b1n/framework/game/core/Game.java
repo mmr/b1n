@@ -33,14 +33,14 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import org.b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.RecordEntity;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
 @Entity
-public class Game extends SimpleEntity {
+public class Game extends RecordEntity {
     @Column(nullable = false)
     private String name;
 

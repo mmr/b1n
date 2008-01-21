@@ -29,14 +29,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.RecordEntityDao;
 
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalDao extends SimpleEntityDao<Hospital> {
+public class HospitalDao extends RecordEntityDao<Hospital> {
     public Hospital getByName(String name) throws EntityNotFoundException {
         Map<String, String> params = new HashMap<String, String>();
         params.put("name", name);

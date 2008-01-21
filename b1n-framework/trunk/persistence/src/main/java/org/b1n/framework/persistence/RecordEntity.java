@@ -26,25 +26,73 @@
 package org.b1n.framework.persistence;
 
 import java.util.Date;
-import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.Transient;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public abstract class SimpleEntityDao<E extends SimpleEntity> extends HibernateEntityDao<E> {
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
-        return findByCriteria(crit);
+@MappedSuperclass
+public abstract class RecordEntity extends SimpleEntity {
+    @Column(nullable = false)
+    private Date dateAdded;
+
+    private Date dateLastUpdated;
+
+    @Column(nullable = false)
+    private Boolean enabled;
+
+    @Transient
+    private Boolean defaultEnabledValue = Boolean.TRUE;
+
+    protected Boolean getDefaultEnabledValue() {
+        return defaultEnabledValue;
     }
 
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
-        return findByCriteria(crit);
+    protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
+        this.defaultEnabledValue = defaultEnabledValue;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
+    }
+
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
+    }
+
+    public void setDateLastUpdated(Date dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    /**
+     * Called before saving the Bo.
+     */
+    @PrePersist
+    protected void onSave() {
+        if (dateAdded == null) {
+            dateAdded = new Date();
+        } else if (getId() != null && dateLastUpdated == null) {
+            dateLastUpdated = new Date();
+        }
+        if (enabled == null) {
+            enabled = getDefaultEnabledValue();
+        }
     }
 }

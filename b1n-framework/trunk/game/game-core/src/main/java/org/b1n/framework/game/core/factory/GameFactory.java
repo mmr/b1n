@@ -26,13 +26,13 @@
 package org.b1n.framework.game.core.factory;
 
 import org.b1n.framework.game.core.Game;
-import org.b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.RecordEntityDao;
 
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-public class GameFactory extends SimpleEntityDao<Game> {
+public class GameFactory extends RecordEntityDao<Game> {
     // blame canada
 }

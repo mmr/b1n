@@ -4,16 +4,15 @@
   <groupId>b1n.framework</groupId>
   <artifactId>b1n-framework</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.1</version>
+  <version>1.0.2</version>
   <name>b1n-framework</name>
   <url>http://b1n.org</url>
   <build>
     <plugins>
 	  <plugin>
-        <groupId>b1n</groupId>
+        <groupId>b1n.maven</groupId>
         <artifactId>maven-informer-plugin</artifactId>
-        <version>1.0.1</version>
-        <inherited>true</inherited>
+        <version>2.0.1</version>
         <executions>
           <execution>
             <id>start</id>
@@ -24,8 +23,7 @@
             <configuration>
               <action>start</action>
               <server>http://localhost:8080/receiver/saveInfo</server>
-              <dataSender>org.b1n.informer.ds.StdoutDataSender</dataSender>
-              <!--dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender-->
+              <dataSenderClassName>org.b1n.informer.ds.GetHttpDataSender</dataSenderClassName>
             </configuration>
           </execution>
 
@@ -38,8 +36,7 @@
             <configuration>
               <action>end</action>
               <server>http://localhost:8080/receiver/saveInfo</server>
-              <dataSender>org.b1n.informer.ds.StdoutDataSender</dataSender>
-              <!--dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender-->
+              <dataSenderClassName>org.b1n.informer.ds.GetHttpDataSender</dataSenderClassName>
             </configuration>
           </execution>
         </executions>
@@ -55,6 +52,6 @@
   <parent>
     <groupId>b1n</groupId>
     <artifactId>b1n-pom</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.2</version>
   </parent>
 </project>
