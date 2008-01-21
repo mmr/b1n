@@ -9,47 +9,41 @@
   <url>http://b1n.org</url>
   <build>
     <plugins>
-      <!--plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <configuration>
-          <additionalBuildcommands>
-            <buildcommand>
-              com.atlassw.tools.eclipse.checkstyle.CheckstyleBuilder
-            </buildcommand>
-          </additionalBuildcommands>
-          <additionalProjectnatures>
-            <projectnature>
-              com.atlassw.tools.eclipse.checkstyle.CheckstyleNature
-            </projectnature>
-          </additionalProjectnatures>
-        </configuration>
-      </plugin-->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <configuration>
-          <updateReleaseInfo>true</updateReleaseInfo>
-        </configuration>
-      </plugin>
-<!--
 	  <plugin>
         <groupId>b1n</groupId>
         <artifactId>maven-informer-plugin</artifactId>
+        <version>1.0.1</version>
+        <inherited>true</inherited>
         <executions>
           <execution>
             <id>start</id>
             <phase>validate</phase>
+            <goals>
+              <goal>informer</goal>
+            </goals>
             <configuration>
               <action>start</action>
-              <server>http://127.0.0.1/test.php</server>
-              <dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender>
+              <server>http://localhost:8080/receiver/saveInfo</server>
+              <dataSender>org.b1n.informer.ds.StdoutDataSender</dataSender>
+              <!--dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender-->
             </configuration>
           </execution>
+
           <execution>
+            <id>end</id>
+            <phase>install</phase>
+            <goals>
+              <goal>informer</goal>
+            </goals>
+            <configuration>
+              <action>end</action>
+              <server>http://localhost:8080/receiver/saveInfo</server>
+              <dataSender>org.b1n.informer.ds.StdoutDataSender</dataSender>
+              <!--dataSender>org.b1n.informer.ds.GetHttpDataSender</dataSender-->
+            </configuration>
+          </execution>
         </executions>
 	  </plugin>
--->
     </plugins>
   </build>
   <modules>
