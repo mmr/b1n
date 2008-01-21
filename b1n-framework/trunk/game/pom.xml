@@ -5,7 +5,7 @@
   <artifactId>b1n-game</artifactId>
   <packaging>pom</packaging>
   <name>b1n-game</name>
-  <version>0.0.1</version>
+  <version>1.0.2</version>
   <url>http://b1n.org</url>
   <modules>
     <module>game-core</module>
@@ -14,6 +14,7 @@
   <parent>
     <artifactId>b1n-framework</artifactId>
     <groupId>b1n.framework</groupId>
-    <version>0.0.1</version>
+    <version>1.0.2</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 </project>
