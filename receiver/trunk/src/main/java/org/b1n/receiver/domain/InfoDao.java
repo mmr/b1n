@@ -1,6 +1,6 @@
 package org.b1n.receiver.domain;
 
-import b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.SimpleEntityDao;
 
 /**
  * Dao de Info.

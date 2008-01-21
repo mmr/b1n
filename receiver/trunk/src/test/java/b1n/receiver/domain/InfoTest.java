@@ -1,10 +1,10 @@
 package b1n.receiver.domain;
 
+import org.b1n.framework.persistence.DaoLocator;
+import org.b1n.framework.persistence.EntityNotFoundException;
 import org.b1n.receiver.domain.Info;
 import org.b1n.receiver.domain.InfoDao;
 
-import b1n.framework.persistence.DaoLocator;
-import b1n.framework.persistence.EntityNotFoundException;
 import b1n.receiver.PersistenceTestCase;
 
 /**

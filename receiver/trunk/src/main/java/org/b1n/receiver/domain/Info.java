@@ -3,7 +3,7 @@ package org.b1n.receiver.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * Dados enviados pelo Informer.

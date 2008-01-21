@@ -1,7 +1,8 @@
 package b1n.receiver;
 
 import junit.framework.TestCase;
-import b1n.framework.persistence.JpaUtil;
+
+import org.b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro

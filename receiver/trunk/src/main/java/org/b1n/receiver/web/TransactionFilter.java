@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import b1n.framework.persistence.JpaUtil;
+import org.b1n.framework.persistence.JpaUtil;
 
 /**
  * @author Marcio Ribeiro
