@@ -2,7 +2,7 @@ package org.b1n.receiver.domain;
 
 import java.util.List;
 
-import org.b1n.framework.persistence.HibernateEntityDao;
+import org.b1n.framework.persistence.SimpleEntityDao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -11,7 +11,7 @@ import org.hibernate.criterion.Restrictions;
  * @author Marcio Ribeiro
  * @date Jan 21, 2008
  */
-public class BuildDao extends HibernateEntityDao<Build> {
+public class ProjectBuildDao extends SimpleEntityDao<ProjectBuild> {
     /**
      * Devolve lista dos ultimos usuarios cadastrados.
      * @param maxResults maximo de resultados.
@@ -19,7 +19,7 @@ public class BuildDao extends HibernateEntityDao<Build> {
      * @return lista dos ultimos usuarios cadastrados.
      */
     @SuppressWarnings("unchecked")
-    public List<Build> findLastAddedBuilds(int maxResults, int offset) {
+    public List<ProjectBuild> findLastBuilds(int maxResults, int offset) {
         Criteria crit = createCriteria();
         crit.addOrder(Order.desc("startTime"));
         crit.setMaxResults(maxResults);

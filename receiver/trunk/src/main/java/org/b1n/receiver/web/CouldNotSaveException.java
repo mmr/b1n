@@ -13,4 +13,12 @@ public class CouldNotSaveException extends Exception {
     public CouldNotSaveException(Throwable e) {
         super(e);
     }
+
+    /**
+     * Construtor.
+     * @param msg mensagem.
+     */
+    public CouldNotSaveException(String msg) {
+        super(msg);
+    }
 }

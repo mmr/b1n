@@ -1,159 +1,80 @@
 package org.b1n.receiver.domain;
 
-import java.util.List;
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.MappedSuperclass;
+
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * Build.
  * @author Marcio Ribeiro
  * @date Jan 20, 2008
  */
-@Entity
-public class Build extends Project {
-
+@MappedSuperclass
+public abstract class Build extends SimpleEntity {
+    private static final DateFormat DATE_FORMATTER = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+    
     @Column(nullable = false)
-    private String hostName;
+    private Date startTime;
 
-    @Column(nullable = false)
-    private String hostIp;
+    private Date endTime;
 
-    @Column(nullable = false)
-    private String hostRequestIp;
-
-    @Column(nullable = false)
-    private String projectName;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Module> modules;
-
-    private String userName;
-
-    private String encoding;
-
-    private String jvm;
-
-    public String getHostIp() {
-        return hostIp;
+    public Date getStartTime() {
+        return startTime;
     }
 
-    public void setHostIp(String hostIp) {
-        this.hostIp = hostIp;
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
     }
 
-    public String getHostRequestIp() {
-        return hostRequestIp;
+    public Date getEndTime() {
+        return endTime;
     }
 
-    public void setHostRequestIp(String hostRequestIp) {
-        this.hostRequestIp = hostRequestIp;
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
     }
 
-    public List<Module> getModules() {
-        return modules;
+    public long getBuildTime() {
+        if (endTime == null) {
+            return 0;
+        }
+        return endTime.getTime() - startTime.getTime();
     }
 
-    public void addModule(Module module) {
-        this.modules.add(module);
-    }
+    public String getFormattedBuildTime() {
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMinimumIntegerDigits(2);
+        int sec = (int) (getBuildTime() / 1000);
 
-    /**
-     * @return nome do host.
-     */
-    public String getHostName() {
-        return hostName;
-    }
-
-    /**
-     * Define o nome do host.
-     * @param hostName nome do host.
-     */
-    public void setHostName(String hostName) {
-        this.hostName = hostName;
-    }
-
-    /**
-     * @return nome do usuario.
-     */
-    public String getUserName() {
-        return userName;
-    }
-
-    /**
-     * Define o nome do usuario.
-     * @param userName o nome do usuario.
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * @return nome do projeto.
-     */
-    public String getProjectName() {
-        return projectName;
-    }
-
-    /**
-     * Define o nome do projeto.
-     * @param projectName o nome do projeto.
-     */
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
-
-    /**
-     * @return o encoding usado para fazer build do projeto.
-     */
-    public String getEncoding() {
-        return encoding;
-    }
-
-    /**
-     * Define o encoding usado na maquina para fazer build do projeto.
-     * @param encoding o encoding.
-     */
-    public void setEncoding(String encoding) {
-        this.encoding = encoding;
-    }
-
-    /**
-     * @return a jvm usada para fazer build do projeto.
-     */
-    public String getJvm() {
-        return jvm;
-    }
-
-    /**
-     * A Jvm usada para fazer build do projeto.
-     * @param jvm a jvm.
-     */
-    public void setJvm(String jvm) {
-        this.jvm = jvm;
-    }
-
-    /**
-     * @return <code>true</code> se possui modulos, <code>false</code> se nao.
-     */
-    public boolean hasModules() {
-        return modules != null && !modules.isEmpty();
-    }
-
-    /**
-     * @return representacao em texto.
-     */
-    @Override
-    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("HostName: ").append(hostName).append("\n");
-        sb.append("UserName: ").append(userName).append("\n");
-        sb.append("Project: ").append(projectName).append("\n");
-        sb.append("Encoding: ").append(encoding).append("\n");
-        sb.append("JVM: ").append(jvm).append("\n");
-        sb.append(super.toString());
+        int mins = sec / 60;
+        if (mins > 0) {
+            sb.append(nf.format(mins)).append("\"");
+        }
+
+        sb.append(nf.format(sec % 60)).append("'");
         return sb.toString();
+    }
+
+    public String getFormattedStartTime() {
+        return showDate(startTime);
+    }
+
+    public String getFormattedEndTime() {
+        return showDate(endTime);
+    }
+
+    private String showDate(Date date) {
+        if (date == null) {
+            return null;
+        } else {
+            return DATE_FORMATTER.format(date);
+        }
     }
 }

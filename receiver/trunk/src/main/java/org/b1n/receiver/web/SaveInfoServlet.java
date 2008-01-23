@@ -11,11 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.b1n.framework.persistence.DaoLocator;
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.framework.persistence.JpaUtil;
 import org.b1n.receiver.domain.Build;
-import org.b1n.receiver.domain.BuildDao;
-import org.b1n.receiver.domain.Module;
-import org.b1n.receiver.domain.ModuleDao;
+import org.b1n.receiver.domain.Host;
+import org.b1n.receiver.domain.HostDao;
+import org.b1n.receiver.domain.ModuleBuild;
+import org.b1n.receiver.domain.ModuleBuildDao;
+import org.b1n.receiver.domain.Project;
+import org.b1n.receiver.domain.ProjectBuild;
+import org.b1n.receiver.domain.ProjectBuildDao;
+import org.b1n.receiver.domain.ProjectDao;
+import org.b1n.receiver.domain.User;
+import org.b1n.receiver.domain.UserDao;
 
 /**
  * Salva dados.
@@ -31,7 +37,7 @@ public class SaveInfoServlet extends HttpServlet {
 
     private static final String PARAM_BUILD_ID = "buildId";
     private static final String PARAM_MODULE_ID = "moduleId";
-    private static final String PARAM_PROJECT = "project";
+    private static final String PARAM_PROJECT_NAME = "project";
     private static final String PARAM_VERSION = "version";
     private static final String PARAM_GROUP_ID = "groupId";
     private static final String PARAM_ARTIFACT_ID = "artifactId";
@@ -40,6 +46,7 @@ public class SaveInfoServlet extends HttpServlet {
     private static final String PARAM_USERNAME = "userName";
     private static final String PARAM_JVM = "jvm";
     private static final String PARAM_ENCODING = "encoding";
+    private static final String PARAM_OS = "os";
 
     /**
      * @param req requisicao.
@@ -67,7 +74,6 @@ public class SaveInfoServlet extends HttpServlet {
             return;
         }
 
-        JpaUtil.getSession();
         try {
             if (action.equals(START_BUILD_ACTION)) {
                 long buildId = saveStartBuild(req);
@@ -82,8 +88,6 @@ public class SaveInfoServlet extends HttpServlet {
             }
         } catch (CouldNotSaveException e) {
             throw new ServletException(e.getCause());
-        } finally {
-            JpaUtil.closeSession();
         }
     }
 
@@ -106,10 +110,10 @@ public class SaveInfoServlet extends HttpServlet {
             throw new CouldNotSaveException(e);
         }
 
-        BuildDao buildDao = DaoLocator.getDao(Build.class);
+        ProjectBuildDao pbDao = DaoLocator.getDao(ProjectBuild.class);
         Build build = null;
         try {
-            build = buildDao.findById(buildId);
+            build = pbDao.findById(buildId);
         } catch (EntityNotFoundException e) {
             throw new CouldNotSaveException(e);
         }
@@ -127,8 +131,8 @@ public class SaveInfoServlet extends HttpServlet {
             throw new CouldNotSaveException(e);
         }
 
-        ModuleDao moduleDao = DaoLocator.getDao(Module.class);
-        Module module = null;
+        ModuleBuildDao moduleDao = DaoLocator.getDao(ModuleBuild.class);
+        ModuleBuild module = null;
         try {
             module = moduleDao.findById(moduleId);
         } catch (EntityNotFoundException e) {
@@ -139,11 +143,15 @@ public class SaveInfoServlet extends HttpServlet {
     }
 
     private long saveStartModule(HttpServletRequest req) throws CouldNotSaveException {
-        // TODO (mmr) : tratar parametros nulos
         String strBuildId = req.getParameter(PARAM_BUILD_ID);
-        String version = req.getParameter(PARAM_VERSION);
         String groupId = req.getParameter(PARAM_GROUP_ID);
         String artifactId = req.getParameter(PARAM_ARTIFACT_ID);
+        String version = req.getParameter(PARAM_VERSION);
+        String projectName = req.getParameter(PARAM_PROJECT_NAME);
+
+        if (strBuildId == null || groupId == null || artifactId == null || version == null) {
+            throw new CouldNotSaveException("Missing args");
+        }
 
         long buildId = 0;
         try {
@@ -152,51 +160,88 @@ public class SaveInfoServlet extends HttpServlet {
             throw new CouldNotSaveException(e);
         }
 
-        BuildDao buildDao = DaoLocator.getDao(Build.class);
-        Build build = null;
+        ProjectBuildDao pbDao = DaoLocator.getDao(ProjectBuild.class);
+        ProjectBuild pb = null;
         try {
-            build = buildDao.findById(buildId);
+            pb = pbDao.findById(buildId);
         } catch (EntityNotFoundException e) {
             throw new CouldNotSaveException(e);
         }
 
-        Module module = new Module();
-        module.setBuild(build);
-        module.setVersion(version);
-        module.setGroupId(groupId);
-        module.setArtifactId(artifactId);
-        module.setStartTime(new Date());
+        Project project = getProject(projectName, version, groupId, artifactId);
 
-        build.addModule(module);
-        build.save();
-        return module.getId();
+        ModuleBuild mb = new ModuleBuild();
+        mb.setProject(project);
+        mb.setStartTime(new Date());
+
+        pb.addModule(mb);
+        pb.save();
+        return mb.getId();
     }
 
     private long saveStartBuild(HttpServletRequest req) throws CouldNotSaveException {
-        // TODO (mmr) : tratar parametros nulos
-        String project = req.getParameter(PARAM_PROJECT);
+        String projectName = req.getParameter(PARAM_PROJECT_NAME);
         String version = req.getParameter(PARAM_VERSION);
         String groupId = req.getParameter(PARAM_GROUP_ID);
         String artifactId = req.getParameter(PARAM_ARTIFACT_ID);
+        String userName = req.getParameter(PARAM_USERNAME);
         String hostName = req.getParameter(PARAM_HOSTNAME);
         String hostIp = req.getParameter(PARAM_HOSTIP);
-        String userName = req.getParameter(PARAM_USERNAME);
         String jvm = req.getParameter(PARAM_JVM);
         String encoding = req.getParameter(PARAM_ENCODING);
+        String os = req.getParameter(PARAM_OS);
 
-        Build build = new Build();
-        build.setProjectName(project);
-        build.setVersion(version);
-        build.setGroupId(groupId);
-        build.setArtifactId(artifactId);
-        build.setHostName(hostName);
-        build.setHostIp(hostIp);
-        build.setHostRequestIp(req.getRemoteAddr());
+        if (groupId == null || artifactId == null || version == null || userName == null || hostName == null) {
+            throw new CouldNotSaveException("Missing args");
+        }
+
+        Project project = getProject(projectName, version, groupId, artifactId);
+        User user = getUser(userName);
+        Host host = getHost(hostName, hostIp, jvm, encoding, os);
+
+        ProjectBuild build = new ProjectBuild();
+        build.setUser(user);
+        build.setProject(project);
+        build.setHost(host);
+
         build.setStartTime(new Date());
-        build.setUserName(userName);
-        build.setJvm(jvm);
-        build.setEncoding(encoding);
         build.save();
         return build.getId();
+    }
+
+    private Host getHost(String hostName, String hostIp, String jvm, String encoding, String os) {
+        HostDao hostDao = DaoLocator.getDao(Host.class);
+        Host host = null;
+        try {
+            host = hostDao.findByHostName(hostName);
+        } catch (EntityNotFoundException e) {
+            host = new Host(hostName, hostIp, os, jvm, encoding);
+            host.save();
+        }
+        return host;
+    }
+
+    private Project getProject(String projectName, String version, String groupId, String artifactId) {
+        Project project = null;
+        try {
+            ProjectDao projectDao = DaoLocator.getDao(Project.class);
+            project = projectDao.findByKey(groupId, artifactId, version);
+        } catch (EntityNotFoundException e) {
+            project = new Project(groupId, artifactId, version, projectName);
+            project.save();
+        }
+        return project;
+    }
+
+    private User getUser(String userName) {
+        User user = null;
+        try {
+            UserDao userDao = DaoLocator.getDao(User.class);
+            user = userDao.findByUserName(userName);
+        } catch (EntityNotFoundException e) {
+            user = new User(userName);
+            user.save();
+        }
+        return user;
     }
 }

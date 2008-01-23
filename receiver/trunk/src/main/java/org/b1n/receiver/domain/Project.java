@@ -1,19 +1,20 @@
 package org.b1n.receiver.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-import org.b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.RecordEntity;
 
 /**
  * Projeto.
  * @author Marcio Ribeiro
  * @date Jan 21, 2008
  */
-@MappedSuperclass
-public abstract class Project extends SimpleEntity {
+@Entity
+@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "groupId", "artifactId", "version" }) })
+public class Project extends RecordEntity {
     @Column(nullable = false)
     private String groupId;
 
@@ -23,10 +24,22 @@ public abstract class Project extends SimpleEntity {
     @Column(nullable = false)
     private String version;
 
-    @Column(nullable = false)
-    private Date startTime;
+    private String projectName;
 
-    private Date endTime;
+    public Project(String groupId, String artifactId, String version, String projectName) {
+        this.groupId = groupId;
+        this.artifactId = artifactId;
+        this.version = version;
+        this.projectName = projectName;
+    }
+    
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
 
     public String getGroupId() {
         return groupId;
@@ -52,37 +65,10 @@ public abstract class Project extends SimpleEntity {
         this.version = version;
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public long getTimeDelta() {
-        if (endTime == null) {
-            return 0;
-        }
-        return endTime.getTime() - startTime.getTime();
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("GroupId: ").append(groupId).append("\n");
-        sb.append("ArtifactId: ").append(artifactId).append("\n");
-        sb.append("Version: ").append(version).append("\n");
-        sb.append("StartTime: ").append(startTime).append("\n");
-        sb.append("EndTime: ").append(endTime);
+        sb.append(groupId).append(" / ").append(artifactId).append(" ").append(version);
         return sb.toString();
     }
 }
