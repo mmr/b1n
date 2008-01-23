@@ -1,0 +1,25 @@
+* {
+  font-family: verdana;
+  margin: 10px;
+  padding: 5px;
+}
+hr {
+  padding: 0px;
+  margin: 0px;
+}
+h1 {
+  text-align: center;
+  color: #aaa;
+}
+td.project {
+}
+td.userName {
+}
+td.buildTime {
+  font-size: 2em;
+  background-color: #000;
+}
+table.builds {
+  border: 1px dotted black;
+  width: 100%;
+}
