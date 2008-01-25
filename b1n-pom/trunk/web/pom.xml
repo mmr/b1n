@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n</groupId>
+  <groupId>org.b1n</groupId>
   <artifactId>b1n-pom-web</artifactId>
   <name>b1n-pom-web</name>
   <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <parent>
-    <groupId>b1n</groupId>
+    <groupId>org.b1n</groupId>
     <artifactId>b1n-pom</artifactId>
     <version>1.0.2</version>
     <relativePath>../master/pom.xml</relativePath>

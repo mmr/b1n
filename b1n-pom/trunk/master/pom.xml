@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n</groupId>
+  <groupId>org.b1n</groupId>
   <artifactId>b1n-pom</artifactId>
   <name>b1n-pom</name>
   <version>1.0.2</version>
