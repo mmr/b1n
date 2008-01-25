@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n.framework.game</groupId>
+  <groupId>org.b1n.framework.game</groupId>
   <artifactId>b1n-game</artifactId>
   <packaging>pom</packaging>
   <name>b1n-game</name>
@@ -12,9 +12,9 @@
     <module>game-net</module>
   </modules>
   <parent>
+    <groupId>org.b1n.framework</groupId>
     <artifactId>b1n-framework</artifactId>
-    <groupId>b1n.framework</groupId>
-    <version>1.0.2</version>
+    <version>2-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 </project>

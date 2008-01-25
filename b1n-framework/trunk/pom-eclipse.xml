@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n.framework</groupId>
+  <groupId>org.b1n.framework</groupId>
   <artifactId>b1n-framework-eclipse</artifactId>
   <version>1.0.1</version>
   <name>b1n-framework-eclipse</name>
@@ -10,22 +10,22 @@
 
   <dependencies>
     <dependency>
-      <groupId>b1n.framework</groupId>
+      <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-base</artifactId>
       <version>1.0.1</version>
     </dependency>
     <dependency>
-      <groupId>b1n.framework</groupId>
+      <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-persistence</artifactId>
       <version>1.0.1</version>
     </dependency>
     <dependency>
-      <groupId>b1n.framework.game</groupId>
+      <groupId>org.b1n.framework.game</groupId>
       <artifactId>b1n-game-core</artifactId>
       <version>1.0.1</version>
     </dependency>
     <dependency>
-      <groupId>b1n.framework.game</groupId>
+      <groupId>org.b1n.framework.game</groupId>
       <artifactId>b1n-game-net</artifactId>
       <version>1.0.1</version>
     </dependency>

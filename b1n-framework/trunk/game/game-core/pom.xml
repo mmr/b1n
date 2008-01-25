@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n.framework.game</groupId>
+  <groupId>org.b1n.framework.game</groupId>
   <artifactId>b1n-game-core</artifactId>
   <name>b1n-game-core</name>
   <version>1.0.2</version>
   <url>http://b1n.org</url>
   <dependencies>
     <dependency>
-      <groupId>b1n.framework</groupId>
+      <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-persistence</artifactId>
       <version>1.0.2</version>
     </dependency>
   </dependencies>
   <parent>
-    <groupId>b1n.framework.game</groupId>
+    <groupId>org.b1n.framework.game</groupId>
     <artifactId>b1n-game</artifactId>
     <version>1.0.2</version>
     <relativePath>../pom.xml</relativePath>
