@@ -10,12 +10,10 @@
 <h1>Últimos Builds!</h1>
 <hr />
 <f:view>
-  <t:dataTable value="#{lastBuilds.builds}" var="e" styleClass="builds">
-    <t:column styleClass="project"><f:facet name="header">Projeto</f:facet><t:outputText value="#{e.artifactId}" /></t:column>
-    <t:column styleClass="userName"><f:facet name="header">Usuário</f:facet><t:outputText value="#{e.userName}" /></t:column>
-    <t:column><f:facet name="header">Início</f:facet><t:outputText value="#{e.formattedStartTime}" /></t:column>
-    <t:column><f:facet name="header">Fim</f:facet><t:outputText value="#{e.formattedEndTime}" /></t:column>
-    <t:column styleClass="buildTime"><f:facet name="header">Tempo</f:facet><t:outputText value="#{e.formattedBuildTime}" /></t:column>
+  <t:dataTable value="#{lastBuilds.builds}" var="b" styleClass="builds">
+    <t:column styleClass="project"><f:facet name="header">Projeto</f:facet><t:outputText value="#{b.project.artifactId}" /></t:column>
+    <t:column styleClass="userName"><f:facet name="header">Usuário</f:facet><t:outputText value="#{b.user.userName}" /></t:column>
+    <t:column styleClass="buildTime"><f:facet name="header">Tempo</f:facet><t:outputText value="#{b.formattedBuildTime}" /></t:column>
   </t:dataTable>
 </f:view>
 </body>

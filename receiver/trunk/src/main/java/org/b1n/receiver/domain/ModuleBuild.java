@@ -19,18 +19,32 @@ public class ModuleBuild extends Build {
     @JoinColumn(nullable = false)
     private Project project;
 
+    /**
+     * @return o projeto.
+     */
     public Project getProject() {
         return project;
     }
 
+    /**
+     * Define o projeto.
+     * @param project o projeto.
+     */
     public void setProject(Project project) {
         this.project = project;
     }
 
+    /**
+     * @return o build do pai dese modulo.
+     */
     public ProjectBuild getProjectBuild() {
         return projectBuild;
     }
 
+    /**
+     * Define o build do pai.
+     * @param projectBuild build do pai.
+     */
     public void setProjectBuild(ProjectBuild projectBuild) {
         this.projectBuild = projectBuild;
     }

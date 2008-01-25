@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fileset-config file-format-version="1.2.0" simple-config="true">
-    <fileset name="all" enabled="true" check-config-name="b1n" local="false">
+    <fileset name="all" enabled="true" check-config-name="b1n2" local="false">
         <file-match-pattern match-pattern="." include-pattern="true"/>
     </fileset>
+    <filter name="WriteProtectedFiles" enabled="true"/>
+    <filter name="UnOpenedFiles" enabled="true"/>
+    <filter name="NonSrcDirs" enabled="true"/>
+    <filter name="FilesInSync2" enabled="true"/>
 </fileset-config>

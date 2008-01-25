@@ -17,9 +17,9 @@ td.userName {
 }
 td.buildTime {
   font-size: 2em;
-  background-color: #000;
+  text-align: right;
+  border: 1px dotted black;
 }
 table.builds {
   border: 1px dotted black;
-  width: 100%;
 }

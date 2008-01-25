@@ -26,45 +26,90 @@ public class Project extends RecordEntity {
 
     private String projectName;
 
+    /**
+     * Construtor default para o hibernate.
+     */
+    public Project() {
+        // nothing
+    }
+    
+    /**
+     * Construtor.
+     * @param groupId id de grupo do artefato.
+     * @param artifactId id do artefato.
+     * @param version versao do artefato.
+     * @param projectName nome do projeto.
+     */
     public Project(String groupId, String artifactId, String version, String projectName) {
         this.groupId = groupId;
         this.artifactId = artifactId;
         this.version = version;
         this.projectName = projectName;
     }
-    
+
+    /**
+     * @return nome do projeto.
+     */
     public String getProjectName() {
         return projectName;
     }
 
+    /**
+     * Define o nome do projeto.
+     * @param projectName nome do projeto.
+     */
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
 
+    /**
+     * @return id de artefato do grupo.
+     */
     public String getGroupId() {
         return groupId;
     }
 
+    /**
+     * Define o id do grupo.
+     * @param groupId id do grupo.
+     */
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
+    /**
+     * @return o id do artefato.
+     */
     public String getArtifactId() {
         return artifactId;
     }
 
+    /**
+     * Define o id de termo.
+     * @param artifactId o artefato
+     */
     public void setArtifactId(String artifactId) {
         this.artifactId = artifactId;
     }
 
+    /**
+     * @return versao.
+     */
     public String getVersion() {
         return version;
     }
 
+    /**
+     * Define versao.
+     * @param version versao.
+     */
     public void setVersion(String version) {
         this.version = version;
     }
 
+    /**
+     * @return toString.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

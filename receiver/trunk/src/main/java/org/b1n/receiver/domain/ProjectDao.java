@@ -6,11 +6,20 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 /**
+ * DAO de projeto.
  * @author Marcio Ribeiro
  * @date Jan 21, 2008
  */
 public class ProjectDao extends RecordEntityDao<Project> {
 
+    /**
+     * Devolve um projeto pela chave groupId, artifactId, version.
+     * @param groupId o id do grupo do artefato.
+     * @param artifactId o id do artefato.
+     * @param version a versao do artefato.
+     * @return o projeto.
+     * @throws EntityNotFoundException caso nao encontre um projeto para a chave passada.
+     */
     public Project findByKey(String groupId, String artifactId, String version) throws EntityNotFoundException {
         Criteria crit = createCriteria();
         crit.add(Restrictions.eq("groupId", groupId));

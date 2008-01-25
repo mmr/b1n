@@ -1,20 +1,20 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>b1n</groupId>
+  <groupId>org.b1n</groupId>
   <artifactId>b1n-receiver</artifactId>
   <packaging>war</packaging>
-  <version>2.0.0</version>
+  <version>3.0.0</version>
   <name>receiver</name>
 
   <parent>
-    <groupId>b1n</groupId>
+    <groupId>org.b1n</groupId>
     <artifactId>b1n-pom-web</artifactId>
     <version>1.0.1</version>
   </parent>
 
   <dependencies>
     <dependency>
-      <groupId>b1n.framework</groupId>
+      <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-persistence</artifactId>
       <version>1.0.2</version>
     </dependency>
@@ -23,6 +23,12 @@
       <groupId>postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <version>8.2-504.jdbc3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>3.1.11</version>
     </dependency>
 
     <dependency>
@@ -47,6 +53,13 @@
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.9</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.2</version>
+      <classifier>jdk15</classifier>
     </dependency>
 
     <dependency>

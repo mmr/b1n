@@ -21,6 +21,7 @@ public class TransactionFilter implements Filter {
      * Aplica filtro.
      * @param req request.
      * @param resp response.
+     * @param chain chain de filtros.
      * @throws IOException caso algo de inesperado ocorra.
      * @throws ServletException caso algo de inesperado ocorra.
      */
@@ -39,6 +40,8 @@ public class TransactionFilter implements Filter {
 
     /**
      * Init.
+     * @param arg0 config.
+     * @throws ServletException caso algo de inesperado ocorra.
      */
     public void init(FilterConfig arg0) throws ServletException {
         // do nothing

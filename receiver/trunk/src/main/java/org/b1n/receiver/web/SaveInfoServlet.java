@@ -1,24 +1,25 @@
 package org.b1n.receiver.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.ezmorph.MorphException;
+import net.sf.json.JSONSerializer;
+
+import org.apache.commons.beanutils.DynaBean;
 import org.b1n.framework.persistence.DaoLocator;
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.receiver.domain.Build;
 import org.b1n.receiver.domain.Host;
 import org.b1n.receiver.domain.HostDao;
 import org.b1n.receiver.domain.ModuleBuild;
-import org.b1n.receiver.domain.ModuleBuildDao;
 import org.b1n.receiver.domain.Project;
 import org.b1n.receiver.domain.ProjectBuild;
-import org.b1n.receiver.domain.ProjectBuildDao;
 import org.b1n.receiver.domain.ProjectDao;
 import org.b1n.receiver.domain.User;
 import org.b1n.receiver.domain.UserDao;
@@ -29,15 +30,7 @@ import org.b1n.receiver.domain.UserDao;
  * @date Jan 20, 2008
  */
 public class SaveInfoServlet extends HttpServlet {
-    private static final String PARAM_ACTION = "action";
-    private static final String START_BUILD_ACTION = "startBuild";
-    private static final String START_MODULE_ACTION = "startModule";
-    private static final String END_BUILD_ACTION = "endBuild";
-    private static final String END_MODULE_ACTION = "endModule";
-
-    private static final String PARAM_BUILD_ID = "buildId";
-    private static final String PARAM_MODULE_ID = "moduleId";
-    private static final String PARAM_PROJECT_NAME = "project";
+    private static final String PARAM_PROJECT_NAME = "projectName";
     private static final String PARAM_VERSION = "version";
     private static final String PARAM_GROUP_ID = "groupId";
     private static final String PARAM_ARTIFACT_ID = "artifactId";
@@ -46,7 +39,13 @@ public class SaveInfoServlet extends HttpServlet {
     private static final String PARAM_USERNAME = "userName";
     private static final String PARAM_JVM = "jvm";
     private static final String PARAM_ENCODING = "encoding";
-    private static final String PARAM_OS = "os";
+    private static final String PARAM_OPERATING_SYSTEM = "operatingSystem";
+    private static final String PARAM_START_TIME = "startTime";
+    private static final String PARAM_END_TIME = "endTime";
+    private static final String PARAM_MASTER_PROJECT = "masterProject";
+    private static final String PARAM_BUILD_INFO = "buildInfo";
+    private static final String PARAM_MODULES = "modules";
+    private static final String PARAM_TIME = "time";
 
     /**
      * @param req requisicao.
@@ -68,159 +67,126 @@ public class SaveInfoServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String action = req.getParameter(PARAM_ACTION);
+        String buildInfo = req.getParameter(PARAM_BUILD_INFO);
+        DynaBean data = (DynaBean) JSONSerializer.toJava(JSONSerializer.toJSON(buildInfo));
+        ProjectBuild projectBuild = createProjectBuild(data);
+        createModulesBuild(data, projectBuild);
+    }
 
-        if (action == null) {
-            return;
-        }
-
+    /**
+     * Cria build de modulos.
+     * @param data dados.
+     * @param projectBuild projeto pai.
+     */
+    @SuppressWarnings("unchecked")
+    private void createModulesBuild(DynaBean data, ProjectBuild projectBuild) {
         try {
-            if (action.equals(START_BUILD_ACTION)) {
-                long buildId = saveStartBuild(req);
-                sendId(resp, buildId);
-            } else if (action.equals(START_MODULE_ACTION)) {
-                long moduleId = saveStartModule(req);
-                sendId(resp, moduleId);
-            } else if (action.equals(END_MODULE_ACTION)) {
-                saveEndModule(req);
-            } else if (action.equals(END_BUILD_ACTION)) {
-                saveEndBuild(req);
+            List<DynaBean> modules = (List<DynaBean>) data.get(PARAM_MODULES);
+            for (DynaBean module : modules) {
+                String groupId = (String) module.get(PARAM_GROUP_ID);
+                String artifactId = (String) module.get(PARAM_ARTIFACT_ID);
+                String version = (String) module.get(PARAM_VERSION);
+                String projectName = (String) module.get(PARAM_PROJECT_NAME);
+
+                Project project = getProject(projectName, version, groupId, artifactId);
+
+                ModuleBuild moduleBuild = new ModuleBuild();
+                moduleBuild.setProjectBuild(projectBuild);
+                moduleBuild.setProject(project);
+
+                long tsStartTime = (Long) ((DynaBean) module.get(PARAM_START_TIME)).get(PARAM_TIME);
+                Date startTime = new Date(tsStartTime);
+                moduleBuild.setStartTime(startTime);
+
+                long tsEndTime = (Long) ((DynaBean) module.get(PARAM_END_TIME)).get(PARAM_TIME);
+                Date endTime = new Date(tsEndTime);
+                moduleBuild.setEndTime(endTime);
+
+                projectBuild.addModule(moduleBuild);
             }
-        } catch (CouldNotSaveException e) {
-            throw new ServletException(e.getCause());
+            projectBuild.save();
+        } catch (MorphException e) {
+            // Nao tem filhos, tudo bem
         }
     }
 
-    private void sendId(HttpServletResponse resp, long id) throws IOException {
-        PrintWriter writer = new PrintWriter(resp.getOutputStream());
-        try {
-            writer.print(id);
-        } finally {
-            writer.close();
-        }
-    }
+    /**
+     * Cria build de projeto pai com dados da requisicao.
+     * @param data dados.
+     * @return build de projeto pai criado.
+     */
+    private ProjectBuild createProjectBuild(DynaBean data) {
+        // TODO (mmr) : trocar esse monte de binding com nome feio para um esquema de binding
+        // automatico (colocar dominio em ponto comum entre Informer e Receiver)
+        DynaBean masterProject = (DynaBean) data.get(PARAM_MASTER_PROJECT);
 
-    private void saveEndBuild(HttpServletRequest req) throws CouldNotSaveException {
-        String strBuildId = req.getParameter(PARAM_BUILD_ID);
+        // Host
+        String hostName = (String) masterProject.get(PARAM_HOSTNAME);
+        String hostIp = (String) masterProject.get(PARAM_HOSTIP);
+        String operatingSystem = (String) masterProject.get(PARAM_OPERATING_SYSTEM);
+        String jvm = (String) masterProject.get(PARAM_JVM);
+        String encoding = (String) masterProject.get(PARAM_ENCODING);
 
-        long buildId = 0;
-        try {
-            buildId = Long.parseLong(strBuildId);
-        } catch (NumberFormatException e) {
-            throw new CouldNotSaveException(e);
-        }
+        // User
+        String userName = (String) masterProject.get(PARAM_USERNAME);
 
-        ProjectBuildDao pbDao = DaoLocator.getDao(ProjectBuild.class);
-        Build build = null;
-        try {
-            build = pbDao.findById(buildId);
-        } catch (EntityNotFoundException e) {
-            throw new CouldNotSaveException(e);
-        }
-        build.setEndTime(new Date());
-        build.save();
-    }
+        // Project
+        String projectName = (String) masterProject.get(PARAM_PROJECT_NAME);
+        String artifactId = (String) masterProject.get(PARAM_ARTIFACT_ID);
+        String groupId = (String) masterProject.get(PARAM_GROUP_ID);
+        String version = (String) masterProject.get(PARAM_VERSION);
 
-    private void saveEndModule(HttpServletRequest req) throws CouldNotSaveException {
-        String strModuleId = req.getParameter(PARAM_MODULE_ID);
+        ProjectBuild projectBuild = new ProjectBuild();
 
-        long moduleId = 0;
-        try {
-            moduleId = Long.parseLong(strModuleId);
-        } catch (NumberFormatException e) {
-            throw new CouldNotSaveException(e);
-        }
-
-        ModuleBuildDao moduleDao = DaoLocator.getDao(ModuleBuild.class);
-        ModuleBuild module = null;
-        try {
-            module = moduleDao.findById(moduleId);
-        } catch (EntityNotFoundException e) {
-            throw new CouldNotSaveException(e);
-        }
-        module.setEndTime(new Date());
-        module.save();
-    }
-
-    private long saveStartModule(HttpServletRequest req) throws CouldNotSaveException {
-        String strBuildId = req.getParameter(PARAM_BUILD_ID);
-        String groupId = req.getParameter(PARAM_GROUP_ID);
-        String artifactId = req.getParameter(PARAM_ARTIFACT_ID);
-        String version = req.getParameter(PARAM_VERSION);
-        String projectName = req.getParameter(PARAM_PROJECT_NAME);
-
-        if (strBuildId == null || groupId == null || artifactId == null || version == null) {
-            throw new CouldNotSaveException("Missing args");
-        }
-
-        long buildId = 0;
-        try {
-            buildId = Long.parseLong(strBuildId);
-        } catch (NumberFormatException e) {
-            throw new CouldNotSaveException(e);
-        }
-
-        ProjectBuildDao pbDao = DaoLocator.getDao(ProjectBuild.class);
-        ProjectBuild pb = null;
-        try {
-            pb = pbDao.findById(buildId);
-        } catch (EntityNotFoundException e) {
-            throw new CouldNotSaveException(e);
-        }
-
-        Project project = getProject(projectName, version, groupId, artifactId);
-
-        ModuleBuild mb = new ModuleBuild();
-        mb.setProject(project);
-        mb.setStartTime(new Date());
-
-        pb.addModule(mb);
-        pb.save();
-        return mb.getId();
-    }
-
-    private long saveStartBuild(HttpServletRequest req) throws CouldNotSaveException {
-        String projectName = req.getParameter(PARAM_PROJECT_NAME);
-        String version = req.getParameter(PARAM_VERSION);
-        String groupId = req.getParameter(PARAM_GROUP_ID);
-        String artifactId = req.getParameter(PARAM_ARTIFACT_ID);
-        String userName = req.getParameter(PARAM_USERNAME);
-        String hostName = req.getParameter(PARAM_HOSTNAME);
-        String hostIp = req.getParameter(PARAM_HOSTIP);
-        String jvm = req.getParameter(PARAM_JVM);
-        String encoding = req.getParameter(PARAM_ENCODING);
-        String os = req.getParameter(PARAM_OS);
-
-        if (groupId == null || artifactId == null || version == null || userName == null || hostName == null) {
-            throw new CouldNotSaveException("Missing args");
-        }
-
-        Project project = getProject(projectName, version, groupId, artifactId);
         User user = getUser(userName);
-        Host host = getHost(hostName, hostIp, jvm, encoding, os);
+        projectBuild.setUser(user);
 
-        ProjectBuild build = new ProjectBuild();
-        build.setUser(user);
-        build.setProject(project);
-        build.setHost(host);
+        Host host = getHost(hostName, hostIp, jvm, encoding, operatingSystem);
+        projectBuild.setHost(host);
 
-        build.setStartTime(new Date());
-        build.save();
-        return build.getId();
+        Project project = getProject(projectName, version, groupId, artifactId);
+        projectBuild.setProject(project);
+
+        long tsStartTime = (Long) ((DynaBean) masterProject.get(PARAM_START_TIME)).get(PARAM_TIME);
+        Date startTime = new Date(tsStartTime);
+        projectBuild.setStartTime(startTime);
+
+        long tsEndTime = (Long) ((DynaBean) masterProject.get(PARAM_END_TIME)).get(PARAM_TIME);
+        Date endTime = new Date(tsEndTime);
+        projectBuild.setEndTime(endTime);
+        projectBuild.save();
+        return projectBuild;
     }
 
-    private Host getHost(String hostName, String hostIp, String jvm, String encoding, String os) {
+    /**
+     * Metodo auxiliar que cria/encontra host com dados passados.
+     * @param hostName nome do host.
+     * @param hostIp ip do host.
+     * @param jvm java virtual machine do host.
+     * @param encoding encoding.
+     * @param operatingSystem sistema operacional.
+     * @return host criado/encontrado.
+     */
+    private Host getHost(String hostName, String hostIp, String jvm, String encoding, String operatingSystem) {
         HostDao hostDao = DaoLocator.getDao(Host.class);
         Host host = null;
         try {
             host = hostDao.findByHostName(hostName);
         } catch (EntityNotFoundException e) {
-            host = new Host(hostName, hostIp, os, jvm, encoding);
+            host = new Host(hostName, hostIp, operatingSystem, jvm, encoding);
             host.save();
         }
         return host;
     }
 
+    /**
+     * Metodo auxiliar que cria/encontra projeto com dados passados.
+     * @param projectName nome do projeto.
+     * @param version versao.
+     * @param groupId id do grupo do artefato.
+     * @param artifactId id do artefato.
+     * @return projeto criado/encontrado.
+     */
     private Project getProject(String projectName, String version, String groupId, String artifactId) {
         Project project = null;
         try {
@@ -233,6 +199,11 @@ public class SaveInfoServlet extends HttpServlet {
         return project;
     }
 
+    /**
+     * Metodo auxiliar que cria/encontra usuario com dados passados.
+     * @param userName nome do usuario.
+     * @return usuario criado/encontrado.
+     */
     private User getUser(String userName) {
         User user = null;
         try {

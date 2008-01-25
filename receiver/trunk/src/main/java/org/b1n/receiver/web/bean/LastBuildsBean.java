@@ -11,12 +11,16 @@ import org.b1n.receiver.domain.ProjectBuildDao;
  * @date Jan 23, 2008
  */
 public class LastBuildsBean {
+    private static final int MAX = 20;
     private List<ProjectBuild> builds;
 
+    /**
+     * @return lista com ultimos builds.
+     */
     public List<ProjectBuild> getBuilds() {
         if (builds == null) {
             ProjectBuildDao buildDao = DaoLocator.getDao(ProjectBuild.class);
-            builds = buildDao.findLastBuilds(20, 0);
+            builds = buildDao.findLastBuilds(MAX, 0);
         }
         return builds;
     }

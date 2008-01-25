@@ -8,6 +8,7 @@ import javax.persistence.UniqueConstraint;
 import org.b1n.framework.persistence.RecordEntity;
 
 /**
+ * Maquina onde o build esta sendo executado.
  * @author Marcio Ribeiro
  * @date Jan 23, 2008
  */
@@ -21,58 +22,117 @@ public class Host extends RecordEntity {
     private String hostIp;
 
     @Column(nullable = false)
-    private String os;
+    private String operatingSystem;
 
     private String jvm;
 
     private String encoding;
 
+    /**
+     * Construtor default para o hibernate.
+     */
+    public Host() {
+        // do nothing
+    }
+
+    /**
+     * Construtor.
+     * @param hostName nome do host.
+     * @param hostIp ip do host.
+     * @param os sistema operacional.
+     * @param jvm java virtual machine.
+     * @param encoding encoding da maquina.
+     */
     public Host(String hostName, String hostIp, String os, String jvm, String encoding) {
         this.hostName = hostName;
         this.hostIp = hostIp;
-        this.os = os;
+        this.operatingSystem = os;
         this.jvm = jvm;
         this.encoding = encoding;
     }
 
+    /**
+     * @return endereco ip do host.
+     */
     public String getHostIp() {
         return hostIp;
     }
 
+    /**
+     * Define endereco ip do host.
+     * @param hostIp o endereco ip.
+     */
     public void setHostIp(String hostIp) {
         this.hostIp = hostIp;
     }
 
+    /**
+     * @return nome do host.
+     */
     public String getHostName() {
         return hostName;
     }
 
+    /**
+     * Define o nome do host.
+     * @param hostName nome do host.
+     */
     public void setHostName(String hostName) {
         this.hostName = hostName;
     }
 
-    public String getOs() {
-        return os;
+    /**
+     * @return o sistema operacinoal.
+     */
+    public String getOperatingSystem() {
+        return operatingSystem;
     }
 
-    public void setOs(String os) {
-        this.os = os;
+    /**
+     * Define o sistema operacional.
+     * @param os o sistema operacional.
+     */
+    public void setOperatingSystem(String os) {
+        this.operatingSystem = os;
     }
 
+    /**
+     * @return a java virtual machine usada.
+     */
     public String getJvm() {
         return jvm;
     }
 
+    /**
+     * Define a jvm.
+     * @param jvm a jvm.
+     */
     public void setJvm(String jvm) {
         this.jvm = jvm;
     }
 
+    /**
+     * @return encoding usado no host do build.
+     */
     public String getEncoding() {
         return encoding;
     }
 
+    /**
+     * Define o encoding.
+     * @param encoding encoding usado no host do build.
+     */
     public void setEncoding(String encoding) {
         this.encoding = encoding;
     }
 
+    /**
+     * @return representacao em texto.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(hostName).append(" (").append(hostIp).append(")");
+        return sb.toString();
+    }
 }
