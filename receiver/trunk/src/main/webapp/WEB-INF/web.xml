@@ -42,6 +42,11 @@
     <servlet-class>org.b1n.receiver.web.SaveInfoServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>getLastBuilds</servlet-name>
+    <servlet-class>org.b1n.receiver.web.GetLastBuildsServlet</servlet-class>
+  </servlet>
+
   <servlet-mapping>
     <servlet-name>facesServlet</servlet-name>
     <url-pattern>*.faces</url-pattern>
@@ -52,7 +57,12 @@
     <url-pattern>/saveInfo</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>getLastBuilds</servlet-name>
+    <url-pattern>/getLastBuilds</url-pattern>
+  </servlet-mapping>
+
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
