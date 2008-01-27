@@ -1,8 +1,12 @@
 package org.b1n.receiver.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Dados enviados pelo Informer.
@@ -10,7 +14,12 @@ import javax.persistence.ManyToOne;
  * @date Jan 20, 2008
  */
 @Entity
+@SequenceGenerator(name = "seq_modulebuild", sequenceName = "seq_modulebuild")
 public class ModuleBuild extends Build {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_modulebuild")
+    private Long id;
+
     @ManyToOne
     @JoinColumn(nullable = false)
     private ProjectBuild projectBuild;
@@ -18,6 +27,21 @@ public class ModuleBuild extends Build {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Project project;
+
+    /**
+     * @return id.
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Define id.
+     * @param id o id.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     /**
      * @return o projeto.

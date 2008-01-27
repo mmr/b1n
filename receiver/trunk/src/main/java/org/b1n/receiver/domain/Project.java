@@ -2,6 +2,10 @@ package org.b1n.receiver.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -14,7 +18,12 @@ import org.b1n.framework.persistence.RecordEntity;
  */
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "groupId", "artifactId", "version" }) })
+@SequenceGenerator(name = "seq_project", sequenceName = "seq_project")
 public class Project extends RecordEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_project")
+    private Long id;
+
     @Column(nullable = false)
     private String groupId;
 
@@ -32,7 +41,7 @@ public class Project extends RecordEntity {
     public Project() {
         // nothing
     }
-    
+
     /**
      * Construtor.
      * @param groupId id de grupo do artefato.
@@ -45,6 +54,21 @@ public class Project extends RecordEntity {
         this.artifactId = artifactId;
         this.version = version;
         this.projectName = projectName;
+    }
+
+    /**
+     * @return id.
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Define id.
+     * @param id o id.
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**

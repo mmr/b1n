@@ -2,7 +2,7 @@ package org.b1n.receiver.domain;
 
 import java.util.List;
 
-import org.b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.HibernateEntityDao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -11,7 +11,7 @@ import org.hibernate.criterion.Restrictions;
  * @author Marcio Ribeiro
  * @date Jan 21, 2008
  */
-public class ProjectBuildDao extends SimpleEntityDao<ProjectBuild> {
+public class ProjectBuildDao extends HibernateEntityDao<ProjectBuild> {
     /**
      * Devolve lista dos ultimos usuarios cadastrados.
      * @param maxResults maximo de resultados.

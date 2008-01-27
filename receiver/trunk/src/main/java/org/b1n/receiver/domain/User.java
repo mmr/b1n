@@ -2,6 +2,10 @@ package org.b1n.receiver.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.b1n.framework.persistence.RecordEntity;
@@ -12,8 +16,13 @@ import org.b1n.framework.persistence.RecordEntity;
  * @date Jan 23, 2008
  */
 @Entity
-@Table(name = "user_")
+@Table(name = "builduser")
+@SequenceGenerator(name = "seq_builduser", sequenceName = "seq_builduser")
 public class User extends RecordEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_builduser")
+    private Long id;
+
     @Column(nullable = false, unique = true)
     private String userName;
 
@@ -23,7 +32,22 @@ public class User extends RecordEntity {
     public User() {
         // nothing
     }
-    
+
+    /**
+     * @return id.
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Define id.
+     * @param id o id.
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     /**
      * Construtor.
      * @param userName nome do usuario.

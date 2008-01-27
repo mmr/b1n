@@ -1,7 +1,7 @@
 package org.b1n.receiver.domain;
 
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.framework.persistence.SimpleEntityDao;
+import org.b1n.framework.persistence.HibernateEntityDao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
  * @author Marcio Ribeiro
  * @date Jan 21, 2008
  */
-public class HostDao extends SimpleEntityDao<Host> {
+public class HostDao extends HibernateEntityDao<Host> {
     /**
      * Devolve o host com o nome passado.
      * @param hostName o nome do host.

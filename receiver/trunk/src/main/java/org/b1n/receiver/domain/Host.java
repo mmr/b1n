@@ -2,6 +2,10 @@ package org.b1n.receiver.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -14,7 +18,12 @@ import org.b1n.framework.persistence.RecordEntity;
  */
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "hostName", "hostIp" }) })
+@SequenceGenerator(name = "seq_host", sequenceName = "seq_host")
 public class Host extends RecordEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seq_host")
+    private Long id;
+
     @Column(nullable = false)
     private String hostName;
 
@@ -33,6 +42,21 @@ public class Host extends RecordEntity {
      */
     public Host() {
         // do nothing
+    }
+
+    /**
+     * @return id.
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Define id.
+     * @param id o id.
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**

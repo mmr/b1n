@@ -8,7 +8,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import org.b1n.framework.persistence.SimpleEntity;
+import org.b1n.framework.persistence.JpaEntity;
 
 /**
  * Build.
@@ -16,7 +16,7 @@ import org.b1n.framework.persistence.SimpleEntity;
  * @date Jan 20, 2008
  */
 @MappedSuperclass
-public abstract class Build extends SimpleEntity {
+public abstract class Build extends JpaEntity {
     /** Formatter. */
     private static final DateFormat DATE_FORMATTER = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 
