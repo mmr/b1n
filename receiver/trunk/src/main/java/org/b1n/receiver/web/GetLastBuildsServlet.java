@@ -23,10 +23,9 @@ public class GetLastBuildsServlet extends HttpServlet {
         resp.setContentType("text/html");
         PrintWriter writer = new PrintWriter(resp.getOutputStream());
         try {
-            String url = "/" + req.getContextPath();
             writer.print("<html><head><title>Build Stats</title><link rel='stylesheet' href='css/tmp.css'/></head><body>");
             writer.print("<h1>Build Stats!</h1><hr/>");
-            writer.print("O Build Stats mudou de lugar!<br />Acesse: <a href='" + url + "'>" + url + "</a>");
+            writer.print("<a href='/index.jsp'>O Build Stats mudou de lugar!</a>");
             writer.print("</body></html>");
         } finally {
             writer.close();
