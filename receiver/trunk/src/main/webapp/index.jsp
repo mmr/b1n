@@ -6,6 +6,8 @@
 <body>
 <h1>Build Stats!</h1>
 <hr />
-<a href='lastBuilds.jsp'>Last Builds</a>
+<center>
+<a href='lastBuilds.faces'>Last Builds</a>
+</center>
 </body>
 </html>
