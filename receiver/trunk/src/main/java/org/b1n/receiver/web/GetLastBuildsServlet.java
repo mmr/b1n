@@ -25,7 +25,7 @@ public class GetLastBuildsServlet extends HttpServlet {
         try {
             writer.print("<html><head><title>Build Stats</title><link rel='stylesheet' href='css/tmp.css'/></head><body>");
             writer.print("<h1>Build Stats!</h1><hr/>");
-            writer.print("<a href='/index.jsp'>O Build Stats mudou de lugar!</a>");
+            writer.print("<a href='/receiver/index.jsp'>O Build Stats mudou de lugar!</a>");
             writer.print("</body></html>");
         } finally {
             writer.close();
