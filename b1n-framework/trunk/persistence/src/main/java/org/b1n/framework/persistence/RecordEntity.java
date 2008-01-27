@@ -37,7 +37,7 @@ import javax.persistence.Transient;
  * @created Mar 30, 2007
  */
 @MappedSuperclass
-public abstract class RecordEntity extends SimpleEntity {
+public abstract class RecordEntity extends JpaEntity {
     @Column(nullable = false)
     private Date dateAdded;
 

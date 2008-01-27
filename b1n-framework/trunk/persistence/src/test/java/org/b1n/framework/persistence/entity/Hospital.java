@@ -33,7 +33,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import org.b1n.framework.persistence.RecordEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 
 /**
@@ -42,7 +42,7 @@ import org.b1n.framework.persistence.RecordEntity;
  * @created Mar 31, 2007
  */
 @Entity
-public class Hospital extends RecordEntity {
+public class Hospital extends SimpleEntity {
     @Column(nullable = false)
     private String name;
 

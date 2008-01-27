@@ -28,7 +28,7 @@ package org.b1n.framework.game.core;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import org.b1n.framework.persistence.RecordEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 
 /**
@@ -36,7 +36,7 @@ import org.b1n.framework.persistence.RecordEntity;
  * @created Mar 29, 2007
  */
 @Entity
-public class Player extends RecordEntity {
+public class Player extends SimpleEntity {
     @Column(nullable = false)
     private String name;
 

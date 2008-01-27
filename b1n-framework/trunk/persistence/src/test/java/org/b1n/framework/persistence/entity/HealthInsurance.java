@@ -31,7 +31,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
-import org.b1n.framework.persistence.RecordEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 
 /**
@@ -40,7 +40,7 @@ import org.b1n.framework.persistence.RecordEntity;
  * @created Mar 27, 2007
  */
 @Entity
-public class HealthInsurance extends RecordEntity {
+public class HealthInsurance extends SimpleEntity {
     private String name;
 
     @ManyToMany

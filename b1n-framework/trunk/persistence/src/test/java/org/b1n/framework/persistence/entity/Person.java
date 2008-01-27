@@ -30,7 +30,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-import org.b1n.framework.persistence.RecordEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 
 /**
@@ -40,7 +40,7 @@ import org.b1n.framework.persistence.RecordEntity;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Person extends RecordEntity {
+public class Person extends SimpleEntity {
     private String name;
 
     @Embedded

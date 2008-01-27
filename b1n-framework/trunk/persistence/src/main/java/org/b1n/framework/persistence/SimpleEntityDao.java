@@ -25,10 +25,11 @@
  */
 package org.b1n.framework.persistence;
 
+
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public abstract class SimpleEntityDao<E extends SimpleEntity> extends HibernateEntityDao<E> {
+public abstract class SimpleEntityDao<E extends SimpleEntity> extends RecordEntityDao<E> {
     //  nothing yet
 }
