@@ -12,7 +12,7 @@
 	  <plugin>
         <groupId>org.b1n.maven</groupId>
         <artifactId>maven-informer-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <executions>
           <execution>
             <id>start</id>
@@ -24,7 +24,7 @@
               <action>start</action>
               <server>http://localhost:8080/receiver/saveInfo</server>
               <!--dataSenderClassName>org.b1n.informer.ds.StdoutDataSender</dataSenderClassName-->
-              <dataSenderClassName>org.b1n.informer.ds.GetHttpDataSender</dataSenderClassName>
+              <dataSenderClassName>org.b1n.informer.ds.PostHttpDataSender</dataSenderClassName>
             </configuration>
           </execution>
 
@@ -38,7 +38,7 @@
               <action>end</action>
               <server>http://localhost:8080/receiver/saveInfo</server>
               <!--dataSenderClassName>org.b1n.informer.ds.StdoutDataSender</dataSenderClassName-->
-              <dataSenderClassName>org.b1n.informer.ds.GetHttpDataSender</dataSenderClassName>
+              <dataSenderClassName>org.b1n.informer.ds.PostHttpDataSender</dataSenderClassName>
             </configuration>
           </execution>
         </executions>
