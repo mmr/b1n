@@ -9,32 +9,47 @@
 <body>
 <h1>Últimos Builds!</h1>
 <hr />
-<center>
+<p align="center">
+<table class="buildsByHour">
+<tr>
+<th>Hora</th>
+<th>Usuário</ht>
+<th>Projeto</ht>
+<th>Versão</ht>
+<th>Tempo</ht>
+</tr>
 <f:view>
-  <h:dataTable value="#{lastBuilds.entries}" styleClass="buildsByHour" var="e">
-    <h:column>
-      <f:facet name="header"><h:outputText value="Hora" /></f:facet>
-      <h:outputText value="#{e.key}" />
-    </h:column>
-    <h:column>
-      <f:facet name="header"><h:outputText value="Builds" /></f:facet>
-      <h:dataTable value="#{e.value}" var="b">
-        <h:column>
-          <h:outputText value="#{b.user.userName}" />
-        </h:column>
-        <h:column>
-          <h:outputText value="#{b.project.artifactId}" />
-        </h:column>
-        <h:column>
-          <h:outputText value="#{b.project.version}" />
-        </h:column>
-        <h:column>
-          <h:outputText value="#{b.formattedBuildTime}" />
-        </h:column>
-      </h:dataTable>
-    </h:column>
-  </h:dataTable>
+  <t:dataList value="#{lastBuilds.entries}" var="e" styleClass="buildByHour" rowIndexVar="i">
+    <f:verbatim><tr><td class="hour" rowspan="</f:verbatim>
+    <t:outputText value="#{lastBuilds.numberOfBuilds}" />
+    <f:verbatim>"></f:verbatim>
+      <t:outputText value="#{e.key}" />
+    <f:verbatim></td></tr></f:verbatim>
+
+    <t:dataList value="#{e.value}" var="b">
+      <f:verbatim><tr></f:verbatim>
+
+        <f:verbatim><td class="userName"></f:verbatim>
+          <t:outputText value="#{b.user.userName}" />
+        <f:verbatim></td></f:verbatim>
+
+        <f:verbatim><td class="artifactId"></f:verbatim>
+          <t:outputText value="#{b.project.artifactId}" />
+        <f:verbatim></td></f:verbatim>
+
+        <f:verbatim><td class="version"></f:verbatim>
+          <t:outputText value="#{b.project.version}" />
+        <f:verbatim></td></f:verbatim>
+
+        <f:verbatim><td class="buildTime"></f:verbatim>
+          <t:outputText value="#{b.formattedBuildTime}" />
+        <f:verbatim></td></f:verbatim>
+
+      <f:verbatim></tr></f:verbatim>
+    </t:dataList>
+  </t:dataList>
 </f:view>
-</center>
+</table>
+</p>
 </body>
 </html>

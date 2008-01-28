@@ -5,7 +5,6 @@ import java.util.List;
 import org.b1n.framework.persistence.HibernateEntityDao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
 
 /**
  * @author Marcio Ribeiro
@@ -24,7 +23,6 @@ public class ProjectBuildDao extends HibernateEntityDao<ProjectBuild> {
         crit.addOrder(Order.desc("startTime"));
         crit.setMaxResults(maxResults);
         crit.setFirstResult(offset);
-        crit.add(Restrictions.isNotNull("endTime"));
         return crit.list();
     }
 }

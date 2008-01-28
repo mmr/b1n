@@ -3,9 +3,11 @@ package org.b1n.receiver.web.bean;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.faces.context.FacesContext;
 
 import org.b1n.framework.persistence.DaoLocator;
 import org.b1n.receiver.domain.ProjectBuild;
@@ -28,7 +30,15 @@ public class LastBuildsBean {
     }
 
     /**
-     * @return mapa com builds indexados por hora.
+     * @return numero de builds para a hora corrente.
+     */
+    @SuppressWarnings("unchecked")
+    public int getNumberOfBuilds() {
+        return ((Map.Entry<String, List<ProjectBuild>>) FacesContext.getCurrentInstance().getExternalContext().getRequestMap().get("e")).getValue().size() + 1;
+    }
+
+    /**
+     * @return lista com entradas.
      */
     public List<Map.Entry<String, List<ProjectBuild>>> getEntries() {
         if (entries == null) {
@@ -41,7 +51,7 @@ public class LastBuildsBean {
      * Organiza builds por hora.
      */
     private void organizeBuildsByHour() {
-        buildsByHour = new HashMap<String, List<ProjectBuild>>();
+        buildsByHour = new LinkedHashMap<String, List<ProjectBuild>>();
         ProjectBuildDao buildDao = DaoLocator.getDao(ProjectBuild.class);
         List<ProjectBuild> bs = buildDao.findLastBuilds(MAX, 0);
         NumberFormat nf = NumberFormat.getInstance();
