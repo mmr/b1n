@@ -11,21 +11,29 @@
 <hr />
 <center>
 <f:view>
-  <t:dataTable value="#{lastBuilds.builds.entrySet}" var="e" styleClass="buildPerHour">
-    <t:column styleClass="hour">
-      <f:facet name="header">Hora</f:facet>
-      <t:outputText value="#{e.key}" />
-    </t:column>
-    <t:column styleClass="builds">
-      <f:facet name="header">Builds</f:facet>
-      <t:dataTable value="#{e.value}" var="b" styleClass="builds">
-        <t:column styleClass="userName"><f:facet name="header">Usuário</f:facet><t:outputText value="#{b.user.userName}" /></t:column>
-        <t:column styleClass="project"><f:facet name="header">Projeto</f:facet><t:outputText value="#{b.project.artifactId}" /></t:column>
-        <t:column styleClass="project"><f:facet name="header">Projeto</f:facet><t:outputText value="#{b.project.version}" /></t:column>
-        <t:column styleClass="buildTime"><f:facet name="header">Tempo</f:facet><t:outputText value="#{b.formattedBuildTime}" /></t:column>
-      </t:dataTable>
-    </t:column>
-  </t:dataTable>
+  <h:dataTable value="#{lastBuilds.entries}" styleClass="buildsByHour" var="e">
+    <h:column>
+      <f:facet name="header"><h:outputText value="Hora" /></f:facet>
+      <h:outputText value="#{e.key}" />
+    </h:column>
+    <h:column>
+      <f:facet name="header"><h:outputText value="Builds" /></f:facet>
+      <h:dataTable value="#{e.value}" var="b">
+        <h:column>
+          <h:outputText value="#{b.user.userName}" />
+        </h:column>
+        <h:column>
+          <h:outputText value="#{b.project.artifactId}" />
+        </h:column>
+        <h:column>
+          <h:outputText value="#{b.project.version}" />
+        </h:column>
+        <h:column>
+          <h:outputText value="#{b.formattedBuildTime}" />
+        </h:column>
+      </h:dataTable>
+    </h:column>
+  </h:dataTable>
 </f:view>
 </center>
 </body>
