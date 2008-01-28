@@ -22,7 +22,7 @@
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost/receiver</property>
 		<property name="hibernate.connection.username">receiver</property>
         <property name="hibernate.connection.password">receiver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.dialect">org.b1n.receiver.persistence.WithTimeZonePostgreSQLDialect</property>
 
 		<!-- HSQL -->
 <!--

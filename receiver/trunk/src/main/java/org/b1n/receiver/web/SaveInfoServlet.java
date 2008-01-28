@@ -15,6 +15,7 @@ import net.sf.json.JSONSerializer;
 import org.apache.commons.beanutils.DynaBean;
 import org.b1n.framework.persistence.DaoLocator;
 import org.b1n.framework.persistence.EntityNotFoundException;
+import org.b1n.receiver.domain.Build;
 import org.b1n.receiver.domain.Host;
 import org.b1n.receiver.domain.HostDao;
 import org.b1n.receiver.domain.ModuleBuild;
@@ -94,25 +95,31 @@ public class SaveInfoServlet extends HttpServlet {
                 moduleBuild.setProjectBuild(projectBuild);
                 moduleBuild.setProject(project);
 
-                // With tests
-                moduleBuild.setWithTests((Boolean) module.get(PARAM_WITH_TESTS));
+                // Parametros comuns
+                setCommonParams(module, moduleBuild);
 
-                // Deploy
-                moduleBuild.setWithTests((Boolean) module.get(PARAM_DEPLOY));
-
-                // Start & End Time
-                int buildTime = (Integer) module.get(PARAM_BUILD_TIME);
-                Date endTime = new Date();
-                Date startTime = new Date(endTime.getTime() - buildTime);
-                moduleBuild.setStartTime(startTime);
-                moduleBuild.setEndTime(endTime);
-
+                // Adiciona modulo
                 projectBuild.addModule(moduleBuild);
             }
             projectBuild.save();
         } catch (MorphException e) {
             // Nao tem filhos, tudo bem
         }
+    }
+
+    private void setCommonParams(DynaBean buildDynaBean, Build build) {
+        // With tests
+        build.setWithTests((Boolean) buildDynaBean.get(PARAM_WITH_TESTS));
+
+        // Deploy
+        build.setDeploy((Boolean) buildDynaBean.get(PARAM_DEPLOY));
+
+        // Start & End Time
+        int buildTime = (Integer) buildDynaBean.get(PARAM_BUILD_TIME);
+        Date endTime = new Date();
+        Date startTime = new Date(endTime.getTime() - buildTime);
+        build.setStartTime(startTime);
+        build.setEndTime(endTime);
     }
 
     /**
@@ -152,18 +159,8 @@ public class SaveInfoServlet extends HttpServlet {
         Project project = getProject(projectName, version, groupId, artifactId);
         projectBuild.setProject(project);
 
-        // With tests
-        projectBuild.setWithTests((Boolean) masterProject.get(PARAM_WITH_TESTS));
-
-        // Deploy
-        projectBuild.setDeploy((Boolean) masterProject.get(PARAM_DEPLOY));
-
-        // Start & End Time
-        int buildTime = (Integer) masterProject.get(PARAM_BUILD_TIME);
-        Date endTime = new Date();
-        Date startTime = new Date(endTime.getTime() - buildTime);
-        projectBuild.setStartTime(startTime);
-        projectBuild.setEndTime(endTime);
+        // Parametros comuns
+        setCommonParams(masterProject, projectBuild);
 
         // Save
         projectBuild.save();
