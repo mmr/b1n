@@ -44,7 +44,8 @@ public class SaveInfoServlet extends HttpServlet {
     private static final String PARAM_BUILD_INFO = "buildInfo";
     private static final String PARAM_MODULES = "modules";
     private static final String PARAM_BUILD_TIME = "buildTime";
-    private static final String PARAM_SKIP_TESTS = "skipTests";
+    private static final String PARAM_WITH_TESTS = "withTests";
+    private static final String PARAM_DEPLOY = "deploy";
 
     /**
      * @param req requisicao.
@@ -93,9 +94,11 @@ public class SaveInfoServlet extends HttpServlet {
                 moduleBuild.setProjectBuild(projectBuild);
                 moduleBuild.setProject(project);
 
-                // Skip tests
-                boolean skipTests = (Boolean) module.get(PARAM_SKIP_TESTS);
-                moduleBuild.setSkipTests(skipTests);
+                // With tests
+                moduleBuild.setWithTests((Boolean) module.get(PARAM_WITH_TESTS));
+
+                // Deploy
+                moduleBuild.setWithTests((Boolean) module.get(PARAM_DEPLOY));
 
                 // Start & End Time
                 int buildTime = (Integer) module.get(PARAM_BUILD_TIME);
@@ -149,9 +152,11 @@ public class SaveInfoServlet extends HttpServlet {
         Project project = getProject(projectName, version, groupId, artifactId);
         projectBuild.setProject(project);
 
-        // Skip tests
-        boolean skipTests = (Boolean) masterProject.get(PARAM_SKIP_TESTS);
-        projectBuild.setSkipTests(skipTests);
+        // With tests
+        projectBuild.setWithTests((Boolean) masterProject.get(PARAM_WITH_TESTS));
+
+        // Deploy
+        projectBuild.setDeploy((Boolean) masterProject.get(PARAM_DEPLOY));
 
         // Start & End Time
         int buildTime = (Integer) masterProject.get(PARAM_BUILD_TIME);

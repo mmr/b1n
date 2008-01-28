@@ -16,6 +16,8 @@
 <th>Usuário</ht>
 <th>Projeto</ht>
 <th>Versão</ht>
+<th>Tests</ht>
+<th>Deploy</ht>
 <th>Tempo</ht>
 </tr>
 <f:view>
@@ -30,7 +32,7 @@
       <f:verbatim><tr></f:verbatim>
 
         <f:verbatim><td class="userName"></f:verbatim>
-          <t:outputText value="#{b.user.userName}" />
+          <t:outputText value="#{b.user.userName}@#{b.host.hostName}" />
         <f:verbatim></td></f:verbatim>
 
         <f:verbatim><td class="artifactId"></f:verbatim>
@@ -41,8 +43,16 @@
           <t:outputText value="#{b.project.version}" />
         <f:verbatim></td></f:verbatim>
 
+        <f:verbatim><td class="tests"></f:verbatim>
+          <t:outputText value="#{b.withTests}" converter="b1n.BooleanConverter" />
+        <f:verbatim></td></f:verbatim>
+
+        <f:verbatim><td class="deploy"></f:verbatim>
+          <t:outputText value="#{b.deploy}" converter="b1n.BooleanConverter" />
+        <f:verbatim></td></f:verbatim>
+
         <f:verbatim><td class="buildTime"></f:verbatim>
-          <t:outputText value="#{b.formattedBuildTime}" />
+          <t:outputText value="#{b.buildTime}" converter="b1n.BuildTimeConverter" />
         <f:verbatim></td></f:verbatim>
 
       <f:verbatim></tr></f:verbatim>

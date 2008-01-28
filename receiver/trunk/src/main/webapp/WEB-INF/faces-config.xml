@@ -10,6 +10,16 @@
     </locale-config>
   </application>
 
+  <converter>
+    <converter-id>b1n.BooleanConverter</converter-id>
+    <converter-class>org.b1n.receiver.web.converter.BooleanConverter</converter-class>
+  </converter>
+
+  <converter>
+    <converter-id>b1n.BuildTimeConverter</converter-id>
+    <converter-class>org.b1n.receiver.web.converter.BuildTimeConverter</converter-class>
+  </converter>
+
   <navigation-rule>
     <from-view-id>*</from-view-id>
     <navigation-case>
