@@ -44,6 +44,7 @@ public class SaveInfoServlet extends HttpServlet {
     private static final String PARAM_BUILD_INFO = "buildInfo";
     private static final String PARAM_MODULES = "modules";
     private static final String PARAM_BUILD_TIME = "buildTime";
+    private static final String PARAM_SKIP_TESTS = "skipTests";
 
     /**
      * @param req requisicao.
@@ -91,6 +92,10 @@ public class SaveInfoServlet extends HttpServlet {
                 ModuleBuild moduleBuild = new ModuleBuild();
                 moduleBuild.setProjectBuild(projectBuild);
                 moduleBuild.setProject(project);
+
+                // Skip tests
+                boolean skipTests = (Boolean) module.get(PARAM_SKIP_TESTS);
+                moduleBuild.setSkipTests(skipTests);
 
                 // Start & End Time
                 int buildTime = (Integer) module.get(PARAM_BUILD_TIME);
@@ -143,6 +148,10 @@ public class SaveInfoServlet extends HttpServlet {
 
         Project project = getProject(projectName, version, groupId, artifactId);
         projectBuild.setProject(project);
+
+        // Skip tests
+        boolean skipTests = (Boolean) masterProject.get(PARAM_SKIP_TESTS);
+        projectBuild.setSkipTests(skipTests);
 
         // Start & End Time
         int buildTime = (Integer) masterProject.get(PARAM_BUILD_TIME);
