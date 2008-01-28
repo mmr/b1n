@@ -25,6 +25,23 @@ public abstract class Build extends JpaEntity {
 
     private Date endTime;
 
+    private boolean skipTests;
+
+    /**
+     * @return <code>true</code> se build pulou os testes, <code>false</code> se nao.
+     */
+    public boolean isSkipTests() {
+        return skipTests;
+    }
+
+    /**
+     * Define se pulou testes.
+     * @param skipTests <code>true</code> se pulou testes, <code>false</code> caso contrario.
+     */
+    public void setSkipTests(boolean skipTests) {
+        this.skipTests = skipTests;
+    }
+
     /**
      * @return hora de inicio de build.
      */
