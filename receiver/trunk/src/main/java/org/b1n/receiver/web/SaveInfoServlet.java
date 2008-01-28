@@ -40,12 +40,10 @@ public class SaveInfoServlet extends HttpServlet {
     private static final String PARAM_JVM = "jvm";
     private static final String PARAM_ENCODING = "encoding";
     private static final String PARAM_OPERATING_SYSTEM = "operatingSystem";
-    private static final String PARAM_START_TIME = "startTime";
-    private static final String PARAM_END_TIME = "endTime";
     private static final String PARAM_MASTER_PROJECT = "masterProject";
     private static final String PARAM_BUILD_INFO = "buildInfo";
     private static final String PARAM_MODULES = "modules";
-    private static final String PARAM_TIME = "time";
+    private static final String PARAM_BUILD_TIME = "buildTime";
 
     /**
      * @param req requisicao.
@@ -94,12 +92,11 @@ public class SaveInfoServlet extends HttpServlet {
                 moduleBuild.setProjectBuild(projectBuild);
                 moduleBuild.setProject(project);
 
-                long tsStartTime = (Long) ((DynaBean) module.get(PARAM_START_TIME)).get(PARAM_TIME);
-                Date startTime = new Date(tsStartTime);
+                // Start & End Time
+                int buildTime = (Integer) module.get(PARAM_BUILD_TIME);
+                Date endTime = new Date();
+                Date startTime = new Date(endTime.getTime() - buildTime);
                 moduleBuild.setStartTime(startTime);
-
-                long tsEndTime = (Long) ((DynaBean) module.get(PARAM_END_TIME)).get(PARAM_TIME);
-                Date endTime = new Date(tsEndTime);
                 moduleBuild.setEndTime(endTime);
 
                 projectBuild.addModule(moduleBuild);
@@ -147,13 +144,14 @@ public class SaveInfoServlet extends HttpServlet {
         Project project = getProject(projectName, version, groupId, artifactId);
         projectBuild.setProject(project);
 
-        long tsStartTime = (Long) ((DynaBean) masterProject.get(PARAM_START_TIME)).get(PARAM_TIME);
-        Date startTime = new Date(tsStartTime);
+        // Start & End Time
+        int buildTime = (Integer) masterProject.get(PARAM_BUILD_TIME);
+        Date endTime = new Date();
+        Date startTime = new Date(endTime.getTime() - buildTime);
         projectBuild.setStartTime(startTime);
-
-        long tsEndTime = (Long) ((DynaBean) masterProject.get(PARAM_END_TIME)).get(PARAM_TIME);
-        Date endTime = new Date(tsEndTime);
         projectBuild.setEndTime(endTime);
+
+        // Save
         projectBuild.save();
         return projectBuild;
     }
