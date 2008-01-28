@@ -3,7 +3,7 @@
   <groupId>org.b1n</groupId>
   <artifactId>b1n-receiver</artifactId>
   <packaging>war</packaging>
-  <version>3.0.0</version>
+  <version>3.0.1</version>
   <name>receiver</name>
 
   <parent>
