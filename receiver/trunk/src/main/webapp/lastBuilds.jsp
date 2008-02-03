@@ -16,11 +16,12 @@
 <th>Usuário</ht>
 <th>Projeto</ht>
 <th>Versão</ht>
-<th>Tests</ht>
+<th>Tests</th>
 <th>Deploy</ht>
 <th>Tempo</ht>
 </tr>
 <f:view>
+<h:form>
   <t:dataList value="#{lastBuilds.entries}" var="e" styleClass="buildByHour" rowIndexVar="i">
     <f:verbatim><tr><td class="hour" rowspan="</f:verbatim>
     <t:outputText value="#{lastBuilds.numberOfBuilds}" />
@@ -29,10 +30,14 @@
     <f:verbatim></td></tr></f:verbatim>
 
     <t:dataList value="#{e.value}" var="b">
-      <f:verbatim><tr></f:verbatim>
+      <f:verbatim><tr class="</f:verbatim>
+      <t:outputText value="#{lastBuilds.trStyleClass}" />
+      <f:verbatim>"></f:verbatim>
 
         <f:verbatim><td class="userName"></f:verbatim>
-          <t:outputText value="#{b.user.userName}@#{b.host.hostName}" />
+          <h:commandLink value="#{b.user.userName}@#{b.host.hostName}" action="/buildsByUser.faces">
+            <f:param name="userId" value="#{b.user.id}" />
+          </h:commandLink>
         <f:verbatim></td></f:verbatim>
 
         <f:verbatim><td class="artifactId"></f:verbatim>
@@ -58,6 +63,7 @@
       <f:verbatim></tr></f:verbatim>
     </t:dataList>
   </t:dataList>
+</h:form>
 </f:view>
 </table>
 </p>
