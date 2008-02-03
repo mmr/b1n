@@ -32,4 +32,10 @@
     <managed-bean-class>org.b1n.receiver.web.bean.LastBuildsBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+
+  <managed-bean>
+    <managed-bean-name>buildsByUser</managed-bean-name>
+    <managed-bean-class>org.b1n.receiver.web.bean.BuildsByUserBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </faces-config>
