@@ -9,7 +9,7 @@
   <parent>
     <groupId>org.b1n</groupId>
     <artifactId>b1n-pom-web</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
   </parent>
 
   <dependencies>
