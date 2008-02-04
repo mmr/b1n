@@ -30,14 +30,24 @@ package org.b1n.framework.base;
  * @created Mar 30, 2007
  */
 public class BaseException extends Exception {
+    /**
+     * @param message message.
+     */
     public BaseException(String message) {
         super(message);
     }
 
+    /**
+     * @param e cause.
+     */
     public BaseException(Throwable e) {
         super(e);
     }
 
+    /**
+     * @param message message.
+     * @param e cause.
+     */
     public BaseException(String message, Throwable e) {
         super(message, e);
     }

@@ -31,7 +31,7 @@ package org.b1n.framework.persistence;
  */
 public class CouldNotFindDaoException extends RuntimeException {
     /**
-     * @param e causa.
+     * @param e cause.
      */
     public CouldNotFindDaoException(Throwable e) {
         super(e);

@@ -28,14 +28,21 @@ package org.b1n.framework.base.util;
 import java.io.File;
 
 /**
+ * Deltree!
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class FileUtils {
+public final class FileUtils {
+
+    /**
+     * This class should not be instantiated.
+     */
+    private FileUtils() {
+        // nothing
+    }
 
     /**
      * Recursivelly removes a diretory and its content.
-     * 
      * @param dirName name of the directory to be removed.
      */
     public static void deltree(String dirName) {
@@ -44,7 +51,6 @@ public class FileUtils {
 
     /**
      * Recursivelly removes a directory and its content.
-     * 
      * @param dir directory to be removed.
      */
     public static void deltree(File dir) {

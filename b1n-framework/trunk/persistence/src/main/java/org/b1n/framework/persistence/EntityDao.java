@@ -34,15 +34,15 @@ import java.util.List;
  */
 public interface EntityDao<E extends Entity> {
     /**
-     * Encontra entidade para o id passado.
-     * @param id o id.
-     * @return a entidade encontrada.
-     * @throws EntityNotFoundException caso nao encontre entidade com o id passado.
+     * Find an entity by id.
+     * @param id the id.
+     * @return the entity.
+     * @throws EntityNotFoundException in case an entity could not be found with the id.
      */
     E findById(Long id) throws EntityNotFoundException;
 
     /**
-     * @return colecao com todas entidades desse tipo.
+     * @return a colleciton with all the entities of this type.
      */
     List<E> findAll();
 }

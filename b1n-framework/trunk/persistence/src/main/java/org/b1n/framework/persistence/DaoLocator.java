@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Encontrador de DAOs.
+ * DAO Locator.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
@@ -37,17 +37,17 @@ public final class DaoLocator {
     private static final Map<String, EntityDao<Entity>> CACHE = new HashMap<String, EntityDao<Entity>>();
 
     /**
-     * Classe utilitaria.
+     * This class should not be instantiated.
      */
     private DaoLocator() {
         // do nothing
     }
     
     /**
-     * Encontra o DAO para entidade passada passada.
-     * @param <T> tipo de dao.
-     * @param entityClass classe de entidade.
-     * @return DAO para a entidade passada.
+     * Find the DAO for the passed entity class.
+     * @param <T> type.
+     * @param entityClass the class of the entity.
+     * @return the DAO for the passed entity class.
      */
     @SuppressWarnings("unchecked")
     public static <T extends EntityDao> T getDao(final Class<? extends Entity> entityClass) {

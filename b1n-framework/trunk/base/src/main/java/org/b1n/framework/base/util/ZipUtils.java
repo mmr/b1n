@@ -32,10 +32,22 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-public class ZipUtils {
+/**
+ * Zip-Zap-Zum!
+ * @author Marcio Ribeiro
+ * @date Feb 4, 2008
+ */
+public final class ZipUtils {
+
+    /**
+     * This class should not be instatiated.
+     */
+    private ZipUtils() {
+        // nothing
+    }
+
     /**
      * Creates a zip file with the given resources.
-     * 
      * @param zippedFileName name of the zip file to be created.
      * @param resourcesToZip name of the resources to be zipped (files and/or directories).
      * @throws IOException when something nasty occurs.
@@ -51,6 +63,12 @@ public class ZipUtils {
         }
     }
 
+    /**
+     * Zip resource.
+     * @param resourceToZip resource to be zipped.
+     * @param zipOut out.
+     * @throws IOException errors when zipping.
+     */
     private static void zipResource(final File resourceToZip, final ZipOutputStream zipOut) throws IOException {
         if (resourceToZip.isFile()) {
             zipFile(resourceToZip, zipOut);
@@ -67,6 +85,12 @@ public class ZipUtils {
         }
     }
 
+    /**
+     * Zip file.
+     * @param fileToZip file to be zipped.
+     * @param zipOut out.
+     * @throws IOException errors when zipping.
+     */
     private static void zipFile(final File fileToZip, final ZipOutputStream zipOut) throws IOException {
         FileInputStream fileIn = new FileInputStream(fileToZip);
         try {

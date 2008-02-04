@@ -37,9 +37,8 @@ import org.hibernate.Session;
  */
 public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityDao<E> {
     /**
-     * Devolve colecao de entidades encontradas com criteria passado.
      * @param criteria criteria.
-     * @return colecao de entidades encontadas.
+     * @return collection of the entities found for the criteria.
      */
     @SuppressWarnings("unchecked")
     protected List<E> findByCriteria(Criteria criteria) {
@@ -47,10 +46,9 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
     }
 
     /**
-     * Devolve entidade encontrada para criteria passado.
      * @param criteria criteria.
-     * @return a entidade encontrada.
-     * @throws EntityNotFoundException caso nao encontre uma entidade.
+     * @return entity found for the criteria.
+     * @throws EntityNotFoundException in case an entity could not be found.
      */
     @SuppressWarnings("unchecked")
     protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
@@ -62,14 +60,14 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
     }
 
     /**
-     * @return uma criteria para esse tipo de entidade.
+     * @return a criteria.
      */
     protected Criteria createCriteria() {
         return ((Session) JpaUtil.getSESSION().getDelegate()).createCriteria(getEntityClass());
     }
 
     /**
-     * @return todas entidades desse tipo.
+     * @return all entities of this kind.
      */
     public List<E> findAll() {
         return findByCriteria(createCriteria());

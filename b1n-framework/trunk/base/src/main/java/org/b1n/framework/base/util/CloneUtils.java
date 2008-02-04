@@ -30,13 +30,23 @@ import java.io.Serializable;
 import org.apache.commons.lang.SerializationUtils;
 
 /**
+ * Clone stuff using serialization.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class CloneUtils {
+public final class CloneUtils {
+
+    /**
+     * This class should not be instantiated.
+     */
+    private CloneUtils() {
+        // nothing
+    }
+
     /**
      * @param originalObject the original object.
      * @return a deep clone of the given object.
+     * @param <T> type.
      */
     @SuppressWarnings("unchecked")
     public static <T> T deepClone(T originalObject) {

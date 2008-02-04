@@ -25,7 +25,6 @@
  */
 package org.b1n.framework.persistence;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
@@ -38,7 +37,7 @@ public class EntityNotFoundException extends PersistenceException {
     private Long id;
 
     /**
-     * @param clazz classe.
+     * @param clazz the class.
      */
     public EntityNotFoundException(Class<? extends Entity> clazz) {
         super("Could not find " + clazz.getName());
@@ -46,7 +45,7 @@ public class EntityNotFoundException extends PersistenceException {
     }
 
     /**
-     * @param clazz classe.
+     * @param clazz the class.
      * @param id id.
      */
     public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
@@ -56,9 +55,9 @@ public class EntityNotFoundException extends PersistenceException {
     }
 
     /**
-     * @param clazz classe.
+     * @param clazz class.
      * @param id id.
-     * @param cause causa.
+     * @param cause the cause.
      */
     public EntityNotFoundException(Class<? extends Entity> clazz, Long id, Throwable cause) {
         super("Could not find " + clazz.getName() + " with id " + id, cause);
@@ -67,7 +66,7 @@ public class EntityNotFoundException extends PersistenceException {
     }
 
     /**
-     * @param clazz classe.
+     * @param clazz class.
      * @param query query.
      */
     public EntityNotFoundException(Class<? extends Entity> clazz, String query) {
@@ -77,9 +76,9 @@ public class EntityNotFoundException extends PersistenceException {
     }
 
     /**
-     * @param clazz classe.
+     * @param clazz class.
      * @param query query.
-     * @param cause causa.
+     * @param cause cause.
      */
     public EntityNotFoundException(Class<? extends Entity> clazz, String query, Throwable cause) {
         super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
@@ -88,45 +87,42 @@ public class EntityNotFoundException extends PersistenceException {
     }
 
     /**
-     * @return classe.
+     * @return class.
      */
     public Class<? extends Entity> getClazz() {
         return clazz;
     }
 
     /**
-     * Define a classe.
-     * @param clazz classe.
+     * @param clazz class.
      */
     public void setClazz(Class<? extends Entity> clazz) {
         this.clazz = clazz;
     }
 
     /**
-     * @return o id.
+     * @return id.
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * Define o id.
-     * @param id o id.
+     * @param id id.
      */
     public void setId(Long id) {
         this.id = id;
     }
 
     /**
-     * @return a query.
+     * @return query.
      */
     public String getQuery() {
         return query;
     }
 
     /**
-     * Define a query.
-     * @param query a query.
+     * @param query query.
      */
     public void setQuery(String query) {
         this.query = query;

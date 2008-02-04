@@ -30,14 +30,24 @@ package org.b1n.framework.base;
  * @created Mar 30, 2007
  */
 public class BaseRuntimeException extends RuntimeException {
+    /**
+     * @param message message.
+     */
     public BaseRuntimeException(String message) {
         super(message);
     }
 
+    /**
+     * @param e cause.
+     */
     public BaseRuntimeException(Throwable e) {
         super(e);
     }
 
+    /**
+     * @param message message.
+     * @param e cause.
+     */
     public BaseRuntimeException(String message, Throwable e) {
         super(message, e);
     }
