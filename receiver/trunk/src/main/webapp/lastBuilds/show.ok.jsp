@@ -31,27 +31,27 @@
   <c:forEach var="b" items="${e.value}" varStatus="s">
     <r:tr build="${b}" status="${s}">
       <td class="user">
-        <a href="buildsByUser.show.logic?id=${b.user.id}"
+        <a href="lastBuilds.show.logic?userId=${b.user.id}"
         >${b.user.userName}</a>
         @
-        <a href="buildsByHost.show.logic?id=${b.user.id}"
+        <a href="lastBuilds.show.logic?hostId=${b.user.id}"
         >${b.host.hostName}</a>
       </td>
 
       <td class="project">
-        <a href="buildsByProject.show.logic?id=${b.project.id}">
+        <a href="lastBuilds.show.logic?projectId=${b.project.id}">
           ${b.project.artifactId} ${b.project.version}
         </a>
       </td>
 
       <td class="tests">
-        <a href="buildsByTest.show.logic?withTests=${b.withTests}">
+        <a href="lastBuilds.show.logic?withTests=${b.withTests}">
           <r:bool value="${b.withTests}" />
         </a>
       </td>
 
       <td class="deploy">
-        <a href="buildsByDeploy.show.logic?withTests=${b.deploy}">
+        <a href="lastBuilds.show.logic?deploy=${b.deploy}">
           <r:bool value="${b.deploy}" />
         </a>
       </td>

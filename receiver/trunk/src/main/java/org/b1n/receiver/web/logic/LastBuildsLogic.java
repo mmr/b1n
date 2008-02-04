@@ -12,6 +12,7 @@ import org.b1n.receiver.domain.ProjectBuild;
 import org.b1n.receiver.domain.ProjectBuildDao;
 import org.vraptor.annotations.Component;
 import org.vraptor.annotations.Out;
+import org.vraptor.annotations.Parameter;
 
 /**
  * @author Marcio Ribeiro
@@ -21,13 +22,44 @@ import org.vraptor.annotations.Out;
 public class LastBuildsLogic {
     private static final int MAX = 100;
 
+    @Parameter
+    private Long userId;
+
+    @Parameter
+    private Long hostId;
+
+    @Parameter
+    private Long projectId;
+
+    @Parameter
+    private Boolean withTests;
+
+    @Parameter
+    private Boolean deploy;
+
+    @Parameter
+    private int max;
+
+    @Parameter
+    private int offset;
+
+    //    @Parameter
+    //    private Integer page;
+
     @Out
     private List<Map.Entry<String, List<ProjectBuild>>> buildsByHour;
+
+    @SuppressWarnings("unused")
+    @Out
+    private int count;
 
     /**
      * Carrega lista de builds para ser mostrada.
      */
     public void show() {
+        if (max == 0) {
+            max = MAX;
+        }
         if (buildsByHour == null) {
             organizeBuildsByHour();
         }
@@ -39,7 +71,7 @@ public class LastBuildsLogic {
     private void organizeBuildsByHour() {
         Map<String, List<ProjectBuild>> buildsMap = new LinkedHashMap<String, List<ProjectBuild>>();
         ProjectBuildDao buildDao = DaoLocator.getDao(ProjectBuild.class);
-        List<ProjectBuild> bs = buildDao.findLastBuilds(MAX, 0);
+        List<ProjectBuild> bs = buildDao.findLastBuilds(userId, hostId, projectId, withTests, deploy, max, offset);
         NumberFormat nf = NumberFormat.getInstance();
         nf.setMinimumIntegerDigits(2);
         for (ProjectBuild b : bs) {
@@ -52,5 +84,6 @@ public class LastBuildsLogic {
             buildsMap.get(hour).add(b);
         }
         buildsByHour = new ArrayList<Map.Entry<String, List<ProjectBuild>>>(buildsMap.entrySet());
+        count = buildDao.getCount(userId, hostId, projectId, withTests, deploy);
     }
 }
