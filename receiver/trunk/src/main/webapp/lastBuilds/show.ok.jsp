@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://b1n.org/receiver" prefix="r" %>
 <html>
 <head>
 <title>Build Stats</title>
@@ -27,14 +28,38 @@
     </td>
   </tr>
 
-  <c:forEach var="b" items="${e.value}">
-    <tr>
-      <td>${b.user.userName}@${b.host.hostName}</td>
-      <td>${b.project.artifactId} ${b.project.version}</td>
-      <td>${b.withTests}</td>
-      <td>${b.deploy}</td>
-      <td>${b.buildTime}</td>
-    </tr>
+  <c:forEach var="b" items="${e.value}" varStatus="s">
+    <r:tr build="${b}" status="${s}">
+      <td class="user">
+        <a href="buildsByUser.show.logic?id=${b.user.id}"
+        >${b.user.userName}</a>
+        @
+        <a href="buildsByHost.show.logic?id=${b.user.id}"
+        >${b.host.hostName}</a>
+      </td>
+
+      <td class="project">
+        <a href="buildsByProject.show.logic?id=${b.project.id}">
+          ${b.project.artifactId} ${b.project.version}
+        </a>
+      </td>
+
+      <td class="tests">
+        <a href="buildsByTest.show.logic?withTests=${b.withTests}">
+          <r:bool value="${b.withTests}" />
+        </a>
+      </td>
+
+      <td class="deploy">
+        <a href="buildsByDeploy.show.logic?withTests=${b.deploy}">
+          <r:bool value="${b.deploy}" />
+        </a>
+      </td>
+
+      <td class="buildTime">
+        <r:buildTime value="${b.buildTime}" />
+      </td>
+    </r:tr>
   </c:forEach>
 </c:forEach>
 

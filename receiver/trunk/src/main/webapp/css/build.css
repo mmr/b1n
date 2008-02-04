@@ -27,7 +27,7 @@ td.hour {
   text-align: center;
 }
 
-td.version, td.buildTime {
+td.buildTime {
   text-align: right;
 }
 
@@ -37,6 +37,21 @@ tr.withoutTests td {
 
 tr.deploy td {
   color: cadetblue;
+}
+
+/* --NOT WORKING-- */
+/*
+tr.even td {
+  background-color: whitesmoke;
+}
+
+tr.odd td {
+  background-color: gray;
+}
+*/
+
+td.tests, td.deploy {
+  text-align: center;
 }
 
 a:link, a:visited, a:hover, a:active {

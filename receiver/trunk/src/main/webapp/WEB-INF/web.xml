@@ -38,6 +38,11 @@
     <url-pattern>*.logic</url-pattern>
   </servlet-mapping>
 
+  <taglib>
+    <taglib-uri>http://b1n.org/receiver</taglib-uri>
+    <taglib-location>/WEB-INF/receiver.tld</taglib-location>
+  </taglib>
+
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

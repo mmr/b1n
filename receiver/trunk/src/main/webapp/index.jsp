@@ -7,7 +7,7 @@
 <h1>Build Stats!</h1>
 <hr />
 <center>
-<a href='lastBuilds.faces'>Last Builds</a>
+<a href='lastBuilds.show.logic'>Last Builds</a>
 </center>
 </body>
 </html>
