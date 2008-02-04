@@ -63,7 +63,7 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
      * @return a criteria.
      */
     protected Criteria createCriteria() {
-        return ((Session) JpaUtil.getSESSION().getDelegate()).createCriteria(getEntityClass());
+        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
     }
 
     /**

@@ -50,7 +50,7 @@ public final class JpaUtil {
     /**
      * @return devolve a sessao corrente (cria uma se for necessario).
      */
-    public static EntityManager getSESSION() {
+    public static EntityManager getSession() {
         EntityManager s = SESSION.get();
 
         if (s == null) {

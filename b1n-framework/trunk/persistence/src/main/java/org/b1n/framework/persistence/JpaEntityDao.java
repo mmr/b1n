@@ -48,7 +48,7 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
      * @throws EntityNotFoundException caso nao encontre entidade alguma.
      */
     public E findById(Long id) throws EntityNotFoundException {
-        E entity = JpaUtil.getSESSION().find(getEntityClass(), id);
+        E entity = JpaUtil.getSession().find(getEntityClass(), id);
         if (entity == null) {
             throw new EntityNotFoundException(getEntityClass(), id);
         }
@@ -121,7 +121,7 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
      * @return query jpa.
      */
     private Query createJpaQuery(String query, Map<String, ?> params) {
-        Query jpaQuery = JpaUtil.getSESSION().createQuery(query);
+        Query jpaQuery = JpaUtil.getSession().createQuery(query);
 
         if (params != null) {
             for (Map.Entry<String, ?> entry : params.entrySet()) {
