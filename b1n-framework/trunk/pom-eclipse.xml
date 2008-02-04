@@ -12,27 +12,27 @@
     <dependency>
       <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-base</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.b1n.framework</groupId>
       <artifactId>b1n-persistence</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.b1n.framework.game</groupId>
       <artifactId>b1n-game-core</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>org.b1n.framework.game</groupId>
       <artifactId>b1n-game-net</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
     <dependency>
       <groupId>hsqldb</groupId>
       <artifactId>hsqldb</artifactId>
-      <version>1.8.0.1</version>
+      <version>1.8.0.7</version>
       <scope>test</scope>
     </dependency>
     <dependency>
