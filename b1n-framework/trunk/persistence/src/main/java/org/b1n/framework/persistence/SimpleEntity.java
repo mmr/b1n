@@ -39,10 +39,17 @@ public abstract class SimpleEntity extends RecordEntity {
     @GeneratedValue
     private Long id;
 
+    /**
+     * @return o id.
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Define o id.
+     * @param id o id.
+     */
     public void setId(Long id) {
         this.id = id;
     }

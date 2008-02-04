@@ -32,6 +32,9 @@ package org.b1n.framework.persistence;
  * @created Mar 30, 2007
  */
 public class TooManyEntitiesFoundException extends PersistenceRuntimeException {
+    /**
+     * @param e causa.
+     */
     public TooManyEntitiesFoundException(Throwable e) {
         super(e);
     }

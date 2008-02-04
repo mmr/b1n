@@ -34,13 +34,13 @@ public abstract class JpaEntity implements Entity {
      * Save entity.
      */
     public void save() {
-        JpaUtil.getSession().persist(this);
+        JpaUtil.getSESSION().persist(this);
     }
 
     /**
      * Remove entity.
      */
     public void remove() {
-        JpaUtil.getSession().remove(this);
+        JpaUtil.getSESSION().remove(this);
     }
 }

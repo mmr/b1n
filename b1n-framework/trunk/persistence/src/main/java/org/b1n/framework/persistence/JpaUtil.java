@@ -34,27 +34,40 @@ import javax.persistence.Persistence;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
-public class JpaUtil {
-    private static final ThreadLocal<EntityManager> session = new ThreadLocal<EntityManager>();
+public final class JpaUtil {
+    private static final ThreadLocal<EntityManager> SESSION = new ThreadLocal<EntityManager>();
 
     // TODO (mmr) o nome da PU deve ser configuravel
-    private static final EntityManagerFactory sessionFactory = Persistence.createEntityManagerFactory("b1n");
+    private static final EntityManagerFactory SESSION_FACTORY = Persistence.createEntityManagerFactory("b1n");
 
-    public static EntityManager getSession() {
-        EntityManager s = session.get();
+    /**
+     * Classe utilitaria.
+     */
+    private JpaUtil() {
+        // do nothing
+    }
+
+    /**
+     * @return devolve a sessao corrente (cria uma se for necessario).
+     */
+    public static EntityManager getSESSION() {
+        EntityManager s = SESSION.get();
 
         if (s == null) {
-            s = sessionFactory.createEntityManager();
+            s = SESSION_FACTORY.createEntityManager();
             EntityTransaction tr = s.getTransaction();
             tr.begin();
-            session.set(s);
+            SESSION.set(s);
         }
         return s;
     }
 
+    /**
+     * Fecha a sessao corrente.
+     */
     public static void closeSession() {
-        EntityManager s = session.get();
-        session.set(null);
+        EntityManager s = SESSION.get();
+        SESSION.set(null);
         if (s != null) {
             if (!s.getTransaction().getRollbackOnly()) {
                 s.flush();

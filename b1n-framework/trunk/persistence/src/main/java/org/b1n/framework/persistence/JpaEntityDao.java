@@ -37,6 +37,7 @@ import javax.persistence.Query;
  * DAO que usa JPA.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
+ * @param <E> tipo.
  */
 public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> {
     private Class<E> entityClass;
@@ -47,7 +48,7 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
      * @throws EntityNotFoundException caso nao encontre entidade alguma.
      */
     public E findById(Long id) throws EntityNotFoundException {
-        E entity = JpaUtil.getSession().find(getEntityClass(), id);
+        E entity = JpaUtil.getSESSION().find(getEntityClass(), id);
         if (entity == null) {
             throw new EntityNotFoundException(getEntityClass(), id);
         }
@@ -56,7 +57,7 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
 
     /**
      * Encontra entidade por query passada.
-     * @param query
+     * @param query a query.
      * @return entidade encontrada.
      * @throws EntityNotFoundException caso nao encontre entidade alguma.
      */
@@ -64,6 +65,13 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
         return findByQuerySingle(query, null);
     }
 
+    /**
+     * Devolve a entidade encontrada para a query passada.
+     * @param query query.
+     * @param params mapa com parametros.
+     * @return a entidade encontrada.
+     * @throws EntityNotFoundException caso nao encontre uma entidade.
+     */
     @SuppressWarnings("unchecked")
     protected E findByQuerySingle(String query, Map<String, ?> params) throws EntityNotFoundException {
         try {
@@ -73,10 +81,19 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
         }
     }
 
+    /**
+     * @param query query.
+     * @return colecao com entidades para a query passada.
+     */
     protected List<E> findByQuery(String query) {
         return findByQuery(query, null);
     }
 
+    /**
+     * @param query query.
+     * @param params parametros.
+     * @return colecao com entidades encontradas para query passada.
+     */
     @SuppressWarnings("unchecked")
     protected List<E> findByQuery(String query, Map<String, ?> params) {
         return createJpaQuery(query, params).getResultList();
@@ -97,8 +114,14 @@ public abstract class JpaEntityDao<E extends JpaEntity> implements EntityDao<E> 
         }
     }
 
+    /**
+     * Metodo utilitario que cria query jpa a partir de string com query e mapa de parametros passados.
+     * @param query query.
+     * @param params parametros.
+     * @return query jpa.
+     */
     private Query createJpaQuery(String query, Map<String, ?> params) {
-        Query jpaQuery = JpaUtil.getSession().createQuery(query);
+        Query jpaQuery = JpaUtil.getSESSION().createQuery(query);
 
         if (params != null) {
             for (Map.Entry<String, ?> entry : params.entrySet()) {

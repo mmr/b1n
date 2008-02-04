@@ -33,9 +33,16 @@ import java.util.Map;
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class DaoLocator {
-    private static final Map<String, EntityDao<Entity>> cache = new HashMap<String, EntityDao<Entity>>();
+public final class DaoLocator {
+    private static final Map<String, EntityDao<Entity>> CACHE = new HashMap<String, EntityDao<Entity>>();
 
+    /**
+     * Classe utilitaria.
+     */
+    private DaoLocator() {
+        // do nothing
+    }
+    
     /**
      * Encontra o DAO para entidade passada passada.
      * @param <T> tipo de dao.
@@ -46,11 +53,11 @@ public class DaoLocator {
     public static <T extends EntityDao> T getDao(final Class<? extends Entity> entityClass) {
         try {
             String daoClassName = entityClass.getName() + "Dao";
-            if (cache.containsKey(daoClassName)) {
-                return (T) cache.get(daoClassName);
+            if (CACHE.containsKey(daoClassName)) {
+                return (T) CACHE.get(daoClassName);
             }
             T dao = (T) Class.forName(daoClassName).newInstance();
-            cache.put(daoClassName, dao);
+            CACHE.put(daoClassName, dao);
             return (T) dao;
         } catch (InstantiationException e) {
             throw new CouldNotFindDaoException(e);

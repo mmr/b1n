@@ -32,14 +32,24 @@ import org.b1n.framework.base.BaseException;
  * @created Mar 30, 2007
  */
 public class PersistenceException extends BaseException {
+    /**
+     * @param message mensagem.
+     */
     public PersistenceException(String message) {
         super(message);
     }
 
+    /**
+     * @param e causa.
+     */
     public PersistenceException(Throwable e) {
         super(e);
     }
 
+    /**
+     * @param message mensagem.
+     * @param e causa.
+     */
     public PersistenceException(String message, Throwable e) {
         super(message, e);
     }

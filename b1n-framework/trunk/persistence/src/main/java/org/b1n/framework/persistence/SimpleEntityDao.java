@@ -29,6 +29,7 @@ package org.b1n.framework.persistence;
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
+ * @param <E> tipo.
  */
 public abstract class SimpleEntityDao<E extends SimpleEntity> extends RecordEntityDao<E> {
     //  nothing yet

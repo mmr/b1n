@@ -33,13 +33,25 @@ import org.hibernate.Session;
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
+ * @param <E> tipo.
  */
 public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityDao<E> {
+    /**
+     * Devolve colecao de entidades encontradas com criteria passado.
+     * @param criteria criteria.
+     * @return colecao de entidades encontadas.
+     */
     @SuppressWarnings("unchecked")
     protected List<E> findByCriteria(Criteria criteria) {
         return (List<E>) criteria.list();
     }
 
+    /**
+     * Devolve entidade encontrada para criteria passado.
+     * @param criteria criteria.
+     * @return a entidade encontrada.
+     * @throws EntityNotFoundException caso nao encontre uma entidade.
+     */
     @SuppressWarnings("unchecked")
     protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
         E entity = (E) criteria.uniqueResult();
@@ -49,10 +61,16 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
         return entity;
     }
 
+    /**
+     * @return uma criteria para esse tipo de entidade.
+     */
     protected Criteria createCriteria() {
-        return ((Session) JpaUtil.getSession().getDelegate()).createCriteria(getEntityClass());
+        return ((Session) JpaUtil.getSESSION().getDelegate()).createCriteria(getEntityClass());
     }
 
+    /**
+     * @return todas entidades desse tipo.
+     */
     public List<E> findAll() {
         return findByCriteria(createCriteria());
     }

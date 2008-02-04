@@ -34,15 +34,28 @@ import org.hibernate.criterion.Restrictions;
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
+ * @param <E> tipo.
  */
 public abstract class RecordEntityDao<E extends RecordEntity> extends HibernateEntityDao<E> {
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) throws EntityNotFoundException {
+    /**
+     * Devolve colecao de entidades para o intervalo de datas de criacao passadas.
+     * @param dateAddedStart data de criacao, inicio.
+     * @param dateAddedFinish data de criacao, fim.
+     * @return colecao de entidades que foram criadas no intervalo de datas passado.
+     */
+    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) {
         Criteria crit = createCriteria();
         crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
         return findByCriteria(crit);
     }
 
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) throws EntityNotFoundException {
+    /**
+     * Devolve colecao de entidades para o intervalo de datas de atualizacao passadas.
+     * @param dateLastUpdatedStart data de atualizacao, inicio.
+     * @param dateLastUpdatedFinish data de atualizacao, fim.
+     * @return colecao de entidades que foram atualizadas no intervalo de datas passado.
+     */
+    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) {
         Criteria crit = createCriteria();
         crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
         return findByCriteria(crit);

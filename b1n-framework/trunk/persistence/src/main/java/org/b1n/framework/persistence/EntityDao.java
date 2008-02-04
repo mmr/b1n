@@ -30,9 +30,19 @@ import java.util.List;
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
+ * @param <E> tipo.
  */
 public interface EntityDao<E extends Entity> {
+    /**
+     * Encontra entidade para o id passado.
+     * @param id o id.
+     * @return a entidade encontrada.
+     * @throws EntityNotFoundException caso nao encontre entidade com o id passado.
+     */
     E findById(Long id) throws EntityNotFoundException;
 
+    /**
+     * @return colecao com todas entidades desse tipo.
+     */
     List<E> findAll();
 }

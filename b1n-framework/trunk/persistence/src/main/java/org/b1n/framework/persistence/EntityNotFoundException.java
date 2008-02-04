@@ -25,7 +25,6 @@
  */
 package org.b1n.framework.persistence;
 
-import java.io.Serializable;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -38,55 +37,97 @@ public class EntityNotFoundException extends PersistenceException {
 
     private Long id;
 
+    /**
+     * @param clazz classe.
+     */
     public EntityNotFoundException(Class<? extends Entity> clazz) {
         super("Could not find " + clazz.getName());
         this.clazz = clazz;
     }
 
+    /**
+     * @param clazz classe.
+     * @param id id.
+     */
     public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
         super("Could not find " + clazz.getName() + " with id " + id);
         this.clazz = clazz;
         this.id = id;
     }
 
+    /**
+     * @param clazz classe.
+     * @param id id.
+     * @param cause causa.
+     */
     public EntityNotFoundException(Class<? extends Entity> clazz, Long id, Throwable cause) {
         super("Could not find " + clazz.getName() + " with id " + id, cause);
         this.clazz = clazz;
         this.id = id;
     }
 
+    /**
+     * @param clazz classe.
+     * @param query query.
+     */
     public EntityNotFoundException(Class<? extends Entity> clazz, String query) {
         super("Could not find " + clazz.getName() + " for query '" + query + "'.");
         this.clazz = clazz;
         this.query = query;
     }
 
+    /**
+     * @param clazz classe.
+     * @param query query.
+     * @param cause causa.
+     */
     public EntityNotFoundException(Class<? extends Entity> clazz, String query, Throwable cause) {
         super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
         this.clazz = clazz;
         this.query = query;
     }
 
+    /**
+     * @return classe.
+     */
     public Class<? extends Entity> getClazz() {
         return clazz;
     }
 
+    /**
+     * Define a classe.
+     * @param clazz classe.
+     */
     public void setClazz(Class<? extends Entity> clazz) {
         this.clazz = clazz;
     }
 
-    public Serializable getId() {
+    /**
+     * @return o id.
+     */
+    public Long getId() {
         return id;
     }
 
+    /**
+     * Define o id.
+     * @param id o id.
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * @return a query.
+     */
     public String getQuery() {
         return query;
     }
 
+    /**
+     * Define a query.
+     * @param query a query.
+     */
     public void setQuery(String query) {
         this.query = query;
     }

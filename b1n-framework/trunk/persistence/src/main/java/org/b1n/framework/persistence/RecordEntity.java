@@ -49,40 +49,65 @@ public abstract class RecordEntity extends JpaEntity {
     @Transient
     private Boolean defaultEnabledValue = Boolean.TRUE;
 
+    /**
+     * @return <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     */
     protected Boolean getDefaultEnabledValue() {
         return defaultEnabledValue;
     }
 
+    /**
+     * Define se o padrao para o habilitado ou nao para essa entidade.
+     * @param defaultEnabledValue <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     */
     protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
         this.defaultEnabledValue = defaultEnabledValue;
     }
 
+    /**
+     * @return a data em que entidade foi criada.
+     */
     public Date getDateAdded() {
         return dateAdded;
     }
 
+    /**
+     * @param dateAdded data em que foi criado.
+     */
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
     }
 
+    /**
+     * @return data de ultima atualizacao.
+     */
     public Date getDateLastUpdated() {
         return dateLastUpdated;
     }
 
+    /**
+     * @param dateLastUpdated data de ultima atualizacao.
+     */
     public void setDateLastUpdated(Date dateLastUpdated) {
         this.dateLastUpdated = dateLastUpdated;
     }
 
+    /**
+     * @return <code>true</code> se estiver habilitado, <code>false</code> se nao.
+     */
     public Boolean getEnabled() {
         return enabled;
     }
 
+    /**
+     * @param enabled <code>true</code> se estiver habilitado, <code>false</code> se nao.
+     */
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
     /**
-     * Called before saving the Bo.
+     * chamado antes de persistir o bo.
      */
     @PrePersist
     protected void onSave() {

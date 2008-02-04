@@ -29,7 +29,6 @@ import java.io.Serializable;
 
 /**
  * Business Object.
- * 
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
@@ -37,22 +36,21 @@ public interface Entity extends Serializable {
     /**
      * @return the Id of the entity.
      */
-    public Long getId();
+    Long getId();
 
     /**
      * Sets the Id of the entity.
-     * 
      * @param id the Id of the entity.
      */
-    public void setId(Long id);
+    void setId(Long id);
 
     /**
      * Save entity.
      */
-    public void save();
+    void save();
 
     /**
      * Remove entity.
      */
-    public void remove();
+    void remove();
 }

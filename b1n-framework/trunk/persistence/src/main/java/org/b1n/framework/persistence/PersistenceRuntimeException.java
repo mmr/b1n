@@ -32,14 +32,24 @@ import org.b1n.framework.base.BaseRuntimeException;
  * @created Mar 30, 2007
  */
 public class PersistenceRuntimeException extends BaseRuntimeException {
+    /**
+     * @param message mensagem.
+     */
     public PersistenceRuntimeException(String message) {
         super(message);
     }
 
+    /**
+     * @param e causa.
+     */
     public PersistenceRuntimeException(Throwable e) {
         super(e);
     }
 
+    /**
+     * @param message mensagem.
+     * @param e causa.
+     */
     public PersistenceRuntimeException(String message, Throwable e) {
         super(message, e);
     }
