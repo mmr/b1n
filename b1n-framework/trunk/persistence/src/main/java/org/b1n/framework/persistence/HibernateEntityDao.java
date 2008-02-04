@@ -29,6 +29,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Projections;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -71,5 +72,14 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
      */
     public List<E> findAll() {
         return findByCriteria(createCriteria());
+    }
+
+    /**
+     * @return entities count.
+     */
+    public Integer getCount() {
+        Criteria crit = createCriteria();
+        crit.setProjection(Projections.rowCount());
+        return (Integer) crit.uniqueResult();
     }
 }
