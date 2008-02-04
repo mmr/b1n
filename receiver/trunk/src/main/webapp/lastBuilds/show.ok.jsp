@@ -7,7 +7,7 @@
 <link rel='stylesheet' href='css/build.css' />
 </head>
 <body>
-<h1>Últimos Builds!</h1>
+<h1><a href="lastBuilds.show.logic">Últimos Builds!</a></h1>
 <hr />
 <p align="center">
 <table class="buildsByHour">
@@ -32,9 +32,7 @@
     <r:tr build="${b}" status="${s}">
       <td class="user">
         <a href="lastBuilds.show.logic?userId=${b.user.id}"
-        >${b.user.userName}</a>
-        @
-        <a href="lastBuilds.show.logic?hostId=${b.user.id}"
+        >${b.user.userName}</a>@<a href="lastBuilds.show.logic?hostId=${b.host.id}"
         >${b.host.hostName}</a>
       </td>
 

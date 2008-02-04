@@ -1,8 +1,9 @@
 package org.b1n.receiver.web.logic;
 
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -75,13 +76,12 @@ public class LastBuildsLogic {
         NumberFormat nf = NumberFormat.getInstance();
         nf.setMinimumIntegerDigits(2);
         for (ProjectBuild b : bs) {
-            Calendar c = Calendar.getInstance();
-            c.setTime(b.getStartTime());
-            String hour = nf.format(c.get(Calendar.HOUR_OF_DAY));
-            if (!buildsMap.containsKey(hour)) {
-                buildsMap.put(hour, new ArrayList<ProjectBuild>());
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd hh");
+            String key = dateFormat.format(b.getStartTime()) + "h";
+            if (!buildsMap.containsKey(key)) {
+                buildsMap.put(key, new ArrayList<ProjectBuild>());
             }
-            buildsMap.get(hour).add(b);
+            buildsMap.get(key).add(b);
         }
         buildsByHour = new ArrayList<Map.Entry<String, List<ProjectBuild>>>(buildsMap.entrySet());
         count = buildDao.getCount(userId, hostId, projectId, withTests, deploy);
