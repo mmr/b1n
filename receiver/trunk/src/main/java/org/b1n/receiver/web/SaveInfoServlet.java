@@ -107,6 +107,11 @@ public class SaveInfoServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Metodo auxiliar que define parametros comuns.
+     * @param buildDynaBean dyna bean de build.
+     * @param build o build em si.
+     */
     private void setCommonParams(DynaBean buildDynaBean, Build build) {
         // With tests
         build.setWithTests((Boolean) buildDynaBean.get(PARAM_WITH_TESTS));

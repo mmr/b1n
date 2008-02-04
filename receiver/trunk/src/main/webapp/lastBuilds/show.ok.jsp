@@ -1,4 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ page import="java.util.List" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <title>Build Stats</title>
@@ -18,9 +19,10 @@
     <th>Tempo</ht>
   </tr>
 
-<c:forEach var="e" items="${lastBuilds.buildsByHour.entrySet}">
+<c:forEach var="e" items="${buildsByHour}">
+  <jsp:useBean id="e" type="java.util.Map.Entry" />
   <tr>
-    <td class="hour" rowspan="${e.value.size}">
+    <td class="hour" rowspan="<%= ((List) e.getValue()).size() + 1 %>">
       ${e.key}
     </td>
   </tr>
@@ -31,7 +33,7 @@
       <td>${b.project.artifactId} ${b.project.version}</td>
       <td>${b.withTests}</td>
       <td>${b.deploy}</td>
-      <td>${b.withTests}</td>
+      <td>${b.buildTime}</td>
     </tr>
   </c:forEach>
 </c:forEach>

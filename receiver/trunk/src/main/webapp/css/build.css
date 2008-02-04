@@ -3,7 +3,7 @@
 }
 h1 {
   text-align: center;
-  color: #aaa;
+  color: dimgray;
 }
 
 table {
@@ -29,4 +29,21 @@ td.hour {
 
 td.version, td.buildTime {
   text-align: right;
+}
+
+tr.withoutTests td {
+  color: tomato;
+}
+
+tr.deploy td {
+  color: cadetblue;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
 }
