@@ -26,13 +26,13 @@ class Form(QDialog):
         self.updateUi()
         self.lineedit = QLineEdit("Outs")
         self.lineedit.selectAll()
-        layout = QBoxLayout()
+        layout = QVBoxLayout()
         layout.addWidget(self.browser)
         layout.addWidget(self.lineedit)
         self.setLayout(layout)
         self.lineedit.setFocus()
         self.connect(self.lineedit, SIGNAL("returnPressed()"), self.updateUi)
-        self.setWindowTitle("Outs")
+        self.setWindowTitle("Pouts")
 
     def updateUi(self):
         self.browser.append(unicode(self.game.board))

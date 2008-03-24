@@ -77,28 +77,28 @@ class Game:
         self.hand = Hand(self.deck.hit(), self.deck.hit())
         self.status = Status.PREFLOP
         self.last_card = None
-    def __burn__(self):
+    def _burn(self):
         """Take a card from the Deck and burn it (dont show)"""
         self.deck.hit()
-    def __hit__(self):
+    def _hit(self):
         """Take a card from the Deck and add it to the Board"""
         self.last_card = self.deck.hit()
         self.board.add(self.last_card)
     def flop(self):
         """Burn one and hit three"""
-        self.__burn__()
+        self._burn()
         for i in range(3):
-            self.__hit__()
+            self._hit()
         self.status = Status.FLOP
     def turn(self):
         """Burn one and hit one"""
-        self.__burn__()
-        self.__hit__()
+        self._burn()
+        self._hit()
         self.status = Status.TURN
     def river(self):
         """Burn one and hit one"""
-        self.__burn__()
-        self.__hit__()
+        self._burn()
+        self._hit()
         self.status = Status.RIVER
     def is_in_preflop(self):
         return self.status == Status.PREFLOP
