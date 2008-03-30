@@ -143,22 +143,15 @@
 			<position>Consultor</position>
 			<activities>
 				<item>
-					Desenvolvimento de sistema de controle de vôos
-					executivos para a Sagatiba (http://www.sagatiba.com.br/)
+					Desenvolvimento de Sistema de controle de vôos executivos
+                    para a Sagatiba (http://www.sagatiba.com.br/)
 				</item>
 				<item>
-					Desenvolvimento e Manutenção de sistema de Chat e
-					Fórum Online para Ananke (http://www.ananke.com.br/)
+					Montagem de servidores Unix para GVI
+                    (http://www.gvi.com.br/)
 				</item>
 				<item>
-					Manutenção de servidores de Email para Ananke
-				</item>
-				<item>
-					Montagem de diversos servidores Unix para GlobalView
-					Internet Services (http://www.gvi.com.br/)
-				</item>
-				<item>
-					Montagem e manutenção de servidores Unix para Gringo
+					Montagem de servidores Unix para Gringo
                     (http://www.gringo.nu/)
 				</item>
 			</activities>
@@ -229,11 +222,11 @@
 	<languages>
 		<language>
 			<name>Inglês</name>
-			<level>Avançado</level>
+			<level>Fluente</level>
 		</language>
 		<language>
-			<name>Japones</name>
-			<level>Basico</level>
+			<name>Japonês</name>
+			<level>Básico</level>
 		</language>
 	</languages>
 
@@ -246,8 +239,8 @@
             </item>
 			<item>Desenvolvedor Sênior em Java, com foco em JEE</item>
 			<item>
-				Administrador de Sistemas/Redes Sênior, com foco em
-				FreeBSD, Linux e Solaris
+				Administrador de Sistemas Sênior, com foco em
+				BSD, Linux e Solaris
 			</item>
 		</qualification>
 		<qualification name="Java">
