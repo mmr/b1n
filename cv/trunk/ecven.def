@@ -21,7 +21,10 @@ Name & \large\textbf{\ecv@firstname\ \textsc{\ecv@lastname}} \tabularnewline[5pt
   Nationality & \ecv@nationality \tabularnewline[5pt]
 \fi
 \ifx\@empty\ecv@birth\else
-  Date of birth & \ecv@birth \tabularnewline[#1]
+  Date of birth & \ecv@birth \tabularnewline[5pt]
+\fi
+\ifx\@empty\ecv@civilstate\else
+  Civil State & \ecv@civilstate \tabularnewline[#1]
 \fi
 }
 
