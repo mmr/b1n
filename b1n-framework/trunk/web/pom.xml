@@ -43,5 +43,45 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
+
+        <dependency>
+            <groupId>org.vraptor</groupId>
+            <artifactId>vraptor</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+
+        <dependency>
+              <groupId>org.apache.tiles</groupId>
+              <artifactId>tiles-core</artifactId>
+              <version>2.0-SNAPSHOT</version>
+        </dependency>
+	</dependencies>
+
+    <repositories>
+        <repository>
+            <id>apache.org</id>
+            <name>Maven Snapshots</name>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>apache.org</id>
+            <name>Maven Plugin Snapshots</name>
+            <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
