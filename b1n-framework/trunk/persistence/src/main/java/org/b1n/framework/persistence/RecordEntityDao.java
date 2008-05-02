@@ -25,39 +25,11 @@
  */
 package org.b1n.framework.persistence;
 
-import java.util.Date;
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  * @param <E> tipo.
  */
 public abstract class RecordEntityDao<E extends RecordEntity> extends HibernateEntityDao<E> {
-    /**
-     * Devolve colecao de entidades para o intervalo de datas de criacao passadas.
-     * @param dateAddedStart data de criacao, inicio.
-     * @param dateAddedFinish data de criacao, fim.
-     * @return colecao de entidades que foram criadas no intervalo de datas passado.
-     */
-    public List<E> findByDateAdded(final Date dateAddedStart, final Date dateAddedFinish) {
-        final Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
-        return findByCriteria(crit);
-    }
-
-    /**
-     * Devolve colecao de entidades para o intervalo de datas de atualizacao passadas.
-     * @param dateLastUpdatedStart data de atualizacao, inicio.
-     * @param dateLastUpdatedFinish data de atualizacao, fim.
-     * @return colecao de entidades que foram atualizadas no intervalo de datas passado.
-     */
-    public List<E> findByDateLastUpdated(final Date dateLastUpdatedStart, final Date dateLastUpdatedFinish) {
-        final Criteria crit = createCriteria();
-        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
-        return findByCriteria(crit);
-    }
+    //  nothing yet
 }

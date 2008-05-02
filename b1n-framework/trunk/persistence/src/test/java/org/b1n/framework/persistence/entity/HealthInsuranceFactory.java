@@ -25,12 +25,12 @@
  */
 package org.b1n.framework.persistence.entity;
 
-import org.b1n.framework.persistence.RecordEntityDao;
+import org.b1n.framework.persistence.TrackedEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HealthInsuranceFactory extends RecordEntityDao<HealthInsurance> {
+public class HealthInsuranceFactory extends TrackedEntityDao<HealthInsurance> {
     // Picture yourself in a boat on a river...
 }

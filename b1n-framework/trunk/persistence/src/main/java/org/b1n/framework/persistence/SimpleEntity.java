@@ -34,7 +34,7 @@ import javax.persistence.MappedSuperclass;
  * @created Mar 30, 2007
  */
 @MappedSuperclass
-public abstract class SimpleEntity extends RecordEntity {
+public abstract class SimpleEntity extends TrackedEntity {
     @Id
     @GeneratedValue
     private Long id;

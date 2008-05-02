@@ -29,13 +29,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.framework.persistence.RecordEntityDao;
+import org.b1n.framework.persistence.TrackedEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class HospitalDao extends RecordEntityDao<Hospital> {
+public class HospitalDao extends TrackedEntityDao<Hospital> {
     /**
      * @param name name.
      * @return hospital with the passed name.

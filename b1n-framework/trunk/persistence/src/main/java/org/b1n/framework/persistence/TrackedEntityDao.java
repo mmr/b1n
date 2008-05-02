@@ -25,59 +25,39 @@
  */
 package org.b1n.framework.persistence;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.Transient;
+import java.util.Date;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
+ * @param <E> tipo.
  */
-@MappedSuperclass
-public abstract class RecordEntity extends TrackedEntity {
-    @Column(nullable = false)
-    private Boolean enabled;
-
-    @Transient
-    private Boolean defaultEnabledValue = Boolean.TRUE;
-
+public abstract class TrackedEntityDao<E extends TrackedEntity> extends HibernateEntityDao<E> {
     /**
-     * @return <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     * Devolve colecao de entidades para o intervalo de datas de criacao passadas.
+     * @param dateAddedStart data de criacao, inicio.
+     * @param dateAddedFinish data de criacao, fim.
+     * @return colecao de entidades que foram criadas no intervalo de datas passado.
      */
-    protected Boolean getDefaultEnabledValue() {
-        return defaultEnabledValue;
+    public List<E> findByDateAdded(final Date dateAddedStart, final Date dateAddedFinish) {
+        final Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
+        return findByCriteria(crit);
     }
 
     /**
-     * Define se o padrao para o habilitado ou nao para essa entidade.
-     * @param defaultEnabledValue <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     * Devolve colecao de entidades para o intervalo de datas de atualizacao passadas.
+     * @param dateLastUpdatedStart data de atualizacao, inicio.
+     * @param dateLastUpdatedFinish data de atualizacao, fim.
+     * @return colecao de entidades que foram atualizadas no intervalo de datas passado.
      */
-    protected void setDefaultEnabledValue(final Boolean defaultEnabledValue) {
-        this.defaultEnabledValue = defaultEnabledValue;
-    }
-
-    /**
-     * @return <code>true</code> se estiver habilitado, <code>false</code> se nao.
-     */
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    /**
-     * @param enabled <code>true</code> se estiver habilitado, <code>false</code> se nao.
-     */
-    public void setEnabled(final Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    /**
-     * chamado antes de persistir o bo.
-     */
-    @PrePersist
-    protected void onSave() {
-        if (enabled == null) {
-            enabled = getDefaultEnabledValue();
-        }
+    public List<E> findByDateLastUpdated(final Date dateLastUpdatedStart, final Date dateLastUpdatedFinish) {
+        final Criteria crit = createCriteria();
+        crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
+        return findByCriteria(crit);
     }
 }

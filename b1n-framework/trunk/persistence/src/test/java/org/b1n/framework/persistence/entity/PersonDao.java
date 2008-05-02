@@ -29,13 +29,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.b1n.framework.persistence.EntityNotFoundException;
-import org.b1n.framework.persistence.RecordEntityDao;
+import org.b1n.framework.persistence.TrackedEntityDao;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
-public class PersonDao extends RecordEntityDao<Person> {
+public class PersonDao extends TrackedEntityDao<Person> {
     /**
      * Get by mail.
      * @param email email.

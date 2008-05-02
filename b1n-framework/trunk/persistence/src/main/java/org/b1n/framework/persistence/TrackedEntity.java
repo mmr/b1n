@@ -25,50 +25,49 @@
  */
 package org.b1n.framework.persistence;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
-import javax.persistence.Transient;
 
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
 @MappedSuperclass
-public abstract class RecordEntity extends TrackedEntity {
+public abstract class TrackedEntity extends JpaEntity {
     @Column(nullable = false)
-    private Boolean enabled;
+    private Date dateAdded;
 
-    @Transient
-    private Boolean defaultEnabledValue = Boolean.TRUE;
+    private Date dateLastUpdated;
 
     /**
-     * @return <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     * @return a data em que entidade foi criada.
      */
-    protected Boolean getDefaultEnabledValue() {
-        return defaultEnabledValue;
+    public Date getDateAdded() {
+        return dateAdded;
     }
 
     /**
-     * Define se o padrao para o habilitado ou nao para essa entidade.
-     * @param defaultEnabledValue <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
+     * @param dateAdded data em que foi criado.
      */
-    protected void setDefaultEnabledValue(final Boolean defaultEnabledValue) {
-        this.defaultEnabledValue = defaultEnabledValue;
+    public void setDateAdded(final Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     /**
-     * @return <code>true</code> se estiver habilitado, <code>false</code> se nao.
+     * @return data de ultima atualizacao.
      */
-    public Boolean getEnabled() {
-        return enabled;
+    public Date getDateLastUpdated() {
+        return dateLastUpdated;
     }
 
     /**
-     * @param enabled <code>true</code> se estiver habilitado, <code>false</code> se nao.
+     * @param dateLastUpdated data de ultima atualizacao.
      */
-    public void setEnabled(final Boolean enabled) {
-        this.enabled = enabled;
+    public void setDateLastUpdated(final Date dateLastUpdated) {
+        this.dateLastUpdated = dateLastUpdated;
     }
 
     /**
@@ -76,8 +75,10 @@ public abstract class RecordEntity extends TrackedEntity {
      */
     @PrePersist
     protected void onSave() {
-        if (enabled == null) {
-            enabled = getDefaultEnabledValue();
+        if (dateAdded == null) {
+            dateAdded = new Date();
+        } else if (getId() != null && dateLastUpdated == null) {
+            dateLastUpdated = new Date();
         }
     }
 }
