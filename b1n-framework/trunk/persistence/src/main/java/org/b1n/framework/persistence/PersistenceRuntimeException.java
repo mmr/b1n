@@ -25,13 +25,11 @@
  */
 package org.b1n.framework.persistence;
 
-import org.b1n.framework.base.BaseRuntimeException;
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class PersistenceRuntimeException extends BaseRuntimeException {
+public class PersistenceRuntimeException extends RuntimeException {
     /**
      * @param message mensagem.
      */

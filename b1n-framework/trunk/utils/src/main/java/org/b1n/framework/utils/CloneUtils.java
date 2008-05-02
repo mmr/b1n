@@ -23,32 +23,33 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.b1n.framework.persistence;
+package org.b1n.framework.utils;
+
+import java.io.Serializable;
+
+import org.apache.commons.lang.SerializationUtils;
 
 /**
+ * Clone stuff using serialization.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class PersistenceException extends Exception {
+public final class CloneUtils {
+
     /**
-     * @param message mensagem.
+     * This class should not be instantiated.
      */
-    public PersistenceException(String message) {
-        super(message);
+    private CloneUtils() {
+        // nothing
     }
 
     /**
-     * @param e causa.
+     * @param originalObject the original object.
+     * @return a deep clone of the given object.
+     * @param <T> type.
      */
-    public PersistenceException(Throwable e) {
-        super(e);
-    }
-
-    /**
-     * @param message mensagem.
-     * @param e causa.
-     */
-    public PersistenceException(String message, Throwable e) {
-        super(message, e);
+    @SuppressWarnings("unchecked")
+    public static <T> T deepClone(T originalObject) {
+        return (T) SerializationUtils.clone((Serializable) originalObject);
     }
 }

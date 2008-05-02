@@ -23,32 +23,49 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.b1n.framework.persistence;
+package org.b1n.framework.utils;
+
+import java.io.File;
 
 /**
+ * Deltree!
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */
-public class PersistenceException extends Exception {
+public final class FileUtils {
+
     /**
-     * @param message mensagem.
+     * This class should not be instantiated.
      */
-    public PersistenceException(String message) {
-        super(message);
+    private FileUtils() {
+        // nothing
     }
 
     /**
-     * @param e causa.
+     * Recursivelly removes a diretory and its content.
+     * @param dirName name of the directory to be removed.
      */
-    public PersistenceException(Throwable e) {
-        super(e);
+    public static void deltree(String dirName) {
+        deltree(new File(dirName));
     }
 
     /**
-     * @param message mensagem.
-     * @param e causa.
+     * Recursivelly removes a directory and its content.
+     * @param dir directory to be removed.
      */
-    public PersistenceException(String message, Throwable e) {
-        super(message, e);
+    public static void deltree(File dir) {
+        if (dir == null || !dir.isDirectory()) {
+            throw new IllegalArgumentException("Invalid directory: " + dir);
+        }
+        for (String fileName : dir.list()) {
+            File file = new File(dir, fileName);
+            if (file.isDirectory()) {
+                deltree(dir.getPath() + File.separator + fileName);
+                file.delete();
+            } else if (file.isFile()) {
+                file.delete();
+            }
+        }
+        dir.delete();
     }
 }

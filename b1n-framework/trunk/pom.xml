@@ -1,60 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.b1n.framework</groupId>
-  <artifactId>b1n-framework</artifactId>
-  <packaging>pom</packaging>
-  <version>2-SNAPSHOT</version>
-  <name>b1n-framework</name>
-  <url>http://b1n.org</url>
-  <build>
-    <plugins>
-	  <plugin>
-        <groupId>org.b1n.maven</groupId>
-        <artifactId>maven-informer-plugin</artifactId>
-        <version>3.0.6</version>
-        <executions>
-          <execution>
-            <id>start</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>informer</goal>
-            </goals>
-            <configuration>
-              <action>start</action>
-            </configuration>
-          </execution>
+<project>
+    <parent>
+        <groupId>org.b1n.pom</groupId>
+        <artifactId>b1n-pom</artifactId>
+        <version>2.0.0</version>
+    </parent>
 
-          <execution>
-            <id>end</id>
-            <phase>install</phase>
-            <goals>
-              <goal>informer</goal>
-            </goals>
-            <configuration>
-              <action>end</action>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <server>http://localhost:8080/receiver/saveInfo</server>
-          <!--
-          <dataSenderClassName>org.b1n.informer.ds.StdoutDataSender</dataSenderClassName>
-          -->
-          <minimumBuildTime>1000</minimumBuildTime>
-        </configuration>
-	  </plugin>
-    </plugins>
-  </build>
-  <modules>
-    <module>base</module>
-    <module>persistence</module>
-    <module>game</module>
-  </modules>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.b1n.framework</groupId>
+    <artifactId>b1n-framework</artifactId>
+    <name>b1n-framework</name>
+    <version>2.0.0</version>
+    <packaging>pom</packaging>
 
-  <parent>
-    <groupId>org.b1n</groupId>
-    <artifactId>b1n-pom</artifactId>
-    <version>1.0.2</version>
-  </parent>
+    <modules>
+        <module>utils</module>
+        <module>persistence</module>
+        <module>web</module>
+    </modules>
 </project>
