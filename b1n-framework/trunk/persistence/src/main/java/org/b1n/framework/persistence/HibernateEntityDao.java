@@ -42,8 +42,8 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
      * @return collection of the entities found for the criteria.
      */
     @SuppressWarnings("unchecked")
-    protected List<E> findByCriteria(Criteria criteria) {
-        return (List<E>) criteria.list();
+    protected List<E> findByCriteria(final Criteria criteria) {
+        return criteria.list();
     }
 
     /**
@@ -52,8 +52,8 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
      * @throws EntityNotFoundException in case an entity could not be found.
      */
     @SuppressWarnings("unchecked")
-    protected E findByCriteriaSingle(Criteria criteria) throws EntityNotFoundException {
-        E entity = (E) criteria.uniqueResult();
+    protected E findByCriteriaSingle(final Criteria criteria) throws EntityNotFoundException {
+        final E entity = (E) criteria.uniqueResult();
         if (entity == null) {
             throw new EntityNotFoundException(getEntityClass());
         }
@@ -78,7 +78,7 @@ public abstract class HibernateEntityDao<E extends JpaEntity> extends JpaEntityD
      * @return entities count.
      */
     public Integer getCount() {
-        Criteria crit = createCriteria();
+        final Criteria crit = createCriteria();
         crit.setProjection(Projections.rowCount());
         return (Integer) crit.uniqueResult();
     }

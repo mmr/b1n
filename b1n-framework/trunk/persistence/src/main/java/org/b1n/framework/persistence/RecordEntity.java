@@ -60,7 +60,7 @@ public abstract class RecordEntity extends JpaEntity {
      * Define se o padrao para o habilitado ou nao para essa entidade.
      * @param defaultEnabledValue <code>true</code> se o padrao eh habilitado, <code>false</code> se nao.
      */
-    protected void setDefaultEnabledValue(Boolean defaultEnabledValue) {
+    protected void setDefaultEnabledValue(final Boolean defaultEnabledValue) {
         this.defaultEnabledValue = defaultEnabledValue;
     }
 
@@ -74,7 +74,7 @@ public abstract class RecordEntity extends JpaEntity {
     /**
      * @param dateAdded data em que foi criado.
      */
-    public void setDateAdded(Date dateAdded) {
+    public void setDateAdded(final Date dateAdded) {
         this.dateAdded = dateAdded;
     }
 
@@ -88,7 +88,7 @@ public abstract class RecordEntity extends JpaEntity {
     /**
      * @param dateLastUpdated data de ultima atualizacao.
      */
-    public void setDateLastUpdated(Date dateLastUpdated) {
+    public void setDateLastUpdated(final Date dateLastUpdated) {
         this.dateLastUpdated = dateLastUpdated;
     }
 
@@ -102,7 +102,7 @@ public abstract class RecordEntity extends JpaEntity {
     /**
      * @param enabled <code>true</code> se estiver habilitado, <code>false</code> se nao.
      */
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(final Boolean enabled) {
         this.enabled = enabled;
     }
 

@@ -33,7 +33,6 @@ import org.b1n.framework.persistence.entity.HealthInsurance;
 import org.b1n.framework.persistence.entity.Hospital;
 import org.b1n.framework.persistence.test.PersistenceTestCase;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
@@ -41,22 +40,30 @@ import org.b1n.framework.persistence.test.PersistenceTestCase;
 public class DoctorTest extends PersistenceTestCase {
     private static Long id;
 
-    private static final DoctorDao docDao = DaoLocator.getDao(Doctor.class);
+    private static final DoctorDao DOC_DAO = DaoLocator.getDao(Doctor.class);
 
     private static final String HOSPITAL_NAME = "Sirio Libanes";
 
-    public DoctorTest(String arg) {
-        super(arg);
+    /**
+     * Construtor.
+     * @param name name.
+     */
+    public DoctorTest(final String name) {
+        super(name);
     }
 
+    /**
+     * Test save and load.
+     * @throws Exception exception.
+     */
     public void testSaveAndLoad() throws Exception {
         // Criando Medico
-        Doctor doc = new Doctor();
+        final Doctor doc = new Doctor();
         doc.setName("Omara Portuondo");
         doc.getContactInfo().setEmail("omara@portuondo.com");
 
         // Criando hospital
-        Hospital hospital = new Hospital();
+        final Hospital hospital = new Hospital();
         hospital.setName(HOSPITAL_NAME);
         hospital.addDoctor(doc);
         doc.setHospital(hospital);
@@ -64,60 +71,68 @@ public class DoctorTest extends PersistenceTestCase {
 
         // Carregando Medico
         id = doc.getId();
-        Doctor loaded = docDao.findById(id);
+        final Doctor loaded = DOC_DAO.findById(id);
         assertEquals(doc.getName(), loaded.getName());
     }
 
+    /**
+     * Test remove doctor.
+     * @throws EntityNotFoundException entity not found.
+     */
     public void testRemoveDoctor() throws EntityNotFoundException {
-        Doctor doctor = docDao.findById(id);
+        final Doctor doctor = DOC_DAO.findById(id);
         doctor.getHospital().remove();
 
         try {
-            docDao.findById(id);
+            DOC_DAO.findById(id);
             fail("Could not remove .");
-        } catch (EntityNotFoundException e) {
+        } catch (final EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }
 
+    /**
+     * Test health insurance.
+     * @throws Exception exception.
+     */
     public void testHealthInsurance() throws Exception {
         // Criando Convenios
-        HealthInsurance hi1 = new HealthInsurance();
+        final HealthInsurance hi1 = new HealthInsurance();
         hi1.setName("AMIL");
         hi1.save();
 
-        HealthInsurance hi2 = new HealthInsurance();
+        final HealthInsurance hi2 = new HealthInsurance();
         hi2.setName("Bradesco");
         hi2.save();
 
-        HealthInsurance hi3 = new HealthInsurance();
+        final HealthInsurance hi3 = new HealthInsurance();
         hi3.setName("Correios");
         hi3.save();
 
-        HealthInsurance hi4 = new HealthInsurance();
+        final HealthInsurance hi4 = new HealthInsurance();
         hi4.setName("Samcil");
         hi4.save();
 
-        HealthInsurance hi5 = new HealthInsurance();
+        final HealthInsurance hi5 = new HealthInsurance();
         hi5.setName("Dix Amico");
         hi5.save();
 
         // Criando Medicos
-        Doctor doc1 = new Doctor();
+        final Doctor doc1 = new Doctor();
         doc1.setName("Joaquim do Bandolim");
         doc1.addHealthInsurance(hi1);
         doc1.addHealthInsurance(hi3);
         doc1.addHealthInsurance(hi5);
         doc1.save();
 
-        Doctor doc2 = new Doctor();
+        final Doctor doc2 = new Doctor();
         doc2.setName("Adriana Calcanhoto");
         doc2.addHealthInsurance(hi2);
         doc2.addHealthInsurance(hi4);
         doc2.addHealthInsurance(hi5);
         doc2.save();
 
-        Doctor doc3 = new Doctor();
+        final Doctor doc3 = new Doctor();
         doc3.setName("Pixinguinha");
         doc3.addHealthInsurance(hi1);
         doc3.addHealthInsurance(hi2);

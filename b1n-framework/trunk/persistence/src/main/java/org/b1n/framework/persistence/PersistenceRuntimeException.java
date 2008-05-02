@@ -33,14 +33,14 @@ public class PersistenceRuntimeException extends RuntimeException {
     /**
      * @param message mensagem.
      */
-    public PersistenceRuntimeException(String message) {
+    public PersistenceRuntimeException(final String message) {
         super(message);
     }
 
     /**
      * @param e causa.
      */
-    public PersistenceRuntimeException(Throwable e) {
+    public PersistenceRuntimeException(final Throwable e) {
         super(e);
     }
 
@@ -48,7 +48,7 @@ public class PersistenceRuntimeException extends RuntimeException {
      * @param message mensagem.
      * @param e causa.
      */
-    public PersistenceRuntimeException(String message, Throwable e) {
+    public PersistenceRuntimeException(final String message, final Throwable e) {
         super(message, e);
     }
 }

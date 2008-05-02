@@ -31,7 +31,6 @@ import org.b1n.framework.persistence.entity.Person;
 import org.b1n.framework.persistence.entity.PersonDao;
 import org.b1n.framework.persistence.test.PersistenceTestCase;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
@@ -39,9 +38,13 @@ import org.b1n.framework.persistence.test.PersistenceTestCase;
 public class PersonTest extends PersistenceTestCase {
     private static Long id;
 
+    /**
+     * Test save and load.
+     * @throws Exception exception.
+     */
     public void testSaveAndLoad() throws Exception {
-        PersonDao fac = DaoLocator.getDao(Person.class);
-        Person person = new Person();
+        final PersonDao fac = DaoLocator.getDao(Person.class);
+        final Person person = new Person();
 
         // Salvando
         person.setName("Chico Buarque");
@@ -50,7 +53,7 @@ public class PersonTest extends PersistenceTestCase {
         person.save();
 
         // Carregando salvo
-        Person loaded = fac.findById(person.getId());
+        final Person loaded = fac.findById(person.getId());
 
         // Comparando dados entre criado e carregado
         assertEquals(person.getName(), loaded.getName());
@@ -61,12 +64,15 @@ public class PersonTest extends PersistenceTestCase {
         person.remove();
     }
 
+    /**
+     * Test was removed.
+     */
     public void testWasRemoved() {
-        PersonDao fac = DaoLocator.getDao(Person.class);
+        final PersonDao fac = DaoLocator.getDao(Person.class);
         try {
             fac.findById(id);
             fail("Could not remove .");
-        } catch (EntityNotFoundException e) {
+        } catch (final EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }

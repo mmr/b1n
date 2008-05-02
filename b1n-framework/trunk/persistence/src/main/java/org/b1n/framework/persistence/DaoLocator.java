@@ -34,6 +34,7 @@ import java.util.Map;
  * @created Mar 28, 2007
  */
 public final class DaoLocator {
+    /** Cache. */
     private static final Map<String, EntityDao<Entity>> CACHE = new HashMap<String, EntityDao<Entity>>();
 
     /**
@@ -42,7 +43,7 @@ public final class DaoLocator {
     private DaoLocator() {
         // do nothing
     }
-    
+
     /**
      * Find the DAO for the passed entity class.
      * @param <T> type.
@@ -52,18 +53,18 @@ public final class DaoLocator {
     @SuppressWarnings("unchecked")
     public static <T extends EntityDao> T getDao(final Class<? extends Entity> entityClass) {
         try {
-            String daoClassName = entityClass.getName() + "Dao";
+            final String daoClassName = entityClass.getName() + "Dao";
             if (CACHE.containsKey(daoClassName)) {
                 return (T) CACHE.get(daoClassName);
             }
-            T dao = (T) Class.forName(daoClassName).newInstance();
+            final T dao = (T) Class.forName(daoClassName).newInstance();
             CACHE.put(daoClassName, dao);
-            return (T) dao;
-        } catch (InstantiationException e) {
+            return dao;
+        } catch (final InstantiationException e) {
             throw new CouldNotFindDaoException(e);
-        } catch (IllegalAccessException e) {
+        } catch (final IllegalAccessException e) {
             throw new CouldNotFindDaoException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (final ClassNotFoundException e) {
             throw new CouldNotFindDaoException(e);
         }
     }

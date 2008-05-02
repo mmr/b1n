@@ -43,8 +43,8 @@ public abstract class RecordEntityDao<E extends RecordEntity> extends HibernateE
      * @param dateAddedFinish data de criacao, fim.
      * @return colecao de entidades que foram criadas no intervalo de datas passado.
      */
-    public List<E> findByDateAdded(Date dateAddedStart, Date dateAddedFinish) {
-        Criteria crit = createCriteria();
+    public List<E> findByDateAdded(final Date dateAddedStart, final Date dateAddedFinish) {
+        final Criteria crit = createCriteria();
         crit.add(Restrictions.between("dateAdded", dateAddedStart, dateAddedFinish));
         return findByCriteria(crit);
     }
@@ -55,8 +55,8 @@ public abstract class RecordEntityDao<E extends RecordEntity> extends HibernateE
      * @param dateLastUpdatedFinish data de atualizacao, fim.
      * @return colecao de entidades que foram atualizadas no intervalo de datas passado.
      */
-    public List<E> findByDateLastUpdated(Date dateLastUpdatedStart, Date dateLastUpdatedFinish) {
-        Criteria crit = createCriteria();
+    public List<E> findByDateLastUpdated(final Date dateLastUpdatedStart, final Date dateLastUpdatedFinish) {
+        final Criteria crit = createCriteria();
         crit.add(Restrictions.between("dateLastUpdated", dateLastUpdatedStart, dateLastUpdatedFinish));
         return findByCriteria(crit);
     }

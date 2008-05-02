@@ -33,7 +33,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
- * Doctor Business Object, to test inheritance with Person, <code>@ManyToOne</code> with Hospital and <code>@ManyToMany</code> with HealthyInsurance
+ * Doctor Business Object, to test inheritance with Person, <code>@ManyToOne</code> with Hospital and <code>@ManyToMany</code> with HealthyInsurance.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
@@ -45,27 +45,47 @@ public class Doctor extends Person {
     @ManyToMany
     private Set<HealthInsurance> healthInsurances = new HashSet<HealthInsurance>();
 
+    /**
+     * @return hospital.
+     */
     public Hospital getHospital() {
         return hospital;
     }
 
-    public void setHospital(Hospital hospital) {
+    /**
+     * @param hospital hospital.
+     */
+    public void setHospital(final Hospital hospital) {
         this.hospital = hospital;
     }
 
+    /**
+     * @return health insurances.
+     */
     public Set<HealthInsurance> getHealthInsurances() {
         return healthInsurances;
     }
 
-    protected void setHealthInsurances(Set<HealthInsurance> healthInsurances) {
+    /**
+     * @param healthInsurances health insurances.
+     */
+    protected void setHealthInsurances(final Set<HealthInsurance> healthInsurances) {
         this.healthInsurances = healthInsurances;
     }
 
-    public void addHealthInsurance(HealthInsurance healthInsurance) {
+    /**
+     * Add health insurance.
+     * @param healthInsurance health insurance.
+     */
+    public void addHealthInsurance(final HealthInsurance healthInsurance) {
         this.healthInsurances.add(healthInsurance);
     }
 
-    public void removeHealthInsurance(HealthInsurance healthInsurance) {
+    /**
+     * Remove health insurance.
+     * @param healthInsurance health insurance.
+     */
+    public void removeHealthInsurance(final HealthInsurance healthInsurance) {
         this.healthInsurances.remove(healthInsurance);
     }
 }

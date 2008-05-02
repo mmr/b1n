@@ -50,7 +50,7 @@ public abstract class SimpleEntity extends RecordEntity {
      * Define o id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 }

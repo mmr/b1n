@@ -32,7 +32,6 @@ import javax.persistence.InheritanceType;
 
 import org.b1n.framework.persistence.SimpleEntity;
 
-
 /**
  * Person Business Object, to test inheritnce <code>@Inheritance</code> with DoctorBo and <code>@Embedded</code> POJO.
  * @author Marcio Ribeiro (mmr)
@@ -46,19 +45,31 @@ public class Person extends SimpleEntity {
     @Embedded
     private ContactInfo contactInfo = new ContactInfo();
 
+    /**
+     * @return name.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    /**
+     * @param name name.
+     */
+    public void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     * @return contact info.
+     */
     public ContactInfo getContactInfo() {
         return contactInfo;
     }
 
-    public void setContactInfo(ContactInfo contactInfo) {
+    /**
+     * @param contactInfo contact info.
+     */
+    public void setContactInfo(final ContactInfo contactInfo) {
         this.contactInfo = contactInfo;
     }
 }

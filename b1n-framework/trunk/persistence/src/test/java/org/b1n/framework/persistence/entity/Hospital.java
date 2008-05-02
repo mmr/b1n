@@ -35,7 +35,6 @@ import javax.persistence.OneToMany;
 
 import org.b1n.framework.persistence.SimpleEntity;
 
-
 /**
  * * Hospital Business Object, to test <code>@OneToMany</code> and <code>@ManyToOne</code> with Doctor.
  * @author Marcio Ribeiro (mmr)
@@ -49,27 +48,47 @@ public class Hospital extends SimpleEntity {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Doctor> doctors = new HashSet<Doctor>();
 
+    /**
+     * @return doctors.
+     */
     public Set<Doctor> getDoctors() {
         return doctors;
     }
 
-    protected void setDoctors(Set<Doctor> doctors) {
+    /**
+     * @param doctors doctors.
+     */
+    protected void setDoctors(final Set<Doctor> doctors) {
         this.doctors = doctors;
     }
 
-    public void addDoctor(Doctor doctor) {
+    /**
+     * Add doctor.
+     * @param doctor doctor.
+     */
+    public void addDoctor(final Doctor doctor) {
         this.doctors.add(doctor);
     }
 
-    public void removeDoctor(Doctor doctor) {
+    /**
+     * Remove doctor.
+     * @param doctor doctor.
+     */
+    public void removeDoctor(final Doctor doctor) {
         this.doctors.remove(doctor);
     }
 
+    /**
+     * @return name.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    /**
+     * @param name name.
+     */
+    public void setName(final String name) {
         this.name = name;
     }
 }

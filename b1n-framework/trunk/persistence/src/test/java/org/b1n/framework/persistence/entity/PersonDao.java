@@ -31,14 +31,19 @@ import java.util.Map;
 import org.b1n.framework.persistence.EntityNotFoundException;
 import org.b1n.framework.persistence.RecordEntityDao;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
 public class PersonDao extends RecordEntityDao<Person> {
-    public Person getByEmail(String email) throws EntityNotFoundException {
-        Map<String, String> params = new HashMap<String, String>();
+    /**
+     * Get by mail.
+     * @param email email.
+     * @return person.
+     * @throws EntityNotFoundException entity not found.
+     */
+    public Person getByEmail(final String email) throws EntityNotFoundException {
+        final Map<String, String> params = new HashMap<String, String>();
         params.put("email", email);
         return this.findByQuerySingle("SELECT p FROM Person AS p WHERE p.contactInfo.email = :email");
     }

@@ -33,7 +33,7 @@ public class CouldNotFindDaoException extends RuntimeException {
     /**
      * @param e cause.
      */
-    public CouldNotFindDaoException(Throwable e) {
+    public CouldNotFindDaoException(final Throwable e) {
         super(e);
     }
 }

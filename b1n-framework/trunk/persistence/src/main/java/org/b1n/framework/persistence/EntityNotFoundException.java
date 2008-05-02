@@ -39,7 +39,7 @@ public class EntityNotFoundException extends PersistenceException {
     /**
      * @param clazz the class.
      */
-    public EntityNotFoundException(Class<? extends Entity> clazz) {
+    public EntityNotFoundException(final Class<? extends Entity> clazz) {
         super("Could not find " + clazz.getName());
         this.clazz = clazz;
     }
@@ -48,7 +48,7 @@ public class EntityNotFoundException extends PersistenceException {
      * @param clazz the class.
      * @param id id.
      */
-    public EntityNotFoundException(Class<? extends Entity> clazz, Long id) {
+    public EntityNotFoundException(final Class<? extends Entity> clazz, final Long id) {
         super("Could not find " + clazz.getName() + " with id " + id);
         this.clazz = clazz;
         this.id = id;
@@ -59,7 +59,7 @@ public class EntityNotFoundException extends PersistenceException {
      * @param id id.
      * @param cause the cause.
      */
-    public EntityNotFoundException(Class<? extends Entity> clazz, Long id, Throwable cause) {
+    public EntityNotFoundException(final Class<? extends Entity> clazz, final Long id, final Throwable cause) {
         super("Could not find " + clazz.getName() + " with id " + id, cause);
         this.clazz = clazz;
         this.id = id;
@@ -69,7 +69,7 @@ public class EntityNotFoundException extends PersistenceException {
      * @param clazz class.
      * @param query query.
      */
-    public EntityNotFoundException(Class<? extends Entity> clazz, String query) {
+    public EntityNotFoundException(final Class<? extends Entity> clazz, final String query) {
         super("Could not find " + clazz.getName() + " for query '" + query + "'.");
         this.clazz = clazz;
         this.query = query;
@@ -80,7 +80,7 @@ public class EntityNotFoundException extends PersistenceException {
      * @param query query.
      * @param cause cause.
      */
-    public EntityNotFoundException(Class<? extends Entity> clazz, String query, Throwable cause) {
+    public EntityNotFoundException(final Class<? extends Entity> clazz, final String query, final Throwable cause) {
         super("Could not find " + clazz.getName() + " for query '" + query + "'.", cause);
         this.clazz = clazz;
         this.query = query;
@@ -96,7 +96,7 @@ public class EntityNotFoundException extends PersistenceException {
     /**
      * @param clazz class.
      */
-    public void setClazz(Class<? extends Entity> clazz) {
+    public void setClazz(final Class<? extends Entity> clazz) {
         this.clazz = clazz;
     }
 
@@ -110,7 +110,7 @@ public class EntityNotFoundException extends PersistenceException {
     /**
      * @param id id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -124,7 +124,7 @@ public class EntityNotFoundException extends PersistenceException {
     /**
      * @param query query.
      */
-    public void setQuery(String query) {
+    public void setQuery(final String query) {
         this.query = query;
     }
 }

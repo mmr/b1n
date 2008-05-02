@@ -25,7 +25,6 @@
  */
 package org.b1n.framework.persistence;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007

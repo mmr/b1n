@@ -35,19 +35,31 @@ public class ContactInfo {
 
     private String phone;
 
+    /**
+     * @return email.
+     */
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    /**
+     * @param email email.
+     */
+    public void setEmail(final String email) {
         this.email = email;
     }
 
+    /**
+     * @return phone.
+     */
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    /**
+     * @param phone phone.
+     */
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
 }

@@ -55,7 +55,7 @@ public final class JpaUtil {
 
         if (s == null) {
             s = SESSION_FACTORY.createEntityManager();
-            EntityTransaction tr = s.getTransaction();
+            final EntityTransaction tr = s.getTransaction();
             tr.begin();
             SESSION.set(s);
         }

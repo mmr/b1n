@@ -33,14 +33,14 @@ public class PersistenceException extends Exception {
     /**
      * @param message mensagem.
      */
-    public PersistenceException(String message) {
+    public PersistenceException(final String message) {
         super(message);
     }
 
     /**
      * @param e causa.
      */
-    public PersistenceException(Throwable e) {
+    public PersistenceException(final Throwable e) {
         super(e);
     }
 
@@ -48,7 +48,7 @@ public class PersistenceException extends Exception {
      * @param message mensagem.
      * @param e causa.
      */
-    public PersistenceException(String message, Throwable e) {
+    public PersistenceException(final String message, final Throwable e) {
         super(message, e);
     }
 }

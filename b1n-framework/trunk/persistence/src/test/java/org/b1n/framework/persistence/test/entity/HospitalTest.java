@@ -32,7 +32,6 @@ import org.b1n.framework.persistence.entity.Hospital;
 import org.b1n.framework.persistence.entity.HospitalDao;
 import org.b1n.framework.persistence.test.PersistenceTestCase;
 
-
 /**
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
@@ -40,49 +39,61 @@ import org.b1n.framework.persistence.test.PersistenceTestCase;
 public class HospitalTest extends PersistenceTestCase {
     private static long pk;
 
-    private static final HospitalDao hospitalDao = DaoLocator.getDao(Hospital.class);
+    private static final HospitalDao HOSPITAL_DAO = DaoLocator.getDao(Hospital.class);
 
     private static final String NAME = "Albert Einstein";
 
+    /**
+     * Test save and load.
+     * @throws Exception exception.
+     */
     public void testSaveAndLoad() throws Exception {
         // Criando hospital
-        Hospital hospital = new Hospital();
+        final Hospital hospital = new Hospital();
         hospital.setName(NAME);
 
-        Doctor doc1 = new Doctor();
+        final Doctor doc1 = new Doctor();
         doc1.setName("Fernanda Porto");
         hospital.addDoctor(doc1);
 
-        Doctor doc2 = new Doctor();
+        final Doctor doc2 = new Doctor();
         doc2.setName("Marisa Monte");
         hospital.addDoctor(doc2);
 
-        Doctor doc3 = new Doctor();
+        final Doctor doc3 = new Doctor();
         doc3.setName("Arnaldo Antunes");
         hospital.addDoctor(doc3);
         hospital.save();
         pk = hospital.getId();
 
-        Hospital loaded = hospitalDao.findById(pk);
+        final Hospital loaded = HOSPITAL_DAO.findById(pk);
         assertEquals(hospital.getName(), loaded.getName());
     }
 
+    /**
+     * Test get by name.
+     * @throws Exception exception. 
+     */
     public void testGetByName() throws Exception {
-        Hospital hospitalByName = hospitalDao.getByName(NAME);
-        Hospital hospitalById = hospitalDao.findById(pk);
+        final Hospital hospitalByName = HOSPITAL_DAO.getByName(NAME);
+        final Hospital hospitalById = HOSPITAL_DAO.findById(pk);
         assertEquals(hospitalByName.getName(), hospitalById.getName());
     }
 
+    /**
+     * Test remove.
+     * @throws Exception exception.
+     */
     public void testRemove() throws Exception {
         // Carregando
-        Hospital hospital = hospitalDao.findById(pk);
+        final Hospital hospital = HOSPITAL_DAO.findById(pk);
         hospital.remove();
 
-        HospitalDao hospitalFac = DaoLocator.getDao(Hospital.class);
+        final HospitalDao hospitalFac = DaoLocator.getDao(Hospital.class);
         try {
             hospitalFac.findById(pk);
             fail("Nao removeu .");
-        } catch (EntityNotFoundException e) {
+        } catch (final EntityNotFoundException e) {
             // Ok, foi removido.
         }
     }
