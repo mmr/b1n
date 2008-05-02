@@ -17,12 +17,14 @@ public class Participant extends RecordEntity {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private Long jiraId;
 
+    @Column(nullable = false, unique = true)
     private Long jiraLogin;
 
-    private String userName;
+    @Column(nullable = false, unique = true)
+    private String name;
 
     /**
      * @return o id.
@@ -70,14 +72,14 @@ public class Participant extends RecordEntity {
     /**
      * @return the userName
      */
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
     /**
      * @param userName the userName to set
      */
-    public void setUserName(final String userName) {
-        this.userName = userName;
+    public void setName(final String userName) {
+        this.name = userName;
     }
 }

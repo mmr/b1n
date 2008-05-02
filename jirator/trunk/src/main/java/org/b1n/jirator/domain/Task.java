@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.b1n.framework.persistence.SimpleEntity;
@@ -29,11 +30,13 @@ public class Task extends SimpleEntity {
     @Column(nullable = false)
     private Long jiraId;
 
-    @Column(nullable = false)
-    private Integer priority;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Priority priority;
 
-    @Column(nullable = false)
-    private Integer severity;
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Severity severity;
 
     /**
      * @return o id.
@@ -97,28 +100,28 @@ public class Task extends SimpleEntity {
     /**
      * @return the priority
      */
-    public Integer getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
     /**
      * @param priority the priority to set
      */
-    public void setPriority(final Integer priority) {
+    public void setPriority(final Priority priority) {
         this.priority = priority;
     }
 
     /**
      * @return the severity
      */
-    public Integer getSeverity() {
+    public Severity getSeverity() {
         return severity;
     }
 
     /**
      * @param severity the severity to set
      */
-    public void setSeverity(final Integer severity) {
+    public void setSeverity(final Severity severity) {
         this.severity = severity;
     }
 

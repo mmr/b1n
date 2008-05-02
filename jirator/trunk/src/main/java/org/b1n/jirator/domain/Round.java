@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import org.b1n.framework.persistence.TrackedEntity;
@@ -22,14 +23,18 @@ public class Round extends TrackedEntity {
     @GeneratedValue
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Project project;
+
     @OneToMany
     @JoinColumn(nullable = false)
-    private List<Participant> participants;
+    private List<Task> tasks;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Date startDate;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Date endDate;
 
     /**
@@ -48,17 +53,47 @@ public class Round extends TrackedEntity {
     }
 
     /**
-     * @return the participants
+     * @return the project
      */
-    public List<Participant> getParticipants() {
-        return participants;
+    public Project getProject() {
+        return project;
     }
 
     /**
-     * @param participants the participants to set
+     * @param project the project to set
      */
-    public void setParticipants(final List<Participant> participants) {
-        this.participants = participants;
+    public void setProject(final Project project) {
+        this.project = project;
+    }
+
+    /**
+     * @return the tasks
+     */
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    /**
+     * @param tasks the tasks to set
+     */
+    protected void setTasks(final List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    /**
+     * Adiciona uma tarefa.
+     * @param task tarefa.
+     */
+    public void addTask(final Task task) {
+        this.tasks.add(task);
+    }
+
+    /**
+     * Remove uma tarefa.
+     * @param task tarefa.
+     */
+    public void removeTask(final Task task) {
+        this.tasks.remove(task);
     }
 
     /**
@@ -88,5 +123,4 @@ public class Round extends TrackedEntity {
     public void setEndDate(final Date endDate) {
         this.endDate = endDate;
     }
-
 }

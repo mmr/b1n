@@ -14,12 +14,12 @@
 
     <filter>
         <filter-name>transactionFilter</filter-name>
-        <filter-class>org.b1n.framework.web.TransactionFilter</filter-class>
+        <filter-class>org.b1n.framework.web.filter.TransactionFilter</filter-class>
     </filter>
 
     <filter-mapping>
         <filter-name>transactionFilter</filter-name>
-        <url-pattern>/*.logic</url-pattern>
+        <url-pattern>*.logic</url-pattern>
     </filter-mapping>
 
     <servlet>
@@ -42,6 +42,11 @@
         </init-param>
         <load-on-startup>2</load-on-startup> 
     </servlet>
+
+	<taglib>
+    	<taglib-uri>http://b1n.org/jirator</taglib-uri>
+    	<taglib-location>/WEB-INF/jirator.tld</taglib-location>
+  	</taglib>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
