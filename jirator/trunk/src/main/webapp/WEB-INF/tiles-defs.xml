@@ -8,7 +8,7 @@
         <put name="title"  value="Jirator" />
         <put name="header" value="/include/header.jsp" />
         <put name="menu"   value="/include/menu.jsp" />
-        <put name="header" value="/include/footer.jsp" />
+        <put name="footer" value="/include/footer.jsp" />
         <put name="body"   value="/include/welcome.jsp" />
     </definition>
 </tiles-definitions>
