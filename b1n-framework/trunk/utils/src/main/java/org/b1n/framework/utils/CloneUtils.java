@@ -49,7 +49,7 @@ public final class CloneUtils {
      * @param <T> type.
      */
     @SuppressWarnings("unchecked")
-    public static <T> T deepClone(T originalObject) {
+    public static <T> T deepClone(final T originalObject) {
         return (T) SerializationUtils.clone((Serializable) originalObject);
     }
 }

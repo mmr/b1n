@@ -30,11 +30,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.b1n.framework.utils.FileUtils;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import org.b1n.framework.utils.FileUtils;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -47,7 +47,7 @@ public class FileUtilsTest extends TestCase {
      * Construtor.
      * @param testName nome do teste.
      */
-    public FileUtilsTest(String testName) {
+    public FileUtilsTest(final String testName) {
         super(testName);
     }
 
@@ -69,11 +69,10 @@ public class FileUtilsTest extends TestCase {
         new File(BASE_DIR_NAME + File.separator + "ab" + File.separator + "aba").mkdirs();
 
         // Cria arquivos para popularem estrutura
-        final String files[] = new String[] { BASE_DIR_NAME + File.separator + "a1", BASE_DIR_NAME + File.separator + "a2", BASE_DIR_NAME + File.separator + "ab" + File.separator + "ab1",
-                BASE_DIR_NAME + File.separator + "ab" + File.separator + "aba" + File.separator + "aba1" };
+        final String[] files = new String[] { BASE_DIR_NAME + File.separator + "a1", BASE_DIR_NAME + File.separator + "a2", BASE_DIR_NAME + File.separator + "ab" + File.separator + "ab1", BASE_DIR_NAME + File.separator + "ab" + File.separator + "aba" + File.separator + "aba1" };
 
-        for (String file : files) {
-            PrintWriter writer = new PrintWriter(new FileOutputStream(file));
+        for (final String file : files) {
+            final PrintWriter writer = new PrintWriter(new FileOutputStream(file));
             writer.write("FileUtilsTest : " + file + "\n");
             writer.close();
         }
@@ -95,7 +94,7 @@ public class FileUtilsTest extends TestCase {
 
             // Verifica que estrutura foi removida
             assertFalse(new File(BASE_DIR_NAME).exists());
-        } catch (Throwable t) {
+        } catch (final Throwable t) {
             t.printStackTrace();
             fail("Algo de errado ocorreu.");
         }

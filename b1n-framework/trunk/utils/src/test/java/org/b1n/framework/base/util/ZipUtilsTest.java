@@ -30,12 +30,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.b1n.framework.utils.FileUtils;
-import org.b1n.framework.utils.ZipUtils;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import org.b1n.framework.utils.FileUtils;
+import org.b1n.framework.utils.ZipUtils;
 
 /**
  * @author Marcio Ribeiro (mmr)
@@ -47,7 +47,7 @@ public class ZipUtilsTest extends TestCase {
      * Construtor.
      * @param testName nome do teste.
      */
-    public ZipUtilsTest(String testName) {
+    public ZipUtilsTest(final String testName) {
         super(testName);
     }
 
@@ -72,8 +72,8 @@ public class ZipUtilsTest extends TestCase {
         // Cria arquivos para popularem estrutura
         final String[] files = new String[] { "a" + File.separator + "a1", "a" + File.separator + "a2", "a" + File.separator + "ab" + File.separator + "ab1", "b" + File.separator + "ba" + File.separator + "ba1" };
 
-        for (String file : files) {
-            PrintWriter writer = new PrintWriter(new FileOutputStream(file));
+        for (final String file : files) {
+            final PrintWriter writer = new PrintWriter(new FileOutputStream(file));
             writer.write("ZipUtilsTest : " + file + "\n");
             writer.close();
         }
@@ -101,7 +101,7 @@ public class ZipUtilsTest extends TestCase {
 
             // Apaga arquivo zip
             new File(zipFileName).delete();
-        } catch (Throwable t) {
+        } catch (final Throwable t) {
             t.printStackTrace();
             fail("Nao conseguiu criar zip");
         }

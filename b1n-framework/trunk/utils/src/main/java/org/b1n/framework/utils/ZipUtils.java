@@ -53,9 +53,9 @@ public final class ZipUtils {
      * @throws IOException when something nasty occurs.
      */
     public static void zip(final String zippedFileName, final String... resourcesToZip) throws IOException {
-        ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zippedFileName));
+        final ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(zippedFileName));
         try {
-            for (String resourceToZip : resourcesToZip) {
+            for (final String resourceToZip : resourcesToZip) {
                 zipResource(new File(resourceToZip), zipOut);
             }
         } finally {
@@ -75,8 +75,8 @@ public final class ZipUtils {
             return;
         }
 
-        for (String fileName : resourceToZip.list()) {
-            File fileToZip = new File(resourceToZip, fileName);
+        for (final String fileName : resourceToZip.list()) {
+            final File fileToZip = new File(resourceToZip, fileName);
             if (fileToZip.isDirectory()) {
                 zipResource(fileToZip, zipOut);
             } else if (fileToZip.isFile()) {
@@ -92,13 +92,13 @@ public final class ZipUtils {
      * @throws IOException errors when zipping.
      */
     private static void zipFile(final File fileToZip, final ZipOutputStream zipOut) throws IOException {
-        FileInputStream fileIn = new FileInputStream(fileToZip);
+        final FileInputStream fileIn = new FileInputStream(fileToZip);
         try {
             final int bufferSize = 2156;
-            byte[] buffer = new byte[bufferSize];
+            final byte[] buffer = new byte[bufferSize];
             int bytesRead = 0;
 
-            ZipEntry zipEntry = new ZipEntry(fileToZip.getPath());
+            final ZipEntry zipEntry = new ZipEntry(fileToZip.getPath());
             zipOut.putNextEntry(zipEntry);
             while ((bytesRead = fileIn.read(buffer)) != -1) {
                 zipOut.write(buffer, 0, bytesRead);

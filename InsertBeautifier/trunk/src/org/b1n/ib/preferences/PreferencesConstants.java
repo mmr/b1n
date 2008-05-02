@@ -30,7 +30,7 @@ package org.b1n.ib.preferences;
  * @author Marcio Ribeiro
  * @date 07/10/2007
  */
-public class PreferencesConstants {
+public final class PreferencesConstants {
     /** Mínimo de campos para formatação. */
     public static final String MIN_FIELDS = "__minFields";
 
@@ -42,4 +42,11 @@ public class PreferencesConstants {
 
     /** Cor para strings de INSERT. */
     public static final String COLOR_STRING = "__colorString";
+
+    /**
+     * Utility class.
+     */
+    private PreferencesConstants() {
+
+    }
 }

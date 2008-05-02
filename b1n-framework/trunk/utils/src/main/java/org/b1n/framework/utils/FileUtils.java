@@ -45,7 +45,7 @@ public final class FileUtils {
      * Recursivelly removes a diretory and its content.
      * @param dirName name of the directory to be removed.
      */
-    public static void deltree(String dirName) {
+    public static void deltree(final String dirName) {
         deltree(new File(dirName));
     }
 
@@ -53,12 +53,12 @@ public final class FileUtils {
      * Recursivelly removes a directory and its content.
      * @param dir directory to be removed.
      */
-    public static void deltree(File dir) {
+    public static void deltree(final File dir) {
         if (dir == null || !dir.isDirectory()) {
             throw new IllegalArgumentException("Invalid directory: " + dir);
         }
-        for (String fileName : dir.list()) {
-            File file = new File(dir, fileName);
+        for (final String fileName : dir.list()) {
+            final File file = new File(dir, fileName);
             if (file.isDirectory()) {
                 deltree(dir.getPath() + File.separator + fileName);
                 file.delete();
