@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://struts.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="main" template="/include/layout.jsp">
+        <put name="title"  value="Jirator" />
+        <put name="header" value="/include/header.jsp" />
+        <put name="menu"   value="/include/menu.jsp" />
+        <put name="header" value="/include/footer.jsp" />
+        <put name="body"   value="/include/welcome.jsp" />
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>  
+        <property name="hibernate.mapping.precedence">class,hbm</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost/jirator</property>
+		<property name="hibernate.connection.username">jirator</property>
+        <property name="hibernate.connection.password">jirator</property>
+        <property name="hibernate.dialect">org.b1n.receiver.persistence.WithTimeZonePostgreSQLDialect</property>
+    </session-factory>
+</hibernate-configuration>
