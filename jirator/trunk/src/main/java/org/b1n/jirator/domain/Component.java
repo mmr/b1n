@@ -2,23 +2,17 @@ package org.b1n.jirator.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.b1n.framework.persistence.TrackedEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
-public class Component extends TrackedEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class Component extends SimpleEntity {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Project project;
@@ -28,20 +22,6 @@ public class Component extends TrackedEntity {
 
     @Column(nullable = false)
     private String name;
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(final Long id) {
-        this.id = id;
-    }
 
     /**
      * @return the project

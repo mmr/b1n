@@ -2,8 +2,6 @@ package org.b1n.jirator.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -11,14 +9,10 @@ import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
 public class Task extends SimpleEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-
     @ManyToOne
     @Column(nullable = false)
     private Round round;
@@ -37,23 +31,6 @@ public class Task extends SimpleEntity {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Severity severity;
-
-    /**
-     * @return o id.
-     */
-    @Override
-    public Long getId() {
-        return this.id;
-    }
-
-    /**
-     * Define o id.
-     * @param id o id.
-     */
-    @Override
-    public void setId(final Long id) {
-        this.id = id;
-    }
 
     /**
      * @return the round

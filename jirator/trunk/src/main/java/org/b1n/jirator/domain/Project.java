@@ -5,14 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.b1n.framework.persistence.RecordEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
-public class Project extends RecordEntity {
+public class Project extends SimpleEntity {
     @Id
     @GeneratedValue
     private Long id;

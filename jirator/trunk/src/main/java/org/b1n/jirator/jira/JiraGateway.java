@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 public final class JiraGateway {
     private static final ThreadLocal<Connection> CONNECTION = new ThreadLocal<Connection>();

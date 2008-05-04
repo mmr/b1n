@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 public class Row {
     private final Map<String, Object> columns = new HashMap<String, Object>();

@@ -11,7 +11,7 @@ import org.b1n.framework.persistence.RecordEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
 public class Bonus extends RecordEntity {

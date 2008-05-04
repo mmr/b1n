@@ -1,1 +1,1 @@
-Footer
+2008 &copy; b1n

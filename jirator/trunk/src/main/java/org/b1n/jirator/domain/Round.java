@@ -5,24 +5,18 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.b1n.framework.persistence.TrackedEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
-public class Round extends TrackedEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class Round extends SimpleEntity {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Project project;
@@ -36,21 +30,6 @@ public class Round extends TrackedEntity {
 
     @Column(nullable = false)
     private Date endDate;
-
-    /**
-     * @return o id.
-     */
-    public Long getId() {
-        return this.id;
-    }
-
-    /**
-     * Define o id.
-     * @param id o id.
-     */
-    public void setId(final Long id) {
-        this.id = id;
-    }
 
     /**
      * @return the project

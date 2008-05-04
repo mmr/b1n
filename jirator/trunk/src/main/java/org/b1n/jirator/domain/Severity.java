@@ -2,40 +2,20 @@ package org.b1n.jirator.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-import org.b1n.framework.persistence.TrackedEntity;
+import org.b1n.framework.persistence.SimpleEntity;
 
 /**
  * @author Marcio Ribeiro
- * @date May 2, 2008
+ * @date May 3, 2008
  */
 @Entity
-public class Severity extends TrackedEntity {
-    @Id
-    @GeneratedValue
-    private Long id;
-
+public class Severity extends SimpleEntity {
     @Column(nullable = false)
     private Integer value;
 
     @Column(nullable = false, unique = true)
     private String jiraName;
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(final Long id) {
-        this.id = id;
-    }
 
     /**
      * @return the value
