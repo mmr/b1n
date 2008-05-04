@@ -35,7 +35,7 @@ import javax.persistence.Transient;
  * @created Mar 30, 2007
  */
 @MappedSuperclass
-public abstract class RecordEntity extends TrackedEntity {
+public abstract class RecordEntity extends SimpleEntity {
     @Column(nullable = false)
     private Boolean enabled;
 
