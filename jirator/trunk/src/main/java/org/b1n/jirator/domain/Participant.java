@@ -43,4 +43,12 @@ public class Participant extends JiraEntity {
     public void setUserName(final String userName) {
         this.userName = userName;
     }
+
+    /**
+     * @return to string.
+     */
+    @Override
+    public String toString() {
+        return userName + " (" + jiraLogin + ")";
+    }
 }

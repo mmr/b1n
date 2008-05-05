@@ -26,14 +26,14 @@ public class TaskSyncer implements JiraSyncer<Participant> {
     // TODO (mmr) : nao deixar id de projeto BWAM hardcoded
     private static final String PROJECT_ID_BWAM = "10082";
 
-    // TODO (mmr) : nao deixar id de status hardcoded
-    private static final String STATUS_AGUARDANDO_LIBERACAO_ID = "10008";
+    // TODO (mmr) : nao deixar id de status que importam hardcoded
+    private static final String STATUSES_QUE_IMPORTAM = "'10002', '10008'";
 
     // TODO (mmr) : nao deixar id de custom field severidade hardcoded
     private static final String CUSTOM_FIELD_SEVERIDADE_ID = "10020";
 
     /** Change Item Column Name Status. */
-    private static final String CHANGE_ITEM_COLUNM_NAME_STATUS = "status";
+    private static final String ITEM_COLNAME_STATUS = "status";
 
     private static final String JIRA_ID_ALIAS = "jiraId";
 
@@ -124,12 +124,13 @@ public class TaskSyncer implements JiraSyncer<Participant> {
             sb.append("     changeitem  i ON (c.id = i.groupid) INNER JOIN");
             sb.append("     customfieldvalue cv ON (t.id = cv.issue)");
             sb.append(" WHERE");
-            sb.append("     t.project       = '" + PROJECT_ID_BWAM + "' AND");
-            sb.append("     t.issuestatus   = '" + STATUS_AGUARDANDO_LIBERACAO_ID + "' AND");
-            sb.append("     c.author       IN (" + logins.toString() + ") AND");
-            sb.append("     i.field         = '" + CHANGE_ITEM_COLUNM_NAME_STATUS + "' AND");
-            sb.append("     i.newvalue      = '" + STATUS_AGUARDANDO_LIBERACAO_ID + "' AND");
-            sb.append("     cv.customfield  = '" + CUSTOM_FIELD_SEVERIDADE_ID + "'");
+            sb.append("     t.project       = '" + PROJECT_ID_BWAM          + "' AND");
+            sb.append("     t.issuestatus  IN (" + STATUSES_QUE_IMPORTAM    + ") AND");
+            sb.append("     c.author       IN (" + logins.toString()        + ") AND");
+            sb.append("     i.oldvalue     IN ('10004') AND");
+            sb.append("     i.newvalue     IN ('10008') AND");
+            sb.append("     i.field         = '" + ITEM_COLNAME_STATUS      + "' AND");
+            sb.append("     cv.customfield  = '" + CUSTOM_FIELD_SEVERIDADE_ID   + "'");
 
             return JiraGateway.executeQuery(sb.toString(), JIRA_ID_ALIAS, JIRA_TASK_KEY_ALIAS, PRIORITY_ALIAS, SEVERITY_ALIAS, USER_LOGIN_ALIAS, TASK_DATE_ALIAS);
         } catch (SQLException e) {

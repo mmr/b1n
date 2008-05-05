@@ -25,3 +25,29 @@
 	font-size: small;
 	text-align: right;
 }
+
+table {
+  width: 80%;
+  background: whitesmoke;
+  border-collapse: collapse
+}
+
+table th, table td {
+  border: 1px solid silver;  
+  padding: 0.2em;
+}
+
+table th {
+  background: gainsboro;
+  text-align: left;
+  border-bottom: 2px solid silver;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}

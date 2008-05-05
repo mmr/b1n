@@ -107,4 +107,12 @@ public class Task extends JiraEntity {
     public double getPointsWorth() {
         return severity.getValue() + (priority.getValue() * 2);
     }
+
+    /**
+     * @return to string.
+     */
+    @Override
+    public String toString() {
+        return participant + ": " + jiraKey + ", " + priority + ", " + severity;
+    }
 }
