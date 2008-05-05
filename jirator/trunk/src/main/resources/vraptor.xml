@@ -1,0 +1,4 @@
+<vraptor>
+	<component>org.b1n.jirator.web.logic.TaskLogic</component>
+	<component>org.b1n.jirator.web.logic.ParticipantLogic</component>
+</vraptor>

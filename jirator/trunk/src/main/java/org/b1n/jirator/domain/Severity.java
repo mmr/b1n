@@ -1,21 +1,49 @@
 package org.b1n.jirator.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
-import org.b1n.framework.persistence.SimpleEntity;
-
 /**
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
-@Entity
-public class Severity extends SimpleEntity {
-    @Column(nullable = false)
+public enum Severity {
+    /** Muito baixa. */
+    MUITO_BAIXA("Muito Baixa", "Muito Baixa", 1),
+
+    /** Baixa. */
+    BAIXA("Baixa", "Baixa", 2),
+
+    /** Média. */
+    MEDIA("Média", "Média", 3),
+
+    /** Alta. */
+    ALTA("Alta", "Alta", 4),
+
+    /** Crítica. */
+    CRITICA("Crítica", "Crítica", 5);
+
+    private String name;
+
     private Integer value;
 
-    @Column(nullable = false, unique = true)
-    private String jiraName;
+    private Object jiraValue;
+
+    /**
+     * Construtor.
+     * @param name nome.
+     * @param jiraValue valor no jira.
+     * @param value valor.
+     */
+    Severity(final String name, final Object jiraValue, final Integer value) {
+        this.name = name;
+        this.value = value;
+        this.jiraValue = jiraValue;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
     /**
      * @return the value
@@ -25,24 +53,10 @@ public class Severity extends SimpleEntity {
     }
 
     /**
-     * @param value the value to set
+     * @return the jiraValue
      */
-    public void setValue(final Integer value) {
-        this.value = value;
-    }
-
-    /**
-     * @return the jiraName
-     */
-    public String getJiraName() {
-        return jiraName;
-    }
-
-    /**
-     * @param jiraName the jiraName to set
-     */
-    public void setJiraName(final String jiraName) {
-        this.jiraName = jiraName;
+    public Object getJiraValue() {
+        return jiraValue;
     }
 
     /**
@@ -50,6 +64,21 @@ public class Severity extends SimpleEntity {
      */
     @Override
     public String toString() {
-        return jiraName + " (" + value + ")";
+        return name + " (" + value + ")";
     }
+
+    /**
+     * Encontra enum para severidade do jira.
+     * @param jiraValue valor do jira.
+     * @return enum.
+     */
+    public static Severity getEnumJiraValue(final Object jiraValue) {
+        for (Severity o : Severity.values()) {
+            if (o.getJiraValue().equals(jiraValue)) {
+                return o;
+            }
+        }
+        throw new IllegalStateException("Severidade nao encontrada para valor '" + jiraValue + "'");
+    }
+
 }

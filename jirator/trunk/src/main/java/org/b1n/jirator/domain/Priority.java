@@ -1,34 +1,48 @@
 package org.b1n.jirator.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
-import org.b1n.framework.persistence.SimpleEntity;
-
 /**
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
-@Entity
-public class Priority extends SimpleEntity {
-    @Column(nullable = false, unique = true)
-    private Integer jiraValue;
+public enum Priority {
+    /** Muito baixa. */
+    MUITO_BAIXA("Muito Baixa", 5, 1),
 
-    @Column(nullable = false)
+    /** Baixa. */
+    BAIXA("Baixa", 4, 2),
+
+    /** Média. */
+    MEDIA("Média", 3, 3),
+
+    /** Alta. */
+    ALTA("Alta", 2, 4),
+
+    /** Crítica. */
+    CRITICA("Crítica", 1, 5);
+
+    private String name;
+
     private Integer value;
 
+    private Object jiraValue;
+
     /**
-     * @return the jiraValue
+     * Construtor.
+     * @param name nome.
+     * @param jiraValue valor no jira.
+     * @param value valor.
      */
-    public Integer getJiraValue() {
-        return jiraValue;
+    Priority(final String name, final Object jiraValue, final Integer value) {
+        this.name = name;
+        this.value = value;
+        this.jiraValue = jiraValue;
     }
 
     /**
-     * @param jiraValue the jiraValue to set
+     * @return the name
      */
-    public void setJiraValue(final Integer jiraValue) {
-        this.jiraValue = jiraValue;
+    public String getName() {
+        return name;
     }
 
     /**
@@ -39,9 +53,31 @@ public class Priority extends SimpleEntity {
     }
 
     /**
-     * @param value the value to set
+     * @return the jiraValue
      */
-    public void setValue(final Integer value) {
-        this.value = value;
+    public Object getJiraValue() {
+        return jiraValue;
+    }
+
+    /**
+     * @return to string.
+     */
+    @Override
+    public String toString() {
+        return name + " (" + value + ")";
+    }
+
+    /**
+     * Encontra enum para prioridade do jira.
+     * @param jiraValue valor do jira.
+     * @return enum.
+     */
+    public static Priority getEnumJiraValue(final Object jiraValue) {
+        for (Priority o : Priority.values()) {
+            if (o.getJiraValue().equals(jiraValue)) {
+                return o;
+            }
+        }
+        throw new IllegalStateException("Prioridade nao encontrada para valor '" + jiraValue + "'");
     }
 }

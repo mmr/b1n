@@ -7,11 +7,6 @@
 
     <display-name>Jirator</display-name>
 
-    <context-param>
-        <param-name>tiles-definitions</param-name>
-        <param-value>/WEB-INF/tiles.xml</param-value>
-    </context-param>
-
     <filter>
         <filter-name>transactionFilter</filter-name>
         <filter-class>org.b1n.framework.web.filter.TransactionFilter</filter-class>
@@ -21,6 +16,21 @@
         <filter-name>transactionFilter</filter-name>
         <url-pattern>*.logic</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>sync</servlet-name>
+        <servlet-class>org.b1n.jirator.web.servlet.SyncServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>tiles</servlet-name>
+        <servlet-class>org.apache.tiles.servlet.TilesServlet</servlet-class>
+        <init-param>
+            <param-name>definitions-config</param-name>
+            <param-value>/WEB-INF/tiles-defs.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup> 
+    </servlet>
 
     <servlet>
         <servlet-name>vraptor2</servlet-name>
@@ -33,15 +43,10 @@
         <url-pattern>*.logic</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>tiles</servlet-name>
-        <servlet-class>org.apache.tiles.servlet.TilesServlet</servlet-class>
-        <init-param>
-            <param-name>definitions-config</param-name>
-            <param-value>/WEB-INF/tiles-defs.xml</param-value>
-        </init-param>
-        <load-on-startup>2</load-on-startup> 
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>sync</servlet-name>
+        <url-pattern>/sync</url-pattern>
+    </servlet-mapping>
 
 	<taglib>
     	<taglib-uri>http://b1n.org/jirator</taglib-uri>

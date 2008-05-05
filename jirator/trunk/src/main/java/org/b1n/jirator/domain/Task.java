@@ -1,49 +1,61 @@
 package org.b1n.jirator.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.b1n.framework.persistence.SimpleEntity;
-
 /**
+ * Tarefa.
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
 @Entity
-public class Task extends SimpleEntity {
+public class Task extends JiraEntity {
     @ManyToOne
-    @Column(nullable = false)
-    private Round round;
-
-    @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(nullable = false)
     private Participant participant;
 
     @Column(nullable = false)
-    private Long jiraId;
+    private String jiraKey;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Priority priority;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
+    @Column(nullable = false)
     private Severity severity;
 
+    @Column(nullable = false)
+    private Date taskDate;
+
     /**
-     * @return the round
+     * @return the jiraKey
      */
-    public Round getRound() {
-        return round;
+    public String getJiraKey() {
+        return jiraKey;
     }
 
     /**
-     * @param round the round to set
+     * @param jiraKey the jiraKey to set
      */
-    public void setRound(final Round round) {
-        this.round = round;
+    public void setJiraKey(final String jiraKey) {
+        this.jiraKey = jiraKey;
+    }
+
+    /**
+     * @return the taskDate
+     */
+    public Date getTaskDate() {
+        return taskDate;
+    }
+
+    /**
+     * @param taskDate the taskDate to set
+     */
+    public void setTaskDate(final Date taskDate) {
+        this.taskDate = taskDate;
     }
 
     /**
@@ -58,20 +70,6 @@ public class Task extends SimpleEntity {
      */
     public void setParticipant(final Participant participant) {
         this.participant = participant;
-    }
-
-    /**
-     * @return the jiraId
-     */
-    public Long getJiraId() {
-        return jiraId;
-    }
-
-    /**
-     * @param jiraId the jiraId to set
-     */
-    public void setJiraId(final Long jiraId) {
-        this.jiraId = jiraId;
     }
 
     /**
@@ -107,6 +105,6 @@ public class Task extends SimpleEntity {
      * @return total de pontos que essa tarefa vale.
      */
     public double getPointsWorth() {
-        return 0d;
+        return severity.getValue() + (priority.getValue() * 2);
     }
 }

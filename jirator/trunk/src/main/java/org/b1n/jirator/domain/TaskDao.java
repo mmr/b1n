@@ -1,11 +1,10 @@
 package org.b1n.jirator.domain;
 
-import org.b1n.framework.persistence.SimpleEntityDao;
-
 /**
+ * DAO de tarefa.
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
-public class TaskDao extends SimpleEntityDao<Task> {
+public class TaskDao extends JiraEntityDao<Task> {
     // nothing yet
 }
