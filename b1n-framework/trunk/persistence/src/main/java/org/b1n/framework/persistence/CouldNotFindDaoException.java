@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Lancada quando nao encontrar um DAO.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */
