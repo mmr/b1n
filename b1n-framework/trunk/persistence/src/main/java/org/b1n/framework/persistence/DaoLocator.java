@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * DAO Locator.
+ * Encontrador de DAOs.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */

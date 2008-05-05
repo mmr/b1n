@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Quando mais entidades do que a quantidade esperada forem encontradas.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

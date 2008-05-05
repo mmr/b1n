@@ -32,6 +32,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 
 /**
+ * Entidade com datas informativas de criacao e ultima atualizacao.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

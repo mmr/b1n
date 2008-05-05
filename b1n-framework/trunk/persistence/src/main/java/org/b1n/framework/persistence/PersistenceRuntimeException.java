@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Excecao em tempo de execucao da persistencia.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

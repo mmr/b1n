@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Lancada quando entidade buscada nao for encontrada.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

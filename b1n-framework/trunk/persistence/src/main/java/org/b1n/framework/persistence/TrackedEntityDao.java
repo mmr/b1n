@@ -32,6 +32,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 /**
+ * DAO para entidades do tipo TrackedEntity, que possuem datas informativas de inclusao e ultima atualizacao.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  * @param <E> tipo.

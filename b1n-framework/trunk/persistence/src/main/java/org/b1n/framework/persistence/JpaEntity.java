@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Classe base para entidades JPA, com metodos de persistencia usando JpaUtil.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */

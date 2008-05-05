@@ -34,7 +34,7 @@ import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 
 /**
- * JPA DAO.
+ * DAO base para entidades JPA.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  * @param <E> tipo.

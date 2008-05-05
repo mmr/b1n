@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * DAO base para entidades do tipo SimpleEntity.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  * @param <E> tipo.

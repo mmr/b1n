@@ -32,6 +32,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 
 /**
+ * Classe base para entidade persistente do hibernate, usando recursos especificos do hibernate (Criteria).
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  * @param <E> tipo.

@@ -26,6 +26,7 @@
 package org.b1n.framework.persistence;
 
 /**
+ * Excecao geral de persistencia.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

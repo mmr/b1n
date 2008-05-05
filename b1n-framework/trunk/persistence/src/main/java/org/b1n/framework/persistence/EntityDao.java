@@ -28,6 +28,7 @@ package org.b1n.framework.persistence;
 import java.util.List;
 
 /**
+ * Interface base para DAOs.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  * @param <E> tipo.

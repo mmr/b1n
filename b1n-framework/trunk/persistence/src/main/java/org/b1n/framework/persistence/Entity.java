@@ -28,7 +28,7 @@ package org.b1n.framework.persistence;
 import java.io.Serializable;
 
 /**
- * Business Object.
+ * Interface base para entidades persistentes.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 28, 2007
  */

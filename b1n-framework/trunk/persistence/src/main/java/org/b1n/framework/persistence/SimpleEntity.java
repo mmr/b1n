@@ -30,6 +30,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
+ * Entidade simples, com campo ID gerado automaticamente.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 30, 2007
  */

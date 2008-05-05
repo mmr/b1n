@@ -31,6 +31,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 /**
+ * Utilitario que cria/fecha as sessoes/transacoes do hibernate.
  * @author Marcio Ribeiro (mmr)
  * @created Mar 29, 2007
  */
