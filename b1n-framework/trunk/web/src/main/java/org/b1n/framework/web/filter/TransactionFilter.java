@@ -51,9 +51,12 @@ public class TransactionFilter implements Filter {
      * @throws ServletException caso algo de inesperado ocorra.
      */
     public void doFilter(final ServletRequest req, final ServletResponse resp, final FilterChain chain) throws IOException, ServletException {
-        JpaUtil.getSession();
-        chain.doFilter(req, resp);
-        JpaUtil.closeSession();
+        try {
+            JpaUtil.getSession();
+            chain.doFilter(req, resp);
+        } finally {
+            JpaUtil.closeSession();
+        }
     }
 
     /**
