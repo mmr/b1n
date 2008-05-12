@@ -1,0 +1,4 @@
+content notifier    content/
+skin    notifier    classic/1.0 skin/
+locale  notifier    en-US       locale/en-US/
+overlay chrome://browser/content/browser.xul    chrome://notifier/content/firefoxOverlay.xul
