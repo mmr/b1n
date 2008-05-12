@@ -1,3 +1,6 @@
-#observer-hello {
-  color: red ! important;
+#observer-status-bar-alert-image {
+	border: 0px;
+	list-style-image: url("chrome://observer/content/observer.gif");
+	height: 28px;
+	width: 28px;
 }

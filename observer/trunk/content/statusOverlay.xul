@@ -16,9 +16,7 @@
 
   <statusbar id="status-bar">
   	<statusbarpanel id="observer-panel">
-  		<image id="observer-status-bar"
-  			onclick="observerUtils.openLinkToNewTab('http://b1n.org/')"
-  			tooltiptext="&observer.statusbar.tooltip;" />
+  	  <image id="observer-status-bar-alert-image" />
   	</statusbarpanel>
   </statusbar>
 </overlay>
