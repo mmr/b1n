@@ -1,3 +1,4 @@
 content	observer    content/
 skin	observer	classic/1.0		skin/
+locale	observer	en-US			/locale/en_US/
 overlay	chrome://browser/content/browser.xul	chrome://observer/content/statusOverlay.xul

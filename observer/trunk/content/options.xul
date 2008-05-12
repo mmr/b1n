@@ -12,9 +12,9 @@
 	height="200"
 	width="400">
 
-  <stringbundleset id="stringbundleset">
-    <stringbundle id="observer-option-strings" src="chrome://ybookmarks/locale/observer.properties"/>
-  </stringbundleset>
+  	<stringbundleset id="stringbundleset">
+    	<stringbundle id="observer-option-strings" src="chrome://ybookmarks/locale/observer.properties"/>
+	</stringbundleset>
 
 	<prefpane id="paneObserver" label="&observer.options.label;">
 		<preferences>
