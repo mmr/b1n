@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://observer/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://observer/locale/observer.dtd">
+
+<overlay id="observer-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <script type="application/x-javascript"
+		src="chrome://observer/content/observerUtils.js"/>
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="observer-strings"
+    	src="chrome://observer/locale/observer.properties"/>
+  </stringbundleset>
+
+  <statusbar id="status-bar">
+  	<statusbarpanel id="observer-panel">
+  		<image id="observer-status-bar"
+  			onclick="observerUtils.openLinkToNewTab('http://b1n.org/')"
+  			tooltiptext="&observer.statusbar.tooltip;" />
+  	</statusbarpanel>
+  </statusbar>
+</overlay>

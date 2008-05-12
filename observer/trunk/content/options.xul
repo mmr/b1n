@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://observer/skin/options.css" type="text/css"?>
+<!DOCTYPE window SYSTEM "chrome://observer/locale/options.dtd">
+
+<prefwindow id="observerPreferences"
+	type="prefwindow"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="&observer.options.title;"
+	windowtype=""
+	dlgbuttons="accept,cancel"
+	height="200"
+	width="400">
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="observer-option-strings" src="chrome://ybookmarks/locale/observer.properties"/>
+  </stringbundleset>
+
+	<prefpane id="paneObserver" label="&observer.options.label;">
+		<preferences>
+			<preference id="pref-observer-register-url"
+				name="extensions.observer@b1n.register.url" type="string"/>
+			<preference id="pref-observer-debug"
+				name="extensions.observer@b1n.debug" type="bool"/>
+		</preferences>
+
+		<label control="register-url">&observer.register.url;</label>
+		<textbox id="register-url" preference="pref-observer-register-url"/>
+	</prefpane>
+</prefwindow>
