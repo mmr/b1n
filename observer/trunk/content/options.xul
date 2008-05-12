@@ -9,7 +9,7 @@
 	title="&observer.options.title;"
 	windowtype=""
 	dlgbuttons="accept,cancel"
-	height="200"
+	height="130"
 	width="400">
 
   	<stringbundleset id="stringbundleset">
@@ -24,7 +24,6 @@
 				name="extensions.observer@b1n.debug" type="bool"/>
 		</preferences>
 
-		<label control="register-url">&observer.register.url;</label>
-		<textbox id="register-url" preference="pref-observer-register-url"/>
+		<label control="register-url">&observer.register.url;</label><textbox id="register-url" preference="pref-observer-register-url"/>
 	</prefpane>
 </prefwindow>
