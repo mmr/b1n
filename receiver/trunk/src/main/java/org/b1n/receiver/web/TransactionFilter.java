@@ -25,7 +25,7 @@ public class TransactionFilter implements Filter {
      * @throws IOException caso algo de inesperado ocorra.
      * @throws ServletException caso algo de inesperado ocorra.
      */
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(final ServletRequest req, final ServletResponse resp, final FilterChain chain) throws IOException, ServletException {
         JpaUtil.getSession();
         chain.doFilter(req, resp);
         JpaUtil.closeSession();
@@ -43,7 +43,7 @@ public class TransactionFilter implements Filter {
      * @param arg0 config.
      * @throws ServletException caso algo de inesperado ocorra.
      */
-    public void init(FilterConfig arg0) throws ServletException {
+    public void init(final FilterConfig arg0) throws ServletException {
         // do nothing
     }
 

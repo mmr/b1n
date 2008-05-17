@@ -20,7 +20,7 @@ public abstract class PersistenceTestCase extends TestCase {
      * Construtor.
      * @param arg nome do teste.
      */
-    public PersistenceTestCase(String arg) {
+    public PersistenceTestCase(final String arg) {
         super(arg);
     }
 

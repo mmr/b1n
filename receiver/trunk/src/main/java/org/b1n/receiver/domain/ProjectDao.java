@@ -20,13 +20,13 @@ public class ProjectDao extends RecordEntityDao<Project> {
      * @return o projeto.
      * @throws EntityNotFoundException caso nao encontre um projeto para a chave passada.
      */
-    public Project findByKey(String groupId, String artifactId, String version) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
+    public Project findByKey(final String groupId, final String artifactId, final String version) throws EntityNotFoundException {
+        final Criteria crit = createCriteria();
         crit.add(Restrictions.eq("groupId", groupId));
         crit.add(Restrictions.eq("artifactId", artifactId));
         crit.add(Restrictions.eq("version", version));
 
-        Project project = (Project) crit.uniqueResult();
+        final Project project = (Project) crit.uniqueResult();
         if (project == null) {
             throw new EntityNotFoundException(Project.class);
         }

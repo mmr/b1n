@@ -15,10 +15,10 @@ public abstract class WriteTagSupport extends BodyTagSupport {
      * @param str string a ser escrita.
      * @throws JspException caso algo de inesperado ocorra ao escrever para pagina.
      */
-    protected void write(String str) throws JspException {
+    protected void write(final String str) throws JspException {
         try {
             pageContext.getOut().write(str);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new JspException(e);
         }
     }

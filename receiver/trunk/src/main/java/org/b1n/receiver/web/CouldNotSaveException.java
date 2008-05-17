@@ -10,7 +10,7 @@ public class CouldNotSaveException extends Exception {
      * Construtor.
      * @param e causa.
      */
-    public CouldNotSaveException(Throwable e) {
+    public CouldNotSaveException(final Throwable e) {
         super(e);
     }
 
@@ -18,7 +18,7 @@ public class CouldNotSaveException extends Exception {
      * Construtor.
      * @param msg mensagem.
      */
-    public CouldNotSaveException(String msg) {
+    public CouldNotSaveException(final String msg) {
         super(msg);
     }
 }

@@ -18,10 +18,10 @@ public class UserDao extends HibernateEntityDao<User> {
      * @throws EntityNotFoundException caso nao encontre.
      */
     @SuppressWarnings("unchecked")
-    public User findByUserName(String userName) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
+    public User findByUserName(final String userName) throws EntityNotFoundException {
+        final Criteria crit = createCriteria();
         crit.add(Restrictions.eq("userName", userName));
-        User user = (User) crit.uniqueResult();
+        final User user = (User) crit.uniqueResult();
         if (user == null) {
             throw new EntityNotFoundException(User.class);
         }

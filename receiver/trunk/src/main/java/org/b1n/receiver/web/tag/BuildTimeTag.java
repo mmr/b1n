@@ -26,12 +26,12 @@ public class BuildTimeTag extends ValueTagSupport {
         final int secsInMin = 60;
         final int secsInMili = 1000;
 
-        long buildTime = (Long) getValue();
+        final long buildTime = (Long) getValue();
 
-        int sec = (int) (buildTime / secsInMili);
+        final int sec = (int) (buildTime / secsInMili);
 
-        StringBuilder sb = new StringBuilder();
-        int mins = sec / secsInMin;
+        final StringBuilder sb = new StringBuilder();
+        final int mins = sec / secsInMin;
         if (mins > 0) {
             sb.append(NF.format(mins)).append("\"");
         }

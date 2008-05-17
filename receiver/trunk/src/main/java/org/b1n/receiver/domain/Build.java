@@ -34,7 +34,7 @@ public abstract class Build extends JpaEntity {
      * Define se build tem deploy envolvido.
      * @param deploy <code>true</code> se sim, <code>false</code> se nao.
      */
-    public void setDeploy(Boolean deploy) {
+    public void setDeploy(final Boolean deploy) {
         this.deploy = deploy;
     }
 
@@ -49,7 +49,7 @@ public abstract class Build extends JpaEntity {
      * Define se pulou testes.
      * @param skipTests <code>true</code> se pulou testes, <code>false</code> caso contrario.
      */
-    public void setWithTests(Boolean skipTests) {
+    public void setWithTests(final Boolean skipTests) {
         this.withTests = skipTests;
     }
 
@@ -64,7 +64,7 @@ public abstract class Build extends JpaEntity {
      * Define hora de inicio de build.
      * @param startTime inicio de build.
      */
-    public void setStartTime(Date startTime) {
+    public void setStartTime(final Date startTime) {
         this.startTime = startTime;
     }
 
@@ -79,7 +79,7 @@ public abstract class Build extends JpaEntity {
      * Define hora de fim de build.
      * @param endTime hora de fim de build.
      */
-    public void setEndTime(Date endTime) {
+    public void setEndTime(final Date endTime) {
         this.endTime = endTime;
     }
 

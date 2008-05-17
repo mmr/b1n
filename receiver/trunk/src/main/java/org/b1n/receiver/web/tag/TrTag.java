@@ -20,10 +20,10 @@ public class TrTag extends WriteTagSupport {
      */
     @Override
     public int doStartTag() throws JspException {
-        Build b = (Build) build;
-        LoopTagStatus s = (LoopTagStatus) status;
+        final Build b = (Build) build;
+        final LoopTagStatus s = (LoopTagStatus) status;
 
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append("<tr class=\"");
 
         // Even / Odd
@@ -64,7 +64,7 @@ public class TrTag extends WriteTagSupport {
      * Define build.
      * @param build build.
      */
-    public void setBuild(Object build) {
+    public void setBuild(final Object build) {
         this.build = build;
     }
 
@@ -72,7 +72,7 @@ public class TrTag extends WriteTagSupport {
      * Define status.
      * @param status status.
      */
-    public void setStatus(Object status) {
+    public void setStatus(final Object status) {
         this.status = status;
     }
 }

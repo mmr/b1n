@@ -39,7 +39,7 @@ public class ModuleBuild extends Build {
      * Define id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -54,7 +54,7 @@ public class ModuleBuild extends Build {
      * Define o projeto.
      * @param project o projeto.
      */
-    public void setProject(Project project) {
+    public void setProject(final Project project) {
         this.project = project;
     }
 
@@ -69,7 +69,7 @@ public class ModuleBuild extends Build {
      * Define o build do pai.
      * @param projectBuild build do pai.
      */
-    public void setProjectBuild(ProjectBuild projectBuild) {
+    public void setProjectBuild(final ProjectBuild projectBuild) {
         this.projectBuild = projectBuild;
     }
 }

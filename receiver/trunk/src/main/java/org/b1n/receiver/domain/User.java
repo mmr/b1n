@@ -44,7 +44,7 @@ public class User extends RecordEntity {
      * Define id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -52,7 +52,7 @@ public class User extends RecordEntity {
      * Construtor.
      * @param userName nome do usuario.
      */
-    public User(String userName) {
+    public User(final String userName) {
         this.userName = userName;
     }
 
@@ -67,7 +67,7 @@ public class User extends RecordEntity {
      * Define nome do usuario.
      * @param userName o nome do usuario que esta fazendo o build.
      */
-    public void setUserName(String userName) {
+    public void setUserName(final String userName) {
         this.userName = userName;
     }
 

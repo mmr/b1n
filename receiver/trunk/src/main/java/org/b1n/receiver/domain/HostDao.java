@@ -17,10 +17,10 @@ public class HostDao extends HibernateEntityDao<Host> {
      * @return o host com o nome passado.
      * @throws EntityNotFoundException caso nao encontre.
      */
-    public Host findByHostName(String hostName) throws EntityNotFoundException {
-        Criteria crit = createCriteria();
+    public Host findByHostName(final String hostName) throws EntityNotFoundException {
+        final Criteria crit = createCriteria();
         crit.add(Restrictions.eq("hostName", hostName));
-        Host host = (Host) crit.uniqueResult();
+        final Host host = (Host) crit.uniqueResult();
         if (host == null) {
             throw new EntityNotFoundException(User.class);
         }

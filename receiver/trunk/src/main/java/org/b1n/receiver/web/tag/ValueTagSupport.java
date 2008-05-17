@@ -18,7 +18,7 @@ public abstract class ValueTagSupport extends WriteTagSupport {
      * Define valor.
      * @param value valor.
      */
-    public void setValue(Object value) {
+    public void setValue(final Object value) {
         this.value = value;
     }
 }

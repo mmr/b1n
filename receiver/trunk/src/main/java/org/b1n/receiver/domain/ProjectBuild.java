@@ -30,7 +30,7 @@ public class ProjectBuild extends Build {
     private Project project;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectBuild")
-    private List<ModuleBuild> modules = new ArrayList<ModuleBuild>();
+    private final List<ModuleBuild> modules = new ArrayList<ModuleBuild>();
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -50,7 +50,7 @@ public class ProjectBuild extends Build {
      * Define id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -65,7 +65,7 @@ public class ProjectBuild extends Build {
      * Define o projeto que esta sendo construido.
      * @param project o projeto.
      */
-    public void setProject(Project project) {
+    public void setProject(final Project project) {
         this.project = project;
     }
 
@@ -80,7 +80,7 @@ public class ProjectBuild extends Build {
      * Adiciona um modulo a lista de modulos dessa construcao de projeto.
      * @param module modulo.
      */
-    public void addModule(ModuleBuild module) {
+    public void addModule(final ModuleBuild module) {
         this.modules.add(module);
     }
 
@@ -95,7 +95,7 @@ public class ProjectBuild extends Build {
      * Define o usuario.
      * @param user o usuario.
      */
-    public void setUser(User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
@@ -110,7 +110,7 @@ public class ProjectBuild extends Build {
      * Define o host onde o build esta sendo feito.
      * @param host o host.
      */
-    public void setHost(Host host) {
+    public void setHost(final Host host) {
         this.host = host;
     }
 }

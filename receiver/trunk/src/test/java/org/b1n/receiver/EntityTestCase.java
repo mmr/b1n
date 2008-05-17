@@ -44,18 +44,18 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    protected void compareData(E entity, E loadedEntity) throws Exception {
-        Set<Method> getters = new HashSet<Method>();
+    protected void compareData(final E entity, final E loadedEntity) throws Exception {
+        final Set<Method> getters = new HashSet<Method>();
         Class<E> superClass = getEntityClass();
         while (superClass != JpaEntity.class) {
-            for (Method method : superClass.getDeclaredMethods()) {
+            for (final Method method : superClass.getDeclaredMethods()) {
                 if (Modifier.isPublic(method.getModifiers()) && (method.getName().startsWith("get") || method.getName().startsWith("is"))) {
                     getters.add(method);
                 }
             }
             superClass = (Class<E>) superClass.getSuperclass();
         }
-        for (Method method : getters) {
+        for (final Method method : getters) {
             assertEquals(method.invoke(entity, new Object[] {}), method.invoke(loadedEntity, new Object[] {}));
         }
     }
@@ -66,7 +66,7 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      */
     public void testEntity() throws Exception {
         // Insert
-        E entity = entityClass.newInstance();
+        final E entity = entityClass.newInstance();
         fillEntity(entity);
         entity.save();
 
@@ -84,7 +84,7 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
         try {
             entityDao.findById(entity.getId());
             fail("Could not remove entity");
-        } catch (EntityNotFoundException e) {
+        } catch (final EntityNotFoundException e) {
             // ok!
         }
     }
@@ -97,8 +97,8 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    public <T extends Entity> T createUnsavedEntity(Class<T> entityClass) throws Exception {
-        T entity = (T) entityClass.newInstance();
+    public <T extends Entity> T createUnsavedEntity(final Class<T> entityClass) throws Exception {
+        final T entity = entityClass.newInstance();
         fillEntity(entity);
         return entity;
     }
@@ -111,8 +111,8 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso nao consiga criar entidade.
      */
     @SuppressWarnings("unchecked")
-    public <T extends Entity> T createSavedEntity(Class<T> entityClass) throws Exception {
-        T entity = createUnsavedEntity(entityClass);
+    public <T extends Entity> T createSavedEntity(final Class<T> entityClass) throws Exception {
+        final T entity = createUnsavedEntity(entityClass);
         entity.save();
         return entity;
     }
@@ -124,10 +124,10 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    protected <T extends Entity> void fillEntity(T entity) throws Exception {
+    protected <T extends Entity> void fillEntity(final T entity) throws Exception {
         Class<T> superClass = (Class<T>) entity.getClass();
         while (superClass != JpaEntity.class) {
-            for (Method method : superClass.getDeclaredMethods()) {
+            for (final Method method : superClass.getDeclaredMethods()) {
                 if (method.getName().startsWith("set") && !method.getName().equals("setId")) {
                     this.invokeSetter(entity, method);
                 }
@@ -143,13 +143,13 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @param method metodo setter.
      * @throws Exception caso algo de inesperado ocorra.
      */
-    protected <T extends Entity> void invokeSetter(T entity, Method method) throws Exception {
+    protected <T extends Entity> void invokeSetter(final T entity, final Method method) throws Exception {
         if (!Modifier.isPublic(method.getModifiers())) {
             return;
         }
 
-        Class<?> parameterType = method.getParameterTypes()[0];
-        Object parameter = instantiateParameter(parameterType);
+        final Class<?> parameterType = method.getParameterTypes()[0];
+        final Object parameter = instantiateParameter(parameterType);
         method.invoke(entity, parameter);
     }
 
@@ -160,7 +160,7 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    protected Object instantiateParameter(Class parameterType) throws Exception {
+    protected Object instantiateParameter(final Class parameterType) throws Exception {
         final int maxRandom = 10;
 
         if (parameterType == Long.TYPE || Long.class.isAssignableFrom(parameterType)) {
@@ -201,8 +201,8 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    protected Object createInstance(Class clazz) throws Exception {
-        Constructor constructor = clazz.getDeclaredConstructor((Class[]) null);
+    protected Object createInstance(final Class clazz) throws Exception {
+        final Constructor constructor = clazz.getDeclaredConstructor((Class[]) null);
         if (!Modifier.isPublic(constructor.getModifiers()) || !Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
             constructor.setAccessible(true);
         }

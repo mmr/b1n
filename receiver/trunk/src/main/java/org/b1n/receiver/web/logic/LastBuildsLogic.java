@@ -70,14 +70,14 @@ public class LastBuildsLogic {
      * Organiza builds por hora.
      */
     private void organizeBuildsByHour() {
-        Map<String, List<ProjectBuild>> buildsMap = new LinkedHashMap<String, List<ProjectBuild>>();
-        ProjectBuildDao buildDao = DaoLocator.getDao(ProjectBuild.class);
-        List<ProjectBuild> bs = buildDao.findLastBuilds(userId, hostId, projectId, withTests, deploy, max, offset);
-        NumberFormat nf = NumberFormat.getInstance();
+        final Map<String, List<ProjectBuild>> buildsMap = new LinkedHashMap<String, List<ProjectBuild>>();
+        final ProjectBuildDao buildDao = DaoLocator.getDao(ProjectBuild.class);
+        final List<ProjectBuild> bs = buildDao.findLastBuilds(userId, hostId, projectId, withTests, deploy, max, offset);
+        final NumberFormat nf = NumberFormat.getInstance();
         nf.setMinimumIntegerDigits(2);
-        for (ProjectBuild b : bs) {
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd hh");
-            String key = dateFormat.format(b.getStartTime()) + "h";
+        for (final ProjectBuild b : bs) {
+            final DateFormat dateFormat = new SimpleDateFormat("MM/dd hh");
+            final String key = dateFormat.format(b.getStartTime()) + "h";
             if (!buildsMap.containsKey(key)) {
                 buildsMap.put(key, new ArrayList<ProjectBuild>());
             }

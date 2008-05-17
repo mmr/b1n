@@ -25,8 +25,8 @@ public class ProjectBuildDao extends HibernateEntityDao<ProjectBuild> {
      * @return lista dos ultimos builds.
      */
     @SuppressWarnings("unchecked")
-    public List<ProjectBuild> findLastBuilds(Long userId, Long hostId, Long projectId, Boolean withTests, Boolean deploy, int maxResults, int offset) {
-        Criteria crit = createCriteria();
+    public List<ProjectBuild> findLastBuilds(final Long userId, final Long hostId, final Long projectId, final Boolean withTests, final Boolean deploy, final int maxResults, final int offset) {
+        final Criteria crit = createCriteria();
         addRestrictions(userId, hostId, projectId, withTests, deploy, crit);
         crit.addOrder(Order.desc("startTime"));
         crit.setMaxResults(maxResults);
@@ -43,8 +43,8 @@ public class ProjectBuildDao extends HibernateEntityDao<ProjectBuild> {
      * @param deploy <code>true</code> se build foi um deploy, <code>false</code> se nao.
      * @return contagem de registros com os dados passados.
      */
-    public Integer getCount(Long userId, Long hostId, Long projectId, Boolean withTests, Boolean deploy) {
-        Criteria crit = createCriteria();
+    public Integer getCount(final Long userId, final Long hostId, final Long projectId, final Boolean withTests, final Boolean deploy) {
+        final Criteria crit = createCriteria();
         crit.setProjection(Projections.rowCount());
         addRestrictions(userId, hostId, projectId, withTests, deploy, crit);
         return (Integer) crit.uniqueResult();
@@ -59,7 +59,7 @@ public class ProjectBuildDao extends HibernateEntityDao<ProjectBuild> {
      * @param deploy <code>true</code> se build foi um deploy, <code>false</code> se nao.
      * @param crit criteria.
      */
-    private void addRestrictions(Long userId, Long hostId, Long projectId, Boolean withTests, Boolean deploy, Criteria crit) {
+    private void addRestrictions(final Long userId, final Long hostId, final Long projectId, final Boolean withTests, final Boolean deploy, final Criteria crit) {
         if (userId != null) {
             crit.add(Restrictions.eq("user.id", userId));
         }

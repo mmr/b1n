@@ -49,7 +49,7 @@ public class Project extends RecordEntity {
      * @param version versao do artefato.
      * @param projectName nome do projeto.
      */
-    public Project(String groupId, String artifactId, String version, String projectName) {
+    public Project(final String groupId, final String artifactId, final String version, final String projectName) {
         this.groupId = groupId;
         this.artifactId = artifactId;
         this.version = version;
@@ -67,7 +67,7 @@ public class Project extends RecordEntity {
      * Define id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -82,7 +82,7 @@ public class Project extends RecordEntity {
      * Define o nome do projeto.
      * @param projectName nome do projeto.
      */
-    public void setProjectName(String projectName) {
+    public void setProjectName(final String projectName) {
         this.projectName = projectName;
     }
 
@@ -97,7 +97,7 @@ public class Project extends RecordEntity {
      * Define o id do grupo.
      * @param groupId id do grupo.
      */
-    public void setGroupId(String groupId) {
+    public void setGroupId(final String groupId) {
         this.groupId = groupId;
     }
 
@@ -112,7 +112,7 @@ public class Project extends RecordEntity {
      * Define o id de termo.
      * @param artifactId o artefato
      */
-    public void setArtifactId(String artifactId) {
+    public void setArtifactId(final String artifactId) {
         this.artifactId = artifactId;
     }
 
@@ -127,7 +127,7 @@ public class Project extends RecordEntity {
      * Define versao.
      * @param version versao.
      */
-    public void setVersion(String version) {
+    public void setVersion(final String version) {
         this.version = version;
     }
 
@@ -136,7 +136,7 @@ public class Project extends RecordEntity {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(groupId).append(" / ").append(artifactId).append(" ").append(version);
         return sb.toString();
     }

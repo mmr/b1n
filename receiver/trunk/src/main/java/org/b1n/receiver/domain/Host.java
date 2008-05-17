@@ -55,7 +55,7 @@ public class Host extends RecordEntity {
      * Define id.
      * @param id o id.
      */
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -67,7 +67,7 @@ public class Host extends RecordEntity {
      * @param jvm java virtual machine.
      * @param encoding encoding da maquina.
      */
-    public Host(String hostName, String hostIp, String os, String jvm, String encoding) {
+    public Host(final String hostName, final String hostIp, final String os, final String jvm, final String encoding) {
         this.hostName = hostName;
         this.hostIp = hostIp;
         this.operatingSystem = os;
@@ -86,7 +86,7 @@ public class Host extends RecordEntity {
      * Define endereco ip do host.
      * @param hostIp o endereco ip.
      */
-    public void setHostIp(String hostIp) {
+    public void setHostIp(final String hostIp) {
         this.hostIp = hostIp;
     }
 
@@ -101,7 +101,7 @@ public class Host extends RecordEntity {
      * Define o nome do host.
      * @param hostName nome do host.
      */
-    public void setHostName(String hostName) {
+    public void setHostName(final String hostName) {
         this.hostName = hostName;
     }
 
@@ -116,7 +116,7 @@ public class Host extends RecordEntity {
      * Define o sistema operacional.
      * @param os o sistema operacional.
      */
-    public void setOperatingSystem(String os) {
+    public void setOperatingSystem(final String os) {
         this.operatingSystem = os;
     }
 
@@ -131,7 +131,7 @@ public class Host extends RecordEntity {
      * Define a jvm.
      * @param jvm a jvm.
      */
-    public void setJvm(String jvm) {
+    public void setJvm(final String jvm) {
         this.jvm = jvm;
     }
 
@@ -146,7 +146,7 @@ public class Host extends RecordEntity {
      * Define o encoding.
      * @param encoding encoding usado no host do build.
      */
-    public void setEncoding(String encoding) {
+    public void setEncoding(final String encoding) {
         this.encoding = encoding;
     }
 
@@ -155,7 +155,7 @@ public class Host extends RecordEntity {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append(hostName).append(" (").append(hostIp).append(")");
         return sb.toString();
     }
