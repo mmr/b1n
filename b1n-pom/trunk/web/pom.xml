@@ -26,6 +26,15 @@
                     </additionalProjectnatures>
                 </configuration>
             </plugin>
+
+            <plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.0.1</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 </project>
