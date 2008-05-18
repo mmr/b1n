@@ -63,10 +63,15 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <server>http://localhost:8080/receiver/saveInfo</server>
+                    <server>http://localhost:8080/b1n-informer-receiver/saveInfo</server>
+                    <dataSenderClassName>
+                      org.b1n.informer.ds.StdoutDataSender
+                    </dataSenderClassName>
+                    <!--
                     <dataSenderClassName>
                       org.b1n.informer.ds.PostHttpDataSender
                     </dataSenderClassName>
+                    -->
                     <minBuildTime>1000</minBuildTime>
                     <maxAttempts>1</maxAttempts>
                 </configuration>
