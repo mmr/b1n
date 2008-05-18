@@ -1,10 +1,14 @@
 package org.b1n.jirator.domain;
 
 /**
+ * Prioridade.
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
 public enum Priority {
+    /** Nao definida. */
+    UNDEFINED("Não definida", null, 0),
+
     /** Muito baixa. */
     MUITO_BAIXA("Muito Baixa", 5, 1),
 
@@ -74,7 +78,7 @@ public enum Priority {
      */
     public static Priority getEnumJiraValue(final Object jiraValue) {
         for (Priority o : Priority.values()) {
-            if (o.getJiraValue().equals(jiraValue)) {
+            if ((jiraValue == null && o.getJiraValue() == null) || o.getJiraValue().equals(jiraValue)) {
                 return o;
             }
         }

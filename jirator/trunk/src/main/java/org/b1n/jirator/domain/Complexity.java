@@ -1,16 +1,16 @@
 package org.b1n.jirator.domain;
 
 /**
- * Severidade.
+ * Complexidade.
  * @author Marcio Ribeiro
  * @date May 3, 2008
  */
-public enum Severity {
+public enum Complexity {
     /** Nao definida. */
     UNDEFINED("Não definida", null, 0),
 
     /** Muito baixa. */
-    MUITO_BAIXA("Muito Baixa", "Muito Baixa", 1),
+    MUITO_BAIXA("Muito Baixa", "Muito baixa", 1),
 
     /** Baixa. */
     BAIXA("Baixa", "Baixa", 2),
@@ -22,7 +22,7 @@ public enum Severity {
     ALTA("Alta", "Alta", 4),
 
     /** Crítica. */
-    CRITICA("Crítica", "Crítica", 5);
+    CRITICA("Muito Alta", "Muito alta", 5);
 
     private String name;
 
@@ -36,7 +36,7 @@ public enum Severity {
      * @param jiraValue valor no jira.
      * @param value valor.
      */
-    Severity(final String name, final Object jiraValue, final Integer value) {
+    Complexity(final String name, final Object jiraValue, final Integer value) {
         this.name = name;
         this.value = value;
         this.jiraValue = jiraValue;
@@ -76,13 +76,12 @@ public enum Severity {
      * @param jiraValue valor do jira.
      * @return enum.
      */
-    public static Severity getEnumJiraValue(final Object jiraValue) {
-        for (Severity o : Severity.values()) {
+    public static Complexity getEnumJiraValue(final Object jiraValue) {
+        for (Complexity o : Complexity.values()) {
             if ((jiraValue == null && o.getJiraValue() == null) || o.getJiraValue().equals(jiraValue)) {
                 return o;
             }
         }
-        throw new IllegalStateException("Severidade nao encontrada para valor '" + jiraValue + "'");
+        throw new IllegalStateException("Complexidade nao encontrada para valor '" + jiraValue + "'");
     }
-
 }
