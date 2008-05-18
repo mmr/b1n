@@ -70,18 +70,4 @@ public enum Priority {
     public String toString() {
         return name + " (" + value + ")";
     }
-
-    /**
-     * Encontra enum para prioridade do jira.
-     * @param jiraValue valor do jira.
-     * @return enum.
-     */
-    public static Priority getEnumJiraValue(final Object jiraValue) {
-        for (Priority o : Priority.values()) {
-            if ((jiraValue == null && o.getJiraValue() == null) || o.getJiraValue().equals(jiraValue)) {
-                return o;
-            }
-        }
-        throw new IllegalStateException("Prioridade nao encontrada para valor '" + jiraValue + "'");
-    }
 }

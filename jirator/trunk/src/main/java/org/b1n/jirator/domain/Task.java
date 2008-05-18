@@ -18,8 +18,11 @@ public class Task extends JiraEntity {
     @JoinColumn(nullable = false)
     private Participant participant;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String jiraKey;
+
+    @Column(nullable = false)
+    private Date taskDate;
 
     @Column(nullable = false)
     private Priority priority;
@@ -28,7 +31,7 @@ public class Task extends JiraEntity {
     private Severity severity;
 
     @Column(nullable = false)
-    private Date taskDate;
+    private Complexity complexity;
 
     /**
      * @return the jiraKey
@@ -101,11 +104,38 @@ public class Task extends JiraEntity {
     }
 
     /**
+     * @return the complexity
+     */
+    public Complexity getComplexity() {
+        return complexity;
+    }
+
+    /**
+     * @param complexity the complexity to set
+     */
+    public void setComplexity(final Complexity complexity) {
+        this.complexity = complexity;
+    }
+
+    /**
+     * @return classe de estilo css para usar no tr que mostra a tarefa.
+     */
+    public String getTrStyle() {
+        if (priority == null || severity == null || complexity == null) {
+            return " class='missing'";
+        }
+        if (priority.equals(Priority.UNDEFINED) || severity.equals(Severity.UNDEFINED) || complexity.equals(Complexity.UNDEFINED)) {
+            return " class='missing'";
+        }
+        return null;
+    }
+
+    /**
      * Calcula e devolve quantidade de pontos que essa tarefa vale.
      * @return total de pontos que essa tarefa vale.
      */
     public double getPointsWorth() {
-        return severity.getValue() + (priority.getValue() * 2);
+        return severity.getValue() + complexity.getValue() + (priority.getValue() * 2);
     }
 
     /**
@@ -113,6 +143,6 @@ public class Task extends JiraEntity {
      */
     @Override
     public String toString() {
-        return participant + ": " + jiraKey + ", " + priority + ", " + severity;
+        return participant + ": " + jiraKey + ", " + priority + ", " + severity + ", " + complexity;
     }
 }

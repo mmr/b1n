@@ -70,18 +70,4 @@ public enum Complexity {
     public String toString() {
         return name + " (" + value + ")";
     }
-
-    /**
-     * Encontra enum para severidade do jira.
-     * @param jiraValue valor do jira.
-     * @return enum.
-     */
-    public static Complexity getEnumJiraValue(final Object jiraValue) {
-        for (Complexity o : Complexity.values()) {
-            if ((jiraValue == null && o.getJiraValue() == null) || o.getJiraValue().equals(jiraValue)) {
-                return o;
-            }
-        }
-        throw new IllegalStateException("Complexidade nao encontrada para valor '" + jiraValue + "'");
-    }
 }

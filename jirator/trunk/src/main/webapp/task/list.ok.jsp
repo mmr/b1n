@@ -15,6 +15,7 @@
     <th>Tarefa</th>
     <th>Prioridade</th>
     <th>Severidade</th>
+    <th>Complexidade</th>
     <th>Pontos</th>
   </tr>
 
@@ -26,10 +27,11 @@
   </tr>
 
   <c:forEach var="t" items="${e.value.tasks}">
-	<tr>
+	<tr${t.trStyle}>
       <td><a href="https://www.tradeware.com.br/jira/browse/${t.jiraKey}">${t.jiraKey}</a></td>
       <td>${t.priority}</td>
       <td>${t.severity}</td>
+      <td>${t.complexity}</td>
       <td>${t.pointsWorth}</td>
 	</tr>
   </c:forEach>
@@ -37,10 +39,6 @@
   <tr>
     <td colspan="4">&nbsp;</td>
     <td>${e.value.totalPoints}</td>
-  </tr>
-
-  <tr colspan="5">
-    <td>&nbsp;</td>
   </tr>
 </c:forEach>
 
