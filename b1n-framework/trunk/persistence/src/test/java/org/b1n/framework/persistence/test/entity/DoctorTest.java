@@ -45,14 +45,6 @@ public class DoctorTest extends PersistenceTestCase {
     private static final String HOSPITAL_NAME = "Sirio Libanes";
 
     /**
-     * Construtor.
-     * @param name name.
-     */
-    public DoctorTest(final String name) {
-        super(name);
-    }
-
-    /**
      * Test save and load.
      * @throws Exception exception.
      */
