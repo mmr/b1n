@@ -28,6 +28,7 @@ package org.b1n.framework.persistence.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
@@ -44,6 +45,9 @@ public class HealthInsurance extends SimpleEntity {
 
     @ManyToMany
     private Set<Doctor> doctors = new HashSet<Doctor>();
+
+    @Column(nullable = false)
+    private InsuranceRating rating;
 
     /**
      * @return doctors.
@@ -87,5 +91,19 @@ public class HealthInsurance extends SimpleEntity {
      */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the rating.
+     */
+    public InsuranceRating getRating() {
+        return rating;
+    }
+
+    /**
+     * @param rating the rating to set.
+     */
+    public void setRating(final InsuranceRating rating) {
+        this.rating = rating;
     }
 }
