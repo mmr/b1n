@@ -31,6 +31,7 @@ import org.b1n.framework.persistence.entity.Doctor;
 import org.b1n.framework.persistence.entity.DoctorDao;
 import org.b1n.framework.persistence.entity.HealthInsurance;
 import org.b1n.framework.persistence.entity.Hospital;
+import org.b1n.framework.persistence.entity.InsuranceRating;
 import org.b1n.framework.persistence.test.PersistenceTestCase;
 
 /**
@@ -91,21 +92,26 @@ public class DoctorTest extends PersistenceTestCase {
         // Criando Convenios
         final HealthInsurance hi1 = new HealthInsurance();
         hi1.setName("AMIL");
+        hi1.setRating(InsuranceRating.BASIC);
         hi1.save();
 
         final HealthInsurance hi2 = new HealthInsurance();
         hi2.setName("Bradesco");
+        hi2.setRating(InsuranceRating.NORMAL);
         hi2.save();
 
         final HealthInsurance hi3 = new HealthInsurance();
+        hi3.setRating(InsuranceRating.SENIOR);
         hi3.setName("Correios");
         hi3.save();
 
         final HealthInsurance hi4 = new HealthInsurance();
         hi4.setName("Samcil");
+        hi4.setRating(InsuranceRating.VERY_BASIC);
         hi4.save();
 
         final HealthInsurance hi5 = new HealthInsurance();
+        hi5.setRating(InsuranceRating.SENIOR_PLUS);
         hi5.setName("Dix Amico");
         hi5.save();
 

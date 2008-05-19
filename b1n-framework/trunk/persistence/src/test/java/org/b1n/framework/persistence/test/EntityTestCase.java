@@ -16,6 +16,7 @@ import org.b1n.framework.persistence.Entity;
 import org.b1n.framework.persistence.EntityDao;
 import org.b1n.framework.persistence.EntityNotFoundException;
 import org.b1n.framework.persistence.JpaEntity;
+import org.b1n.framework.utils.EnumUtils;
 
 /**
  * Entidade basica para teste de persistencia de entidades.
@@ -233,6 +234,10 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
                 return data.get(String.class).next();
             }
 
+            if (Enum.class.isAssignableFrom(parameterType)) {
+                return getRandomEnumValue(parameterType);
+            }
+
             if (parameterType == Boolean.TYPE || Boolean.class.isAssignableFrom(parameterType)) {
                 if (((int) Math.random() * 2) == 1) {
                     return Boolean.TRUE;
@@ -242,6 +247,16 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
             }
 
             return null;
+        }
+
+        /**
+         * Devolve valor aleatorio para classe de enum passado.
+         * @param parameterType tipo de enum.
+         * @return valor aleatorio para classe de enum passado.
+         */
+        @SuppressWarnings("unchecked")
+        private Enum getRandomEnumValue(final Class<?> parameterType) {
+            return EnumUtils.getRandomValue((Class<Enum>) parameterType);
         }
 
         /**
