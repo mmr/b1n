@@ -7,5 +7,5 @@ import org.b1n.framework.web.tag.WriteTagSupport;
  * @date May 3, 2008
  */
 public class JiraDataPickerTag extends WriteTagSupport {
-
+    // nothing
 }
