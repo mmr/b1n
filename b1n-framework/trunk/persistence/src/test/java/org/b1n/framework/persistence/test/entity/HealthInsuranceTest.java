@@ -8,5 +8,5 @@ import org.b1n.framework.persistence.test.EntityTestCase;
  * @date May 18, 2008
  */
 public class HealthInsuranceTest extends EntityTestCase<HealthInsurance> {
-
+    // nothing yet
 }
