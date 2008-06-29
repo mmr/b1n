@@ -87,6 +87,9 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:if>
+    <xsl:if test="$date = ''">
+        <xsl:text>Present</xsl:text>    
+    </xsl:if>
 </xsl:template>
 
 <!-- Personal Data -->
@@ -109,7 +112,7 @@
 <!-- Professional Summary -->
 <xsl:template match="mmr:cv/mmr:professionalSummary">
     <xsl:for-each select="mmr:company">
-        \ecvitem*{Period}{\it <xsl:call-template name="formatDate"><xsl:with-param name="date" select="mmr:dateIn" /></xsl:call-template> - <xsl:call-template name="formatDate"><xsl:with-param name="date" select="mmr:dateOut" /></xsl:call-template>}
+        \ecvitem*{Period}{\it <xsl:call-template name="formatDate"><xsl:with-param name="format" select="'work'" /><xsl:with-param name="date" select="mmr:dateIn" /></xsl:call-template> - <xsl:call-template name="formatDate"> <xsl:with-param name="format" select="'work'" /><xsl:with-param name="date" select="mmr:dateOut" /></xsl:call-template>}
          \ecvitem*{Company}{<xsl:value-of select="mmr:name" />}
          \ecvitem*{Position}{<xsl:value-of select="mmr:position" />}
          \ecvitem*[10pt]{Activities}{
