@@ -1,25 +1,23 @@
 package org.b1n.cheater;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TreasureCheater extends AbstractActionListCheater {
 
     @Override
-    protected List<MouseAction> getActions() {
-        return new ArrayList<MouseAction>() {
-            {
-                add(new MouseAction("LEFT CASKET RIGHT BUTTON", 190, 333, MouseButton.RIGHT, 200));
-                add(new MouseAction("LEFT CASKET LEFT BUTTON", 164, 373, MouseButton.LEFT, 5000));
+    protected MouseAction getMouseAction() {
+        // Left Casket
+        MouseActionGroup leftCasket = new MouseActionGroup("Left Casket");
+        leftCasket.add(new MouseClick("1", 190, 333, MouseButton.RIGHT, 200));
+        leftCasket.add(new MouseClick("2", 164, 373, MouseButton.LEFT, 5000));
 
-                add(new MouseAction("RIGHT CASKET RIGHT BUTTON", 300, 333, MouseButton.RIGHT, 200));
-                add(new MouseAction("RIGHT CASKET LEFT BUTTON", 275, 375, MouseButton.LEFT, 7000));
-            }
-        };
+        // Right Casket
+        MouseActionGroup rightCasket = new MouseActionGroup("Right Casket");
+        rightCasket.add(new MouseClick("1", 300, 333, MouseButton.RIGHT, 200));
+        rightCasket.add(new MouseClick("2", 275, 375, MouseButton.LEFT, 7000));
+
+        return new MouseActionGroup("Rob Treasures", leftCasket, rightCasket);
     }
 
     public static void main(String[] args) {
-        Cheater cheater = new TreasureCheater();
-        cheater.cheat();
+        new TreasureCheater().cheat();
     }
 }

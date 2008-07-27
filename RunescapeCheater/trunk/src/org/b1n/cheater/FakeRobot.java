@@ -16,11 +16,6 @@ class FakeRobot extends Robot {
     @Override
     public synchronized void delay(int ms) {
         log("DELAY: " + ms);
-        try {
-            Thread.sleep(ms);
-        } catch (InterruptedException e) {
-            // do nothing
-        }
     }
 
     @Override

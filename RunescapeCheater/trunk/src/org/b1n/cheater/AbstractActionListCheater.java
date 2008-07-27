@@ -2,7 +2,6 @@ package org.b1n.cheater;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.util.List;
 
 public abstract class AbstractActionListCheater implements Cheater {
 
@@ -19,16 +18,7 @@ public abstract class AbstractActionListCheater implements Cheater {
 
         System.out.println("Go go go!");
         for (int i = 0; i < getNumberOfTakes(); i++) {
-            System.out.println("\n============\n> TAKE " + i);
-            for (MouseAction action : getActions()) {
-                System.out.println(">> ACTION " + action.getName());
-                action.run();
-            }
-            // try {
-            // Thread.sleep(2000);
-            // } catch (InterruptedException e) {
-            // e.printStackTrace();
-            // }
+            getMouseAction().run();
         }
     }
 
@@ -57,5 +47,5 @@ public abstract class AbstractActionListCheater implements Cheater {
         return DEFAULT_START_DELAY;
     }
 
-    protected abstract List<MouseAction> getActions();
+    protected abstract MouseAction getMouseAction();
 }

@@ -11,6 +11,8 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
 
     protected int iniY;
 
+    protected List<Slot> slots;
+
     protected Set<Integer> ignoredSlots;
 
     // Numero de linhas do inventario
@@ -24,46 +26,70 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
 
     private static final int INV_Y_OFFSET = 36;
 
+    private String mainGroupName;
+
     /**
      * Construtor.
+     * @param mainGroupName nome do grupo principal.
      * @param iniX x do centro do primeiro slot (top left).
      * @param iniY y do centro do primeiro slot (top left).
      * @param slotsToIgnore slots a serem ignorados.
      */
-    public AbstractInvetoryCheater(int iniX, int iniY, int... slotsToIgnore) {
+    public AbstractInvetoryCheater(String mainGroupName, int iniX, int iniY, int... slotsToIgnore) {
         MouseActionConfig.getInstance().setAutoDelay(100);
+        this.mainGroupName = mainGroupName;
         this.iniX = iniX;
         this.iniY = iniY;
+        configureIgnoredSlots(slotsToIgnore);
+        configureSlots();
+    }
+
+    private void configureIgnoredSlots(int... slotsToIgnore) {
         this.ignoredSlots = new HashSet<Integer>();
         for (int i : slotsToIgnore) {
             ignoredSlots.add(i);
         }
     }
 
-    @Override
-    protected List<MouseAction> getActions() {
-        final List<Slot> slots = new ArrayList<Slot>();
+    private void configureSlots() {
+        this.slots = new ArrayList<Slot>();
         int cx = 0;
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
                 slots.add(new Slot(cx++, j, i));
             }
         }
+    }
 
-        final List<MouseAction> actions = new ArrayList<MouseAction>();
+    @Override
+    protected final MouseAction getMouseAction() {
+        MouseActionGroup mainGroup = new MouseActionGroup(mainGroupName);
         for (Slot slot : slots) {
             if (!ignoreSlot(slot)) {
-                addActions(slot, actions);
+                mainGroup.add(getMouseActionForSlot(slot));
             }
         }
-        return actions;
+        return mainGroup;
+    }
+
+    protected final Slot findSlotByName(int n) {
+        for (Slot slot : slots) {
+            if (slot.n == n) {
+                return slot;
+            }
+        }
+        throw new IllegalStateException("Slot not found : " + n);
+    }
+
+    protected final List<Slot> getSlots() {
+        return slots;
     }
 
     protected boolean ignoreSlot(Slot slot) {
         return ignoredSlots.contains(slot.n);
     }
 
-    protected abstract void addActions(Slot slot, List<MouseAction> actions);
+    protected abstract MouseAction getMouseActionForSlot(Slot slot);
 
     class Slot {
         int n;

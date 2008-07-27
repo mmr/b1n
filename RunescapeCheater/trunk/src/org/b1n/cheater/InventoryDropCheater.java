@@ -2,9 +2,9 @@ package org.b1n.cheater;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.util.List;
 
 public class InventoryDropCheater extends AbstractInvetoryCheater {
+    private static final String MAIN_GROUP_NAME = "Drop Dead!";
 
     // Offsets para item de menu para drop de item (depois de clicado com botao direito do mouse)
     private static final int DROP_X_OFFSET = 0;
@@ -16,16 +16,20 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
     private static final int DROP_LAST_ROW_Y_OFFSET = 20;
 
     public InventoryDropCheater(int iniX, int iniY, int... slotsToIgnore) {
-        super(iniX, iniY, slotsToIgnore);
+        super(MAIN_GROUP_NAME, iniX, iniY, slotsToIgnore);
     }
 
     @Override
-    protected void addActions(Slot slot, List<MouseAction> actions) {
+    protected MouseAction getMouseActionForSlot(Slot slot) {
+        MouseActionGroup dropItem = new MouseActionGroup("Drop item in slot " + slot);
+
         // Right click para abrir menu para dropar item
-        actions.add(new MouseAction("SLOT " + slot + " RIGHT", slot.x, slot.y, MouseButton.RIGHT, 0));
+        dropItem.add(new MouseClick("SLOT " + slot + " RIGHT", slot.x, slot.y, MouseButton.RIGHT, 0));
 
         // Dropa item somando offset de drop (se for a ultima linha o offset eh diferente)
-        actions.add(getDropAction(slot));
+        dropItem.add(getDropAction(slot));
+
+        return dropItem;
     }
 
     private MouseAction getDropAction(Slot slot) {
@@ -38,7 +42,7 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
             dropX += DROP_X_OFFSET;
             dropY += DROP_Y_OFFSET;
         }
-        return new MouseAction("SLOT " + slot + " LEFT", dropX, dropY, MouseButton.LEFT, 100);
+        return new MouseClick("SLOT " + slot + " LEFT", dropX, dropY, MouseButton.LEFT, 100);
     }
 
     @Override
