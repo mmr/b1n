@@ -8,7 +8,7 @@ public class RandomicityTest {
     private int tests;
 
     private int n;
-    
+
     public RandomicityTest(int tests, int n) {
         this.tests = tests;
         this.n = n;

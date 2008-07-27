@@ -24,7 +24,7 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
         MouseActionGroup dropItem = new MouseActionGroup("Drop item in slot " + slot);
 
         // Right click para abrir menu para dropar item
-        dropItem.add(new MouseClick("SLOT " + slot + " RIGHT", slot.x, slot.y, MouseButton.RIGHT, 0));
+        dropItem.add(new MouseClick(slot.x, slot.y, MouseButton.RIGHT, 0));
 
         // Dropa item somando offset de drop (se for a ultima linha o offset eh diferente)
         dropItem.add(getDropAction(slot));
@@ -42,7 +42,7 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
             dropX += DROP_X_OFFSET;
             dropY += DROP_Y_OFFSET;
         }
-        return new MouseClick("SLOT " + slot + " LEFT", dropX, dropY, MouseButton.LEFT, 100);
+        return new MouseClick(dropX, dropY, MouseButton.LEFT, 100);
     }
 
     @Override
@@ -51,6 +51,6 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
     }
 
     public static void main(String[] args) {
-        new InventoryDropCheater(592, 409, 0, 1, 2, 3).cheat();
+        new InventoryDropCheater(590, 378, 0, 1, 2).cheat();
     }
 }

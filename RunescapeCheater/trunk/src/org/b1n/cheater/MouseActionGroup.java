@@ -8,6 +8,8 @@ public class MouseActionGroup implements MouseAction {
 
     private String name;
 
+    private static int cx;
+
     public MouseActionGroup(String name, MouseAction... actionsToAdd) {
         this.name = name;
         addActions(actionsToAdd);
@@ -24,10 +26,20 @@ public class MouseActionGroup implements MouseAction {
     }
 
     public void run() {
-        System.out.println("GROUP : " + name);
+        System.out.println(name);
         for (MouseAction action : actions) {
+            cx++;
+            indent();
             action.run();
+            cx--;
         }
+    }
+
+    private void indent() {
+        for (int i = 0; i < cx; i++) {
+            System.out.print(">");
+        }
+        System.out.print(" ");
     }
 
     public String getName() {

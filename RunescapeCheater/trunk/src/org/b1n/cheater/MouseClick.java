@@ -30,6 +30,10 @@ public class MouseClick implements MouseAction {
         this(name, x, y, button, DEFAULT_DELAY);
     }
 
+    public MouseClick(int x, int y, MouseButton button, int delayAfter) {
+        this(null, x, y, button, delayAfter, DEFAULT_X_VAR, DEFAULT_Y_VAR);
+    }
+
     public MouseClick(String name, int x, int y, MouseButton button, int delayAfter) {
         this(name, x, y, button, delayAfter, DEFAULT_X_VAR, DEFAULT_Y_VAR);
     }
@@ -62,6 +66,11 @@ public class MouseClick implements MouseAction {
         if ((int) (Math.random() * 2) == 1) {
             rX += xVar + (int) (Math.random() * 2) == 1 ? 1 : -1;
             rY += yVar + (int) (Math.random() * 2) == 1 ? 1 : -1;
+        }
+        if (name == null) {
+            System.out.println(button + " click at " + x + ", " + y);
+        } else {
+            System.out.println(name);
         }
         getBot().mouseMove(rX, rY);
         getBot().mousePress(button.getMask());
