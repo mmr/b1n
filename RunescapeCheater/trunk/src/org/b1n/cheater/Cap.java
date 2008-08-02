@@ -14,13 +14,17 @@ import javax.swing.JWindow;
 import javax.swing.Timer;
 
 /**
+ * Simple util app to get mouse x, y coord.
  * @author Marcio Ribeiro (mmr)
  */
 public class Cap {
-    private static final long serialVersionUID = 1L;
 
     private static final int DELAY = 100;
 
+    /**
+     * Main.
+     * @param args args.
+     */
     public static void main(String[] args) {
         final JWindow window = new JWindow();
         window.setAlwaysOnTop(true);

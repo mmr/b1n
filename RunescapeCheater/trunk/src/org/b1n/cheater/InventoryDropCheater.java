@@ -3,6 +3,11 @@ package org.b1n.cheater;
 import java.awt.AWTException;
 import java.awt.Robot;
 
+/**
+ * Mass drop items from inventory.
+ * @author Marcio Ribeiro (mmr)
+ * @created Aug 2, 2008
+ */
 public class InventoryDropCheater extends AbstractInvetoryCheater {
     private static final String MAIN_GROUP_NAME = "Drop Dead!";
 
@@ -15,10 +20,20 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
 
     private static final int DROP_LAST_ROW_Y_OFFSET = 20;
 
+    /**
+     * Construtor.
+     * @param iniX slot 0 x.
+     * @param iniY slot 0 y.
+     * @param slotsToIgnore slots to ignore.
+     */
     public InventoryDropCheater(int iniX, int iniY, int... slotsToIgnore) {
         super(MAIN_GROUP_NAME, iniX, iniY, slotsToIgnore);
     }
 
+    /**
+     * @param slot slot.
+     * @return action for slot.
+     */
     @Override
     protected MouseAction getMouseActionForSlot(Slot slot) {
         MouseActionGroup dropItem = new MouseActionGroup("Drop item in slot " + slot);
@@ -32,6 +47,10 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
         return dropItem;
     }
 
+    /**
+     * @param slot slot.
+     * @return drop action for slot.
+     */
     private MouseAction getDropAction(Slot slot) {
         int dropX = slot.x;
         int dropY = slot.y;
@@ -45,11 +64,19 @@ public class InventoryDropCheater extends AbstractInvetoryCheater {
         return new MouseClick(dropX, dropY, MouseButton.LEFT, 100);
     }
 
+    /**
+     * @return awt robot.
+     * @throws AWTException.
+     */
     @Override
     protected Robot getRobotToUse() throws AWTException {
         return new Robot();
     }
 
+    /**
+     * Cheat!
+     * @param args args.
+     */
     public static void main(String[] args) {
         new InventoryDropCheater(590, 378, 0, 1, 2).cheat();
     }

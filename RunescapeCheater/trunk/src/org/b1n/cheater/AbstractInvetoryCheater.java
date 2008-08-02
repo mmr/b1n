@@ -5,6 +5,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Inventory mouse action based cheater.
+ * @author Marcio Ribeiro (mmr)
+ * @created Aug 2, 2008
+ */
 public abstract class AbstractInvetoryCheater extends AbstractActionListCheater {
 
     protected int iniX;
@@ -44,6 +49,10 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
         configureSlots();
     }
 
+    /**
+     * Configure ignored slots.
+     * @param slotsToIgnore slots to ignore.
+     */
     private void configureIgnoredSlots(int... slotsToIgnore) {
         this.ignoredSlots = new HashSet<Integer>();
         for (int i : slotsToIgnore) {
@@ -51,6 +60,9 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
         }
     }
 
+    /**
+     * Configure slots.
+     */
     private void configureSlots() {
         this.slots = new ArrayList<Slot>();
         int cx = 0;
@@ -61,17 +73,25 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
         }
     }
 
+    /**
+     * @return action to run.
+     */
     @Override
     protected final MouseAction getMouseAction() {
         MouseActionGroup mainGroup = new MouseActionGroup(mainGroupName);
         for (Slot slot : slots) {
-            if (!ignoreSlot(slot)) {
+            if (!shouldIgnoreSlot(slot)) {
                 mainGroup.add(getMouseActionForSlot(slot));
             }
         }
         return mainGroup;
     }
 
+    /**
+     * Find a slot with the given name.
+     * @param n name of the slot.
+     * @return slot with the passed name.
+     */
     protected final Slot findSlotByName(int n) {
         for (Slot slot : slots) {
             if (slot.n == n) {
@@ -81,16 +101,33 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
         throw new IllegalStateException("Slot not found : " + n);
     }
 
+    /**
+     * @return slots.
+     */
     protected final List<Slot> getSlots() {
         return slots;
     }
 
-    protected boolean ignoreSlot(Slot slot) {
+    /**
+     * @param slot slot to be checked.
+     * @return <code>true</code> if the slot should be ignored, <code>false</code> otherwise.
+     */
+    protected boolean shouldIgnoreSlot(Slot slot) {
         return ignoredSlots.contains(slot.n);
     }
 
+    /**
+     * Find action for the given slot.
+     * @param slot slot to be checked.
+     * @return action for the given slot.
+     */
     protected abstract MouseAction getMouseActionForSlot(Slot slot);
 
+    /**
+     * Inventory slot.
+     * @author Marcio Ribeiro (mmr)
+     * @created Aug 2, 2008
+     */
     class Slot {
         int n;
 
@@ -98,29 +135,32 @@ public abstract class AbstractInvetoryCheater extends AbstractActionListCheater 
 
         int y;
 
+        /**
+         * Construtor.
+         * @param n name.
+         * @param j column.
+         * @param i row.
+         */
         Slot(int n, int j, int i) {
             this.n = n;
             this.x = iniX + INV_X_OFFSET * j;
             this.y = iniY + INV_Y_OFFSET * i;
         }
 
+        /**
+         * @return <code>true</code> if slot is in last row, <code>false</code> if not.
+         */
         boolean isInLastRow() {
             return y == iniY + INV_Y_OFFSET * (ROWS - 1);
         }
 
+        /**
+         * toString.
+         * @return slot description.
+         */
         @Override
         public String toString() {
             return n + " (" + x + ", " + y + ")";
         }
-    }
-
-    @Override
-    protected int getNumberOfTakes() {
-        return 1;
-    }
-
-    @Override
-    protected int getStartDelay() {
-        return 2000;
     }
 }

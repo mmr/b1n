@@ -2,6 +2,11 @@ package org.b1n.cheater;
 
 import java.awt.Robot;
 
+/**
+ * Mouse click.
+ * @author Marcio Ribeiro (mmr)
+ * @created Aug 2, 2008
+ */
 public class MouseClick implements MouseAction {
 
     private String name;
@@ -26,18 +31,50 @@ public class MouseClick implements MouseAction {
 
     private static final int DEFAULT_Y_VAR = 1;
 
+    /**
+     * Construtor.
+     * @param name name.
+     * @param x x coord.
+     * @param y y coord.
+     * @param button button.
+     */
     public MouseClick(String name, int x, int y, MouseButton button) {
         this(name, x, y, button, DEFAULT_DELAY);
     }
 
+    /**
+     * Construtor.
+     * @param x x coord.
+     * @param y y coord.
+     * @param button mouse button.
+     * @param delayAfter delay after click (in ms).
+     */
     public MouseClick(int x, int y, MouseButton button, int delayAfter) {
         this(null, x, y, button, delayAfter, DEFAULT_X_VAR, DEFAULT_Y_VAR);
     }
 
+    /**
+     * Construtor.
+     * @param name name.
+     * @param x x coord.
+     * @param y y coord.
+     * @param button mouse button.
+     * @param delayAfter delay after click (in ms).
+     */
     public MouseClick(String name, int x, int y, MouseButton button, int delayAfter) {
         this(name, x, y, button, delayAfter, DEFAULT_X_VAR, DEFAULT_Y_VAR);
     }
 
+    /**
+     * Construtor.
+     * @param name name.
+     * @param x x coord.
+     * @param y y coord.
+     * @param button mouse button.
+     * @param delayAfter delay after click (in ms).
+     * @param xVar x coord possible variation.
+     * @param yVar y coord possible variation.
+     */
     public MouseClick(String name, int x, int y, MouseButton button, int delayAfter, int xVar, int yVar) {
         this.name = name;
         this.x = x;
@@ -48,10 +85,16 @@ public class MouseClick implements MouseAction {
         this.yVar = yVar;
     }
 
+    /**
+     * @return name.
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * @return bot.
+     */
     private Robot getBot() {
         if (robot == null) {
             robot = MouseActionConfig.getInstance().getRobot();
@@ -59,6 +102,9 @@ public class MouseClick implements MouseAction {
         return robot;
     }
 
+    /**
+     * Click!
+     */
     public void run() {
         int rX = x;
         int rY = y;
@@ -78,6 +124,9 @@ public class MouseClick implements MouseAction {
         getBot().delay(rDelay);
     }
 
+    /**
+     * @return name.
+     */
     @Override
     public String toString() {
         return name;

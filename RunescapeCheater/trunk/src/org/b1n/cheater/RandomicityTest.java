@@ -1,5 +1,9 @@
 package org.b1n.cheater;
 
+/**
+ * @author Marcio Ribeiro (mmr)
+ * @created Aug 2, 2008
+ */
 public class RandomicityTest {
     private int trues;
 

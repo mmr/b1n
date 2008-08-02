@@ -3,6 +3,11 @@ package org.b1n.cheater;
 import java.awt.AWTException;
 import java.awt.Robot;
 
+/**
+ * Cut fish (barbarian fishing).
+ * @author Marcio Ribeiro (mmr)
+ * @created Aug 2, 2008
+ */
 public class InventoryCutFishCheater extends AbstractInvetoryCheater {
     private static final String MAIN_GROUP_NAME = "Cut Fish!";
 
@@ -11,11 +16,21 @@ public class InventoryCutFishCheater extends AbstractInvetoryCheater {
 
     private Slot knifeSlot;
 
+    /**
+     * Construtor.
+     * @param iniX slot 0 x.
+     * @param iniY slot 0 y.
+     * @param slotsToIgnore
+     */
     public InventoryCutFishCheater(int iniX, int iniY, int... slotsToIgnore) {
         super(MAIN_GROUP_NAME, iniX, iniY, slotsToIgnore);
         knifeSlot = findSlotByName(KNIFE_SLOT);
     }
 
+    /**
+     * @param slot.
+     * @return mouse action for the given slot.
+     */
     @Override
     protected MouseAction getMouseActionForSlot(Slot slot) {
         MouseActionGroup cutFish = new MouseActionGroup("Cut fish in slot " + slot);
@@ -29,13 +44,20 @@ public class InventoryCutFishCheater extends AbstractInvetoryCheater {
         return cutFish;
     }
 
+    /**
+     * @return awt robot.
+     * @throws AWTException awt exception.
+     */
     @Override
     protected Robot getRobotToUse() throws AWTException {
         return new Robot();
     }
 
+    /**
+     * Cheat!
+     * @param args args.
+     */
     public static void main(String[] args) {
         new InventoryCutFishCheater(592, 380, 0, 1, 2, 3).cheat();
-        // new InventoryCutFishCheater(592, 380, 0, 1, 2, 3, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27).cheat();
     }
 }
