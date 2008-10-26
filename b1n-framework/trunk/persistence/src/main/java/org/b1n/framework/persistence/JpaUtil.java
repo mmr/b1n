@@ -25,6 +25,8 @@
  */
 package org.b1n.framework.persistence;
 
+import java.util.Map;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -38,8 +40,7 @@ import javax.persistence.Persistence;
 public final class JpaUtil {
     private static final ThreadLocal<EntityManager> SESSION = new ThreadLocal<EntityManager>();
 
-    // TODO (mmr) o nome da PU deve ser configuravel
-    private static final EntityManagerFactory SESSION_FACTORY = Persistence.createEntityManagerFactory("b1n");
+    private static EntityManagerFactory sessionFactory;
 
     /**
      * Classe utilitaria.
@@ -52,10 +53,32 @@ public final class JpaUtil {
      * @return devolve a sessao corrente (cria uma se for necessario).
      */
     public static EntityManager getSession() {
-        EntityManager s = SESSION.get();
+        return getSession(null);
+    }
 
+    /**
+     * Cria/Recupera sessao.
+     * @param emfName nome de session factory.
+     * @return sessao.
+     */
+    public static EntityManager getSession(final String emfName) {
+        return getSession(emfName, null);
+    }
+
+    /**
+     * Cria/Recupera sessao.
+     * @param emfName nome de session factory.
+     * @param configOverrides sobrecarregando config.
+     * @return sessao.
+     */
+    public static EntityManager getSession(final String emfName, final Map<String, String> configOverrides) {
+        if (sessionFactory == null) {
+            sessionFactory = Persistence.createEntityManagerFactory(emfName, configOverrides);
+        }
+
+        EntityManager s = SESSION.get();
         if (s == null) {
-            s = SESSION_FACTORY.createEntityManager();
+            s = sessionFactory.createEntityManager();
             final EntityTransaction tr = s.getTransaction();
             tr.begin();
             SESSION.set(s);
