@@ -2,8 +2,8 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.b1n.pom</groupId>
-        <artifactId>b1n-pom</artifactId>
+        <groupId>org.b1n.framework</groupId>
+        <artifactId>b1n-framework-versions</artifactId>
         <version>2.0.0</version>
     </parent>
 
@@ -16,13 +16,6 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.2</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
