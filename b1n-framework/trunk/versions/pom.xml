@@ -14,9 +14,9 @@
     <packaging>pom</packaging>
 
     <scm>
-        <connection>http://b1n.googlecode.com/svn/b1n-framework/trunk</connection>
+        <connection>scm:svn:http://b1n.googlecode.com/svn/b1n-framework/trunk</connection>
         <developerConnection>scm:svn:http://b1n.googlecode.com/svn/b1n-framework/trunk</developerConnection>
-        <url>http://b1n.googlecode.com/svn/b1n-framework/trunk</url>
+        <url>scm:svn:http://b1n.googlecode.com/svn/b1n-framework/trunk</url>
     </scm>
 
     <dependencies>
