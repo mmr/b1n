@@ -118,7 +118,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
             </plugin>
-            <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -126,7 +125,10 @@
                     <configLocation>http://mmr.forbrazil.com.br/eclipse/b1n-checkstyle-v2.0.xml</configLocation>
                 </configuration>
             </plugin>
-            -->
+            <plugin>
+                <groupId>net.sf</groupId>
+                <artifactId>stat-scm</artifactId>
+            </plugin>
         </plugins>
     </reporting>
 </project>
