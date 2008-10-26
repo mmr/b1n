@@ -12,6 +12,19 @@
     <name>b1n-versions</name>
     <version>2.0.0</version>
     <packaging>pom</packaging>
+    <url>http://b1n.googlecode.com/</url>
+    <inceptionYear>2007</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>mribeiro</id>
+            <name>Marcio Ribeiro</name>
+            <email>mribeiro@gmail.com</email>
+            <url>http://b1n.org/</url>
+            <organization>BinarySoft</organization>
+            <timezone>BRST</timezone>
+        </developer>
+    </developers>
 
     <scm>
         <connection>scm:svn:http://b1n.googlecode.com/svn/b1n-framework/trunk</connection>
