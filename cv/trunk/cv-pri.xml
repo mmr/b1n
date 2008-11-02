@@ -21,8 +21,7 @@
         <address>São Paulo - SP</address>
         <birthday>1984-01-04</birthday>
         <phones>
-            <phone>(11) 4198.7873</phone>
-            <phone>(11) 8159.5329</phone>
+            <phone>(11) 3554.2794</phone>
         </phones>
     </personalData>
 
@@ -33,6 +32,7 @@
     -->
     
     <!-- School Summary -->
+    <!--
     <schoolSummary>
         <school>
             <name>Escola Leonor Mendes de Barros</name>
@@ -41,6 +41,7 @@
             <course>Ensino Médio</course>
         </school>
     </schoolSummary>
+    -->
 
     <!-- Languages -->
     <languages>
@@ -48,7 +49,37 @@
             <name>Inglês</name>
             <level>Básico</level>
         </language>
+        <language>
+            <name>Japonês</name>
+            <level>Básico</level>
+        </language>
     </languages>
+
+	<professionalSummary>
+		<company>
+			<name>BankWare</name>
+			<dateIn>2007-06-27</dateIn>
+			<dateOut>2008-01-31</dateOut>
+			<position>Analista de Teste</position>
+			<activities>
+                <item>
+                    Criação e execução de cenários de testes para produto de
+                    controle de custódia/controladoria de fundos de
+                    investimento, com módulos de renda fixa, renda variável,
+                    swap, futuros e cotas de fundos.
+                </item>
+                <item>
+                    Criação e execução de cenários de testes para produto
+                    de mensageria (SPB) e controle de transações bancárias
+                    de grande porte
+                </item>
+				<item>
+                    Escrita de manual de usuário para sistema de mensageria
+                    (SPB), tendo como principal cliente o Citibank
+                </item>
+			</activities>
+		</company>
+	</professionalSummary>
 
     <!-- Qualifications -->
     <qualifications>
@@ -57,17 +88,12 @@
         </qualification>
         <qualification name="Sistemas Operacionais">
             <item>Microsoft Windows 95-XP</item>
+            <item>Ubuntu Linux</item>
             <item>MacOS X</item>
-            <item>Gentoo Linux 2004</item>
-            <item>FreeBSD 5.4</item>
         </qualification>
         <qualification name="Pacotes Office">
             <item>Microsoft Office 97-XP (Word, Excel, PowerPoint)</item>
             <item>OpenOffice 1, 2</item>
-        </qualification>
-        <qualification name="Internet">
-            <item>Internet Explorer, Firefox, Opera</item>
-            <item>Navegação na Internet: pagamento de contas em sites de bancos, convênios médicos, etc.</item>
         </qualification>
     </qualifications>
 
@@ -80,6 +106,6 @@
     <!-- Misc -->
     <misc>
         <item>Cursando capacitação profissional em rotinas administrativas</item>
-        <item>Cursando Kumon de Matemática</item>
+        <item>Cursando Kumon de Japonês</item>
     </misc>
 </cv>

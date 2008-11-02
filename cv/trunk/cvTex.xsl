@@ -93,6 +93,7 @@
 
 <!-- Professional Summary -->
 <xsl:template match="mmr:cv/mmr:professionalSummary">
+    \ecvsection{Experiência profissional}
     <xsl:for-each select="mmr:company">
         \ecvitem*{Período}{\it <xsl:call-template name="formatDate"><xsl:with-param name="date" select="mmr:dateIn" /></xsl:call-template> - <xsl:call-template name="formatDate"><xsl:with-param name="date" select="mmr:dateOut" /></xsl:call-template>}
          \ecvitem*{Empresa}{<xsl:value-of select="mmr:name" />}
@@ -109,6 +110,7 @@
 
 <!-- School Summary -->
 <xsl:template match="mmr:cv/mmr:schoolSummary">
+    \ecvsection{Formação acadêmica}
     <xsl:for-each select="mmr:school">
         \ecvitem*{Instituição}{<xsl:value-of select="mmr:name" />}
         \ecvitem*[10pt]{Curso}{<xsl:value-of select="mmr:course" /> (<xsl:call-template name="formatDate"><xsl:with-param name="format" select="'school'" /><xsl:with-param name="date" select="mmr:dateOut" /></xsl:call-template>)}
@@ -117,6 +119,7 @@
 
 <!-- Languages -->
 <xsl:template match="mmr:cv/mmr:languages">
+    \ecvsection{Idiomas}
     <xsl:for-each select="mmr:language">
         \ecvitem*{<xsl:value-of select="mmr:name" />}{<xsl:value-of select="mmr:level" />}
     </xsl:for-each>
@@ -124,6 +127,7 @@
 
 <!-- Qualifications -->
 <xsl:template match="mmr:cv/mmr:qualifications">
+    \ecvsection{Conhecimento Técnico}
     <xsl:for-each select="mmr:qualification">
         \ecvitem*{<xsl:value-of select="@name" />}{
         \begin{mmrList}
@@ -211,16 +215,12 @@
     \ecvfootnote{Para mais informações, visite: \url{http://b1n.org/}}
     \begin{europecv}
     \ecvpersonalinfo
-    \ecvsection{Experiência profissional}
     <xsl:apply-templates select="mmr:cv/mmr:professionalSummary" />
 
-    \ecvsection{Formação acadêmica}
     <xsl:apply-templates select="mmr:cv/mmr:schoolSummary" />
 
-    \ecvsection{Idiomas}
     <xsl:apply-templates select="mmr:cv/mmr:languages" />
 
-    \ecvsection{Conhecimento Técnico}
     <xsl:apply-templates select="mmr:cv/mmr:qualifications" />
 
     <xsl:apply-templates select="mmr:cv/mmr:certifications" />

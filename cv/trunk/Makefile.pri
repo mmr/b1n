@@ -4,15 +4,10 @@
 # Started: Fri Oct 29 21:15:31 BRST 2004
 #
 
-#XSLT ?= /usr/local/bin/sabcmd
-#XSLT  ?= /usr/local/bin/xsltproc
-XSLT  ?= /sw/bin/xsltproc
-#LATEX ?= /usr/local/bin/latex 
-LATEX ?= /sw/bin/latex
-#DVIPS ?= /usr/local/bin/dvips
-DVIPS ?= /sw/bin/dvips
-#PDFLATEX ?= /usr/local/bin/pdflatex 
-PDFLATEX ?= /sw/bin/pdflatex 
+XSLT  ?= /usr/bin/xsltproc
+LATEX ?= /usr/bin/latex
+DVIPS ?= /usr/bin/dvips
+PDFLATEX ?= /usr/bin/pdflatex 
 
 ARQ = cv
 XML = cv-pri.xml
