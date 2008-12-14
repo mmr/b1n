@@ -3,7 +3,6 @@ package org.b1n.framework.persistence.test;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,146 +18,81 @@ import org.b1n.framework.persistence.JpaEntity;
 import org.b1n.framework.utils.EnumUtils;
 
 /**
- * Entidade basica para teste de persistencia de entidades.
- * @author Marcio Ribeiro
- * @date Jan 25, 2008
- * @param <E> tipo de entidade.
+ * Testador de entidades.
+ * @author Marcio Ribeiro (mmr)
+ * @created Dec 13, 2008
  */
-public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCase {
-    private Class<E> entityClass;
+public final class EntityTester {
 
-    private final EntityDao<E> entityDao = DaoLocator.getDao(getEntityClass());
-
-    private RandomTestData randomTestData = new RandomTestData();
+    private static final RandomTestData RND = new RandomTestData();
 
     /**
-     * Inicia dados aleatorios para teste de persistencia.
-     * @throws Exception caso algo de estranho ocorra.
+     * Construtor.
      */
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
-        randomTestData.init();
+    private EntityTester() {
+        // nothing
     }
 
     /**
-     * @return classe de entidade.
-     */
-    @SuppressWarnings("unchecked")
-    protected Class<E> getEntityClass() {
-        if (entityClass == null) {
-            entityClass = (Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        }
-        return entityClass;
-    }
-
-    /**
-     * Compara dados das duas entidades passadas.
-     * @param entity entidade criada.
-     * @param loadedEntity entidade carregada.
+     * Testa o tipo de entidade passada.
+     * @param <E> tipo de entidade.
+     * @param entityClass classe de entidade.
      * @throws Exception caso algo de inesperado ocorra.
      */
-    @SuppressWarnings("unchecked")
-    protected void compareData(final E entity, final E loadedEntity) throws Exception {
-        final Set<Method> getters = new HashSet<Method>();
-        Class<E> superClass = getEntityClass();
-        while (superClass != JpaEntity.class) {
-            for (final Method method : superClass.getDeclaredMethods()) {
-                if (Modifier.isPublic(method.getModifiers()) && (method.getName().startsWith("get") || method.getName().startsWith("is"))) {
-                    getters.add(method);
-                }
-            }
-            superClass = (Class<E>) superClass.getSuperclass();
-        }
-        for (final Method method : getters) {
-            assertEquals(method.invoke(entity, new Object[] {}), method.invoke(loadedEntity, new Object[] {}));
-        }
-    }
-
-    /**
-     * Testa entidade (insere, altera, remove).
-     * @throws Exception caso algo de inesperado ocorra.
-     */
-    public void testEntity() throws Exception {
+    public static <E extends Entity> void testEntity(final Class<E> entityClass) throws Exception {
         // Insert
         final E entity = entityClass.newInstance();
-        fillEntity(entity);
+        fillEntity(entityClass, entity);
         entity.save();
 
+        EntityDao<E> entityDao = DaoLocator.getDao(entityClass);
         E loadedEntity = entityDao.findById(entity.getId());
-        compareData(entity, loadedEntity);
+        compareData(entityClass, entity, loadedEntity);
 
         // Update
-        fillEntity(entity);
+        fillEntity(entityClass, entity);
         entity.save();
         loadedEntity = entityDao.findById(entity.getId());
-        compareData(entity, loadedEntity);
+        compareData(entityClass, entity, loadedEntity);
 
         // Remove
         entity.remove();
         try {
             entityDao.findById(entity.getId());
-            fail("Could not remove entity");
+            throw new RuntimeException("Could not remove entity");
         } catch (final EntityNotFoundException e) {
             // ok!
         }
+
     }
 
     /**
-     * Cria e devolve instancia de entidade com valores aleatorios nao salva.
-     * @param <T> tipo de entidade.
+     * Preenche entidade com valores aleatorios.
+     * @param <E> tipo de entidade.
      * @param entityClass classe de entidade.
-     * @return entidade nao salva.
+     * @param entity instancia de entidade a ser preenchida.
      * @throws Exception caso algo de inesperado ocorra.
      */
-    @SuppressWarnings("unchecked")
-    public <T extends Entity> T createUnsavedEntity(final Class<T> entityClass) throws Exception {
-        final T entity = entityClass.newInstance();
-        fillEntity(entity);
-        return entity;
-    }
-
-    /**
-     * Cria e devolve instancia de entidade com valores aleatorios e salva.
-     * @param <T> tipo de entidade.
-     * @param entityClass classe de entidade.
-     * @return entidade salva.
-     * @throws Exception caso nao consiga criar entidade.
-     */
-    @SuppressWarnings("unchecked")
-    public <T extends Entity> T createSavedEntity(final Class<T> entityClass) throws Exception {
-        final T entity = createUnsavedEntity(entityClass);
-        entity.save();
-        return entity;
-    }
-
-    /**
-     * Carrega dados de entidade passada com valores aletorios.
-     * @param <T> tipo de entidade.
-     * @param entity entidade a ser carregada.
-     * @throws Exception caso algo de inesperado ocorra.
-     */
-    @SuppressWarnings("unchecked")
-    protected <T extends Entity> void fillEntity(final T entity) throws Exception {
-        Class<T> superClass = (Class<T>) entity.getClass();
+    private static <E extends Entity> void fillEntity(final Class<E> entityClass, final E entity) throws Exception {
+        Class<? super E> superClass = entityClass;
         while (superClass != JpaEntity.class) {
             for (final Method method : superClass.getDeclaredMethods()) {
                 if (method.getName().startsWith("set") && !method.getName().equals("setId")) {
-                    this.invokeSetter(entity, method);
+                    invokeSetter(entity, method);
                 }
             }
-            superClass = (Class<T>) superClass.getSuperclass();
+            superClass = superClass.getSuperclass();
         }
     }
 
     /**
-     * Chama metodo setter em entidade passada.
-     * @param <T> tipo de entidade.
-     * @param entity entidade.
-     * @param method metodo setter.
+     * Invoca setter para atributo de entidade.
+     * @param <E> tipo de entidade.
+     * @param entity instancia de entidade tendo setter invocado.
+     * @param method metodo de setter.
      * @throws Exception caso algo de inesperado ocorra.
      */
-    protected <T extends Entity> void invokeSetter(final T entity, final Method method) throws Exception {
+    private static <E extends Entity> void invokeSetter(final E entity, final Method method) throws Exception {
         if (!Modifier.isPublic(method.getModifiers())) {
             return;
         }
@@ -169,35 +103,58 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
     }
 
     /**
-     * Cria instancia de classe do tipo passado.
+     * Compara todos campos de entidade.
+     * @param <E> tipo de entidade.
+     * @param entityClass classe de entidade.
+     * @param entity instancia de entidade sendo comparada.
+     * @param loadedEntity instancia de entidade carregada do banco de dados.
+     * @throws Exception caso algo de inesperado ocorra.
+     */
+    private static <E extends Entity> void compareData(final Class<E> entityClass, final E entity, final E loadedEntity) throws Exception {
+        Class<? super E> superClass = entityClass;
+        while (superClass != JpaEntity.class) {
+            for (final Method method : superClass.getDeclaredMethods()) {
+                if (Modifier.isPublic(method.getModifiers()) && (method.getName().startsWith("get") || method.getName().startsWith("is"))) {
+                    Object o1 = method.invoke(entity, new Object[]{});
+                    Object o2 = method.invoke(loadedEntity, new Object[]{});
+                    if (o1 == null && o2 != null || !o1.equals(o2)) {
+                        throw new RuntimeException("Expected " + o1 + " got " + o2 + ".");
+                    }
+                }
+            }
+            superClass = superClass.getSuperclass();
+        }
+    }
+
+    /**
+     * Cria instancia de parametro do tipo passado.
      * @param parameterType tipo de parametro.
-     * @return instancia de classe do tipo passado.
+     * @return instancia de parametro.
      * @throws Exception caso algo de inesperado ocorra.
      */
     @SuppressWarnings("unchecked")
-    protected Object instantiateParameter(final Class parameterType) throws Exception {
-        Object randomValue = randomTestData.get(parameterType);
+    private static Object instantiateParameter(final Class<?> parameterType) throws Exception {
+        Object randomValue = RND.get(parameterType);
 
         if (randomValue != null) {
             return randomValue;
         }
 
         if (Entity.class.isAssignableFrom(parameterType)) {
-            return createSavedEntity(parameterType);
+            return createSavedEntity((Class<? extends Entity>) parameterType);
         }
 
         return createInstance(parameterType);
     }
 
     /**
-     * Cria instancia da classe passada.
-     * @param clazz classe a ter instancia criada.
-     * @return instancia de classe passada.
+     * Cria instancia de classe.
+     * @param clazz classe.
+     * @return instancia de classe.
      * @throws Exception caso algo de inesperado ocorra.
      */
-    @SuppressWarnings("unchecked")
-    protected Object createInstance(final Class clazz) throws Exception {
-        final Constructor constructor = clazz.getDeclaredConstructor((Class[]) null);
+    private static Object createInstance(final Class<?> clazz) throws Exception {
+        final Constructor<?> constructor = clazz.getDeclaredConstructor((Class[]) null);
         if (!Modifier.isPublic(constructor.getModifiers()) || !Modifier.isPublic(constructor.getDeclaringClass().getModifiers())) {
             constructor.setAccessible(true);
         }
@@ -205,16 +162,49 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
     }
 
     /**
+     * Cria instancia de entidade nao salva.
+     * @param <E> tipo de entidade.
+     * @param entityClass classe de entidade.
+     * @return instancia de entidade nao salva.
+     * @throws Exception caso algo de inesperado ocorra.
+     */
+    private static <E extends Entity> E createUnsavedEntity(final Class<E> entityClass) throws Exception {
+        final E entity = entityClass.newInstance();
+        fillEntity(entityClass, entity);
+        return entity;
+    }
+
+    /**
+     * Cria instancia de entidade salva.
+     * @param <E> tipo de entidade.
+     * @param entityClass classe de entidade.
+     * @return instancia de entidade salva.
+     * @throws Exception caso algo de inesperado ocorra.
+     */
+    private static <E extends Entity> E createSavedEntity(final Class<E> entityClass) throws Exception {
+        final E entity = createUnsavedEntity(entityClass);
+        entity.save();
+        return entity;
+    }
+
+    /**
      * Classe com dados aleatorios para teste.
      * @author Marcio Ribeiro
      * @date May 18, 2008
      */
-    private class RandomTestData {
+    private static final class RandomTestData {
         private static final int MAX_ITEMS = 100;
 
         private static final int MAX_RANDOM = 666;
 
         private Map<Class<?>, Iterator<?>> data = null;
+
+        /**
+         * Construtor.
+         */
+        RandomTestData() {
+            init();
+        }
 
         /**
          * Devolve um dado aleatorio do tipo passado.
@@ -255,7 +245,7 @@ public abstract class EntityTestCase<E extends Entity> extends PersistenceTestCa
          * @return valor aleatorio para classe de enum passado.
          */
         @SuppressWarnings("unchecked")
-        private Enum getRandomEnumValue(final Class<?> parameterType) {
+        private Object getRandomEnumValue(final Class<?> parameterType) {
             return EnumUtils.getRandomValue((Class<Enum>) parameterType);
         }
 
