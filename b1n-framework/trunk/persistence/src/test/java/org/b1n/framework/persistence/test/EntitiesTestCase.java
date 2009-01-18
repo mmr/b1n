@@ -35,11 +35,11 @@ public abstract class EntitiesTestCase extends PersistenceTestCase {
          */
         @SuppressWarnings("unchecked")
         public EntitiesTestSuite() {
-            Session session = (Session) JpaUtil.getSession().getDelegate();
+            Session session = (Session) JpaUtil.getSession(PersistenceTestCase.CONFIG.getEmfName(), PersistenceTestCase.CONFIG.getEmfConfigOverrides()).getDelegate();
             SessionFactory sf = session.getSessionFactory();
             Set<String> set = sf.getAllClassMetadata().keySet();
             for (final String s : set) {
-                addTest(new TestCase(s) {
+                this.addTest(new TestCase(s) {
                     @Override
                     protected void runTest() throws Throwable {
                         EntityTester.testEntity((Class<Entity>) Class.forName(s));
