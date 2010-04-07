@@ -47,7 +47,7 @@ import freemarker.template.TemplateException;
 /**
  * Generates the required configuration files for the eclipse Sysdeo-tomcat plugin
  * 
- * @goal generate
+ * @goal cat
  */
 public class SysdeoMojo
     extends AbstractIdeSupportMojo

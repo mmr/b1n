@@ -18,7 +18,7 @@
   </parent>
 
   <groupId>org.b1n.maven</groupId>
-  <artifactId>maven-b1n-tomcat-plugin</artifactId>
+  <artifactId>maven-tom-plugin</artifactId>
   <version>1.0.0</version>
   <packaging>maven-plugin</packaging>
   <name>B1n Sysdeo Tomcat Maven Plugin</name>
