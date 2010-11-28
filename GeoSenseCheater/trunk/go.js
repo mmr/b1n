@@ -1,10 +1,6 @@
 /**
  * @author Marcio Ribeiro (mmr)
  */
-function vaiPlaneta(r) {
-    alert("HELLO FROM SVN!");
-}
-
 var MW = 1203;
 var MH = 566;
 //var PAN_X = -12;
@@ -74,8 +70,10 @@ function go(r) {
         }
     }
 
-    var exp = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
-    if (m = exp.exec(c)) {
+    c = c.replace(/\s*/g,'');
+    var exp1 = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
+    var exp2 = /latd=(\d*).*latm=(\d*).*(?:lats=(\d*\.?\d*))?.*latNS=([NS]).*longd=(\d*).*longm=(\d*).*(?:longs=(\d*\.?\d*))?.*longEW=([EW])/;
+    if (m = exp1.exec(c) || m = exp2.exec(c)) {
         p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
         if (typeof StoreGuess == 'function') {
             var e = new Object();
