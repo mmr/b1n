@@ -75,6 +75,12 @@ function go(r) {
     var exp2 = /latd=(\d*).*latm=(\d*).*(?:lats=(\d*\.?\d*))?.*latNS=([NS]).*longd=(\d*).*longm=(\d*).*(?:longs=(\d*\.?\d*))?.*longEW=([EW])/;
     if (m = exp1.exec(c) || m = exp2.exec(c)) {
         p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
+
+        var e = new Object();
+        e.pageX = Math.round(p.x) - 2;
+        e.pageY = Math.round(p.y) - 3;
+        StoreGuess(e);
+        /*
         if (typeof StoreGuess == 'function') {
             var e = new Object();
             e.pageX = Math.round(p.x) - 2;
@@ -83,6 +89,7 @@ function go(r) {
         } else {
             alert("debug: x = " + p.x + ", y = " + p.y);
         }
+        */
     } else {
         alert('Didnt match pattern :(');
     }
