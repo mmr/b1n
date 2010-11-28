@@ -41,10 +41,14 @@ function P(latd, latm, lats, latNS, lngd, lngm, lngs, lngEW) {
 function go(r) {
     var p = r.query.pages;
     for (var pageId in p) {
+        alert(pageId);
+        return;
+    /*
         if (p.hasOwnProperty(pageId)) {
             c = p[pageId].revisions[0]['*'];
             break;
         }
+    */
     }
     var exp = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     if (m = exp.exec(c)) {

@@ -45,11 +45,17 @@ function hellYeah() {
     var c = cityName.split(', ');
     cityName = c[1] + ', ' + c[0];
 
-    var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
-    window.frames[0].document.getElementByTagName('head')[0].appendChild(createScript(url);
+    //var cityName = document.getElementById('city').value.capitalize();
+    //var cityName = document.getElementById('city').value;
+    //document.writeln("<script type='text/javascript'>function go(r){alert(r)}</script>");
 
-    var url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=vaiPlaneta&titles=' + cityName.capitalize();
-    document.getElementsByTagName('head')[0].appendChild(createScript(url));
+    var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
+    var s = createScript(url);
+    document.getElementsByTagName('head')[0].appendChild(s);
+
+    url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=go&titles=' + cityName.capitalize();
+    s = createScript(url);
+    document.getElementsByTagName('head')[0].appendChild(s);
 }
 
 addButtons();
