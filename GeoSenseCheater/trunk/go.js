@@ -58,6 +58,7 @@ function dump(arr,level) {
 
 function go(r) {
     var p = r.query.pages;
+    var c = '';
     for (var pageId in p) {
         if (p[pageId].revisions == 'undefined') {
             alert('Not found');
@@ -74,7 +75,7 @@ function go(r) {
     var exp1 = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     var exp2 = /latd=(\d*).*latm=(\d*).*(?:lats=(\d*\.?\d*))?.*latNS=([NS]).*longd=(\d*).*longm=(\d*).*(?:longs=(\d*\.?\d*))?.*longEW=([EW])/;
     if (m = exp1.exec(c) || m = exp2.exec(c)) {
-        p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
+        var p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
 
         var e = new Object();
         e.pageX = Math.round(p.x) - 2;
