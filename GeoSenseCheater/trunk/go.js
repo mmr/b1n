@@ -44,7 +44,9 @@ function go(r) {
     alert('r.q.p:'+r.query.pages);
     var p = r.query.pages;
     for (var pageId in p) {
-        alert('pid:' + p[pageId]);
+        alert('id:' + pageId);
+        alert('pid:' + pageId);
+        alert('ppid:' + p[pageId]);
         alert('rev:' + p[pageId].revisions);
     /*
         if (p.hasOwnProperty(pageId)) {
