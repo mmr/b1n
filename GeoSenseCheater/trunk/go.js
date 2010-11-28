@@ -40,6 +40,7 @@ function P(latd, latm, lats, latNS, lngd, lngm, lngs, lngEW) {
 
 function go(r) {
     var p = r.query.pages;
+    alert(p);
     for (var pageId in p) {
         alert(pageId);
         return;
