@@ -39,6 +39,7 @@ function createScript(url) {
     return s;
 }
 
+var clicked = false;
 function hellYeah() {
     var city = window.frames[0].document.getElementById('divCity');
     var cityName = city.innerHTML;
@@ -49,13 +50,16 @@ function hellYeah() {
     //var cityName = document.getElementById('city').value;
     //document.writeln("<script type='text/javascript'>function go(r){alert(r)}</script>");
 
-    var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
-    var s = createScript(url);
-    document.getElementsByTagName('head')[0].appendChild(s);
+    if (!clicked) {
+        var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
+        var s = createScript(url);
+        window.frames[0].document.getElementsByTagName('head')[0].appendChild(s);
+        clicked = true;
+    }
 
     url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=go&titles=' + cityName.toLowerCase().capitalize();
     s = createScript(url);
-    document.getElementsByTagName('head')[0].appendChild(s);
+    window.frames[0].document.getElementsByTagName('head')[0].appendChild(s);
 }
 
 addButtons();

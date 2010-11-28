@@ -61,6 +61,7 @@ function dump(arr,level) {
 }
 
 function go(r) {
+    alert(dump(r));
     var p = r.query.pages;
     for (var pageId in p) {
         if (p[pageId].revisions == 'undefined') {
