@@ -39,10 +39,13 @@ function P(latd, latm, lats, latNS, lngd, lngm, lngs, lngEW) {
 }
 
 function go(r) {
+    alert('r:'+r);
+    alert('r.q:'+r.query);
+    alert('r.q.p:'+r.query.pages);
     var p = r.query.pages;
-    alert(p);
     for (var pageId in p) {
-        alert(pageId);
+        alert('pid:' + p[pageId]);
+        alert('rev:' + p[pageId].revisions);
     /*
         if (p.hasOwnProperty(pageId)) {
             c = p[pageId].revisions[0]['*'];
@@ -50,7 +53,8 @@ function go(r) {
         }
     */
     }
-        return;
+    return;
+
     var exp = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     if (m = exp.exec(c)) {
         p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
