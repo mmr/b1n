@@ -11,25 +11,24 @@ String.prototype.capitalize = function(){
 };
 
 function addButtons() {
-    var el = document.createElement('div');
-    with (el.style) {
-        float = 'left';
-        top = '10px';
-        left = '10px';
-        position = 'absolute';
-        border = '1px solid black';
-        backgroundColor = '#fff';
-        zIndex = 2000;
-        color = '#fff';
-    }
+    var div = document.createElement('div');
+    var s = div.style;
+    s.float = 'left';
+    s.top = '10px';
+    s.left = '10px';
+    s.position = 'absolute';
+    s.border = '1px solid black';
+    s.backgroundColor = '#fff';
+    s.zIndex = 2000;
+    s.color = '#fff';
 
     var b = document.createElement('input');
     b.type = 'button';
     b.value = 'CLICK ME!';
     b.addEventListener('click', hellYeah, true);
-    el.appendChild(b);
+    div.appendChild(b);
 
-    document.getElementsByTagName('body')[0].appendChild(el);
+    document.getElementsByTagName('body')[0].appendChild(div);
 }
 
 function createScript(url) {
@@ -39,7 +38,6 @@ function createScript(url) {
     return s;
 }
 
-var clicked = false;
 function hellYeah() {
     var city = window.frames[0].document.getElementById('divCity');
     var cityName = city.innerHTML;
@@ -50,12 +48,9 @@ function hellYeah() {
     //var cityName = document.getElementById('city').value;
     //document.writeln("<script type='text/javascript'>function go(r){alert(r)}</script>");
 
-    if (!clicked) {
-        var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
-        var s = createScript(url);
-        window.frames[0].document.getElementsByTagName('head')[0].appendChild(s);
-        clicked = true;
-    }
+    var url = 'http://b1n.googlecode.com/svn/GeoSenseCheater/trunk/go.js';
+    var s = createScript(url);
+    window.frames[0].document.getElementsByTagName('head')[0].appendChild(s);
 
     url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=go&titles=' + cityName.toLowerCase().capitalize();
     s = createScript(url);
