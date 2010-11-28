@@ -41,6 +41,7 @@ function P(latd, latm, lats, latNS, lngd, lngm, lngs, lngEW) {
 function go(r) {
     alert('r:'+r);
     alert('r.q:'+r.query);
+    alert('r.c:'+r.casa);
     alert('r.q.p:'+r.query.pages);
     var p = r.query.pages;
     for (var pageId in p) {
