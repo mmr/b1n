@@ -57,7 +57,6 @@ function dump(arr,level) {
 }
 
 function go(r) {
-    alert(dump(r));
     var p = r.query.pages;
     for (var pageId in p) {
         if (p[pageId].revisions == 'undefined') {
@@ -71,6 +70,7 @@ function go(r) {
     }
 
     c = c.replace(/\s*/g,'');
+    alert(c);
     var exp1 = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     var exp2 = /latd=(\d*).*latm=(\d*).*(?:lats=(\d*\.?\d*))?.*latNS=([NS]).*longd=(\d*).*longm=(\d*).*(?:longs=(\d*\.?\d*))?.*longEW=([EW])/;
     if (m = exp1.exec(c) || m = exp2.exec(c)) {
