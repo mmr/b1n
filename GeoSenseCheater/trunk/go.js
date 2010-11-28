@@ -43,7 +43,6 @@ function go(r) {
     alert(p);
     for (var pageId in p) {
         alert(pageId);
-        return;
     /*
         if (p.hasOwnProperty(pageId)) {
             c = p[pageId].revisions[0]['*'];
@@ -51,6 +50,7 @@ function go(r) {
         }
     */
     }
+        return;
     var exp = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     if (m = exp.exec(c)) {
         p = new P(m[1], m[2], m[3] == undefined ? 0 : m[3], m[4], m[5], m[6], m[7] == undefined ? 0 : m[7], m[8]);
