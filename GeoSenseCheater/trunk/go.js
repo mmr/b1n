@@ -61,25 +61,17 @@ function dump(arr,level) {
 }
 
 function go(r) {
-    alert(dump(r));
-    /*
-    alert('r:'+r);
-    alert('r.q:'+r.query);
-    alert('r.c:'+r.casa);
-    alert('r.q.p:'+r.query.pages);
     var p = r.query.pages;
     for (var pageId in p) {
-        alert('id:' + pageId);
-        alert('pid:' + pageId);
-        alert('ppid:' + p[pageId]);
-        alert('rev:' + p[pageId].revisions);
+        if (p[pageId].revisions == 'undefined') {
+            alert('Not found');
+            return;
+        }
         if (p.hasOwnProperty(pageId)) {
             c = p[pageId].revisions[0]['*'];
             break;
         }
     }
-    */
-    return;
 
     var exp = /Coord\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([NS])\|(\d*)\|(\d*)\|?(\d*\.?\d*)?\|([WE])/;
     if (m = exp.exec(c)) {

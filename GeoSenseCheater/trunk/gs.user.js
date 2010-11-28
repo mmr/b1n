@@ -53,7 +53,7 @@ function hellYeah() {
     var s = createScript(url);
     document.getElementsByTagName('head')[0].appendChild(s);
 
-    url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=go&titles=' + cityName.capitalize();
+    url = 'http://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&redirects&callback=go&titles=' + cityName.toLowerCase().capitalize();
     s = createScript(url);
     document.getElementsByTagName('head')[0].appendChild(s);
 }
