@@ -2,6 +2,7 @@
 // @name BlockBusterOnline IMDB
 // @description BlockBusterOnline IMDB
 // @include http://www.blockbusteronline.com.br/grupo/*
+// @include https://carrinho.blockbusteronline.com.br/locaonline/*
 // @copyright Marcio Ribeiro
 // @version 1.0.0
 // ==/UserScript==
@@ -22,33 +23,26 @@ function addTo(tag,el) {
 }
 
 function addRatings() {
-    var div = document.createElement('div');
-    var s = div.style;
-    s.float = 'left';
-    s.top = '10px';
-    s.left = '10px';
-    s.width = '200px';
-    s.height = '400px';
-    s.fontSize = '12px';
-    s.fontFamily = 'arial';
-    s.position = 'absolute';
-    s.border = '1px solid black';
-    s.backgroundColor = '#fff';
-    s.zIndex = 2000;
-    s.color = '#000';
-    s.overflow = 'auto';
-    div.id = 'imdb';
-    addTo('body', div);
-
-    var up = document.createElement('script');
-    up.type = 'text/javascript';
-    up.innerHTML = 'var imdb=document.getElementById("imdb");function update(d){imdb.innerHTML+="<font color="+(parseFloat(d.Rating)>=7?"#0f0":"#000")+">"+d.Title+":"+d.Rating+"</font><br/>";}';
-    addTo('head',up);
-
+	var buf = 'var G={};function U(t){this.t=t;this.u=function(d){document.getElementById(G[this.t]).innerHTML+=(typeof d.Rating=="undefined")?"(-)":" ("+d.Title+":"+d.Year+":<font color="+(parseFloat(d.Rating)>=7?"#00ff00":"#000")+">"+d.Rating+"</font>)";}}';
+	var i = 0;
     var ts = document.getElementsByClassName('movieTitle');
     for (var t in ts) {
-        var n = ts[t].innerHTML.replace(/^(?:blu-ray|dvd)\s*/i, '').capitalize();
-        addTo('head',createScript('http://www.imdbapi.com/?t='+n+'&callback=update'));
+	    var o = ts[t];
+        var n = o.innerHTML.replace(/^(?:blu-ray|dvd)\s*/i, '').capitalize();
+		o.innerHTML = n;
+		o.id = '_t' + i;
+		buf += "G['" + n + "'] = '" + o.id + "';";
+		i++;
+    }
+    var up = document.createElement('script');
+    up.type = 'text/javascript';
+	up.innerHTML = buf;
+	addTo('head', up);
+
+	for (var t in ts) {
+	    var o = ts[t];
+        var n = o.innerHTML;
+        addTo('head', createScript('http://www.imdbapi.com/?t='+n+'&callback=new U("'+n+'").u'));
     }
 }
 addRatings();
