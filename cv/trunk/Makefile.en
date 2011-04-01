@@ -21,6 +21,9 @@ pdf: tex
 tex:
 	$(XSLT) -o $(ARQ).tex cvTexEn.xsl $(XML)
 
+xhtml:
+	$(XSLT) -o index.html cvXhtmlEn.xsl $(XML)
+
 clean:
 	rm -f *.aux *.log *.out
 

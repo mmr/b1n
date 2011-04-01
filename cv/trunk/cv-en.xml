@@ -19,36 +19,30 @@
         <address>São Paulo - SP - Brazil</address>
         <birthday>1983-03-12</birthday>
         <phones>
-            <phone>(+55-11) 3554.2794</phone>
-            <phone>(+55-11) 8159.5327</phone>
+            <phone>(+55-11) 6496.3326</phone>
         </phones>
     </personalData>
 
     <!-- Professional Summary -->
     <professionalSummary>
         <company>
-            <name>BankWare / MAPS / RegerBanc</name>
+            <name>MAPS</name>
             <dateIn>2006-08-28</dateIn>
             <dateOut></dateOut>
             <position>Lead Developer</position>
             <activities>
                 <item>
-                    Member of team that is developing BWAM, an innovative,
-                    highly scallable asset management system
+                    Lead developer of Pegasus, an innovative,
+                    highly scallable asset management system.
+                    Its main customers are Citibank and Caixa Economica Federal
                 </item>
                 <item>
-                    Developed RTM (Real Time Monitor), a flexible and powerful
-                    framework built with the purpose to configure actions
-                    to run when certain conditions are met -like when a
+                    Developed a very flexible framework that can monitor
+                    and trigger the appropriate actions to be executed
+                    when certain conditions are met -like when a
                     service on a node in a cluster goes down-. Its main client
-                    is BwPagEE, a product for the financial market, having
-                    Citibank as one of its customers
-                </item>
-                <item>
-                    Responsible for the assembly and maintenance of the
-                    development environment, including version control,
-                    documentation (wiki), issue tracking, database,
-                    application and automated build/test servers
+                    is Mercurius, a mission critical product for the financial
+                    market, having Citibank as one of its customers
                 </item>
             </activities>
         </company>
@@ -124,19 +118,15 @@
                 <item>
                     Lead developer of FlyWatch, a web based executive flight
                     control system for Sagatiba, controlling from flight
-                    itinerary to vira expiration and printing of the required
-                    documentation to land on certain countries
+                    itinerary to visa expiracy
                 </item>
                 <item>
-                    Developed the backend for Coke Zero ad campaign to Gringo
-                </item>
-                <item>
-                    Member of team that developed the backend for Nokia Trends
-                    2006 ad campaign to Wunderman
+                    Lead developer of the backend of several ad campaigns,
+                    among them: Coke Zero Nut House and Nokia Trends 2006
                 </item>
                 <item>
                     Assembly, configuration and maintenance of several Unix
-                    servers for GlobalView Internet Services, Ananke and Gringo
+                    servers for GVI, Ananke, Gringo and On Interactive
                 </item>
             </activities>
         </company>
@@ -169,9 +159,8 @@
                 </item>
                 <item>
                     Lead developer of TPM's Website and CMS projects.
-                    TPM (Trip Para Mulheres, Trip For Women) is the women's
-                    version of Trip, a popular brazilian magazine directed to
-                    the male public.
+                    TPM (Trip For Women) is the women's
+                    version of Trip, a popular brazilian magazine.
                     TPM is a play on the portuguese words for PMS
                 </item>
                 <item>
@@ -220,7 +209,7 @@
                 Used to teamwork, with leadership and troubleshooting skills
             </item>
             <item>
-                Senior Java Programmer, focused on J2EE
+                Senior Java Programmer, focused on JEE
             </item>
             <item>
                 Senior System/Network Administrator, focused on FreeBSD,
@@ -228,22 +217,21 @@
             </item>
         </qualification>
         <qualification name="Java">
-            <item>JSP, JSTL, JSF, Velocity, Struts, Tiles</item>
-            <item>Ant, Maven, jUnit, jMock, EasyMock</item>
-            <item>Hibernate, EJB, JPA (EJB3)</item>
-            <item>Eclipse, NetBeans</item>
+            <item>JSP, JSTL, JSF, Velocity, Struts, Wicket</item>
+            <item>Maven, jUnit, jMock</item>
+            <item>Hibernate, EJB, JPA</item>
+            <item>Eclipse</item>
             <item>JBoss, Oracle iAS, WebSphere, Tomcat</item>
-            <item>JMS, ActiveMQ, MQ Series, Oracle AQ</item>
+            <item>JMS, MQ Series, WebSphere MQ</item>
         </qualification>
         <qualification name="Software Engineering">
             <item>OO, Design Patterns, UML</item>
-            <item>eXtreme Programming (XP), Feature Driven Development (FDD)</item>
-            <item>Scrum!</item>
+            <item>eXtreme Programming (XP), Scrum!</item>
         </qualification>
         <qualification name="Database">
             <item>PL/SQL, PL/pgSQL, HQL (Hibernate)</item>
             <item>
-                PostgreSQL, MySQL, Interbase/Firebird, SQLite, HypersonicSQL
+                PostgreSQL, MySQL, SQLite, HypersonicSQL/H2
             </item>
             <item>Microsoft SQL Server, Sybase, Informix, Oracle</item>
         </qualification>
@@ -251,10 +239,10 @@
             <item>FreeBSD, OpenBSD, Linux, MacOS X, Windows</item>
         </qualification>
         <qualification name="Others">
-            <item>C, C++</item>
+            <item>C, C++, Qt</item>
             <item>PHP, Perl, Python, Groovy, JavaScript</item>
             <item>XML, XSLT, XSD, XPath</item>
-            <item>CVS, SVN</item>
+            <item>CVS, SVN, Git</item>
             <item>Vim addicted</item>
         </qualification>
     </qualifications>
