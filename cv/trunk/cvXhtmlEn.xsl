@@ -309,15 +309,6 @@
                 <li><a href='Makefile.en'>Makefile</a></li>
             </ul>
         </div>
-
-        <div>
-            How to create the PDF or XHTML version in Ubuntu Linux:
-            <ul>
-                <li>install deps: <code>sudo apt-get install texlive-latex-extra</code></li>
-                <li>create pdf version: <code>make -f Makefile.en</code></li>
-                <li>create xhtml version: <code>make -f Makefile.en xhtml</code></li>
-            </ul>
-        </div>
     </div>
     </body>
 </html>

@@ -196,8 +196,8 @@
     ]{geometry}
     \usepackage[
       a4paper=true,
-      pdftitle=Curriculum Vitae,
-      pdfsubject=Curriculum Vitae,
+      pdftitle=Marcio Ribeiro Curriculum Vitae,
+      pdfsubject=Marcio Ribeiro Curriculum Vitae,
       pdfauthor=<xsl:value-of select="concat(mmr:cv/mmr:personalData/mmr:firstName, ' ', mmr:cv/mmr:personalData/mmr:lastName)" />
       pdfcreator=<xsl:value-of select="concat(mmr:cv/mmr:personalData/mmr:firstName, ' ', mmr:cv/mmr:personalData/mmr:lastName)" />
       pdftex=true,
