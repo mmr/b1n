@@ -20,35 +20,35 @@
 		<address>São Paulo - SP</address>
 		<birthday>1983-03-12</birthday>
 		<phones>
-			<phone>(11) 3554.2794</phone>
-			<phone>(11) 8159.5327</phone>
+			<phone>(11) 6496.3326</phone>
 		</phones>
 	</personalData>
 
 	<!-- Professional Summary -->
 	<professionalSummary>
 		<company>
-			<name>BankWare / MAPS / RegerBanc</name>
+			<name>MAPS</name>
 			<dateIn>2006-08-28</dateIn>
 			<dateOut></dateOut>
-			<position>Líder de Desenvolvimento / Coordenador / Administrador de Sistemas</position>
+			<position>Líder de Desenvolvimento / Desenvolvedor</position>
 			<activities>
 				<item>
-					Desenvolvimento de infra-estrutura para cluster e tolerância
-                    a falhas de sistema de mensageria (SPB) e controle de
-                    transações bancárias de grande porte, tendo como cliente
-                    principal o Citibank
+					Líder de desenvolvimento do Pegasus, um inovador e
+                    altamente escalável sistema de controle de custódia
+                    de fundos de investimento.
 				</item>
+
+                    Developed a very flexible framework that can monitor
+                    and trigger the appropriate actions to be executed
+                    when certain conditions are met -like when a
+                    service on a node in a cluster goes down-. Its main client
+                    is Mercurius, a mission critical product for the financial
+                    market, having Citibank as one of its customers
+
                 <item>
-                    Desenvolvimento de sistema para controle de
-                    custódia/controladoria de fundos de investimento (Asset
-                    Management), com módulos de renda fixa, renda variável,
-                    swap, futuros e cotas de fundos
-                </item>
-                <item>
-					Montagem e manutenção da infra-estrutura - Servidores de
-                    controle de versão, Wiki, BugTracking, Testes e AutoBuild,
-                    em servidores Unix
+                    Desenvolvimento de framework para monitoramento e
+                    execução de processos quando condições específicas
+                    ocorrem (por exemplo quando um nó de um cluster cai).
                 </item>
 			</activities>
 		</company>
@@ -57,7 +57,7 @@
 			<dateIn>2005-03-14</dateIn>
 			<dateOut>2006-08-25</dateOut>
 			<position>
-                Líder de Desenvolvimento / Arquiteto / Administrador de Sistemas
+                Líder de Desenvolvimento / Desenvolvedor / Administrador de Sistemas
             </position>
 			<activities>
 				<item>
@@ -90,7 +90,7 @@
 			<dateIn>2003-12-01</dateIn>
 			<dateOut>2005-03-11</dateOut>
 			<position>
-				Programador / Administrador de Sistemas / Analista de Suporte
+				Desenvolvedor / Administrador de Sistemas
 			</position>
 			<activities>
 				<item>
@@ -116,7 +116,7 @@
 			<name>Caboverde</name>
 			<dateIn>2003-03-01</dateIn>
 			<dateOut>2004-06-01</dateOut>
-			<position>Programador / Administrador de Sistemas</position>
+			<position>Desenvolvedor / Administrador de Sistemas</position>
 			<activities>
 				<item>
 					Desenvolvimento de sistema para indexação e busca em
@@ -160,7 +160,7 @@
 			<name>Aberium</name>
 			<dateIn>2001-07-01</dateIn>
 			<dateOut>2002-09-01</dateOut>
-			<position>Programador</position>
+			<position>Desenvolvedor</position>
 			<activities>
 				<item>
 					Desenvolvimento de diversos E-Solutions, entre eles,
@@ -179,7 +179,7 @@
 			<name>Holding de Empresas Marcos de Moraes</name>
 			<dateIn>2000-05-01</dateIn>
 			<dateOut>2001-07-01</dateOut>
-			<position>Programador / Administrador de Sistemas</position>
+			<position>Desenvolvedor / Administrador de Sistemas</position>
 			<activities>
 				<item>
 					Desenvolvimento de portal de relacionamento E-Nós2,
@@ -235,7 +235,7 @@
 		<qualification name="Resumo">
 			<item>
                 Coordenador / Líder de desenvolvimento com
-                8+ anos de experiência
+                10+ anos de experiência em desenvolvimento de software
             </item>
 			<item>Desenvolvedor Sênior em Java, com foco em JEE</item>
 			<item>
@@ -244,36 +244,33 @@
 			</item>
 		</qualification>
 		<qualification name="Java">
-			<item>Eclipse, NetBeans, IDEA</item>
+			<item>Eclipse</item>
 			<item>Hibernate, EJB / JPA, Spring</item>
-			<item>Ant, Maven, Xdoclet, jUnit, TestNG</item>
-			<item>JSP, JSTL, JSF, Velocity, Struts, Tiles</item>
-			<item>JBoss, Oracle iAS, WebSphere, Tomcat</item>
-			<item>JMS, ActiveMQ, MQ Series, Oracle AQ</item>
+			<item>Maven, jUnit</item>
+			<item>JSP, JSTL, JSF, Velocity, Struts</item>
+			<item>JBoss, WebSphere, Tomcat</item>
+			<item>JMS, MQ Series, Oracle AQ</item>
 		</qualification>
 		<qualification name="Metodologia e Técnica">
 			<item>OO, Design Patterns, UML</item>
-            <item>Testes unitários (Test Driven Development)</item>
-            <item>eXtreme Programming, Scrum</item>
+            <item>TDD, XP, Scrum</item>
 		</qualification>
 		<qualification name="Banco de Dados">
 			<item>
 				Linguagens procedurais PL/SQL, EJB-QL/JPQL, HQL
 			</item>
 			<item>
-				PostgreSQL, MySQL, Interbase/Firebird, SQLite,
-				HypersonicSQL
+				PostgreSQL, MySQL, Oracle, SQL Server
 			</item>
-			<item>Oracle, SQL Server, DB2, Informix</item>
 		</qualification>
 		<qualification name="Sistemas Operacionais">
-			<item>FreeBSD, OpenBSD, Solaris, Linux, MacOS X</item>
+			<item>FreeBSD, Solaris, Linux, MacOS X</item>
 		</qualification>
 		<qualification name="Outros">
-			<item>C, C++</item>
-			<item>PHP, Perl, Python, Groovy, JavaScript</item>
+			<item>C, C++, Qt</item>
+			<item>PHP, Perl, Python, JavaScript</item>
 			<item>XML, XSLT, XSD, XPath</item>
-			<item>CVS, SVN</item>
+			<item>CVS, SVN, Git</item>
 		</qualification>
 	</qualifications>
 
