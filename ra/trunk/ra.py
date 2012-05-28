@@ -42,7 +42,7 @@ class Ra(object):
 
     def result(self, asr, word, uttid):
         if DEBUG: print 'final: %s' % word
-        if word == 'HAAAA':
+        if word.find('HAAAA') != -1:
            self.player.set_property('uri', RIMSHOT_URI)
            self.player.set_state(gst.STATE_PLAYING)
 
