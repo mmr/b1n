@@ -17,11 +17,11 @@
         <firstName>Priscila</firstName>
         <lastName>Ribeiro</lastName>
         <civilState>Casada</civilState>
-        <email>priscila.ribeiro@gmail.com</email>
+        <email>kitty.priscila@gmail.com</email>
         <address>São Paulo - SP</address>
         <birthday>1984-01-04</birthday>
         <phones>
-            <phone>(11) 3554.2794</phone>
+            <phone>(11) 96496.4241</phone>
         </phones>
     </personalData>
 
@@ -46,10 +46,6 @@
     <!-- Languages -->
     <languages>
         <language>
-            <name>Inglês</name>
-            <level>Básico</level>
-        </language>
-        <language>
             <name>Japonês</name>
             <level>Básico</level>
         </language>
@@ -57,10 +53,45 @@
 
 	<professionalSummary>
 		<company>
+			<name>Marine Office</name>
+			<dateIn>2012-01-01</dateIn>
+			<dateOut>2012-05-31</dateOut>
+			<position>Auxiliar Administrativo</position>
+			<activities>
+                <item>
+                    Faturamento de notas fiscais eletrônica em sistema ERP
+                    TOTVS Protheus
+                </item>
+                <item>
+                    Atendimento ao cliente, no local e via telefone
+                </item>
+				<item>
+                    Arquivamento de documentos físicos em mídia digital (OCR)
+                </item>
+			</activities>
+		</company>
+		<company>
+			<name>BinarySoft Informatica</name>
+			<dateIn>2008-02-01</dateIn>
+			<dateOut>2011-12-31</dateOut>
+			<position>Auxiliar Administrativo</position>
+			<activities>
+                <item>
+                    Faturamento de notas fiscais físicas e eletrônicas
+                </item>
+                <item>
+                    Pagamento de tributos e despesas
+                </item>
+				<item>
+                    Auxiliar financeiro geral
+                </item>
+			</activities>
+		</company>
+		<company>
 			<name>BankWare</name>
 			<dateIn>2007-06-27</dateIn>
 			<dateOut>2008-01-31</dateOut>
-			<position>Analista de Teste</position>
+			<position>Analista de Testes</position>
 			<activities>
                 <item>
                     Criação e execução de cenários de testes para produto de
@@ -85,6 +116,10 @@
     <qualifications>
         <qualification name="Resumo">
             <item>Dinâmica, aprende rápido, gosta de aprender</item>
+            <item>Comunicativa, flexível, curiosa</item>
+        </qualification>
+        <qualification name="ERP">
+            <item>TOTVS/Microsiga Protheus</item>
         </qualification>
         <qualification name="Sistemas Operacionais">
             <item>Microsoft Windows 95-XP</item>
@@ -104,8 +139,10 @@
     -->
 
     <!-- Misc -->
+    <!--
     <misc>
         <item>Cursando capacitação profissional em rotinas administrativas</item>
         <item>Cursando Kumon de Japonês</item>
     </misc>
+    -->
 </cv>
