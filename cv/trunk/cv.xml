@@ -20,7 +20,7 @@
 		<address>São Paulo - SP</address>
 		<birthday>1983-03-12</birthday>
 		<phones>
-			<phone>(11) 6496.3326</phone>
+			<phone>(11) 9.6496.3326</phone>
 		</phones>
 	</personalData>
 
@@ -33,18 +33,12 @@
 			<position>Líder de Desenvolvimento / Desenvolvedor</position>
 			<activities>
 				<item>
-					Líder de desenvolvimento do Pegasus, um inovador e
-                    altamente escalável sistema de controle de custódia
-                    de fundos de investimento.
+					Desenvolvimento de sistema de controle de custódia e fundos de investimento altamente escalável.
+                    Clientes: Citibank e Caixa Econômica Federal
 				</item>
-
-                    Developed a very flexible framework that can monitor
-                    and trigger the appropriate actions to be executed
-                    when certain conditions are met -like when a
-                    service on a node in a cluster goes down-. Its main client
-                    is Mercurius, a mission critical product for the financial
-                    market, having Citibank as one of its customers
-
+				<item>
+					Desenvolvimento de sistema de missão crítica de troca de mensagens com o Banco Central (SPB)
+				</item>
                 <item>
                     Desenvolvimento de framework para monitoramento e
                     execução de processos quando condições específicas
@@ -61,7 +55,7 @@
             </position>
 			<activities>
 				<item>
-					Desenvolvimento de sistema para controle industrial
+					Desenvolvimento de sistema de controle de produção
 					para Duas Rodas Industrial, envolvendo Chão de
 					Fábrica, WMS, MES, Supply Chain, Planejamento de
 					Produção e Controle de Qualidade
@@ -80,8 +74,8 @@
 				</item>
 				<item>
 					Manutenção da infra-estrutura - Servidores de
-					controle de versão, Wiki, BugTracking e AutoBuild,
-					em servidores Unix.
+					controle de versão, Wiki, BugTracking e AutoBuild
+					em servidores Linux.
 				</item>
 			</activities>
 		</company>
@@ -98,7 +92,7 @@
 					pré-impressão
 				</item>
 				<item>
-					Administração de servidores Unix e serviços críticos
+					Administração de servidores Solaris/Linux e serviços críticos
 					relacionados ao armazenamento de matérias e imagens
 					do jornal
 				</item>
@@ -108,7 +102,7 @@
 				</item>
 				<item>
 					Implantação de sistema de base de conhecimento do
-					setor de Tecnologia da Folha de S.Paulo
+					setor de Tecnologia
 				</item>
 			</activities>
 		</company>
@@ -123,16 +117,13 @@
 					conteúdo de arquivos PDF
 				</item>
 				<item>
-					Desenvolvimento do SCVP (Sistema CaboVerde de Publicação)
-                    sistema de controle de conteúdo e publicação de pesquisas
-                    científicas, tendo como clientes a Escola de Enfermagem da 
-                    USP e a revista "Pediatria de São Paulo"
+					Desenvolvimento de CMS para publicação de pesquisas
+                    científicas. Principais clientes: Escola de Enfermagem da USP e a revista "Pediatria de São Paulo"
 				</item>
 				<item>
 					Reestruturação física e lógica da rede interna.
-					Tendo como meta a centralização da autenticação dos
-					usuários de diversos serviços (domínio, email,
-					proxy) em servidor LDAP
+					Centralização da autenticação dos serviços de domínio, email,
+					proxy, etc em servidor LDAP
 				</item>
 			</activities>
 		</company>
@@ -143,16 +134,13 @@
 			<position>Consultor</position>
 			<activities>
 				<item>
-					Desenvolvimento de Sistema de controle de vôos executivos
-                    para a Sagatiba (http://www.sagatiba.com.br/)
+					Desenvolvimento de Sistema de controle de vôos executivos para a Sagatiba
 				</item>
 				<item>
-					Montagem de servidores Unix para GVI
-                    (http://www.gvi.com.br/)
+					Montagem de servidores FreeBSD para GVI
 				</item>
 				<item>
-					Montagem de servidores Unix para Gringo
-                    (http://www.gringo.nu/)
+					Montagem de servidores Linux para Gringo
 				</item>
 			</activities>
 		</company>
@@ -224,10 +212,6 @@
 			<name>Inglês</name>
 			<level>Fluente</level>
 		</language>
-		<language>
-			<name>Japonês</name>
-			<level>Básico</level>
-		</language>
 	</languages>
 
 	<!-- Qualifications -->
@@ -235,7 +219,7 @@
 		<qualification name="Resumo">
 			<item>
                 Coordenador / Líder de desenvolvimento com
-                10+ anos de experiência em desenvolvimento de software
+                13+ anos de experiência em desenvolvimento de software
             </item>
 			<item>Desenvolvedor Sênior em Java, com foco em JEE</item>
 			<item>
@@ -270,7 +254,7 @@
 			<item>C, C++, Qt</item>
 			<item>PHP, Perl, Python, JavaScript</item>
 			<item>XML, XSLT, XSD, XPath</item>
-			<item>CVS, SVN, Git</item>
+			<item>CVS, SVN, Hg, Git</item>
 		</qualification>
 	</qualifications>
 
@@ -284,6 +268,9 @@
 		</certification>
 		<certification>
 			Sun Certified Java Programmer (SCJP)
+		</certification>
+		<certification>
+			Oracle Certified SQL Expert
 		</certification>
 	</certifications>
 </cv>
