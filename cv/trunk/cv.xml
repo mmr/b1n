@@ -16,7 +16,7 @@
 		<firstName>Marcio</firstName>
 		<lastName>Ribeiro</lastName>
 		<civilState>Casado</civilState>
-		<email>mribeiro (a) gmail com</email>
+		<email>mmr (a) b1n org</email>
 		<address>São Paulo - SP</address>
 		<birthday>1983-03-12</birthday>
 		<phones>
@@ -34,7 +34,6 @@
 			<activities>
 				<item>
 					Desenvolvimento de sistema de controle de custódia e fundos de investimento altamente escalável.
-                    Clientes: Citibank e Caixa Econômica Federal
 				</item>
 				<item>
 					Desenvolvimento de sistema de missão crítica de troca de mensagens com o Banco Central (SPB)
@@ -101,8 +100,7 @@
 					e checagem de processos
 				</item>
 				<item>
-					Implantação de sistema de base de conhecimento do
-					setor de Tecnologia
+					Implantação de sistema de base de conhecimento d
 				</item>
 			</activities>
 		</company>
@@ -134,7 +132,7 @@
 			<position>Consultor</position>
 			<activities>
 				<item>
-					Desenvolvimento de Sistema de controle de vôos executivos para a Sagatiba
+					Desenvolvimento de Sistema de controle de vôos executivos para Sagatiba
 				</item>
 				<item>
 					Montagem de servidores FreeBSD para GVI
@@ -182,8 +180,7 @@
 					de fibra óptica/ADSL
 				</item>
 				<item>
-					Coordenador de desenvolvimento e desenvolvedor do
-					sistema de controle de conteúdo da versão online da
+					Desenvolvimento de sistema de CMS para versão online da
 					revista TPM (Trip Para Mulheres)
 				</item>
 			</activities>
@@ -231,7 +228,7 @@
 			<item>Eclipse</item>
 			<item>Hibernate, EJB / JPA, Spring</item>
 			<item>Maven, jUnit</item>
-			<item>JSP, JSTL, JSF, Velocity, Struts</item>
+			<item>JSP, JSTL, JSF, Wicket, Velocity, Struts</item>
 			<item>JBoss, WebSphere, Tomcat</item>
 			<item>JMS, MQ Series, Oracle AQ</item>
 		</qualification>
@@ -241,7 +238,7 @@
 		</qualification>
 		<qualification name="Banco de Dados">
 			<item>
-				Linguagens procedurais PL/SQL, EJB-QL/JPQL, HQL
+				PL/SQL, EJB-QL/JPQL, HQL
 			</item>
 			<item>
 				PostgreSQL, MySQL, Oracle, SQL Server
