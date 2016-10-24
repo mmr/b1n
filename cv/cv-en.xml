@@ -19,16 +19,51 @@
         <address>São Paulo - SP - Brazil</address>
         <birthday>1983-03-12</birthday>
         <phones>
-            <phone>(+55-11) 6496.3326</phone>
+            <phone>(+55-11) 9.6496.3326</phone>
         </phones>
     </personalData>
 
     <!-- Professional Summary -->
     <professionalSummary>
         <company>
-            <name>MAPS</name>
-            <dateIn>2006-08-28</dateIn>
+            <name>Loggi</name>
+            <dateIn>2015-12-31</dateIn>
             <dateOut></dateOut>
+            <position>VP of Engineering</position>
+            <activities>
+                <item>Full-time problem solver!</item>
+                <item>Manager of the Backend / Data Science / Ops teams</item>
+                <item>Recruiting, Mentoring, Training, Culture guardian</item>
+                <item>Still pushing a lot of working code to production!</item>
+            </activities>
+        </company>
+        <company>
+            <name>Loggi</name>
+            <dateIn>2014-10-23</dateIn>
+            <dateOut>2015-12-31</dateOut>
+            <position>Tech Lead</position>
+            <activities>
+                <item>Serious code pusher</item>
+                <item>Technical leadership of the Backend / Ops teams</item>
+            </activities>
+        </company>
+        <company>
+            <name>Saloote</name>
+            <dateIn>2014-05-05</dateIn>
+            <dateOut>2014-10-23</dateOut>
+            <position>System Architect</position>
+            <activities>
+                <item>
+                    Designed, architected and helped develop the entire
+                    Saloote app backend, cloud/server infrastructure and
+                    continuos integration process from scratch
+                </item>
+            </activities>
+        </company>
+        <company>
+            <name>MAPS</name>
+            <dateIn>2008-01-01</dateIn>
+            <dateOut>2014-06-06</dateOut>
             <position>Lead Developer</position>
             <activities>
                 <item>
@@ -217,13 +252,13 @@
             <item>JSP, JSTL, JSF, Velocity, Struts, Wicket</item>
             <item>Maven, jUnit, jMock</item>
             <item>Hibernate, EJB, JPA</item>
-            <item>Eclipse</item>
+            <item>Eclipse, IntelliJ IDEA</item>
             <item>JBoss, Oracle iAS, WebSphere, Tomcat</item>
             <item>JMS, MQ Series, WebSphere MQ</item>
         </qualification>
         <qualification name="Software Engineering">
             <item>OO, Design Patterns, UML</item>
-            <item>eXtreme Programming (XP), Scrum!</item>
+            <item>eXtreme Programming, Scrum, Kanban</item>
         </qualification>
         <qualification name="Database">
             <item>PL/SQL, PL/pgSQL, HQL (Hibernate)</item>
@@ -233,23 +268,25 @@
             <item>Microsoft SQL Server, Sybase, Informix, Oracle</item>
         </qualification>
         <qualification name="Operating Systems">
-            <item>FreeBSD, OpenBSD, Linux, MacOS X, Windows</item>
+            <item>FreeBSD, OpenBSD, Linux, MacOS X</item>
         </qualification>
         <qualification name="Others">
-            <item>C, C++, Qt</item>
-            <item>PHP, Perl, Python, Groovy, JavaScript</item>
+            <item>Go, C, C++, Sed / Awk</item>
+            <item>Perl, PHP, Ruby, Groovy</item>
+            <item>Docker, Ansible, Fab, Puppet, Salt</item>
+            <item>Python, Django, Celery, RabbitMQ</item>
+            <item>JavaScript (ES6), React, Flow, Babel</item>
+            <item>Erlang, Elixir, Lua</item>
             <item>XML, XSLT, XSD, XPath</item>
-            <item>CVS, SVN, Git</item>
+            <item>CVS, SVN, Git, Hg</item>
             <item>Vim addicted</item>
         </qualification>
     </qualifications>
 
     <!-- Certifications -->
     <certifications>
+        <certification>Oracle SQL Expert</certification>
+        <certification>Sun Certified Solaris Administrator (SCSA)</certification>
         <certification>Linux Professional Institute (LPI)</certification>
-        <certification>
-            Sun Certified Solaris Administrator (SCSA)
-        </certification>
-        <certification>Sun Certified Java Programmer (SCJP)</certification>
     </certifications>
 </cv>
